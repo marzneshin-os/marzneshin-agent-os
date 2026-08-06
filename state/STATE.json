@@ -1,0 +1,86 @@
+{
+  "active_slice": "VS-4",
+  "budget": {
+    "day": "2026-08-04",
+    "forecast": {
+      "tokens": 0,
+      "usd": 0.0
+    },
+    "state": "normal",
+    "tokens_spent_today": 0,
+    "usd_spent_today": 0.0,
+    "utilization": 0.0
+  },
+  "compacted_event_hash": "sha256:6d491d66149c7f45535aac4d657933bcba3a73f92578c9f1af9c6096227912eb",
+  "compacted_from": {
+    "actor_seq_watermarks": {
+      "prod:agent-momo": 72,
+      "prod:agent-momo-s190811": 4,
+      "prod:agent-momo-s190812": 2,
+      "prod:agent-orchestrator": 23,
+      "prod:agent-qa-gate": 7,
+      "prod:system-a2a-router": 1,
+      "prod:system-bootstrap": 3,
+      "prod:system-coldrestore": 9,
+      "prod:system-compact": 26,
+      "prod:system-events": 1,
+      "prod:system-reaper": 10
+    },
+    "event_count": 57,
+    "event_hash": "sha256:6d491d66149c7f45535aac4d657933bcba3a73f92578c9f1af9c6096227912eb",
+    "until_ts": "2026-08-04T12:19:09.928Z",
+    "window": [
+      "2026-08-02",
+      "2026-08-04"
+    ]
+  },
+  "compacted_from_events": 57,
+  "generated_at": "2026-08-06T19:29:33.067Z",
+  "generated_by": "compact.py",
+  "kill_switch": {
+    "fail_closed_engaged": true,
+    "freshness_s": 985.868249,
+    "global": false,
+    "read_at": "2026-08-04T12:19:09.925Z",
+    "read_from": [
+      "K1:state/KILL",
+      "K2:env/KILL_SWITCH"
+    ],
+    "scoped": [],
+    "verdict": "unknown"
+  },
+  "kpis": {
+    "crash_rate": 0.25,
+    "crash_rate_lifetime": 0.25,
+    "crash_rate_sample_sufficient": false,
+    "crash_rate_window": 20,
+    "receipt_coverage": 1.0,
+    "receipts_total": 20
+  },
+  "open_risks": [],
+  "open_tasks": [],
+  "phase": "P1-agentic-core",
+  "schema_version": "2.0.0",
+  "sense_level": "Tick-A",
+  "workstreams": {
+    "agentic-core": {
+      "blocked_by": [],
+      "health": "unknown",
+      "last_receipt": "T-0015",
+      "lease": {
+        "acquired_at": "2026-08-06T19:29:33.030Z",
+        "expires_at": "2026-08-06T20:59:33.030Z",
+        "fencing_token": 21,
+        "heartbeat_at": "2026-08-06T19:29:33.030Z",
+        "holder": "agent:antigravity",
+        "session": "S-192933",
+        "ttl_min": 90,
+        "workstream": "agentic-core"
+      },
+      "open_tasks": [],
+      "owner_agent": "antigravity",
+      "receipt_chain_head": "sha256:bbe45beb16b217bb31eace0533d5838985867b58ad15342807b758a80916045f",
+      "receipt_chain_length": 20
+    }
+  }
+}

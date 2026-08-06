@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analytics/schemas/lease.schema.json",
+  "title": "Lease",
+  "description": "Workstream lease with fencing token (BUILD-SPEC §3.6). Mirrors scripts/lib/leases.py Lease.to_dict(); the spec's extra fields (holder_lineage, owns_paths, reaped_by, ...) are optional and land as the slices that need them land.",
+  "type": "object",
+  "required": ["workstream", "holder", "acquired_at", "ttl_min", "heartbeat_at", "expires_at", "fencing_token"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "workstream": {"type": "string", "minLength": 1},
+    "holder": {"type": "string", "minLength": 1},
+    "holder_lineage": {"type": "string"},
+    "session": {"type": "string"},
+    "acquired_at": {"type": "string"},
+    "ttl_min": {"type": "integer", "minimum": 1},
+    "expires_at": {"type": "string"},
+    "heartbeat_at": {"type": "string"},
+    "heartbeat_interval_min": {"type": "integer"},
+    "missed_heartbeats": {"type": "integer", "minimum": 0},
+    "fencing_token": {"type": "integer", "minimum": 1},
+    "owns_paths": {"type": "array", "items": {"type": "string"}},
+    "reaped_by": {"type": ["string", "null"]},
+    "reap_reason": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,32 @@
+{
+  "agent": "momo",
+  "autonomy_level": "unknown",
+  "chain_index": 11,
+  "changes": [],
+  "completed_at": "2026-07-31T16:51:26.738Z",
+  "content_hash": "sha256:ce9c2800d6f625bf5e27358d125a3c97f803eba0f0cdb276376242d7e960a2a6",
+  "cost": {},
+  "fencing_token": 10,
+  "handoff_note": "Reconstructed by the reaper, not by the worker. Treat all state touched by this task as unverified until re-checked (§11.1 STEP 3).",
+  "inputs_hash": "sha256:eb645ef8b96d0a6c8ff8e6e8fdddcd35180084cb73b01af92657757897adfaa5",
+  "intent": "(unknown — task did not report before dying)",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:3da2eb9a5f4c5917e65f71c2eead1f61a1bc7b7bf8cda0ee7ea23b2bc0d861c9",
+  "reason": "tombstone written by reaper: heartbeat_stale",
+  "receipt_hash": "sha256:ce9c2800d6f625bf5e27358d125a3c97f803eba0f0cdb276376242d7e960a2a6",
+  "schema_version": "2.0.0",
+  "started_at": "2026-07-31T16:51:26.738Z",
+  "status": "crashed",
+  "task_id": "T-UNKNOWN-agentic-core-10",
+  "verification": [
+    {
+      "check": "reaper.detect",
+      "evidence": "state/locks/agentic-core.lock.json",
+      "note": "heartbeat_stale",
+      "result": "fail"
+    }
+  ],
+  "why_one_sentence": "tombstone written by reaper: heartbeat_stale",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

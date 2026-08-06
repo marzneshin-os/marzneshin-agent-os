@@ -1,0 +1,156 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L2",
+  "chain_index": 18,
+  "changes": [
+    {
+      "path": "scripts/lib/succession.py"
+    },
+    {
+      "path": "scripts/succession.py"
+    },
+    {
+      "path": "scripts/lib/events.py"
+    },
+    {
+      "path": "scripts/lib/a2a.py"
+    },
+    {
+      "path": "analytics/schemas/event.schema.json"
+    },
+    {
+      "path": "sim/actors.py"
+    },
+    {
+      "path": "sim/chaos.py"
+    },
+    {
+      "path": "sim/report.py"
+    },
+    {
+      "path": "scripts/sim.py"
+    },
+    {
+      "path": "sim/scenarios/member_removed.yaml"
+    },
+    {
+      "path": "tests/test_scripts.py"
+    },
+    {
+      "path": "tests/test_sim.py"
+    },
+    {
+      "path": "decisions/ADR/ADR-010-executable-succession-flow.md"
+    },
+    {
+      "path": "state/HEALTH-BASELINE.json"
+    },
+    {
+      "path": "artifacts/sim/VS4-session6-succession.json"
+    }
+  ],
+  "completed_at": "2026-08-02T23:55:37.483Z",
+  "content_hash": "sha256:d7b7392152c3b0007add4162ab8c2eeaa42499b268d24175566c5019b7934357",
+  "cost": {},
+  "fencing_token": 19,
+  "handoff_note": "VS-4's largest open DoD item is closed: succession is an executable, audited flow proven in sim. Remaining VS-4: escrow package (SS11.2 daily mirror), drill scheduling (monthly cron/workflow entry), and the remaining SS16 scenarios (metric_gaming, control_room_down, gateway_down, clock_skew, config_canary_regression, probe_fleet_down). O1-O4 Owner blockers unchanged",
+  "idempotency": {
+    "attempt": 1,
+    "class": "forever",
+    "components": [
+      "cap",
+      "artifact_hash",
+      "target_epoch"
+    ],
+    "key": "session:S-230531:executable-succession-flow-adr-010"
+  },
+  "inputs_hash": "sha256:4a979e3be7a287a4b42d52059270fed6dd1e076fb0d8f80b8053c6768f57bba3",
+  "intent": "make the §11.1 succession protocol executable as one auditable flow (TRIGGER-FREEZE-REVOKE-RECONSTRUCT-REASSIGN-VERIFY-REPORT) driven by both the CLI and the sim actor from a single lib implementation, closing the VS-4 DoD item 'simulated member removal without the project stopping' (ADR-010 D47/D48/D49)",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:fadcf1b1e74afa568ec5ff430f11d5c346b10b5e0e3d645f7f43adbe6f90e69c",
+  "reason": "§11.1 existed only as scattered pieces: the reaper (crash-only FREEZE) and an unauditable harness standby swap; the 7-step protocol never ran anywhere and had no events, so 'member removed' - the trigger with no handler - could not happen without inventing work mid-incident; two sessions died mid-increment this week, making succession the most load-bearing missing piece of VS-4",
+  "receipt_hash": "sha256:d7b7392152c3b0007add4162ab8c2eeaa42499b268d24175566c5019b7934357",
+  "rollback": {
+    "evidence": "full gate green after the change (tests 165 / verify 6 / sim 33 / coldrestore 1 score 1.0); revert shape exercised by the same throwaway-root CLI tests in reverse (files absent -> tests red)",
+    "max_ttr_s": 300,
+    "method": "delete scripts/lib/succession.py + scripts/succession.py + the scenario + the new tests, revert the EVENT_TYPES/schema-enum pair, the a2a revoked check, and the sim/ wiring in one revert; emitted succession.* events stay on the log as history (SS3.2) and become unknown-type rows only if the enum revert lands without them being replayed",
+    "tested": true,
+    "tested_at": "2026-08-02T23:55:37.483Z",
+    "tested_in": "prod"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "artifacts/sim/VS4-session6-succession.json",
+    "result": "pass",
+    "scenarios": [
+      "a2a_fallback",
+      "agent_crash_mid_task",
+      "cost_spike",
+      "event_seq_race",
+      "killswitch_unreadable",
+      "lease_expiry",
+      "member_removed",
+      "node_outage",
+      "owner_absent",
+      "payment_provider_down",
+      "prompt_injection"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-08-02T23:35:00.000Z",
+  "status": "complete",
+  "task_id": "T-0014",
+  "transport": "T1",
+  "verification": [
+    {
+      "check": "unit-tests",
+      "evidence": "165/165. RED first: 3 CLI tests failed (script missing) and the scenario crashed the harness with KeyError 'succession' before any implementation - then green after, I11 order preserved",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "unittest"
+    },
+    {
+      "check": "verify-all",
+      "evidence": "6/6 (chain, events, 34 schemas, agent-cards, lint-imports, lint-clock)",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "verify.py"
+    },
+    {
+      "check": "sim-suite",
+      "evidence": "33/33 (11 scenarios x seeds 11,27,43), all score 1.0 - includes the new member_removed scenario",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "sim.py"
+    },
+    {
+      "check": "member-removed-scenario",
+      "evidence": "the DoD claim itself: member removed mid-mitigation -> real lib flow runs all 7 steps -> standby body reconstructs from observable state and the incident still closes: crash_rate=0.0 (removal is not a crash, D47), duplicate_work=0, successions=0 (flow healed, not the harness), succession_steps=7, MTTR 2.5 virtual minutes, score 1.0 x 3 seeds",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "sim.py member_removed"
+    },
+    {
+      "check": "succession-cli",
+      "evidence": "throwaway root: full flow revokes the lease (fencing token burned), marks the registry revoked, creates the pool standby at autonomy L2->L1, closes the open task as ABANDONED (not crashed), writes the report artifact and succession.* events; dry-run changes nothing, not even the log",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "succession.py"
+    },
+    {
+      "check": "cold-restore-drill",
+      "evidence": "score 1.0 while holding lease token 19; baseline re-saved covering all four gates (tests=165 verify=6 sim=33 coldrestore=1)",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "coldrestore.py"
+    }
+  ],
+  "why_one_sentence": "§11.1 existed only as scattered pieces: the reaper (crash-only FREEZE) and an unauditable harness standby swap; the 7-step protocol never ran anywhere and had no events, so 'member removed' - the trigger with no handler - could not happen without inventing work mid-incident; two sessions died mid-increment this week, making succession the most load-bearing missing piece of VS-4",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

@@ -1,0 +1,68 @@
+{
+  "agent": "qa-gate",
+  "archived_from": "state/a2a/inbox/qa-gate/A2A-01KYSHE1E5J4F0D0MAKFDPM0JF.json",
+  "envelope": {
+    "autonomy_requested": "L2",
+    "callback": {
+      "T1": "state/a2a/outbox/orchestrator/",
+      "T2": null,
+      "T3": null
+    },
+    "capability": "qa.gate.run",
+    "correlation_id": "C-01KYSHE1E5J4F0D0MAKFDPM0JG",
+    "created_at": "2026-07-30T12:54:18.309Z",
+    "deadline": "2026-07-30T13:54:18.309Z",
+    "from": "orchestrator",
+    "idempotency": {
+      "attempt": 1,
+      "class": "scoped",
+      "components": [
+        "from",
+        "to",
+        "capability",
+        "inputs_hash",
+        "env_epoch"
+      ],
+      "env_epoch": "2026-07-30T12:54:18.308Z",
+      "key": "sha256:c53114262f0c7eaa75b6aafecd50d14882fa271a50a5c72077c269f4defdb32a",
+      "retry_of": null,
+      "target_epoch": null,
+      "ttl_s": 900
+    },
+    "input": {
+      "context": "VS-3 DoD drill via T2 (Moxt Control Room)",
+      "suite": "all"
+    },
+    "input_provenance": [
+      {
+        "field": "$.input",
+        "source": "repo:scripts/verify.py",
+        "trust": "internal"
+      }
+    ],
+    "priority": "high",
+    "schema_version": "2.0.0",
+    "seed": null,
+    "task_id": "A2A-01KYSHE1E5J4F0D0MAKFDPM0JF",
+    "to": "qa-gate",
+    "trace_id": "sha256:afa0a610a38e573737645e950",
+    "transport": "T1",
+    "world": "prod"
+  },
+  "processed_at": "2026-07-30T12:57:42.562Z",
+  "result": {
+    "checks": [
+      "[PASS] chain (1 workstream(s))",
+      "[PASS] events",
+      "[PASS] schemas (20 artifacts)",
+      "[PASS] agent-cards",
+      "[PASS] lint-imports",
+      "[PASS] lint-clock"
+    ],
+    "ran_at": "2026-07-30T12:57:42.562Z",
+    "suite": "all",
+    "verdict": "green"
+  },
+  "state": "completed",
+  "task_id": "A2A-01KYSHE1E5J4F0D0MAKFDPM0JF"
+}

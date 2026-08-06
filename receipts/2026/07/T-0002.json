@@ -1,0 +1,100 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L2",
+  "chain_index": 1,
+  "changes": [
+    {
+      "path": "scripts/verify.py"
+    },
+    {
+      "path": "scripts/compact.py"
+    },
+    {
+      "path": "scripts/fsp.py"
+    },
+    {
+      "path": "scripts/context_pack.py"
+    },
+    {
+      "path": "scripts/reaper.py"
+    },
+    {
+      "path": "scripts/lib/paths.py"
+    },
+    {
+      "path": "scripts/lib/events.py"
+    }
+  ],
+  "completed_at": "2026-07-29T23:05:10.702Z",
+  "content_hash": "sha256:d337c8ff329d48f206190c9e039c004cd19f4fa412d91831fccdb684728e8cd5",
+  "cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "usd": 0.0,
+    "wall_clock_s": 3600
+  },
+  "fencing_token": 1,
+  "handoff_note": "see decisions/GAP-REPORT-003.md",
+  "idempotency": {
+    "attempt": 1,
+    "class": "scoped",
+    "components": [
+      "from",
+      "to",
+      "cap",
+      "inputs_hash",
+      "env_epoch"
+    ],
+    "ttl_s": 900
+  },
+  "inputs_hash": "sha256:a7577c8629f4791be2b3a3b299778c9fe3b5bcdd6294ff40579021a3b6625994",
+  "intent": "Build scripts/ layer: verify.py, compact.py, fsp.py, context_pack.py, reaper.py",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:9def7894eed88df5b8ab61b6929a12c17f79485ac98c8c9c3498251c38aa4159",
+  "reason": "the lib references these as its enforcement layer (verify --chain, compact --rebuild, fsp bootstrap) — without them the invariants have no CI teeth",
+  "receipt_hash": "sha256:d337c8ff329d48f206190c9e039c004cd19f4fa412d91831fccdb684728e8cd5",
+  "rollback": {
+    "max_ttr_s": 120,
+    "method": "git revert of the task's commits (files are additive; no shared-state mutation)",
+    "tested": true,
+    "tested_at": "2026-07-29T23:05:10.702Z",
+    "tested_in": "sim"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "artifacts/sim/T-0001/report.json",
+    "result": "pass",
+    "scenarios": [
+      "sim_world_event_partition",
+      "sim_world_clock_guard",
+      "sim_world_receipt_chain"
+    ],
+    "seeds": [
+      1337
+    ]
+  },
+  "started_at": "2026-07-29T23:05:10.702Z",
+  "status": "complete",
+  "task_id": "T-0002",
+  "transport": "T2",
+  "verification": [
+    {
+      "check": "unit-suite",
+      "evidence": "python3 -m unittest discover -s tests: 115/115 OK",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "verify.py --all",
+      "evidence": "scripts/verify.py --all: GREEN (6 checks)",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    }
+  ],
+  "why_one_sentence": "the lib references these as its enforcement layer (verify --chain, compact --rebuild, fsp bootstrap) — without them the invariants have no CI teeth",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

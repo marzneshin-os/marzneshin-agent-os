@@ -1,0 +1,24 @@
+# CODEOWNERS — Marzneshin Autonomous OS
+
+# §11.2 (D7): the human Owner owns exactly four paths. Everything else has an
+# agent owner with an independent agent gate — "approve your own PR" is
+# security theatre and is removed by design.
+
+# --- Human-owned (L0/L1: money, legal, irreversible infra, IAM) ---
+configs/pricing/**        @pexabo4345
+**/ToS*                   @pexabo4345
+infra/terraform/**        @pexabo4345
+security/iam/**           @pexabo4345
+
+# --- Agent-owned (gate: the named independent agent) ---
+# Critical paths require the Adversarial Reviewer as second key (D7):
+scripts/lib/policy.py     @adversarial-reviewer
+scripts/lib/killswitch.py @adversarial-reviewer
+scripts/killswitch.py     @adversarial-reviewer
+hooks/                    @adversarial-reviewer
+security/**               @security-compliance
+analytics/schemas/**      @analytics-engineer
+
+# QA gate definitions are reviewed by the Adversarial Reviewer ("who reviews
+# the gates" must never be an unanswered question):
+qa/**                     @adversarial-reviewer

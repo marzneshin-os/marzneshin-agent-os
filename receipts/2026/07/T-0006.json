@@ -1,0 +1,134 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L3",
+  "chain_index": 5,
+  "changes": [
+    {
+      "diff_stat": "+5/-2",
+      "path": "tests/test_sim.py"
+    },
+    {
+      "diff_stat": "+6/-2",
+      "path": "sim/world.py"
+    },
+    {
+      "diff_stat": "+13/-7",
+      "path": "adapters/base.py"
+    },
+    {
+      "diff_stat": "+9/-4",
+      "path": "adapters/contract.py"
+    },
+    {
+      "diff_stat": "+4/-1",
+      "path": "sim/fakes/__init__.py"
+    },
+    {
+      "path": "decisions/ADR/ADR-004-vs2-closeout-decisions.md"
+    },
+    {
+      "path": "decisions/GAP-REPORT-004.md"
+    },
+    {
+      "path": "artifacts/sim/VS2-closeout.json"
+    },
+    {
+      "path": "state/HANDOFF.md"
+    },
+    {
+      "path": "CONTEXT-PACK.md"
+    }
+  ],
+  "completed_at": "2026-07-30T11:53:41.000Z",
+  "content_hash": "sha256:0afabd3f92f2d8722affa275a3d76230d12c0042d834807a47ade878feb15321",
+  "cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "usd": 0.0,
+    "wall_clock_s": 1500
+  },
+  "fencing_token": 3,
+  "handoff_note": "VS-2 closed with real scenario evidence (D20 bridge retired); next slice VS-3 (A2A over T1/T2)",
+  "idempotency": {
+    "attempt": 1,
+    "class": "scoped",
+    "components": [
+      "from",
+      "to",
+      "cap",
+      "inputs_hash",
+      "env_epoch"
+    ],
+    "ttl_s": 900
+  },
+  "inputs_hash": "sha256:fb7bfedee831c0c1545ee3784f5289b785bc7b3061c16ac4760e0f9b9ee02534",
+  "intent": "Close VS-2 (Simulation Harness): fix the 3 remaining gaps without rebuilding finished work, prove DoD with real scenario evidence",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:b8963793e1b72bf868a5531906c5fd0ed2b85925d40a2bfe7e19102dd4d2325f",
+  "reason": "VS-2 was found half-built in the zip; its DoD is only honestly closed when lint-clock, the vault contract and the import collision are fixed and 6 scenarios x 3 seeds run green",
+  "receipt_hash": "sha256:0afabd3f92f2d8722affa275a3d76230d12c0042d834807a47ade878feb15321",
+  "rollback": {
+    "evidence": "full gate suite green on the changed tree; revert restores prior green state (T-0005)",
+    "max_ttr_s": 60,
+    "method": "reverse the 5 file edits (workspace file restore); docs-only artifacts need no rollback",
+    "tested": true,
+    "tested_at": "2026-07-30T11:53:41.000Z",
+    "tested_in": "sim"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "artifacts/sim/VS2-closeout.json",
+    "result": "pass",
+    "scenarios": [
+      "node_outage",
+      "payment_provider_down",
+      "agent_crash_mid_task",
+      "lease_expiry",
+      "cost_spike",
+      "prompt_injection"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-07-30T11:05:00.000Z",
+  "status": "complete",
+  "task_id": "T-0006",
+  "transport": "T2",
+  "verification": [
+    {
+      "check": "unittest discover -s tests",
+      "evidence": "132/132 OK (115 prior + 17 sim harness/contract)",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "verify.py --all",
+      "evidence": "GREEN 6/6: chain, events, schemas(13), agent-cards, lint-imports, lint-clock",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "killswitch.py verify",
+      "evidence": "10/10 path checks incl. fail-closed stale verdict",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "sim.py run --all --seeds 11,27,43",
+      "evidence": "18/18 PASS, 72 virtual h in 0.215-0.537s wall, score 1.0, checks 7/7 each",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    }
+  ],
+  "why_one_sentence": "VS-2 was found half-built in the zip; its DoD is only honestly closed when lint-clock, the vault contract and the import collision are fixed and 6 scenarios x 3 seeds run green",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

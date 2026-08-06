@@ -1,0 +1,168 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L3",
+  "chain_index": 6,
+  "changes": [
+    {
+      "diff_stat": "+550",
+      "path": "scripts/lib/a2a.py"
+    },
+    {
+      "diff_stat": "+290",
+      "path": "scripts/a2a.py"
+    },
+    {
+      "diff_stat": "+50",
+      "path": "agents/registry.json"
+    },
+    {
+      "diff_stat": "+10/-1",
+      "path": "scripts/lib/policy.py"
+    },
+    {
+      "diff_stat": "+2/-1",
+      "path": "scripts/lib/events.py"
+    },
+    {
+      "diff_stat": "+27",
+      "path": "scripts/lib/paths.py"
+    },
+    {
+      "diff_stat": "+11/-4",
+      "path": "scripts/verify.py"
+    },
+    {
+      "path": "analytics/schemas/a2a-result.schema.json"
+    },
+    {
+      "diff_stat": "+2/-1",
+      "path": "analytics/schemas/event.schema.json"
+    },
+    {
+      "path": ".github/workflows/a2a-dispatch.yml"
+    },
+    {
+      "diff_stat": "+160",
+      "path": "sim/actors.py"
+    },
+    {
+      "path": "sim/scenarios/a2a_fallback.yaml"
+    },
+    {
+      "diff_stat": "+12",
+      "path": "sim/report.py"
+    },
+    {
+      "diff_stat": "+10",
+      "path": "scripts/sim.py"
+    },
+    {
+      "diff_stat": "+260",
+      "path": "tests/test_a2a.py"
+    },
+    {
+      "diff_stat": "+2/-1",
+      "path": "tests/test_sim.py"
+    },
+    {
+      "path": "decisions/ADR/ADR-005-vs3-a2a-decisions.md"
+    },
+    {
+      "diff_stat": "+2",
+      "path": "decisions/TRADEOFF-REGISTER.md"
+    }
+  ],
+  "completed_at": "2026-07-30T13:08:04.942Z",
+  "content_hash": "sha256:3f8e04013d1b334ab57d9795a1960bf201b3a93f2118a6f8e2f7cea28d081361",
+  "cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "usd": 0.0,
+    "wall_clock_s": 2700
+  },
+  "fencing_token": 4,
+  "handoff_note": "VS-3 bus green; DoD drill evidence in T-0008; next VS-4 (continuity + kill switch)",
+  "idempotency": {
+    "attempt": 1,
+    "class": "scoped",
+    "components": [
+      "from",
+      "to",
+      "cap",
+      "inputs_hash",
+      "env_epoch"
+    ],
+    "ttl_s": 900
+  },
+  "inputs_hash": "sha256:3b3d54fca4eac101728128326383af5115b2facd344838e6fc2ca6666d21c383",
+  "intent": "Build VS-3 (A2A over T1/T2): envelope, registry, policy wiring, router with §5.5 fallback, T1 file transport, T2 Moxt bridge, CLI, CI dispatcher, sim scenario",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:0afabd3f92f2d8722affa275a3d76230d12c0042d834807a47ade878feb15321",
+  "reason": "the bus is the spine every later slice dispatches through; it only merges with sim proof (I11) and the same contract on both transports (§3.5)",
+  "receipt_hash": "sha256:3f8e04013d1b334ab57d9795a1960bf201b3a93f2118a6f8e2f7cea28d081361",
+  "rollback": {
+    "evidence": "a2a_fallback green on the changed tree; pre-VS-3 suite unaffected (21/21)",
+    "max_ttr_s": 120,
+    "method": "git-revert the VS-3 file set; bus state under state/a2a/ is additive-only (no migration)",
+    "tested": true,
+    "tested_at": "2026-07-30T13:08:04.942Z",
+    "tested_in": "sim"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "artifacts/sim/VS3-closeout.json",
+    "result": "pass",
+    "scenarios": [
+      "a2a_fallback",
+      "node_outage",
+      "payment_provider_down",
+      "agent_crash_mid_task",
+      "lease_expiry",
+      "cost_spike",
+      "prompt_injection"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-07-30T11:45:00.000Z",
+  "status": "complete",
+  "task_id": "T-0007",
+  "transport": "T1",
+  "verification": [
+    {
+      "check": "unittest discover -s tests",
+      "evidence": "146/146 OK (132 prior + 14 a2a)",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "verify.py --all",
+      "evidence": "GREEN 6/6 (chain, events, schemas(20), agent-cards, lint-imports, lint-clock)",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "killswitch.py verify",
+      "evidence": "10/10 path checks",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "sim.py run --all --seeds 11,27,43",
+      "evidence": "21/21 PASS incl. a2a_fallback 3/3 (fallback to T1, hysteresis restore, duplicate_work=0)",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    }
+  ],
+  "why_one_sentence": "the bus is the spine every later slice dispatches through; it only merges with sim proof (I11) and the same contract on both transports (§3.5)",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

@@ -1,0 +1,22 @@
+# cost_spike — token costs multiply 4x; the K5 automatic kill switch must
+# engage the budget scope and the out-of-band alert must fire (§6.3, §11.2).
+name: cost_spike
+description: >
+  Costs run at 4x for 30 ticks. The guard's spike detector (median baseline,
+  not mean) must fire, engage a budget-scoped kill via the real killswitch
+  lib, and alert the Owner out-of-band. Once the spike passes, the guard
+  releases. No guardrail breach, no human needed.
+duration_h: 72
+tick_s: 300
+world: {nodes: 3, users: 2000, trials_per_tick: 2.0}
+actors: [config-engineer, reaper, guard]
+chaos:
+  - {kind: node_down, at_tick: 12, node: node-3, ticks: 12}
+  - {kind: cost_spike, at_tick: 18, multiplier: 4.0, ticks: 30}
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.02
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  slo_breach_min_max: 999999

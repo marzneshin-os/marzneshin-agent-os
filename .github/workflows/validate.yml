@@ -1,0 +1,42 @@
+# validate — the PR/push gate (BUILD-SPEC §8, §16.1)
+# Runs the full local verification: schemas, unit tests, receipt chain,
+# event gaps, import/clock lints, and the sim scenarios related to the change
+# (once sim/ lands in VS-2).
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install strict-validation dependency
+        run: pip install jsonschema pyyaml
+
+      - name: Unit suite (stdlib-only, no network)
+        run: python3 -m unittest discover -s tests
+
+      - name: verify --all (schemas, chain, events, agent-cards, lints)
+        run: python3 scripts/verify.py --all
+
+      - name: Receipt chain from genesis (I15)
+        run: python3 scripts/verify.py --chain
+
+      # I11 — no new code reaches production without going green in sim first.
+      # Activated when sim/ lands (VS-2): related scenarios run here.
+      - name: sim scenarios (VS-2+)
+        if: hashFiles('sim/scenarios') != ''
+        run: python3 scripts/sim.py run --changed-only

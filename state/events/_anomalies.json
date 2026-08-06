@@ -1,0 +1,25 @@
+{
+  "anomalies": [
+    {
+      "actor": "agent-qa-gate",
+      "adr": "decisions/ADR/ADR-006-vs4-continuity-decisions.md",
+      "day": "2026-07-30",
+      "event_ids": [
+        "01KYSHM8DYF3W2FFZ9BCVEDH00",
+        "01KYSHM8X89B171AZ0KBV3APQ0",
+        "01KYSHN76SDDFEJXS4S6KJ4S76",
+        "01KYSHN7Q9ZZGGY8FWMKKCYRQS"
+      ],
+      "kind": "duplicate_seq",
+      "note": "VS-3 T1/T2 concurrent emitters raced the watermark (both read 4, both wrote 5,6). Root cause fixed in D35 (flock); regression: test_concurrent_emitters_never_duplicate_seq + sim/scenarios/event_seq_race.yaml",
+      "registered_at": "2026-07-30T14:36:29.650Z",
+      "registered_by": "momo",
+      "seqs": [
+        5,
+        6
+      ],
+      "world": "prod"
+    }
+  ],
+  "schema_version": "2.0.0"
+}

@@ -1,0 +1,128 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L2",
+  "chain_index": 17,
+  "changes": [
+    {
+      "path": "scripts/health.py"
+    },
+    {
+      "path": "tests/test_scripts.py"
+    },
+    {
+      "path": "decisions/ADR/ADR-009-save-baseline-never-narrows-floor.md"
+    },
+    {
+      "path": "ONBOARDING.md"
+    },
+    {
+      "path": "state/HEALTH-BASELINE.json"
+    },
+    {
+      "path": "artifacts/sim/VS4-session5-save-baseline-gate.json"
+    }
+  ],
+  "completed_at": "2026-08-02T23:30:39.082Z",
+  "content_hash": "sha256:fadcf1b1e74afa568ec5ff430f11d5c346b10b5e0e3d645f7f43adbe6f90e69c",
+  "cost": {},
+  "fencing_token": 19,
+  "handoff_note": "HEALTH-BASELINE.json is whole again (tests=162 verify=6 sim=30 coldrestore=1) and --save-baseline can no longer narrow it silently. VS-4 remains open; the largest unbuilt DoD item is the executable succession workflow (SS11.1 FREEZE-REVOKE-RECONSTRUCT-REASSIGN-VERIFY-REPORT), next in this session",
+  "idempotency": {
+    "attempt": 1,
+    "class": "forever",
+    "components": [
+      "cap",
+      "artifact_hash",
+      "target_epoch"
+    ],
+    "key": "session:S-230531:save-baseline-coverage-guard-adr-009"
+  },
+  "inputs_hash": "sha256:5421826b77837db096ac8ebc153d65799a7145d824d215eb376480cbedcabe0d",
+  "intent": "stop health.py --save-baseline from silently erasing gates it did not run (the coldrestore entry vanished from HEALTH-BASELINE.json exactly this way): refuse the save unless the run covers every tracked gate, keep a fail-closed backstop inside save_baseline itself, and make health.py honour MARZNESHIN_OPS_ROOT so the contract is testable (ADR-009 D46)",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:c4ec656bf5a83959ee6a10e4d5dfe0ccc449f29c9e98a9c9443a4431896f4b44",
+  "reason": "the floor-keeper was quietly weakening the floor: saving a baseline from a plain health.py run rewrote HEALTH-BASELINE.json with only the gates that ran, erasing coldrestore - the exact defect class ADR-007 was filed against; a guard that silently softens is worse than no guard, because it manufactures false confidence",
+  "receipt_hash": "sha256:fadcf1b1e74afa568ec5ff430f11d5c346b10b5e0e3d645f7f43adbe6f90e69c",
+  "rollback": {
+    "evidence": "full gate green after the change (tests 162 / verify 6 / sim 30 / coldrestore 1 score 1.0) and the refusal path exercised by CLI test on a throwaway root",
+    "max_ttr_s": 300,
+    "method": "revert scripts/health.py to the pre-guard version and delete the five new tests; the refusal path is new behaviour so revert restores the old silent-overwrite semantics. Nothing to undo on the log: decision.recorded stays as history (SS3.2); HEALTH-BASELINE.json can be regenerated with health.py --coldrestore --save-baseline",
+    "tested": true,
+    "tested_at": "2026-08-02T23:30:39.081Z",
+    "tested_in": "prod"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "artifacts/sim/VS4-session5-save-baseline-gate.json",
+    "result": "pass",
+    "scenarios": [
+      "a2a_fallback",
+      "agent_crash_mid_task",
+      "cost_spike",
+      "event_seq_race",
+      "killswitch_unreadable",
+      "lease_expiry",
+      "node_outage",
+      "owner_absent",
+      "payment_provider_down",
+      "prompt_injection"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-08-02T23:10:00.000Z",
+  "status": "complete",
+  "task_id": "T-0013",
+  "transport": "T1",
+  "verification": [
+    {
+      "check": "unit-tests",
+      "evidence": "162/162. The 5 new tests were run RED first (AttributeError: module 'health' has no attribute 'BaselineCoverageError') before the guard existed, then green after - I11 order preserved",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "unittest"
+    },
+    {
+      "check": "verify-all",
+      "evidence": "6/6 (chain, events, schemas, agent-cards, lint-imports, lint-clock)",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "verify.py"
+    },
+    {
+      "check": "sim-suite",
+      "evidence": "30/30 (10 scenarios x seeds 11,27,43), all score 1.0",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "sim.py"
+    },
+    {
+      "check": "cold-restore-drill",
+      "evidence": "score 1.0 while holding lease token 19; baseline then saved from a run covering all four gates, so coldrestore is back in the floor: tests=162 verify=6 sim=30 coldrestore=1",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "coldrestore.py"
+    },
+    {
+      "check": "save-baseline-refusal",
+      "evidence": "CLI test on a throwaway root: exit 1, stderr names the missing gate (coldrestore), baseline file byte-identical after the refused save; unit test proves BaselineCoverageError raises inside save_baseline itself so no future caller bypasses the guard",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "health.py CLI"
+    },
+    {
+      "check": "test-isolation",
+      "evidence": "first suite run after the change showed 161/162: the new unit test inserted scripts/ at sys.path[0], making 'import sim' resolve to scripts/sim.py (circular import) inside test_sim. Fixed by loading health.py via importlib.util.spec_from_file_location - no path mutation, no cross-file pollution",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "unittest discover"
+    }
+  ],
+  "why_one_sentence": "the floor-keeper was quietly weakening the floor: saving a baseline from a plain health.py run rewrote HEALTH-BASELINE.json with only the gates that ran, erasing coldrestore - the exact defect class ADR-007 was filed against; a guard that silently softens is worse than no guard, because it manufactures false confidence",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

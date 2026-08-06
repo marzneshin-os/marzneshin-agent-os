@@ -1,0 +1,7 @@
+{
+  "burned_fencing_token": 17,
+  "reason": "reaper: ttl_expired; heartbeat_stale",
+  "revoked_at": "2026-08-02T19:00:05.224Z",
+  "revoked_by": "reaper",
+  "workstream": "agentic-core"
+}

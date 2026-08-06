@@ -1,0 +1,55 @@
+# mirror — daily off-platform backup (BUILD-SPEC §8, I1 mitigation)
+# GitHub is the SSoT; depending on a single platform is the registered
+# trade-off T1, and this job is its mitigation: a mirror push to a second
+# remote, a cold-clone artifact, and the RECOVERY escrow bundle.
+name: mirror
+
+on:
+  schedule:
+    - cron: "43 3 * * *"   # daily, 03:43 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Cold clone bundle (full history, single file)
+        run: |
+          git bundle create /tmp/marzneshin-ops.bundle --all
+          sha256sum /tmp/marzneshin-ops.bundle
+
+      # §11.2: the escrow bundle is ENCRYPTED, never a plain tar (ADR-011).
+      # No ESCROW_PASSPHRASE secret => this step fails red on purpose: an
+      # unencrypted map of every access path is itself a sensitive artifact.
+      - name: RECOVERY escrow package (encrypted)
+        env:
+          MARZ_ESCROW_PASSPHRASE: ${{ secrets.ESCROW_PASSPHRASE }}
+        run: |
+          python3 scripts/escrow.py build --out /tmp/recovery-escrow.tar.gz.enc --by mirror-workflow
+          python3 scripts/escrow.py verify /tmp/recovery-escrow.tar.gz.enc
+          sha256sum /tmp/recovery-escrow.tar.gz.enc
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cold-restore-bundle
+          path: |
+            /tmp/marzneshin-ops.bundle
+            /tmp/recovery-escrow.tar.gz.enc
+          retention-days: 30
+
+      # Second remote: configured when MIRROR_URL repository secret exists.
+      # Until then the artifacts above are the cold path (§11.2 drill input).
+      - name: Push to second remote (when configured)
+        if: ${{ vars.MIRROR_URL != '' }}
+        run: |
+          git remote add mirror "${{ vars.MIRROR_URL }}"
+          git push mirror --all
+          git push mirror --tags

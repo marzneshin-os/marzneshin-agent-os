@@ -1,0 +1,41 @@
+# member_removed — the §11.1 succession protocol, proven end-to-end (VS-4 DoD:
+# "simulated member removal without the project stopping").
+#
+# A node dies at tick 24; the config-engineer starts mitigating and is REMOVED
+# at tick 26 — not crashed: member removal is an administrative trigger, so no
+# tombstone may be written for the engineer (crash_rate must not move) and no
+# harness standby may resurrect it (successions_max: 0). The reaper revokes
+# the zombie lease; the succession actor then runs the REAL §11.1 flow from
+# scripts/lib/succession.py:
+#   FREEZE -> REVOKE -> RECONSTRUCT -> REASSIGN -> VERIFY -> REPORT
+# The standby (one autonomy level lower, §10.5) reconstructs "a mitigation is
+# active" from observable state — not from the dead member's memory — and the
+# incident still closes inside MTTR. duplicate_work stays 0: the successor's
+# publish replays the removed member's idempotency epoch.
+name: member_removed
+description: >
+  §11.1 executable succession: member removed mid-mitigation; lease revoked,
+  A2A scope revoked, state reconstructed from receipts+events, standby
+  reassigned at reduced autonomy, ownership verified, report written. Project
+  does not stop: the node outage is still mitigated inside MTTR and receipt
+  coverage stays 100% with zero tombstones (removal is not a crash).
+duration_h: 72
+tick_s: 300
+world: {nodes: 3, users: 2000, trials_per_tick: 2.0}
+actors: [config-engineer, reaper, succession]
+env:
+  MARZ_SUCCESSION_STANDBY: "1"    # standby replacement runs through the flow, not the harness
+chaos:
+  - {kind: node_down, at_tick: 24, node: node-1, ticks: 48}
+  - {kind: member_remove, at_tick: 26, agent: config-engineer}
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.0              # removal is not a crash: no tombstone at all
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  mttr_min_max: 60
+  slo_breach_min_max: 999999
+  succession_steps_min: 7          # FREEZE REVOKE RECONSTRUCT REASSIGN VERIFY REPORT (+TRIGGER)
+  succession_flow_ok_min: 1        # succession.completed present on the log
+  successions_max: 0               # harness standby disabled: the flow did the healing

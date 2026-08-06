@@ -1,0 +1,40 @@
+{
+  "schema_version": "2.0.0",
+  "updated": "2026-07-30",
+  "note": "Minimal A2A registry (BUILD-SPEC §5, VS-3). Agent Cards (agents/cards/) arrive in VS-5 and will supersede the autonomy/owns fields here; capabilities and transport preference stay. JSON because scripts/lib must remain stdlib-only (ADR-005 D27).",
+  "agents": {
+    "orchestrator": {
+      "role": "dispatcher: decomposes work, routes envelopes, never executes domain ops",
+      "capabilities": ["a2a.dispatch", "policy.evaluate"],
+      "autonomy_max": "L3",
+      "transports": {"preferred": "T1", "allowed": ["T1", "T2"]},
+      "moxt_agent": null,
+      "owns": ["state/a2a/**"]
+    },
+    "qa-gate": {
+      "role": "quality gate: runs verify suites and returns verdicts with evidence",
+      "capabilities": ["qa.gate.run", "probe.echo"],
+      "autonomy_max": "L3",
+      "transports": {"preferred": "T2", "allowed": ["T1", "T2"]},
+      "moxt_agent": "momo",
+      "owns": ["artifacts/qa/**"]
+    },
+    "config-engineer": {
+      "role": "Marzneshin config control loop (sim-proven in VS-2 scenarios)",
+      "capabilities": ["config.publish", "config.rollback", "probe.run"],
+      "autonomy_max": "L2",
+      "transports": {"preferred": "T2", "allowed": ["T1", "T2"]},
+      "moxt_agent": null,
+      "owns": ["configs/**"]
+    }
+  },
+  "capabilities": {
+    "a2a.dispatch": {"idempotency": {"class": "scoped", "ttl": 900}, "risk": "internal_artifact"},
+    "policy.evaluate": {"idempotency": {"class": "none"}, "risk": "read_analyze"},
+    "qa.gate.run": {"idempotency": {"class": "scoped", "ttl": 900}, "risk": "read_analyze"},
+    "probe.echo": {"idempotency": {"class": "scoped", "ttl": 3600}, "risk": "read_analyze"},
+    "config.publish": {"idempotency": {"class": "forever"}, "risk": "reversible_config"},
+    "config.rollback": {"idempotency": {"class": "forever"}, "risk": "reversible_config"},
+    "probe.run": {"idempotency": {"class": "scoped", "ttl": 300}, "risk": "read_analyze"}
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "acquired_at": "2026-08-06T19:29:33.030Z",
+  "expires_at": "2026-08-06T20:59:33.030Z",
+  "fencing_token": 21,
+  "heartbeat_at": "2026-08-06T19:29:33.030Z",
+  "holder": "agent:antigravity",
+  "session": "S-192933",
+  "ttl_min": 90,
+  "workstream": "agentic-core"
+}

@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "elapsed_s": 74.2,
+  "state": {
+    "phase": "P1-agentic-core",
+    "active_slice": "VS-3",
+    "last_receipt": "T-0010"
+  },
+  "gates": [
+    {
+      "gate": "tests",
+      "ok": true,
+      "passed": 153,
+      "total": 153,
+      "detail": []
+    },
+    {
+      "gate": "verify",
+      "ok": true,
+      "passed": 6,
+      "total": 6,
+      "detail": []
+    },
+    {
+      "gate": "sim",
+      "ok": true,
+      "passed": 30,
+      "total": 30,
+      "detail": []
+    },
+    {
+      "gate": "coldrestore",
+      "ok": true,
+      "passed": 1,
+      "total": 1,
+      "score": 1.0,
+      "detail": []
+    }
+  ],
+  "regressions": []
+}

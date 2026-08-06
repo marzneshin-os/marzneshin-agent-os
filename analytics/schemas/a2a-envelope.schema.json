@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analytics/schemas/a2a-envelope.schema.json",
+  "title": "A2ATaskEnvelope",
+  "description": "One shared envelope for all three transports (BUILD-SPEC §3.5). Moving between T1/T2/T3 must require zero content changes. capability_grant is signed by the trust source and is never derived from the payload (I16).",
+  "type": "object",
+  "required": ["schema_version", "task_id", "created_at", "from", "to", "capability", "transport", "idempotency", "input", "input_provenance", "priority", "correlation_id", "autonomy_requested", "world"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "2.0.0"},
+    "task_id": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string"},
+    "from": {"type": "string", "minLength": 1},
+    "to": {"type": "string", "minLength": 1},
+    "capability": {"type": "string", "pattern": "^[a-z][a-z0-9_.]*$"},
+    "transport": {"type": "string", "enum": ["T1", "T2", "T3"]},
+    "idempotency": {
+      "type": "object",
+      "required": ["class", "components", "attempt"],
+      "properties": {
+        "class": {"type": "string", "enum": ["forever", "scoped", "none"]},
+        "ttl_s": {"type": "integer"},
+        "components": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "key": {"type": ["string", "null"]},
+        "env_epoch": {"type": ["string", "null"]},
+        "target_epoch": {"type": ["string", "null"]},
+        "attempt": {"type": "integer", "minimum": 1},
+        "retry_of": {"type": ["string", "null"]}
+      }
+    },
+    "input": {"type": "object"},
+    "input_provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "source", "trust"],
+        "properties": {
+          "field": {"type": "string", "pattern": "^\\$"},
+          "source": {"type": "string", "minLength": 1},
+          "trust": {"type": "string", "enum": ["owner", "internal", "untrusted"]},
+          "sanitizer": {"type": ["string", "null"]},
+          "content_hash": {"type": "string"}
+        }
+      }
+    },
+    "capability_grant": {
+      "type": "object",
+      "required": ["granted_by", "scope", "max_autonomy", "expires_at", "signature"],
+      "properties": {
+        "granted_by": {"type": "string"},
+        "scope": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "max_autonomy": {"type": "string", "pattern": "^L[0-4]$"},
+        "reason": {"type": "string"},
+        "expires_at": {"type": "string"},
+        "signature": {"type": "string", "minLength": 1}
+      }
+    },
+    "deadline": {"type": "string"},
+    "priority": {"type": "string", "enum": ["low", "normal", "high", "critical"]},
+    "correlation_id": {"type": "string"},
+    "causation_id": {"type": "string"},
+    "callback": {
+      "type": "object",
+      "properties": {
+        "T1": {"type": ["string", "null"]},
+        "T2": {"type": ["string", "null"]},
+        "T3": {"type": ["string", "null"]}
+      }
+    },
+    "autonomy_requested": {"type": "string", "pattern": "^L[0-4]$"},
+    "budget": {
+      "type": "object",
+      "properties": {
+        "tokens": {"type": "integer"},
+        "usd": {"type": "number"},
+        "reservation_id": {"type": "string"}
+      }
+    },
+    "world": {"type": "string", "enum": ["prod", "sim"]},
+    "seed": {"type": ["integer", "null"]},
+    "trace_id": {"type": "string"}
+  },
+  "additionalProperties": true
+}

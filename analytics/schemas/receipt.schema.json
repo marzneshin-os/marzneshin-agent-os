@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analytics/schemas/receipt.schema.json",
+  "title": "Receipt",
+  "description": "Proof-of-work artifact, hash-chained per workstream (BUILD-SPEC §3.3, G5/G18, ADR-002 D12/D13). Mirrors scripts/lib/receipts.py Receipt.to_dict() plus the content_hash/receipt_hash fields added by write(). Status-specific field requirements (rollback.tested, sim_evidence, superseded_by, ...) are enforced by receipts._validate_for_status — the schema carries the structural superset.",
+  "type": "object",
+  "required": ["schema_version", "task_id", "agent", "workstream", "status", "autonomy_level", "intent", "reason", "why_one_sentence", "started_at", "completed_at", "inputs_hash", "chain_index", "world", "changes", "verification", "policy_decisions", "cost", "handoff_note", "prev_receipt_hash", "content_hash", "receipt_hash"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "2.0.0"},
+    "task_id": {"type": "string", "minLength": 1},
+    "status": {"type": "string", "enum": ["complete", "failed", "abandoned", "crashed", "superseded"]},
+    "agent": {"type": "string", "minLength": 1},
+    "agent_lineage": {"type": "string"},
+    "workstream": {"type": "string", "minLength": 1},
+    "autonomy_level": {"type": "string"},
+    "autonomy_shadow": {
+      "type": "object",
+      "properties": {
+        "would_have_used": {"type": "string"},
+        "decision_hash": {"type": "string"},
+        "agreed_with_human": {"type": "boolean"}
+      }
+    },
+    "intent": {"type": "string", "minLength": 1},
+    "reason": {"type": "string", "minLength": 1},
+    "why_one_sentence": {"type": "string", "minLength": 1},
+    "started_at": {"type": "string"},
+    "completed_at": {"type": "string"},
+    "inputs_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "chain_index": {"type": "integer", "minimum": 0},
+    "world": {"type": "string", "enum": ["prod", "sim"]},
+    "transport": {"type": "string", "enum": ["T1", "T2", "T3"]},
+    "correlation_id": {"type": "string"},
+    "fencing_token": {"type": "integer"},
+    "seed": {"type": ["integer", "null"]},
+    "model": {"type": "string"},
+    "supersedes": {"type": "string"},
+    "superseded_by": {"type": "string"},
+    "control_room_task": {"type": ["string", "null"]},
+    "clickup_task": {"type": ["string", "null"]},
+    "prev_receipt_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "content_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "receipt_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "redacted": {"type": "boolean"},
+    "redaction_findings": {"type": "object"},
+    "idempotency": {
+      "type": "object",
+      "required": ["class", "attempt"],
+      "properties": {
+        "class": {"type": "string", "enum": ["forever", "scoped", "none"]},
+        "key": {"type": ["string", "null"]},
+        "components": {"type": "array", "items": {"type": "string"}},
+        "ttl_s": {"type": "integer"},
+        "target_epoch": {"type": ["string", "null"]},
+        "env_epoch": {"type": ["string", "null"]},
+        "attempt": {"type": "integer", "minimum": 1},
+        "retry_of": {"type": ["string", "null"]}
+      }
+    },
+    "input_provenance": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["field", "source", "trust"],
+        "properties": {
+          "field": {"type": "string", "pattern": "^\\$"},
+          "source": {"type": "string", "minLength": 1},
+          "trust": {"type": "string", "enum": ["owner", "internal", "untrusted"]},
+          "sanitizer": {"type": "string"},
+          "content_hash": {"type": "string"}
+        }
+      }
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "commit": {"type": "string"},
+          "diff_stat": {"type": "string"},
+          "content_hash": {"type": "string"}
+        }
+      }
+    },
+    "sim_evidence": {
+      "type": "object",
+      "required": ["scenarios", "seeds", "result"],
+      "properties": {
+        "scenarios": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "seeds": {"type": "array", "items": {"type": "integer"}, "minItems": 1},
+        "result": {"type": "string", "enum": ["pass", "fail", "inconclusive"]},
+        "report": {"type": "string"}
+      }
+    },
+    "verification": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["check", "result", "evidence"],
+        "properties": {
+          "check": {"type": "string", "minLength": 1},
+          "result": {"type": "string", "enum": ["pass", "fail", "skipped", "inconclusive"]},
+          "evidence": {"type": "string", "minLength": 1},
+          "metric": {"type": "object"},
+          "note": {"type": "string"},
+          "verifier": {"type": "string"},
+          "independent_of_author": {"type": "boolean"},
+          "n": {"type": "integer"},
+          "n_min": {"type": "integer"},
+          "stat_test": {"type": "string"},
+          "p_value": {"type": "number", "minimum": 0, "maximum": 1},
+          "conclusive": {"type": "boolean"},
+          "probe_fleet": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "policy_decisions": {"type": "array", "items": {"type": "object"}},
+    "cost": {
+      "type": "object",
+      "properties": {
+        "tokens_in": {"type": "integer"},
+        "tokens_out": {"type": "integer"},
+        "usd": {"type": "number"},
+        "wall_clock_s": {"type": "number"},
+        "model_usage": {"type": "array", "items": {"type": "object"}},
+        "budget_reservation_id": {"type": "string"}
+      }
+    },
+    "rollback": {
+      "type": "object",
+      "required": ["method", "tested"],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "tested": {"type": "boolean"},
+        "tested_at": {"type": "string"},
+        "tested_in": {"type": "string", "enum": ["sim", "staging", "prod"]},
+        "evidence": {"type": "string"},
+        "max_ttr_s": {"type": "integer"}
+      }
+    },
+    "handoff_note": {"type": "string"}
+  },
+  "additionalProperties": true
+}

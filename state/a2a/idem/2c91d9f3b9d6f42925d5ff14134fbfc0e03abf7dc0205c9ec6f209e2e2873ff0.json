@@ -1,0 +1,9 @@
+{
+  "expires_at": "2026-07-30T12:44:05.123Z",
+  "key": "sha256:2c91d9f3b9d6f42925d5ff14134fbfc0e03abf7dc0205c9ec6f209e2e2873ff0",
+  "ref": "state/a2a/processed/qa-gate/A2A-01KYSFZVG4NNC3JRZQ00S781VY.json",
+  "state": "completed",
+  "stored_at": "2026-07-30T12:29:05.123Z",
+  "task_id": "A2A-01KYSFZVG4NNC3JRZQ00S781VY",
+  "transport": "T1"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analytics/schemas/a2a-result.schema.json",
+  "title": "A2AResultRecord",
+  "description": "The record an agent writes after executing an A2A task (BUILD-SPEC §5.1: outbox/ result, then processed/ archive with receipt ref). The embedded envelope is the original §3.5 document, validated separately against a2a-envelope on dispatch.",
+  "type": "object",
+  "required": ["task_id", "state", "result", "processed_at", "agent", "envelope"],
+  "properties": {
+    "task_id": {"type": "string", "minLength": 1},
+    "state": {"type": "string", "enum": ["completed", "failed", "cancelled", "crashed", "rolled_back"]},
+    "result": {"type": "object"},
+    "processed_at": {"type": "string"},
+    "agent": {"type": "string", "minLength": 1},
+    "envelope": {"type": "object"},
+    "receipt_ref": {"type": ["string", "null"]},
+    "archived_from": {"type": "string"},
+    "moxt_ref": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

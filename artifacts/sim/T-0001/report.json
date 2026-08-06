@@ -1,0 +1,8 @@
+{
+  "suite": "sim-world spine scenarios",
+  "scenarios": ["sim_world_event_partition", "sim_world_clock_guard", "sim_world_receipt_chain"],
+  "seeds": [1337],
+  "result": "pass",
+  "note": "Spine exercised under VirtualClock + MARZ_WORLD=sim: event partitioning, prod-write guard, receipt chain under identical timestamps. Pre-VS-2 bridge evidence (ADR-003 D20).",
+  "raw": "artifacts/sim/T-0001/report.txt"
+}

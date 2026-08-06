@@ -1,0 +1,9 @@
+{
+  "reconciled_entries": 0,
+  "sources": [
+    "K1:state/KILL",
+    "K2:env/KILL_SWITCH"
+  ],
+  "verified_at": "2026-08-06T18:14:38.713Z",
+  "verified_by": "gemini-antigravity"
+}

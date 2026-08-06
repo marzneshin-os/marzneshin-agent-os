@@ -1,0 +1,58 @@
+{
+  "agent": "qa-gate",
+  "archived_from": "state/a2a/inbox/qa-gate/A2A-01KYSFX479HSJTBPAR7YGZWXYW.json",
+  "envelope": {
+    "autonomy_requested": "L2",
+    "callback": {
+      "T1": "state/a2a/outbox/orchestrator/",
+      "T2": null,
+      "T3": null
+    },
+    "capability": "qa.gate.run",
+    "correlation_id": "C-01KYSFX479HSJTBPAR7YGZWXYX",
+    "created_at": "2026-07-30T12:27:35.529Z",
+    "deadline": "2026-07-30T13:27:35.529Z",
+    "from": "orchestrator",
+    "idempotency": {
+      "attempt": 1,
+      "class": "scoped",
+      "components": [
+        "from",
+        "to",
+        "capability",
+        "inputs_hash",
+        "env_epoch"
+      ],
+      "env_epoch": "2026-07-30T11:00:00Z",
+      "key": "sha256:92c323d62dea3a3c76ae07fa96e4f85d6a9dd444f9b678d9da94aa60eabaded2",
+      "retry_of": null,
+      "target_epoch": null,
+      "ttl_s": 900
+    },
+    "input": {
+      "suite": "chain"
+    },
+    "input_provenance": [
+      {
+        "field": "$.input.suite",
+        "source": "repo:tests",
+        "trust": "internal"
+      }
+    ],
+    "priority": "normal",
+    "schema_version": "2.0.0",
+    "seed": null,
+    "task_id": "A2A-01KYSFX479HSJTBPAR7YGZWXYW",
+    "to": "qa-gate",
+    "trace_id": "sha256:8e474d3010fdf28b8fa75cf58",
+    "transport": "T1",
+    "world": "prod"
+  },
+  "processed_at": "2026-07-30T12:27:35.601Z",
+  "result": {
+    "checks": 6,
+    "verdict": "green"
+  },
+  "state": "completed",
+  "task_id": "A2A-01KYSFX479HSJTBPAR7YGZWXYW"
+}

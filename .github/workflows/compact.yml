@@ -1,0 +1,40 @@
+# compact — hourly STATE.json rebuild (BUILD-SPEC §8, §3.1)
+# STATE.json is derived, never truth. This job regenerates it from the event
+# log, publishes actor_seq watermarks (ADR-002 D18) and fails the build if a
+# sequence gap appears — silent loss in an audit log is worse than a red build.
+name: compact
+
+on:
+  schedule:
+    - cron: "17 * * * *"   # hourly, off the round hour to dodge the rush
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commits the refreshed STATE.json back
+
+jobs:
+  compact:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # compaction reads history, not just HEAD
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compact events into STATE.json
+        run: python3 scripts/compact.py
+
+      - name: Verify chain + gaps after compaction
+        run: |
+          pip install jsonschema pyyaml
+          python3 scripts/verify.py --chain --events
+
+      - name: Commit refreshed snapshot
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(compact): refresh STATE.json from event log"
+          file_pattern: "state/STATE.json state/events/_watermarks.json"

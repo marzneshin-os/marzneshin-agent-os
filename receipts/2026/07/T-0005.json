@@ -1,0 +1,73 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L3",
+  "chain_index": 4,
+  "changes": [
+    {
+      "path": "state/HANDOFF.md"
+    },
+    {
+      "path": "CONTEXT-PACK.md"
+    }
+  ],
+  "completed_at": "2026-07-29T23:06:38.261Z",
+  "content_hash": "sha256:b8963793e1b72bf868a5531906c5fd0ed2b85925d40a2bfe7e19102dd4d2325f",
+  "cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "usd": 0.0,
+    "wall_clock_s": 900
+  },
+  "fencing_token": 1,
+  "handoff_note": "VS-1 spine proven end-to-end; VS-2 (sim/) is next per §17",
+  "idempotency": {
+    "attempt": 1,
+    "class": "scoped",
+    "components": [
+      "from",
+      "to",
+      "cap",
+      "inputs_hash",
+      "env_epoch"
+    ],
+    "ttl_s": 900
+  },
+  "inputs_hash": "sha256:2437ab4b25658b9dda99d0d5d37254eb258a134f4fa6517a598c40cf01235cea",
+  "intent": "E2E spine drill: one task through CLAIM, PLAN, EXECUTE, VERIFY, EMIT, HANDOFF (VS-1 Definition of Done)",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:ee5d6bd28d7276812a4a4f479688f69a3c744b9095cadd9e142be5446e176d92",
+  "reason": "the slice is only done when a task provably travels the whole spine with a valid chain — the DoD demands evidence, not a claim",
+  "receipt_hash": "sha256:b8963793e1b72bf868a5531906c5fd0ed2b85925d40a2bfe7e19102dd4d2325f",
+  "rollback": {
+    "max_ttr_s": 60,
+    "method": "git revert; docs-only change, no state mutation",
+    "tested": true,
+    "tested_at": "2026-07-29T23:06:38.261Z",
+    "tested_in": "sim"
+  },
+  "schema_version": "2.0.0",
+  "started_at": "2026-07-29T23:06:38.260Z",
+  "status": "complete",
+  "task_id": "T-0005",
+  "transport": "T2",
+  "verification": [
+    {
+      "check": "verify.py --chain",
+      "evidence": "scripts/verify.py --chain GREEN after T-0005 write",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "killswitch verify drill",
+      "evidence": "10/10 path checks (K0 fresh-clone fail-closed, K1..K5, corrupt, stale)",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    }
+  ],
+  "why_one_sentence": "the slice is only done when a task provably travels the whole spine with a valid chain — the DoD demands evidence, not a claim",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

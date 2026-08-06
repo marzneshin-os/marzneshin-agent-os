@@ -1,0 +1,1 @@
+{"actor":{"id":"a2a-router","kind":"system"},"actor_seq":1,"event_id":"01KYSHGH348QYGNFH6PGC941QW","payload":{"after_successes":5},"redacted":false,"redaction_map":[],"schema_version":"2.0.0","subject":{"id":"T2","kind":"transport"},"transport":"T2","trust":"internal","ts":"2026-07-30T12:55:39.875Z","type":"transport.restored","world":"prod"}

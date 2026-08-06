@@ -1,0 +1,84 @@
+# a2a-dispatch — the T1 dispatcher (BUILD-SPEC §5.1, VS-3)
+# Fires when envelopes land in state/a2a/inbox/** (or on manual dispatch).
+# The policy gate is a mandatory step here (§6: the engine runs identically
+# on every transport; on T1 it is this workflow). Envelopes are processed by
+# the addressed agent's handlers via scripts/a2a.py; results commit back to
+# outbox/ + processed/ (I17: moved, never deleted).
+name: a2a-dispatch
+
+on:
+  push:
+    paths:
+      - "state/a2a/inbox/**"
+  repository_dispatch:
+    types: [a2a-task]
+  workflow_dispatch:
+    inputs:
+      agent:
+        description: "drain only this agent's inbox (default: all registry agents)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write  # writes outbox/processed + the dispatch commit
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install strict-validation dependency
+        run: pip install jsonschema pyyaml
+
+      - name: Bus self-check (registry + in-flight envelope schemas)
+        run: python3 scripts/a2a.py verify
+
+      # §6 — policy gate is a mandatory T1 step. a2a.py process evaluates
+      # policy per envelope inside lib/a2a.send/process; this step proves the
+      # engine itself runs in CI before any handler executes.
+      - name: Policy gate dry-run on every in-flight envelope
+        run: |
+          python3 - <<'EOF'
+          import json, sys
+          sys.path.insert(0, "scripts")
+          from lib import a2a, atomic, paths
+          bad = 0
+          for agent_dir in (paths.repo_root() / "state" / "a2a" / "inbox").glob("*"):
+              for f in sorted(agent_dir.glob("A2A-*.json")):
+                  env = atomic.read_json(f, default=None)
+                  errs = a2a.validate_envelope(env) if env else ["unreadable"]
+                  if errs:
+                      bad += 1
+                      print(f"DENY {f}: {errs}")
+          sys.exit(1 if bad else 0)
+          EOF
+
+      - name: Drain inboxes (handlers execute; results -> outbox + processed)
+        run: |
+          set -e
+          for agent in $(python3 -c "
+          import json
+          print(' '.join(json.load(open('agents/registry.json'))['agents'].keys()))"); do
+            if [ -z "${{ inputs.agent }}" ] || [ "${{ inputs.agent }}" = "$agent" ]; then
+              echo "--- processing $agent"
+              python3 scripts/a2a.py process --agent "$agent" || true
+            fi
+          done
+
+      - name: Commit dispatch results
+        run: |
+          git config user.name "a2a-dispatch[bot]"
+          git config user.email "a2a-dispatch[bot]@users.noreply.github.com"
+          git add state/a2a/
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            git commit -m "a2a: dispatch results ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+            git push
+          fi

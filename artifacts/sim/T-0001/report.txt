@@ -1,0 +1,8 @@
+test_sim_events_record_seed_for_reproducibility (tests.test_lib.TestSimWorld.test_sim_events_record_seed_for_reproducibility) ... ok
+test_virtual_clock_refuses_production_partition (tests.test_lib.TestSimWorldGuard.test_virtual_clock_refuses_production_partition) ... ok
+test_chain_holds_when_timestamps_collide (tests.test_lib.TestReceiptsInSim.test_chain_holds_when_timestamps_collide) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.110s
+
+OK

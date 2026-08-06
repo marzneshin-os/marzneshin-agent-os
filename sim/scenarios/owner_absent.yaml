@@ -1,0 +1,35 @@
+# owner_absent — the §11.2 dead-man switch, proven in virtual time (VS-4).
+# The human Owner goes silent at tick 24. Presence is derived from the event
+# log (owner.heartbeat), never from memory. After 72h of silence the fleet
+# queues + holds L1 (money-class) capabilities while L2/L3 work continues —
+# a node outage in that window is still mitigated. After 14 days the fleet
+# degrades to read-only: a second outage is NOT mitigated and no new mutating
+# work starts. The harness must not succeed the owner (replaceable=False):
+# human absence is a fact, not a crash.
+name: owner_absent
+description: >
+  Dead-man switch: 72h silence => L1 hold + L2/L3 safe-continue; 14d =>
+  read-only. Derived from the log, enforced by lib/deadman, proven by two
+  node outages on either side of the escalation.
+duration_h: 360
+tick_s: 300
+world: {nodes: 3, users: 500, trials_per_tick: 1.0}
+actors: [owner, config-engineer, l1-worker, deadman, reaper]
+chaos:
+  - {kind: owner_silent, at_tick: 24}
+  - {kind: node_down, at_tick: 1200, ticks: 48}    # hold_l1 window: L2 mitigates
+  - {kind: node_down, at_tick: 4100, ticks: 100}   # read_only window: no mitigation
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.5
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  mttr_min_max: 60              # the hold_l1 outage is still fixed fast
+  slo_breach_min_max: 999999    # the read_only outage hurts; that is the point
+  l1_executed_min: 1            # L1 ran while the owner was present
+  l1_queued_min: 10             # ...and queued+held after 72h of silence
+  deadman_hold_ticks_min: 100   # ~38 virtual days in hold_l1
+  deadman_readonly_ticks_min: 100
+  l2_halted_ticks_min: 100      # read_only: no new mutating work starts
+  successions_max: 0            # the owner is never resurrected

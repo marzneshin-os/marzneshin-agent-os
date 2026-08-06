@@ -1,0 +1,28 @@
+# a2a_fallback — T2 (moxt-transport) dies mid-run; the §5.5 router must
+# degrade it after 3 consecutive failures, carry all traffic over T1, and
+# every task must still complete exactly once (VS-3 core drill).
+name: a2a_fallback
+description: >
+  The dispatcher sends orchestrator->qa-gate tasks on preferred T2. At tick
+  12 the moxt side goes down for 60 ticks (5h virtual). Expected: transport
+  health degrades T2 (transport.degraded event), routing falls back to T1
+  with zero content change to the envelope, tasks keep completing exactly
+  once, and deliberate re-sends return stored results without re-executing
+  (duplicate_work = 0). After recovery, 5 consecutive health successes
+  restore T2 (hysteresis, no flapping).
+duration_h: 72
+tick_s: 300
+world: {nodes: 2, users: 500, trials_per_tick: 1.0}
+actors: [dispatcher]
+chaos:
+  - {kind: adapter_down, at_tick: 12, adapter: moxt, ticks: 60}
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.02
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  a2a_fallbacks_min: 1
+  a2a_completed_min: 50
+  a2a_replayed_min: 1
+  a2a_failed_max: 3

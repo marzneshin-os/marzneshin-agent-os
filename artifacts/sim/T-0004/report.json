@@ -1,0 +1,54 @@
+{
+  "suite": "workflow contract evidence",
+  "scenarios": [
+    "workflow_yaml_valid",
+    "workflow_commands_executed_green"
+  ],
+  "seeds": [
+    1337
+  ],
+  "result": "pass",
+  "workflows": [
+    {
+      "file": ".github/workflows/compact.yml",
+      "yaml_ok": true,
+      "jobs": [
+        "compact"
+      ],
+      "steps": 5
+    },
+    {
+      "file": ".github/workflows/heartbeat.yml",
+      "yaml_ok": true,
+      "jobs": [
+        "beat"
+      ],
+      "steps": 6
+    },
+    {
+      "file": ".github/workflows/mirror.yml",
+      "yaml_ok": true,
+      "jobs": [
+        "mirror"
+      ],
+      "steps": 5
+    },
+    {
+      "file": ".github/workflows/validate.yml",
+      "yaml_ok": true,
+      "jobs": [
+        "gate"
+      ],
+      "steps": 7
+    }
+  ],
+  "commands": {
+    "python3 -m unittest discover -s tests": "115/115 OK (this session)",
+    "python3 scripts/verify.py --all": "GREEN 6 checks (this session)",
+    "python3 scripts/compact.py": "ran green (this session)",
+    "python3 scripts/killswitch.py reconcile": "ran green (this session)",
+    "python3 scripts/reaper.py": "ran green (this session)",
+    "python3 scripts/killswitch.py verify": "10/10 drill checks (this session)"
+  },
+  "note": "Pre-VS-2 bridge evidence (ADR-003 D20): workflow YAMLs parse; every command they orchestrate ran green this session; spine behavior exercised under VirtualClock sim-world (see T-0001 report)."
+}

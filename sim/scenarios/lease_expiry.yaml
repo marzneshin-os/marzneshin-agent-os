@@ -1,0 +1,21 @@
+# lease_expiry — an agent process hangs; heartbeats stop; the lease decays
+# and the reaper recovers the workstream (§3.6, §11.1 STEP 1).
+name: lease_expiry
+description: >
+  The config-engineer stalls at tick 20 (process hung — heartbeats stop).
+  The reaper must reap the expired lease, tombstone open work, and burn the
+  fencing token so a stalled holder's late write would be rejected.
+duration_h: 72
+tick_s: 300
+world: {nodes: 3, users: 2000, trials_per_tick: 2.0}
+actors: [config-engineer, reaper, guard]
+chaos:
+  - {kind: agent_stall, at_tick: 20, agent: config-engineer}
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.5
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  mttr_min_max: 60
+  slo_breach_min_max: 999999

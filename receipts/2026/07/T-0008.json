@@ -1,0 +1,120 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L2",
+  "chain_index": 7,
+  "changes": [
+    {
+      "path": "state/a2a/processed/qa-gate/A2A-01KYSHE1E5J4F0D0MAKFDPM0JF.json"
+    },
+    {
+      "path": "state/a2a/processed/qa-gate/A2A-01KYSHGH38PNZ3AR47F15NZNZV.json"
+    },
+    {
+      "path": "state/a2a/t2/A2A-01KYSHGH38PNZ3AR47F15NZNZV.json"
+    },
+    {
+      "path": "state/a2a/transport_health.json"
+    }
+  ],
+  "completed_at": "2026-07-30T13:08:04.949Z",
+  "content_hash": "sha256:93757757bb01a242a6b2d2e8657bf1b3e91249b5d0e62a0ef1b51950a1da33c7",
+  "control_room_task": "https://moxt.ai/w/4dncfvah/d4e033e7-0268-43e6-b26d-c86e2af6c74d?taskId=1",
+  "cost": {
+    "tokens_in": 0,
+    "tokens_out": 0,
+    "usd": 0.0,
+    "wall_clock_s": 600
+  },
+  "fencing_token": 4,
+  "handoff_note": "VS-3 DoD satisfied on both transports; Control Room live at https://moxt.ai/w/4dncfvah/d4e033e7-0268-43e6-b26d-c86e2af6c74d",
+  "idempotency": {
+    "attempt": 1,
+    "class": "forever"
+  },
+  "inputs_hash": "sha256:46b76977bcf66c34128687b16c931f5743f6c151bd5486a2ad090c147ae89c1f",
+  "intent": "VS-3 DoD drill: one real task between two agents on both transports with audit, proven idempotency, automatic T2->T1 fallback",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:3f8e04013d1b334ab57d9795a1960bf201b3a93f2118a6f8e2f7cea28d081361",
+  "reason": "the slice is only done when a real task provably travels both transports — evidence, not a claim (§17)",
+  "receipt_hash": "sha256:93757757bb01a242a6b2d2e8657bf1b3e91249b5d0e62a0ef1b51950a1da33c7",
+  "rollback": {
+    "evidence": "drill wrote no code/config; only audit records",
+    "max_ttr_s": 60,
+    "method": "drill artifacts are additive audit records; rollback = mark task cancelled (no mutation to revert)",
+    "tested": true,
+    "tested_at": "2026-07-30T13:08:04.949Z",
+    "tested_in": "prod"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "artifacts/sim/VS3-closeout.json",
+    "result": "pass",
+    "scenarios": [
+      "a2a_fallback"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-07-30T12:54:00.000Z",
+  "status": "complete",
+  "task_id": "T-0008",
+  "transport": "T2",
+  "verification": [
+    {
+      "check": "unittest discover -s tests",
+      "evidence": "146/146 OK (132 prior + 14 a2a)",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "verify.py --all",
+      "evidence": "GREEN 6/6 (chain, events, schemas(20), agent-cards, lint-imports, lint-clock)",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "killswitch.py verify",
+      "evidence": "10/10 path checks",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "T1 real task orchestrator->qa-gate",
+      "evidence": "A2A-01KYSHE1E5 completed via a2a.py process: verdict green, 6 real checks from verify.py --all",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "T2 real task on Moxt Workflow",
+      "evidence": "Control Room Task#1: assignment triggered pipeline PCWBC3672RM2EBF9; result comment GREEN 6/6; task Done; mirrored to state/a2a/processed/",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "moxt-control-room"
+    },
+    {
+      "check": "idempotent replay (repeat = no re-execution)",
+      "evidence": "resend of T2 envelope returned stored result replayed=true; sim duplicate_work=0 with 71 replays/seed",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    },
+    {
+      "check": "automatic fallback T2->T1",
+      "evidence": "a2a_fallback scenario: transport.degraded at 3 failures, T1 carried all traffic, hysteresis restore; 3/3 seeds score 1.0",
+      "independent_of_author": false,
+      "result": "pass",
+      "verifier": "ci-local"
+    }
+  ],
+  "why_one_sentence": "the slice is only done when a real task provably travels both transports — evidence, not a claim (§17)",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

@@ -1,0 +1,55 @@
+# heartbeat — every 15 minutes (BUILD-SPEC §8, §6.3, G5)
+# The system's pacemaker. Each run:
+#   1. reconciles K2/K3/K5 kill-switch paths into K1 and refreshes the
+#      freshness timestamp (without it every worker fails closed by design)
+#   2. runs the reaper: zombie leases -> tombstone receipts (G5: 100% of
+#      tasks have a receipt, crashed included)
+#   3. syncs leases into STATE.json
+name: heartbeat
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      k3_status:
+        description: "Moxt Control Room kill-switch task status (manual override)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  beat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # K2: the repository variable is injected as an env var; lib/killswitch
+      # reads it with no network call. K3 arrives via workflow input until the
+      # Moxt adapter exists (zero secrets stored — GAP-REPORT-002 §2).
+      - name: Reconcile kill-switch paths (K2/K3/K5 -> K1)
+        env:
+          KILL_SWITCH: ${{ vars.KILL_SWITCH }}
+          K3_STATUS: ${{ github.event.inputs.k3_status }}
+        run: |
+          ARGS="--by workflow:heartbeat"
+          if [ -n "$K3_STATUS" ]; then ARGS="$ARGS --k3-status $K3_STATUS"; fi
+          python3 scripts/killswitch.py reconcile $ARGS || true
+
+      - name: Reaper — tombstone crashed tasks
+        run: python3 scripts/reaper.py || true
+
+      - name: Refresh STATE.json
+        run: python3 scripts/compact.py
+
+      - name: Commit heartbeat artifacts
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(heartbeat): reconcile kill switch, reap, compact"
+          file_pattern: "state/"

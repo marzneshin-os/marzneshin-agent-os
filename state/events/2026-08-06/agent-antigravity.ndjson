@@ -1,0 +1,1 @@
+{"actor":{"id":"antigravity","kind":"agent","session":"S-192933"},"actor_seq":1,"event_id":"01KZC8TSBHVGHZ5BKCC6FF03HG","payload":{"fencing_token":21,"ttl_min":90},"redacted":false,"redaction_map":[],"schema_version":"2.0.0","subject":{"id":"agentic-core","kind":"workstream"},"trust":"internal","ts":"2026-08-06T19:29:33.041Z","type":"lease.acquired","world":"prod"}

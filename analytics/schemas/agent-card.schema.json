@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analytics/schemas/agent-card.schema.json",
+  "title": "AgentCard",
+  "description": "Agent Card (BUILD-SPEC §3.4). No agent activates without a valid card. The CI-level rules — counter_kpi non-empty, counter_kpi_owner != id, no owns overlap, idempotency defined for every mutating capability, sim_scenarios_required non-empty — are enforced by scripts/verify.py --agent-cards, because they span multiple cards and cannot be expressed in one schema.",
+  "type": "object",
+  "required": ["id", "name", "version", "tier", "lineage", "owns", "capabilities", "autonomy", "budget", "kpi", "counter_kpi", "counter_kpi_owner", "forbidden", "escalation", "heartbeat_sla_min", "sim_scenarios_required"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+    "name": {"type": "string", "minLength": 1},
+    "version": {"type": "string"},
+    "tier": {"type": "integer", "enum": [0, 1, 2]},
+    "lineage": {"type": "string", "minLength": 1},
+    "model_default": {"type": "string"},
+    "model_for": {"type": "object", "additionalProperties": {"type": "string"}},
+    "owns": {"type": "array", "items": {"type": "string", "minLength": 1}, "minItems": 0},
+    "capabilities": {"type": "array", "items": {"type": "string", "pattern": "^[a-z][a-z0-9_.*]*$"}, "minItems": 1},
+    "inputs": {"type": "array", "items": {"type": "string"}},
+    "outputs": {"type": "array", "items": {"type": "string"}},
+    "transports": {
+      "type": "object",
+      "properties": {
+        "preferred": {"type": "string", "enum": ["T1", "T2", "T3"]},
+        "fallback": {"type": "string", "enum": ["T1", "T2", "T3"]},
+        "forbidden": {"type": "array", "items": {"type": "string", "enum": ["T1", "T2", "T3"]}}
+      }
+    },
+    "autonomy": {
+      "type": "object",
+      "required": ["default", "max"],
+      "properties": {
+        "default": {"type": "string", "pattern": "^L[0-4]$"},
+        "max": {"type": "string", "pattern": "^L[0-4]$"}
+      },
+      "additionalProperties": {"type": "string", "pattern": "^L[0-4]$"}
+    },
+    "idempotency": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["class"],
+        "properties": {
+          "class": {"type": "string", "enum": ["forever", "scoped", "none"]},
+          "ttl": {"type": "string"},
+          "ttl_s": {"type": "integer"},
+          "cache_ttl": {"type": "string"},
+          "key": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "taint_policy": {
+      "type": "object",
+      "properties": {
+        "untrusted_inputs": {"type": "array", "items": {"type": "string"}},
+        "max_autonomy_when_untrusted": {"type": "string", "pattern": "^L[0-4]$"}
+      }
+    },
+    "budget": {
+      "type": "object",
+      "required": ["tokens_per_day", "usd_per_day"],
+      "properties": {
+        "tokens_per_day": {"type": "integer", "minimum": 1},
+        "usd_per_day": {"type": "number", "minimum": 0},
+        "campaign_spend_cap_usd": {"type": "number"},
+        "reserve_before_execute": {"type": "boolean"}
+      }
+    },
+    "kpi": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "counter_kpi": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "counter_kpi_owner": {"type": "string", "minLength": 1},
+    "forbidden": {"type": "array", "items": {"type": "string"}},
+    "escalation": {
+      "type": "object",
+      "required": ["to", "on"],
+      "properties": {
+        "to": {"type": "string"},
+        "on": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
+    "dependencies": {"type": "array", "items": {"type": "string"}},
+    "reviewed_by": {"type": "string"},
+    "standby_for": {"type": "string"},
+    "standby_autonomy_penalty": {"type": "integer", "minimum": 0, "maximum": 4},
+    "heartbeat_sla_min": {"type": "integer", "minimum": 1},
+    "sim_scenarios_required": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": true
+}
