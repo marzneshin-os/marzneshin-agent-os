@@ -23,32 +23,32 @@
       "prod:system-a2a-router": 1,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 9,
-      "prod:system-compact": 29,
+      "prod:system-compact": 30,
       "prod:system-events": 1,
       "prod:system-reaper": 12
     },
     "event_count": 5,
     "event_hash": "sha256:e9058de776b7331068f9453bf8bdb3d957b0706c94ae85f258d70b3cba47635e",
-    "until_ts": "2026-08-07T04:32:52.508Z",
+    "until_ts": "2026-08-07T05:56:16.881Z",
     "window": [
       "2026-08-05",
       "2026-08-07"
     ]
   },
   "compacted_from_events": 5,
-  "generated_at": "2026-08-07T04:32:52.508Z",
+  "generated_at": "2026-08-07T05:56:16.881Z",
   "generated_by": "compact.py",
   "kill_switch": {
-    "fail_closed_engaged": true,
-    "freshness_s": 1053.991846,
+    "fail_closed_engaged": false,
+    "freshness_s": 0.208096,
     "global": false,
-    "read_at": "2026-08-07T04:32:52.506Z",
+    "read_at": "2026-08-07T05:56:16.880Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
     ],
     "scoped": [],
-    "verdict": "unknown"
+    "verdict": "running"
   },
   "kpis": {
     "crash_rate": 0.25,
