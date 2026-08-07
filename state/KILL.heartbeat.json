@@ -1,9 +1,10 @@
 {
-  "reconciled_entries": 0,
+  "reconciled_entries": 1,
   "sources": [
     "K1:state/KILL",
-    "K2:env/KILL_SWITCH"
+    "K2:env/KILL_SWITCH",
+    "K5:auto"
   ],
-  "verified_at": "2026-08-06T18:14:38.713Z",
-  "verified_by": "gemini-antigravity"
+  "verified_at": "2026-08-07T01:43:52.030Z",
+  "verified_by": "workflow:heartbeat"
 }
