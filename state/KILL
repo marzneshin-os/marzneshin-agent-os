@@ -1,14 +1,5 @@
 {
-  "entries": [
-    {
-      "engaged_at": "2026-08-07T01:43:52.027Z",
-      "engaged_by": "orchestrator:heartbeats_missed",
-      "reason": "agent agent:antigravity missed 24 consecutive heartbeats on agentic-core",
-      "scope": "workstream",
-      "source": "K5",
-      "target": "agentic-core"
-    }
-  ],
+  "entries": [],
   "reconciled_from": [
     "K1:state/KILL",
     "K2:env/KILL_SWITCH",
@@ -24,5 +15,5 @@
     }
   ],
   "schema_version": "2.0.0",
-  "updated_at": "2026-08-07T01:43:52.028Z"
+  "updated_at": "2026-08-07T04:15:18.512Z"
 }
