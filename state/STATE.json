@@ -11,7 +11,7 @@
     "usd_spent_today": 0.0,
     "utilization": 0.0
   },
-  "compacted_event_hash": "sha256:904bf85decb282af9794d7c76f43df4b43f518dc082deaa195916ab5aa872e51",
+  "compacted_event_hash": "sha256:112a3ef951d5d03c5477705ce59e31a133b2e19e5c6ba100374233131aff429d",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-antigravity": 1,
@@ -23,26 +23,26 @@
       "prod:system-a2a-router": 1,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 9,
-      "prod:system-compact": 80,
+      "prod:system-compact": 82,
       "prod:system-events": 1,
       "prod:system-reaper": 12
     },
-    "event_count": 54,
-    "event_hash": "sha256:904bf85decb282af9794d7c76f43df4b43f518dc082deaa195916ab5aa872e51",
-    "until_ts": "2026-08-08T08:06:56.432Z",
+    "event_count": 56,
+    "event_hash": "sha256:112a3ef951d5d03c5477705ce59e31a133b2e19e5c6ba100374233131aff429d",
+    "until_ts": "2026-08-08T09:01:11.018Z",
     "window": [
       "2026-08-06",
       "2026-08-08"
     ]
   },
-  "compacted_from_events": 54,
-  "generated_at": "2026-08-08T08:06:56.432Z",
+  "compacted_from_events": 56,
+  "generated_at": "2026-08-08T09:01:11.018Z",
   "generated_by": "compact.py",
   "kill_switch": {
     "fail_closed_engaged": false,
-    "freshness_s": 0.209452,
+    "freshness_s": 0.234887,
     "global": false,
-    "read_at": "2026-08-08T08:06:56.427Z",
+    "read_at": "2026-08-08T09:01:11.012Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
