@@ -36,14 +36,14 @@ The repository is the single source of truth. All machine state (`state/STATE.js
 
 | Gate | Result |
 |---|---|
-| Unit tests | **169 / 169** |
-| `verify --all` (schemas, chain, events, agent cards, lints) | **6 / 6** |
-| Sim scenarios × seeds 11, 27, 43 | **33 / 33** |
-| Cold-restore drill | **1 / 1** |
-| Receipt chain | 20 receipts · `ok=true` |
+| Unit tests | **260 / 260** |
+| `verify --all` (schemas, chain, events, agent cards, lints) | **6 / 6 (GREEN)** |
+| Sim scenarios × seeds 11, 27, 43 | **51 / 51 (Score 1.0)** |
+| 72-Hour Autonomous Marathon | **10 / 10 seeds (Score 1.0, 0 interventions)** |
+| Cold-restore drill | **1 / 1 (Score 1.0)** |
+| Receipt chain | **29 receipts · `ok=true` (100% G5 coverage)** |
 
-Current phase: **P1 — agentic-core** · Active slice: **VS-4 (Continuity & Kill Switch)** · 11 ADRs · decisions through D51.
-
+Current phase: **P1 — agentic-core** · Slices: **VS-1 through VS-11 (100% Completed)** · 21 ADRs (through ADR-021) · decisions through D67.
 ## Repository layout
 
 ```
