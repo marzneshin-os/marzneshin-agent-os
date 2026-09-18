@@ -1,0 +1,53 @@
+id: config-engineer
+name: Config Engineer
+version: 1.0.0
+tier: 0
+lineage: kimi-k3/config@1
+model_default: claude-haiku-4-5
+owns:
+- configs/**
+capabilities:
+- config.publish
+- config.rollback
+- probe.run
+idempotency:
+  config.publish:
+    class: forever
+  config.rollback:
+    class: forever
+  probe.run:
+    class: scoped
+    ttl: 5m
+autonomy:
+  default: L2
+  max: L2
+budget:
+  tokens_per_day: 300000
+  usd_per_day: 3.0
+  reserve_before_execute: true
+kpi:
+- csr
+- time_to_publish
+counter_kpi:
+- rollback_rate
+- inconclusive_canary_rate
+counter_kpi_owner: qa-gate
+forbidden:
+- rollout 100% without statistical canary
+- bypass probe validation
+escalation:
+  to: orchestrator
+  'on':
+  - consecutive_canary_failures_3
+  - probe_fleet_down
+  - budget_exceeded_80pct
+heartbeat_sla_min: 15
+sim_scenarios_required:
+- config_canary_regression
+- probe_fleet_down
+- node_outage
+transports:
+  preferred: T2
+  fallback: T1
+  forbidden:
+  - T3

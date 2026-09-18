@@ -1,0 +1,307 @@
+[?25l│
+◇  iii-engine process started
+[?25h[?25l│
+◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◇  iii-engine is ready
+[?25h[OTel] Traces initialized: engine=ws://localhost:49134, service=agentmemory
+[OTel] Metrics initialized: interval=30000ms
+[OTel] Global fetch instrumentation enabled
+[OTel] Logs initialized: delay=100ms, batch=1
+[iii] Worker registered with ID: b1056fab-59d3-4f7a-b177-c84608a4c76a
+[OTel] Connected to engine at ws://localhost:49134/otel
+[agentmemory] Viewer: http://localhost:3113
+│
+◇  agentmemory v0.9.29 ──────────────────────────────────────────────╮
+│                                                                    │
+│  REST API     http://localhost:3111                                │
+│  Viewer       http://localhost:3113                                │
+│  Streams      ws://localhost:3112                                  │
+│  Engine       ws://localhost:49134                                 │
+│  iii console  (install: curl -fsSL                                 │
+│  https://install.iii.dev/iii/main/install.sh | VERSION=0.11.2 sh)  │
+│                                                                    │
+├────────────────────────────────────────────────────────────────────╯
+
+Try: agentmemory demo
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Consolidation pipeline complete {"tier":"all","results":{"semantic":{"skipped":true,"reason":"fewer than 5 summaries"},"reflect":{"clustersProcessed":0,"clustersSkipped":0,"newInsights":0,"reinforced":0,"success":true,"usedFallback":true},"procedural":{"skipped":true,"reason":"fewer than 2 recurring patterns"},"decay":{"semantic":0,"procedural":0}}}
+[agentmemory] info Memory saved {"memId":"mem_mu3t593h_ece3b472f056","type":"fact"}
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 905ms (attempt 1)...
+[iii] Reconnecting in 821ms (attempt 1)...
+
+[agentmemory] Shutting down...
+
+[agentmemory] Shutting down...
+[iii] Reconnecting in 1711ms (attempt 2)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 1739ms (attempt 2)...
+[iii] Reconnecting in 2821ms (attempt 3)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 2831ms (attempt 3)...
+[?25l│
+◇  iii-engine process started
+[?25h[?25l│
+◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready.[1G[J◐  Waiting for iii-engine to be ready.[1G[J◓  Waiting for iii-engine to be ready.[1G[J◑  Waiting for iii-engine to be ready.[1G[J◇  iii-engine is ready
+[?25h[OTel] Traces initialized: engine=ws://localhost:49134, service=agentmemory
+[OTel] Metrics initialized: interval=30000ms
+[OTel] Global fetch instrumentation enabled
+[OTel] Logs initialized: delay=100ms, batch=1
+[OTel] Connected to engine at ws://localhost:49134/otel
+[iii] Worker registered with ID: e8ca909e-30af-4e34-9d7f-9088959e040f
+[agentmemory] Viewer: http://localhost:3113
+│
+◇  agentmemory v0.9.29 ──────────────────────────────────────────────╮
+│                                                                    │
+│  REST API     http://localhost:3111                                │
+│  Viewer       http://localhost:3113                                │
+│  Streams      ws://localhost:3112                                  │
+│  Engine       ws://localhost:49134                                 │
+│  iii console  (install: curl -fsSL                                 │
+│  https://install.iii.dev/iii/main/install.sh | VERSION=0.11.2 sh)  │
+│                                                                    │
+├────────────────────────────────────────────────────────────────────╯
+
+Try: agentmemory demo
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 1158ms (attempt 1)...
+[iii] Reconnecting in 1030ms (attempt 1)...
+
+[agentmemory] Shutting down...
+
+[agentmemory] Shutting down...
+[iii] Reconnecting in 1633ms (attempt 2)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 2559ms (attempt 2)...
+[iii] Reconnecting in 3674ms (attempt 3)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 2867ms (attempt 3)...
+[?25l│
+◇  iii-engine process started
+[?25h[?25l│
+◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready.[1G[J◐  Waiting for iii-engine to be ready.[1G[J◓  Waiting for iii-engine to be ready.[1G[J◑  Waiting for iii-engine to be ready.[1G[J◇  iii-engine is ready
+[?25h[OTel] Traces initialized: engine=ws://localhost:49134, service=agentmemory
+[OTel] Metrics initialized: interval=30000ms
+[OTel] Global fetch instrumentation enabled
+[OTel] Logs initialized: delay=100ms, batch=1
+[OTel] Connected to engine at ws://localhost:49134/otel
+[iii] Worker registered with ID: 7390097e-7869-47f4-9d83-5f0c3cf0044d
+[agentmemory] Viewer: http://localhost:3113
+│
+◇  agentmemory v0.9.29 ──────────────────────────────────────────────╮
+│                                                                    │
+│  REST API     http://localhost:3111                                │
+│  Viewer       http://localhost:3113                                │
+│  Streams      ws://localhost:3112                                  │
+│  Engine       ws://localhost:49134                                 │
+│  iii console  (install: curl -fsSL                                 │
+│  https://install.iii.dev/iii/main/install.sh | VERSION=0.11.2 sh)  │
+│                                                                    │
+├────────────────────────────────────────────────────────────────────╯
+
+Try: agentmemory demo
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[iii] Reconnecting in 1025ms (attempt 1)...
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 1282ms (attempt 1)...
+
+[agentmemory] Shutting down...
+
+[agentmemory] Shutting down...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 1439ms (attempt 2)...
+[iii] Reconnecting in 2587ms (attempt 2)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 4583ms (attempt 3)...
+[iii] Reconnecting in 4041ms (attempt 3)...
+[?25l│
+◇  iii-engine process started
+[?25h[?25l│
+◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready.[1G[J◐  Waiting for iii-engine to be ready.[1G[J◓  Waiting for iii-engine to be ready.[1G[J◑  Waiting for iii-engine to be ready.[1G[J◇  iii-engine is ready
+[?25h[OTel] Traces initialized: engine=ws://localhost:49134, service=agentmemory
+[OTel] Metrics initialized: interval=30000ms
+[OTel] Global fetch instrumentation enabled
+[OTel] Logs initialized: delay=100ms, batch=1
+[OTel] Connected to engine at ws://localhost:49134/otel
+[iii] Worker registered with ID: db64bf17-f397-4930-8318-54f85f0f62ef
+[agentmemory] Viewer: http://localhost:3113
+│
+◇  agentmemory v0.9.29 ──────────────────────────────────────────────╮
+│                                                                    │
+│  REST API     http://localhost:3111                                │
+│  Viewer       http://localhost:3113                                │
+│  Streams      ws://localhost:3112                                  │
+│  Engine       ws://localhost:49134                                 │
+│  iii console  (install: curl -fsSL                                 │
+│  https://install.iii.dev/iii/main/install.sh | VERSION=0.11.2 sh)  │
+│                                                                    │
+├────────────────────────────────────────────────────────────────────╯
+
+Try: agentmemory demo
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 1028ms (attempt 1)...
+[iii] Reconnecting in 1007ms (attempt 1)...
+
+[agentmemory] Shutting down...
+
+[agentmemory] Shutting down...
+[iii] Reconnecting in 1675ms (attempt 2)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 2430ms (attempt 2)...
+[iii] Reconnecting in 4833ms (attempt 3)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 3667ms (attempt 3)...
+[?25l│
+◇  iii-engine process started
+[?25h[?25l│
+◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◇  iii-engine is ready
+[?25h[OTel] Traces initialized: engine=ws://localhost:49134, service=agentmemory
+[OTel] Metrics initialized: interval=30000ms
+[OTel] Global fetch instrumentation enabled
+[OTel] Logs initialized: delay=100ms, batch=1
+[OTel] Connected to engine at ws://localhost:49134/otel
+[iii] Worker registered with ID: ecfd5cdd-7f4f-4771-8db7-14dad7981b79
+[agentmemory] Viewer: http://localhost:3113
+│
+◇  agentmemory v0.9.29 ──────────────────────────────────────────────╮
+│                                                                    │
+│  REST API     http://localhost:3111                                │
+│  Viewer       http://localhost:3113                                │
+│  Streams      ws://localhost:3112                                  │
+│  Engine       ws://localhost:49134                                 │
+│  iii console  (install: curl -fsSL                                 │
+│  https://install.iii.dev/iii/main/install.sh | VERSION=0.11.2 sh)  │
+│                                                                    │
+├────────────────────────────────────────────────────────────────────╯
+
+Try: agentmemory demo
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Consolidation pipeline complete {"tier":"all","results":{"semantic":{"skipped":true,"reason":"fewer than 5 summaries"},"reflect":{"clustersProcessed":0,"clustersSkipped":0,"newInsights":0,"reinforced":0,"success":true,"usedFallback":true},"procedural":{"skipped":true,"reason":"fewer than 2 recurring patterns"},"decay":{"semantic":0,"procedural":0}}}
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 1276ms (attempt 1)...
+[iii] Reconnecting in 1195ms (attempt 1)...
+
+[agentmemory] Shutting down...
+
+[agentmemory] Shutting down...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 1881ms (attempt 2)...
+[iii] Reconnecting in 2024ms (attempt 2)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 4745ms (attempt 3)...
+[iii] Reconnecting in 4615ms (attempt 3)...
+[?25l│
+◇  iii-engine process started
+[?25h[?25l│
+◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready.[1G[J◐  Waiting for iii-engine to be ready.[1G[J◓  Waiting for iii-engine to be ready.[1G[J◑  Waiting for iii-engine to be ready.[1G[J◇  iii-engine is ready
+[?25h[OTel] Traces initialized: engine=ws://localhost:49134, service=agentmemory
+[OTel] Metrics initialized: interval=30000ms
+[OTel] Global fetch instrumentation enabled
+[OTel] Logs initialized: delay=100ms, batch=1
+[iii] Worker registered with ID: 1e281ce0-be34-4d4f-8f85-942673f4e6c4
+[OTel] Connected to engine at ws://localhost:49134/otel
+[agentmemory] Viewer: http://localhost:3113
+│
+◇  agentmemory v0.9.29 ──────────────────────────────────────────────╮
+│                                                                    │
+│  REST API     http://localhost:3111                                │
+│  Viewer       http://localhost:3113                                │
+│  Streams      ws://localhost:3112                                  │
+│  Engine       ws://localhost:49134                                 │
+│  iii console  (install: curl -fsSL                                 │
+│  https://install.iii.dev/iii/main/install.sh | VERSION=0.11.2 sh)  │
+│                                                                    │
+├────────────────────────────────────────────────────────────────────╯
+
+Try: agentmemory demo
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Consolidation pipeline complete {"tier":"all","results":{"semantic":{"skipped":true,"reason":"fewer than 5 summaries"},"reflect":{"clustersProcessed":0,"clustersSkipped":0,"newInsights":0,"reinforced":0,"success":true,"usedFallback":true},"procedural":{"skipped":true,"reason":"fewer than 2 recurring patterns"},"decay":{"semantic":0,"procedural":0}}}
+[agentmemory] info Memory saved {"memId":"mem_mu5dlcqb_8ed613284985","type":"fact"}
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 1062ms (attempt 1)...
+[iii] Reconnecting in 750ms (attempt 1)...
+
+[agentmemory] Shutting down...
+
+[agentmemory] Shutting down...
+[iii] Reconnecting in 1576ms (attempt 2)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 2328ms (attempt 2)...
+[iii] Reconnecting in 4209ms (attempt 3)...
+[OTel] WebSocket error: connect ECONNREFUSED 127.0.0.1:49134
+[OTel] Disconnected from engine, will reconnect...
+[OTel] Reconnecting in 4486ms (attempt 3)...
+[?25l│
+◇  iii-engine process started
+[?25h[?25l│
+◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready[1G[J◐  Waiting for iii-engine to be ready[1G[J◓  Waiting for iii-engine to be ready[1G[J◑  Waiting for iii-engine to be ready[1G[J◒  Waiting for iii-engine to be ready.[1G[J◐  Waiting for iii-engine to be ready.[1G[J◓  Waiting for iii-engine to be ready.[1G[J◑  Waiting for iii-engine to be ready.[1G[J◇  iii-engine is ready
+[?25h[OTel] Traces initialized: engine=ws://localhost:49134, service=agentmemory
+[OTel] Metrics initialized: interval=30000ms
+[OTel] Global fetch instrumentation enabled
+[OTel] Logs initialized: delay=100ms, batch=1
+[OTel] Connected to engine at ws://localhost:49134/otel
+[iii] Worker registered with ID: a2b32a37-4997-470d-a6e4-3923cbfba213
+[agentmemory] Viewer: http://localhost:3113
+│
+◇  agentmemory v0.9.29 ──────────────────────────────────────────────╮
+│                                                                    │
+│  REST API     http://localhost:3111                                │
+│  Viewer       http://localhost:3113                                │
+│  Streams      ws://localhost:3112                                  │
+│  Engine       ws://localhost:49134                                 │
+│  iii console  (install: curl -fsSL                                 │
+│  https://install.iii.dev/iii/main/install.sh | VERSION=0.11.2 sh)  │
+│                                                                    │
+├────────────────────────────────────────────────────────────────────╯
+
+Try: agentmemory demo
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Memory saved {"memId":"mem_mu6ycywh_c87e02aa7750","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu6yflyn_be7d5cf20e0a","type":"fact"}
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Consolidation pipeline complete {"tier":"all","results":{"semantic":{"skipped":true,"reason":"fewer than 5 summaries"},"reflect":{"clustersProcessed":0,"clustersSkipped":0,"newInsights":0,"reinforced":0,"success":true,"usedFallback":true},"procedural":{"skipped":true,"reason":"fewer than 2 recurring patterns"},"decay":{"semantic":0,"procedural":0}}}
+[agentmemory] info Memory saved {"memId":"mem_mu6zc7xx_96e55e54c0df","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu6zcmop_e45d0aa4e418","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu6zdrcj_24c1c301b9cd","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu6znobj_45f842954a14","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu6zo4df_12b3c994b875","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu6zr9jn_1a85cd45253b","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu7052vm_d18ea7aa5626","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu708haq_7fb4f9ce3a1a","type":"fact"}
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Memory saved {"memId":"mem_mu71d766_b7c3224604b6","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu71dd6l_6467bea0024a","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu71htr2_957900088f71","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu71lbkx_4f00b2cc7c1e","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu71nkgs_02e844525728","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu71ti0u_b50229c4d3eb","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu726u78_a9898abdf92d","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu72ax5s_49b728eab729","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu72s6ry_af7ab488df4c","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu72ucwx_59b9487e696a","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu73adl6_fb05f2e2acd3","type":"fact"}
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Consolidation pipeline complete {"tier":"all","results":{"semantic":{"skipped":true,"reason":"fewer than 5 summaries"},"reflect":{"clustersProcessed":0,"clustersSkipped":0,"newInsights":0,"reinforced":0,"success":true,"usedFallback":true},"procedural":{"skipped":true,"reason":"fewer than 2 recurring patterns"},"decay":{"semantic":0,"procedural":0}}}
+[agentmemory] info Memory saved {"memId":"mem_mu73f7gz_0a3090a6e533","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu73k96e_bb8c9265f361","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu7413c8_2ef0c3039d72","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu74fxau_39a6b19e59bb","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu74ghv2_e0ffe698d217","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu74w93p_0a6ed35b11ce","type":"fact"}
+[agentmemory] info Memory saved {"memId":"mem_mu74wpzy_250b1183f2e1","type":"fact"}
+[agentmemory] info Auto-forget complete {"ttlExpired":0,"contradictions":0,"lowValueObs":0,"dryRun":false}
+[agentmemory] info Memory saved {"memId":"mem_mu75v9fx_423127ea2456","type":"fact"}

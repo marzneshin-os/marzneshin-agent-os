@@ -1,0 +1,4 @@
+{"ts": "2026-08-25T11:33:50.439964+00:00", "type": "relevance.account_added", "label": "skyler", "health": "HEALTHY", "pool_size": 2}
+{"ts": "2026-08-25T11:41:02.809920+00:00", "type": "relevance.snapshot", "snapshot_at": "2026-08-25T11:41:02.809350+00:00", "account_label": "peyman", "counts": {"agents": 0, "tools": 0, "workforces": 0}}
+{"ts": "2026-08-25T11:41:04.377535+00:00", "type": "relevance.deploy", "deployed_at": "2026-08-25T11:41:04.377310+00:00", "account_label": "skyler", "results": {"agents": 0, "tools": 0, "workforces": 0, "errors": []}}
+{"ts": "2026-08-25T11:41:04.377655+00:00", "type": "relevance.rotated", "from_index": 0, "to_index": 1, "to_label": "skyler", "deploy": {"agents": 0, "tools": 0, "workforces": 0, "errors": []}}

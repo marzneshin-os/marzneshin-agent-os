@@ -22,6 +22,29 @@ from typing import Any
 from . import clock, leases, paths
 from .atomic import CorruptState, read_json, write_json_atomic
 
+
+def compute_sense_level(active_slice: str | None) -> str:
+    """Determine sense level based on active slice (§12.0).
+
+    Tick-A (VS-1..VS-6): baseline state, leases, receipts, budget, transport.
+    Tick-B (VS-7): + SLO, CSR, probe fleet, error budget.
+    Tick-C (VS-8): + funnel, activation, revenue.
+    Tick-D (VS-9+): + experiment readout, autonomy ratchet, shadow agreement.
+    """
+    if not active_slice or not active_slice.startswith("VS-"):
+        return "Tick-A"
+    try:
+        num = int(active_slice.split("-")[1])
+    except ValueError:
+        return "Tick-A"
+    if num >= 9:
+        return "Tick-D"
+    if num == 8:
+        return "Tick-C"
+    if num >= 7:
+        return "Tick-B"
+    return "Tick-A"
+
 SCHEMA_VERSION = "2.0.0"  # ADR-002 D11: aligned with BUILD-SPEC §3
 STALENESS_LIMIT_SECONDS = 24 * 3600
 
@@ -47,7 +70,7 @@ def empty(phase: str = "P0-bootstrap", active_slice: str = "VS-1") -> dict:
         "kill_switch": {"global": False, "scoped": [], "verdict": "unknown"},
         "open_risks": [],
         "budget": {"tokens_spent_today": 0, "usd_spent_today": 0.0, "day": clock.now().date().isoformat()},
-        "sense_level": "Tick-A",
+        "sense_level": compute_sense_level(active_slice),
         "open_tasks": [],
     }
 

@@ -2,72 +2,262 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "analytics/schemas/event.schema.json",
   "title": "Event",
-  "description": "Append-only event (BUILD-SPEC §3.2, ADR-001 D4, ADR-002 D11/D14). Mirrors scripts/lib/events.py Event.to_dict(). Keep the type enum in sync with events.EVENT_TYPES in the same commit.",
+  "description": "Append-only event (BUILD-SPEC \u00a73.2, ADR-001 D4, ADR-002 D11/D14). Mirrors scripts/lib/events.py Event.to_dict(). Keep the type enum in sync with events.EVENT_TYPES in the same commit.",
   "type": "object",
-  "required": ["event_id", "actor_seq", "ts", "type", "actor", "subject", "payload", "schema_version", "world", "trust", "redacted", "redaction_map"],
+  "required": [
+    "event_id",
+    "actor_seq",
+    "ts",
+    "type",
+    "actor",
+    "subject",
+    "payload",
+    "schema_version",
+    "world",
+    "trust",
+    "redacted",
+    "redaction_map"
+  ],
   "properties": {
-    "schema_version": {"type": "string", "const": "2.0.0"},
-    "event_id": {"type": "string", "minLength": 26, "maxLength": 26, "pattern": "^[0-9A-HJKMNP-TV-Z]{26}$"},
-    "actor_seq": {"type": "integer", "minimum": 1},
-    "ts": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"},
+    "schema_version": {
+      "type": "string",
+      "const": "2.0.0"
+    },
+    "event_id": {
+      "type": "string",
+      "minLength": 26,
+      "maxLength": 26,
+      "pattern": "^[0-9A-HJKMNP-TV-Z]{26}$"
+    },
+    "actor_seq": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "ts": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
     "type": {
       "type": "string",
       "enum": [
-        "session.started", "session.ended", "handoff.written",
-        "lease.acquired", "lease.renewed", "lease.released", "lease.expired", "lease.revoked",
-        "task.created", "task.claimed", "task.started", "task.completed", "task.failed",
-        "task.abandoned", "task.crashed", "task.superseded",
-        "a2a.dispatched", "a2a.received", "a2a.cancelled", "a2a.completed", "a2a.failed",
-        "a2a.replayed", "transport.degraded", "transport.restored",
-        "verify.passed", "verify.failed", "policy.evaluated", "policy.denied",
-        "approval.requested", "approval.granted", "approval.timeout",
-        "state.compacted", "receipt.written", "receipt.chain.verified", "event.gap.detected",
-        "slice.transitioned", "decision.recorded",
-        "killswitch.engaged", "killswitch.released", "killswitch.unknown",
-        "guardrail.breached", "rollback.executed", "autonomy.changed",
-        "budget.reserved", "budget.settled", "budget.exceeded",
-        "probe.sampled", "slo.breached", "incident.opened", "incident.closed",
-        "agent.heartbeat", "agent.dead", "sim.scenario.run",
-        "event.anomaly.registered", "drill.cold_restore.completed",
-        "owner.heartbeat", "deadman.engaged", "deadman.escalated",
-        "member.removed", "succession.started", "succession.frozen",
-        "succession.revoked", "succession.reconstructed", "succession.reassigned",
-        "succession.verified", "succession.completed", "succession.failed",
-        "escrow.built", "escrow.verified"
+        "a2a.cancelled",
+        "a2a.completed",
+        "a2a.dispatched",
+        "a2a.failed",
+        "a2a.received",
+        "a2a.replayed",
+        "agent.dead",
+        "agent.heartbeat",
+        "approval.granted",
+        "approval.requested",
+        "approval.timeout",
+        "autonomy.changed",
+        "autonomy.demoted",
+        "autonomy.promoted",
+        "autonomy.quarantined",
+        "autonomy.reviewed",
+        "autonomy.shadow_decision",
+        "budget.exceeded",
+        "budget.reserved",
+        "budget.settled",
+        "campaign.attributed",
+        "canary.deployed",
+        "canary.held",
+        "canary.inconclusive",
+        "canary.promoted",
+        "canary.rolled_back",
+        "checkout.completed",
+        "checkout.failed",
+        "checkout.initiated",
+        "connection.failure",
+        "connection.success",
+        "continuity.scored",
+        "deadman.engaged",
+        "deadman.escalated",
+        "decision.declined",
+        "decision.recorded",
+        "drill.cold_restore.completed",
+        "escrow.built",
+        "escrow.verified",
+        "event.anomaly.registered",
+        "event.gap.detected",
+        "experiment.created",
+        "experiment.killed",
+        "experiment.negative_result",
+        "experiment.readout",
+        "experiment.shipped",
+        "experiment.stopped",
+        "funnel.signup",
+        "funnel.trial_started",
+        "funnel.visit",
+        "guardrail.breached",
+        "handoff.written",
+        "incident.closed",
+        "incident.opened",
+        "killswitch.engaged",
+        "killswitch.released",
+        "killswitch.unknown",
+        "lease.acquired",
+        "lease.expired",
+        "lease.released",
+        "lease.renewed",
+        "lease.revoked",
+        "llm.chat",
+        "member.removed",
+        "owner.heartbeat",
+        "policy.denied",
+        "policy.evaluated",
+        "probe.sampled",
+        "receipt.chain.verified",
+        "receipt.written",
+        "review.approved",
+        "review.rejected",
+        "review.requested",
+        "rollback.executed",
+        "session.ended",
+        "session.started",
+        "sim.scenario.run",
+        "slice.transitioned",
+        "slo.breached",
+        "state.compacted",
+        "succession.completed",
+        "succession.failed",
+        "succession.frozen",
+        "succession.reassigned",
+        "succession.reconstructed",
+        "succession.revoked",
+        "succession.started",
+        "succession.verified",
+        "task.abandoned",
+        "task.claimed",
+        "task.completed",
+        "task.crashed",
+        "task.created",
+        "task.failed",
+        "task.started",
+        "task.superseded",
+        "transport.degraded",
+        "transport.restored",
+        "verify.failed",
+        "verify.passed"
       ]
     },
     "actor": {
       "type": "object",
-      "required": ["kind", "id"],
+      "required": [
+        "kind",
+        "id"
+      ],
       "properties": {
-        "kind": {"type": "string", "enum": ["agent", "human", "system", "workflow", "sim"]},
-        "id": {"type": "string", "minLength": 1},
-        "session": {"type": "string"},
-        "lineage": {"type": "string"},
-        "model": {"type": "string"}
+        "kind": {
+          "type": "string",
+          "enum": [
+            "agent",
+            "human",
+            "system",
+            "workflow",
+            "sim"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session": {
+          "type": "string"
+        },
+        "lineage": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
     "subject": {
       "type": "object",
-      "required": ["kind", "id"],
+      "required": [
+        "kind",
+        "id"
+      ],
       "properties": {
-        "kind": {"type": "string", "minLength": 1},
-        "id": {"type": "string", "minLength": 1}
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        }
       },
       "additionalProperties": false
     },
-    "correlation_id": {"type": "string"},
-    "causation_id": {"type": "string"},
-    "transport": {"type": "string", "enum": ["T1", "T2", "T3"]},
-    "tick_level": {"type": "string", "enum": ["A", "B", "C", "D", "Tick-A", "Tick-B", "Tick-C", "Tick-D"]},
-    "trust": {"type": "string", "enum": ["owner", "internal", "untrusted"]},
-    "payload": {"type": "object"},
-    "inputs_hash": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
-    "seed": {"type": ["integer", "null"]},
-    "world": {"type": "string", "enum": ["prod", "sim"]},
-    "redacted": {"type": "boolean"},
-    "redaction_map": {"type": "array", "items": {"type": "string", "pattern": "^\\$"}}
+    "correlation_id": {
+      "type": "string"
+    },
+    "causation_id": {
+      "type": "string"
+    },
+    "transport": {
+      "type": "string",
+      "enum": [
+        "T1",
+        "T2",
+        "T3"
+      ]
+    },
+    "tick_level": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "Tick-A",
+        "Tick-B",
+        "Tick-C",
+        "Tick-D"
+      ]
+    },
+    "trust": {
+      "type": "string",
+      "enum": [
+        "owner",
+        "internal",
+        "untrusted"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "inputs_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "seed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "world": {
+      "type": "string",
+      "enum": [
+        "prod",
+        "sim"
+      ]
+    },
+    "redacted": {
+      "type": "boolean"
+    },
+    "redaction_map": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^\\$"
+      }
+    }
   },
   "additionalProperties": false
 }

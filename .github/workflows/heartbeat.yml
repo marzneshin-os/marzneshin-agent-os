@@ -1,10 +1,11 @@
-# heartbeat — every 15 minutes (BUILD-SPEC §8, §6.3, G5)
+# heartbeat — every 15 minutes (BUILD-SPEC §8, §6.3, G5, §11.1)
 # The system's pacemaker. Each run:
 #   1. reconciles K2/K3/K5 kill-switch paths into K1 and refreshes the
 #      freshness timestamp (without it every worker fails closed by design)
-#   2. runs the reaper: zombie leases -> tombstone receipts (G5: 100% of
+#   2. runs succession scan: processes state/OFFBOARDING.json or manual offboard inputs (§11.1)
+#   3. runs the reaper: zombie leases -> tombstone receipts (G5: 100% of
 #      tasks have a receipt, crashed included)
-#   3. syncs leases into STATE.json
+#   4. syncs leases into STATE.json
 name: heartbeat
 
 on:
@@ -14,6 +15,15 @@ on:
     inputs:
       k3_status:
         description: "Moxt Control Room kill-switch task status (manual override)"
+        required: false
+      offboard_agent:
+        description: "Agent to offboard immediately (manual trigger)"
+        required: false
+      offboard_workstream:
+        description: "Workstream of agent to offboard"
+        required: false
+      offboard_reason:
+        description: "Reason for offboarding"
         required: false
 
 permissions:
@@ -41,6 +51,18 @@ jobs:
           ARGS="--by workflow:heartbeat"
           if [ -n "$K3_STATUS" ]; then ARGS="$ARGS --k3-status $K3_STATUS"; fi
           python3 scripts/killswitch.py reconcile $ARGS || true
+
+      - name: Scan offboarding & execute succession (§11.1)
+        run: |
+          if [ -n "${{ github.event.inputs.offboard_agent }}" ] && [ -n "${{ github.event.inputs.offboard_workstream }}" ]; then
+            python3 scripts/succession.py run \
+              --agent "${{ github.event.inputs.offboard_agent }}" \
+              --workstream "${{ github.event.inputs.offboard_workstream }}" \
+              --trigger member_removed \
+              --reason "${{ github.event.inputs.offboard_reason || 'Manual workflow trigger' }}" \
+              --by "workflow:heartbeat" || true
+          fi
+          python3 scripts/succession.py scan || true
 
       - name: Reaper — tombstone crashed tasks
         run: python3 scripts/reaper.py || true

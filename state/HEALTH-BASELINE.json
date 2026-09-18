@@ -1,19 +1,19 @@
 {
   "note": "Green floor for scripts/health.py. Regenerate with `health.py --save-baseline` only when the run is fully green.",
-  "saved_at": "2026-08-04T12:16:53Z",
-  "active_slice": "VS-4",
+  "saved_at": "2026-09-18T15:52:20Z",
+  "active_slice": "VS-11",
   "gates": {
     "tests": {
-      "passed": 169,
-      "total": 169
+      "passed": 260,
+      "total": 260
     },
     "verify": {
       "passed": 6,
       "total": 6
     },
     "sim": {
-      "passed": 33,
-      "total": 33
+      "passed": 51,
+      "total": 51
     },
     "coldrestore": {
       "passed": 1,

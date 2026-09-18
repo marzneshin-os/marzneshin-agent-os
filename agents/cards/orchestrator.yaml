@@ -1,0 +1,64 @@
+id: orchestrator
+name: Orchestrator (CEO Agent)
+version: 1.0.0
+tier: 0
+lineage: kimi-k3/orchestrator@1
+model_default: claude-sonnet-5
+owns:
+- state/a2a/**
+- state/locks/**
+capabilities:
+- a2a.dispatch
+- policy.evaluate
+- routing.tick
+- lease.grant
+- budget.allocate
+idempotency:
+  a2a.dispatch:
+    class: scoped
+    ttl: 15m
+  policy.evaluate:
+    class: none
+  routing.tick:
+    class: scoped
+    ttl: 5m
+  lease.grant:
+    class: scoped
+    ttl: 15m
+  budget.allocate:
+    class: forever
+autonomy:
+  default: L2
+  max: L3
+budget:
+  tokens_per_day: 500000
+  usd_per_day: 5.0
+  reserve_before_execute: true
+kpi:
+- agent_leverage
+- intervention_rate
+- tick_cost
+counter_kpi:
+- queue_starvation
+- escalation_latency
+counter_kpi_owner: adversarial-reviewer
+forbidden:
+- direct data plane change
+- approve own work
+- override kill switch
+escalation:
+  to: owner
+  'on':
+  - budget_exceeded_80pct
+  - deadman_engaged
+  - unresolvable_conflict
+heartbeat_sla_min: 15
+sim_scenarios_required:
+- event_seq_race
+- killswitch_unreadable
+- owner_absent
+transports:
+  preferred: T1
+  fallback: T2
+  forbidden:
+  - T3

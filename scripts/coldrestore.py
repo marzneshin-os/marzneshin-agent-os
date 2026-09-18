@@ -35,7 +35,8 @@ import tempfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(REPO / "scripts"))
+sys.path.insert(0, str(REPO))
+sys.path.insert(1, str(REPO / "scripts"))
 
 from lib import clock, events, paths, receipts, validate  # noqa: E402
 from lib.atomic import read_json, write_json_atomic  # noqa: E402
@@ -49,6 +50,7 @@ VOLATILE_PATHS = [
     ("compacted_from", "until_ts"),
     ("kill_switch", "read_at"),
     ("kill_switch", "freshness_s"),
+    ("budget", "forecast"),
 ]
 
 STATE_PLANE = ["state", "receipts"]

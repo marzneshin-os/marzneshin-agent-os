@@ -1,0 +1,43 @@
+# drill-coldrestore — monthly scored recovery drill (BUILD-SPEC §11.2, VS-4)
+# Proves from a frozen mirror of the state plane that the system can be
+# brought back up from the event log + receipt chain alone. Scored 1.0.
+name: drill-coldrestore
+
+on:
+  schedule:
+    - cron: "17 4 1 * *"   # monthly, 1st of each month at 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  drill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pyyaml jsonschema
+
+      - name: Run scored cold-restore drill (§11.2)
+        run: |
+          python3 scripts/coldrestore.py run
+
+      - name: Refresh STATE.json
+        run: |
+          python3 scripts/compact.py
+
+      - name: Commit drill archive and updated state
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(drill): monthly cold-restore drill scored [skip ci]"
+          file_pattern: "state/"

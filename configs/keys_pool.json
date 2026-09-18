@@ -1,0 +1,13 @@
+{
+    "HuggingFace": {
+        "active_key": "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",
+        "pool": [
+            "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",
+            "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",
+            "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"
+        ],
+        "depleted": [
+            "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"
+        ]
+    }
+}

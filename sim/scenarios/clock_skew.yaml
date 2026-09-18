@@ -1,0 +1,22 @@
+# clock_skew — virtual clock jumps abruptly (NTP step / hypervisor pause);
+# in-flight leases expire instantly and reaper must handle the sudden expiry
+# cleanly without double receipts or corrupting state (§3.6, ADR-002).
+name: clock_skew
+description: >
+  At tick 20 the clock jumps forward 45 minutes. Any in-flight leases expire
+  instantly. The reaper must revoke the expired lease, tombstone open tasks,
+  and the workstream must recover cleanly without corrupting state.
+duration_h: 72
+tick_s: 300
+world: {nodes: 3, users: 2000, trials_per_tick: 2.0}
+actors: [config-engineer, reaper, guard]
+chaos:
+  - {kind: clock_skew, at_tick: 20, minutes: 45}
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.5
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  mttr_min_max: 60
+  slo_breach_min_max: 999999

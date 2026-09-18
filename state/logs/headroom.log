@@ -1,0 +1,4757 @@
+Error: Proxy dependencies not installed. Run: pip install headroom-ai[proxy]
+Details: No module named 'fastapi'
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 8787): [errno 98] address already in use
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         HEADROOM PROXY                                 ║
+║           The Context Optimization Layer for LLM Applications          ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Starting proxy server...
+
+  URL:          http://127.0.0.1:8787
+  Mode:         cache
+  Optimization: ENABLED
+  Caching:      ENABLED
+  Rate Limit:   ENABLED
+  Memory:       DISABLED
+  License:      OSS (no license key)
+  Code-Aware:   NOT INSTALLED (pip install headroom-ai[code])
+  Extensions:   (none discovered)
+  Security:     loopback-only (no inbound token)
+  Telemetry:    DISABLED (opt in: HEADROOM_TELEMETRY=on or headroom proxy --telemetry)
+
+
+Routing:
+  /v1/messages                    → https://api.anthropic.com
+  /v1/chat/completions            → https://api.openai.com
+  /v1/responses                   → https://api.openai.com  (HTTP + WebSocket)
+  /v1internal:streamGenerateContent → https://cloudcode-pa.googleapis.com
+  /v1/projects/.../publishers/... → https://us-central1-aiplatform.googleapis.com
+
+Usage:
+  Claude Code:   ANTHROPIC_BASE_URL=http://127.0.0.1:8787 claude
+  Codex / OpenAI: OPENAI_BASE_URL=http://127.0.0.1:8787/v1 your-app
+
+Endpoints:
+  GET  /livez      Process liveness
+  GET  /readyz     Traffic readiness
+  GET  /health     Aggregate health
+  GET  /stats      Detailed statistics
+  GET  /stats-history Durable compression history + display session
+  GET  /metrics    Prometheus metrics
+
+Press Ctrl+C to stop.
+

@@ -1,0 +1,165 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L2",
+  "chain_index": 22,
+  "changes": [
+    {
+      "path": "agents/cards/orchestrator.yaml"
+    },
+    {
+      "path": "agents/cards/config-engineer.yaml"
+    },
+    {
+      "path": "agents/cards/infra-sre.yaml"
+    },
+    {
+      "path": "agents/cards/qa-gate.yaml"
+    },
+    {
+      "path": "agents/cards/security-compliance.yaml"
+    },
+    {
+      "path": "agents/cards/handoff-guardian.yaml"
+    },
+    {
+      "path": "agents/cards/adversarial-reviewer.yaml"
+    },
+    {
+      "path": "scripts/lib/handoff_guardian.py"
+    },
+    {
+      "path": "scripts/lib/adversarial_reviewer.py"
+    },
+    {
+      "path": "scripts/lib/events.py"
+    },
+    {
+      "path": "scripts/handoff.py"
+    },
+    {
+      "path": "scripts/review.py"
+    },
+    {
+      "path": "analytics/schemas/event.schema.json"
+    },
+    {
+      "path": "tests/test_tier0_agents.py"
+    },
+    {
+      "path": "decisions/ADR/ADR-015-vs5-tier0-agents-handoff-guardian-adversarial-reviewer.md"
+    },
+    {
+      "path": "state/HEALTH-BASELINE.json"
+    }
+  ],
+  "completed_at": "2026-09-18T14:26:41.194Z",
+  "content_hash": "sha256:a9013bdaa1d96a0efc192fe3fd9cd14921647eb272e5304624f763491c38f71b",
+  "cost": {},
+  "fencing_token": 26,
+  "handoff_note": "VS-5 (Tier 0 Agents) is fully complete and 100% green. 7 complete Agent Cards are active in agents/cards/, Handoff Guardian computes continuity_score (1.0), Adversarial Reviewer enforces independent two-key rejection on critical paths, and baseline is elevated to 226 tests / 6 verify / 51 sim / 1 coldrestore. Ready for transition to Phase 3 (VS-6: Control Room Integration).",
+  "idempotency": {
+    "attempt": 1,
+    "class": "forever",
+    "components": [
+      "cap",
+      "artifact_hash",
+      "target_epoch"
+    ],
+    "key": "session:S-142302:vs5-tier0-agents-adr-015"
+  },
+  "inputs_hash": "sha256:b285e809276ded13bea3492c2f7ee29afc5d1bd6a6405ca5c60b32317d435bfe",
+  "intent": "implement and activate Tier 0 Agents (VS-5): 7 complete Agent Cards in agents/cards/, Handoff Guardian with continuity_score, Adversarial Reviewer with independent lineage and critical gate rejection, and elevate health baseline to 226 tests / 6 verify / 51 sim / 1 coldrestore",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:0717ab3ebc9abde2ddf3aca70f4068c6ecf9388e8350cbff8ca8106f2e483a0d",
+  "reason": "BUILD-SPEC v2.0 §10.1 and §3.4 require Tier 0 agents to be fully formalized with counter-KPIs, budget controls, separation of duties, and independent adversarial review before higher tiers activate",
+  "receipt_hash": "sha256:a9013bdaa1d96a0efc192fe3fd9cd14921647eb272e5304624f763491c38f71b",
+  "rollback": {
+    "evidence": "full health gate green (tests 226 / verify 6 / sim 51 / coldrestore 1 score 1.0)",
+    "max_ttr_s": 300,
+    "method": "revert added agent cards and helper scripts; emitted audit events remain on immutable event log",
+    "tested": true,
+    "tested_at": "2026-09-18T14:26:41.194Z",
+    "tested_in": "prod"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "state/HEALTH-BASELINE.json",
+    "result": "pass",
+    "scenarios": [
+      "a2a_fallback",
+      "agent_crash_mid_task",
+      "clock_skew",
+      "config_canary_regression",
+      "control_room_down",
+      "cost_spike",
+      "event_seq_race",
+      "gateway_down",
+      "killswitch_unreadable",
+      "lease_expiry",
+      "member_removed",
+      "metric_gaming",
+      "node_outage",
+      "owner_absent",
+      "payment_provider_down",
+      "probe_fleet_down",
+      "prompt_injection"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-09-18T14:15:00.000Z",
+  "status": "complete",
+  "task_id": "T-0017",
+  "transport": "T1",
+  "verification": [
+    {
+      "check": "unit-tests",
+      "evidence": "226/226 passing. Includes 10 new tests for Tier 0 Agent Cards, budget, and adversarial review.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "unittest"
+    },
+    {
+      "check": "verify-all",
+      "evidence": "6/6 (chain, events, schemas, agent-cards, lint-imports, lint-clock) passing.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "verify.py"
+    },
+    {
+      "check": "sim-suite",
+      "evidence": "51/51 (17 scenarios x seeds 11, 27, 43), all score 1.0.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "sim.py"
+    },
+    {
+      "check": "cold-restore-drill",
+      "evidence": "score 1.0 (4/4 criteria passed), archived to state/archive/drills/.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "coldrestore.py"
+    },
+    {
+      "check": "continuity-score",
+      "evidence": "continuity_score computed at 1.0 (verdict: PASS) by Handoff Guardian.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "handoff.py"
+    },
+    {
+      "check": "adversarial-review",
+      "evidence": "Adversarial Reviewer successfully rejected critical gate tampering diff and recorded review.rejected event.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "review.py"
+    }
+  ],
+  "why_one_sentence": "BUILD-SPEC v2.0 §10.1 and §3.4 require Tier 0 agents to be fully formalized with counter-KPIs, budget controls, separation of duties, and independent adversarial review before higher tiers activate",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

@@ -53,6 +53,14 @@ def main() -> None:
         H.emit("session.ended", "session", H.session_id(),
                {"agent": agent, "handoff_fresh": not problems,
                 "leases_released": len(held) == 0})
+        
+        # Record session end in AgentMemory
+        try:
+            from lib import agentmemory
+            agentmemory.call_mcp_tool("memory_save", {"content": f"Session {H.session_id()} ended for agent {agent}. Handoff fresh: {not problems}. Leases released: {len(held) == 0}."})
+        except Exception:
+            pass
+
     except Exception as exc:
         H.fail_closed(f"could not record session.ended: {exc}")
 

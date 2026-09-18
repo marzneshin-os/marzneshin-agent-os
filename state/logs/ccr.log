@@ -1,0 +1,44 @@
+
+[update] Checking for update
+[gateway] (node:3936) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use `Claude Code Router --trace-deprecation ...` to show where the warning was created)
+[plugin-marketplace] Failed to fetch marketplace from https://raw.githubusercontent.com/musistudio/ccr-extensions/main/marketplace/plugins.json: HTTP 404 Not Found
+[update] Update for version 3.0.22 is not available (latest version: 3.0.22, downgrade is disallowed).
+
+[update] Checking for update
+[gateway] (node:21580) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+(Use `Claude Code Router --trace-deprecation ...` to show where the warning was created)
+[plugin-marketplace] Failed to fetch marketplace from https://raw.githubusercontent.com/musistudio/ccr-extensions/main/marketplace/plugins.json: HTTP 404 Not Found
+[update] Update for version 3.0.22 is not available (latest version: 3.0.22, downgrade is disallowed).
+
+[44060:0829/000857.779:ERROR:chrome\browser\process_singleton_win.cc:457] Lock file can not be created! Error code: 32
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=wwdoW9syEp5FgxrVcTw2W85sgHFrBkv4_7YdFNdJRzA (pid 29142).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=X7Z7gJQKx1xGkIyosUzQsFNNrqUr5HXQMvW0Ol_GECc (pid 3533).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=wvTHFf-_K9ip_ICOgFVtLVRERdXU60SAdtPKaUF7lmA (pid 1140).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=Y9Sc3tgXgskMfNqiTmBNIf1CbespBA7i9a_TOFhtMII (pid 1110).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=I_fKNqk_-0MiKTcH4bD1wyPHv2lCY9eAFyC_Ml1K9C8 (pid 857).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=zfYSPlxCWQjIvtMvtIqImTMykbH8Ovib6BqzTqWFaug (pid 865).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=OEEVy3wPhqTsl5AFJePmAXtfvX-GeCJ4N6JTM1X9vaw (pid 878).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=zGJoPRXK8myQuD-AmHIj0xImk1P6yuDXRr-nFdnE27A (pid 819).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=ouqR-qLXnGArTvZTOw7T5fErJ_Wr9ZnA_2-22XvlEL4 (pid 902).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=QrpMhg8WM41B6Qr8gQrcZgvmSN53ASHSWa2i_h3av-w (pid 1130).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=5dBDqUjwqSlU9mWzLqvpKvUel0QM2YAJzWnbhWws7Wo (pid 7809).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=xBdshDvGQbCGmsOzmHUa1juUyxG_w29_Zm3jUqXvz2s (pid 9533).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=IIXlp0k3QLmiUKCrs8oMAVJ0zsNtpRFeqAA6kZK5DNA (pid 1221).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=ZGzwm9C2nFEtxSyudylUvW9JbATz8hB8CDVmvYf5MwY (pid 911).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=KaDHqogISWQNksr_ExxQDG_7teDy06bTXp6QP3T3Uto (pid 1154).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=-6L9f0G3Md5WPAsNS9Phvxf7NwkTIgJCPzuvDNOECHc (pid 1375).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=Op74fwdIKYACRVwDuLqLkrrHLx8lr2AJiVF-Y0j8hys (pid 1128).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=S1C83eGoNvHBWFdGFe-K4RK_IR2EkjLkjpLVImrfXyc (pid 1262).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=ueaDJR4G_Rib3z3lEpGGvs8vdmsBPW65PEizZ4PNyy4 (pid 2810).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=KhVh-Wk-wFJ1akKRPAVnfm53FJVxwOEa49ehSqI85_s (pid 3077).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=MZXx-qxbvUzec8R1EZHEquc7zQIu6EtF5birfilQLjs (pid 3320).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=o9AUQdUIViY1xE00qZljura7sTlEAdfxblH5NlYn0Pc (pid 3595).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=V-yoG1j_bHDYv8U2sNcGIU0i5ZDxyaPf7mG3pNX7Geo (pid 3838).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=rJ9l_3Et_B-N6qkcFuIKNzOJ5PvOiLInBWGOm_lPQT4 (pid 4128).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=nmW1kSoUvMM72bBLLrrLQpNK7bUk6KAh8m_D7sFgJ6o (pid 4392).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=8kebyJwjsq3R1pVu0EYhf-efyNz3o4trNUJb6n83BxY (pid 4794).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=bd196hM9aNXCmEorYWVW-51fAyDtOez0BQwIrD1JMkw (pid 5120).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=L2GO74ttdXPp8yIp600Htrf_Xj644ydaJOwRRG1Hm3c (pid 5449).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=O7SHqf_pAefleWhtff0T7N7847jzxHogllRdn0gbzFg (pid 6238).
+CCR service started at http://127.0.0.1:3458/?ccr_web_token=FjPayLV5WMGJSnDxvJw903sAtmiuCXA2rQ1xdTXM74Q (pid 1170).

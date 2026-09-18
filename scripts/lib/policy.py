@@ -83,6 +83,7 @@ RISK_MATRIX: list[tuple[str, str, int, list[str]]] = [
     ("probe.*",           "read_analyze",      4, ["rate_limit"]),
     ("a2a.*",             "internal_artifact", 3, ["receipt"]),
     ("policy.evaluate",   "read_analyze",      4, ["rate_limit"]),
+    ("llm.*",             "internal_artifact", 3, ["receipt"]),
     ("config.*",          "reversible_config", 3, ["receipt", "rollback_tested",
                                                     "auto_revert_on_slo_breach"]),
     ("pricing.*",         "pricing_contract",  0, ["proposal_only"]),

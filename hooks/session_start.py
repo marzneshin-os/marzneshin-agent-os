@@ -15,7 +15,7 @@ Warns (exit 0 with context) when:
 from __future__ import annotations
 
 import _common as H  # noqa: F401 — sets sys.path and MARZNESHIN_OPS_ROOT
-from lib import killswitch, state
+from lib import killswitch, state, agentmemory
 
 
 def main() -> None:
@@ -64,6 +64,37 @@ def main() -> None:
                    "workflow reconciles. Run `scripts/killswitch.py status` for detail.")
     else:
         context = None
+
+    # Fetch context from AgentMemory
+    workstream = data.get("workstream")
+    if workstream:
+        mem_resp = agentmemory.call_mcp_tool("memory_smart_search", {"query": workstream, "limit": 10})
+        if mem_resp and not mem_resp.startswith("AgentMemory error"):
+            am_ctx = f"\n\n[AgentMemory Context for {workstream}]\n{mem_resp}"
+            context = (context + am_ctx) if context else am_ctx
+
+    # --- Relevance AI health check (auto-rotate on failure) ----------------
+    try:
+        from lib import relevance_health as _rai
+        _rai_status = _rai.quick_check()
+        if _rai_status == _rai.DEAD:
+            _rot = _rai.auto_rotate()
+            if _rot["success"]:
+                _rai_ctx = (f"\n🔄 Relevance AI: auto-rotated to "
+                            f"'{_rot['new_account']}'. .env updated.")
+            elif _rot.get("all_dead"):
+                _rai_ctx = ("\n❌ Relevance AI: ALL accounts exhausted. "
+                            "Run: python3 scripts/relevance_manager.py add-account")
+            else:
+                _rai_ctx = (f"\n❌ Relevance AI: rotation failed — "
+                            f"{_rot.get('error', 'unknown')}")
+            context = (context + _rai_ctx) if context else _rai_ctx
+        elif _rai_status == _rai.LOW_CREDITS:
+            _rai_ctx = ("\n⚠️ Relevance AI: credits running low "
+                        "on active account.")
+            context = (context + _rai_ctx) if context else _rai_ctx
+    except Exception:
+        pass  # Never let Relevance AI check break session start
 
     H.emit("session.started", "session", H.session_id(),
            {"state_age_s": int(state.age_seconds()), "kill_switch": ks.verdict.value,

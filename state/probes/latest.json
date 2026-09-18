@@ -1,0 +1,39 @@
+{
+  "csr": 1.0,
+  "fail_closed": false,
+  "healthy": true,
+  "healthy_asns": [
+    "asn:AS1",
+    "asn:AS2",
+    "asn:AS3"
+  ],
+  "targets": {
+    "asn:AS1": {
+      "asn": "asn:AS1",
+      "csr": 1.0,
+      "healthy": true,
+      "latency_ms": 20.0,
+      "ok": 50,
+      "samples": 50
+    },
+    "asn:AS2": {
+      "asn": "asn:AS2",
+      "csr": 1.0,
+      "healthy": true,
+      "latency_ms": 20.0,
+      "ok": 50,
+      "samples": 50
+    },
+    "asn:AS3": {
+      "asn": "asn:AS3",
+      "csr": 1.0,
+      "healthy": true,
+      "latency_ms": 20.0,
+      "ok": 50,
+      "samples": 50
+    }
+  },
+  "timestamp": "2026-09-18T14:48:29.996Z",
+  "total_ok": 150,
+  "total_samples": 150
+}

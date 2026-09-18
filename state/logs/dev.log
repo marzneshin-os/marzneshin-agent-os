@@ -1,0 +1,14 @@
+[36m[agentmemory] Already running on port 3111[0m
+[32m[ccr] Already running on port 3456[0m
+[33m[omniroute] Already running on port 8080[0m
+[35m[langgraph] Already running on port 8005[0m
+[34m[freellmapi] Already running on port 3001[0m
+[36m[headroom] Already running on port 8787[0m
+[32m[codeburn] Already running on port 4790[0m
+[33m[graphify] Already running (stdio PID 9752,9754)[0m
+[35m[memory_sync] Already running (stdio PID 9757,9758)[0m
+[34m[kimi_k3] Already running on port 8085[0m
+[36m[relevance_bridge] Starting...[0m
+
+Press Ctrl+C to stop all services.
+[relevance_bridge] exited with code 1

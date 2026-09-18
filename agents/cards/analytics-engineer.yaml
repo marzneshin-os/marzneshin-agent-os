@@ -1,0 +1,55 @@
+id: analytics-engineer
+name: Analytics Engineer
+version: 1.0.0
+tier: 1
+lineage: kimi-k3/analytics@1
+model_default: claude-haiku-4-5
+owns:
+- analytics/**
+capabilities:
+- analytics.nsm_compute
+- analytics.funnel_query
+- analytics.cohort_analyze
+idempotency:
+  analytics.nsm_compute:
+    class: scoped
+    ttl: 1h
+  analytics.funnel_query:
+    class: scoped
+    ttl: 15m
+  analytics.cohort_analyze:
+    class: scoped
+    ttl: 1h
+autonomy:
+  default: L3
+  max: L3
+budget:
+  tokens_per_day: 300000
+  usd_per_day: 3.0
+  reserve_before_execute: true
+kpi:
+- nsm_freshness
+- metric_traceability_rate
+counter_kpi:
+- untraced_metric_rate
+- schema_inconsistency_rate
+counter_kpi_owner: qa-gate
+forbidden:
+- store user traffic content or destination (privacy invariant §13.1)
+- calculate NSM from unverified or synthetic data in prod
+escalation:
+  to: orchestrator
+  'on':
+  - campaign_cac_spike_1_5x
+  - metric_traceability_drop_below_100pct
+  - budget_exceeded_80pct
+heartbeat_sla_min: 15
+sim_scenarios_required:
+- metric_gaming
+- prompt_injection
+- cost_spike
+transports:
+  preferred: T2
+  fallback: T1
+  forbidden:
+  - T3

@@ -1,0 +1,52 @@
+id: security-compliance
+name: Security & Compliance
+version: 1.0.0
+tier: 0
+lineage: security-officer@1
+model_default: claude-haiku-4-5
+owns:
+- security/**
+capabilities:
+- security.scan
+- policy.audit
+- secret.rotate
+idempotency:
+  security.scan:
+    class: none
+  policy.audit:
+    class: none
+  secret.rotate:
+    class: forever
+autonomy:
+  default: L1
+  max: L1
+budget:
+  tokens_per_day: 200000
+  usd_per_day: 2.0
+  reserve_before_execute: true
+kpi:
+- secret_leaks_zero
+- mttd
+counter_kpi:
+- false_block_rate
+- security_pr_latency
+counter_kpi_owner: adversarial-reviewer
+forbidden:
+- bypass four-eyes principle
+- make L0 legal/ToS policy decision autonomously
+escalation:
+  to: owner
+  'on':
+  - secret_leak_detected
+  - unauthorized_escalation
+  - budget_exceeded_80pct
+heartbeat_sla_min: 15
+sim_scenarios_required:
+- prompt_injection
+- killswitch_unreadable
+- cost_spike
+transports:
+  preferred: T1
+  fallback: T2
+  forbidden:
+  - T3

@@ -1,0 +1,48 @@
+id: adversarial-reviewer
+name: Adversarial Reviewer
+version: 1.0.0
+tier: 0
+lineage: gpt-4o/adversarial@1
+model_default: claude-opus-4-8
+owns: []
+capabilities:
+- review.reject
+- metrics.redteam
+idempotency:
+  review.reject:
+    class: forever
+  metrics.redteam:
+    class: none
+autonomy:
+  default: L3
+  max: L3
+budget:
+  tokens_per_day: 400000
+  usd_per_day: 4.0
+  reserve_before_execute: true
+kpi:
+- catch_rate
+- rejection_precision
+counter_kpi:
+- over_rejection_rate
+- review_latency
+counter_kpi_owner: orchestrator
+forbidden:
+- write production code
+- approve own proposed change
+escalation:
+  to: orchestrator
+  'on':
+  - metric_gaming_detected
+  - critical_gate_tampering
+  - budget_exceeded_80pct
+heartbeat_sla_min: 15
+sim_scenarios_required:
+- metric_gaming
+- prompt_injection
+- control_room_down
+transports:
+  preferred: T1
+  fallback: T2
+  forbidden:
+  - T3

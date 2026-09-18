@@ -1,0 +1,3 @@
+[submodule ".agents/skills/relevance-ai"]
+	path = .agents/skills/relevance-ai
+	url = https://github.com/RelevanceAI/agent-skills.git

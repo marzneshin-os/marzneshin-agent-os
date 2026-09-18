@@ -1,0 +1,105 @@
+{
+  "by": "momo",
+  "criteria": {
+    "1_state_rebuilt_equal": {
+      "diffs": [],
+      "ignored_fields": [
+        "generated_at",
+        "generated_by",
+        "compacted_from.until_ts",
+        "kill_switch.read_at",
+        "kill_switch.freshness_s",
+        "compacted_from (verified against the mirror log directly)"
+      ],
+      "mirror_event_count": 372,
+      "original_event_count": 371,
+      "pass": true,
+      "structural": {
+        "event_count_matches_mirror": true,
+        "event_hash_matches_mirror": true,
+        "watermarks_exact_delta": true,
+        "window_full": true
+      }
+    },
+    "2_receipt_chain_valid": {
+      "detail": [
+        {
+          "check": "chain",
+          "ok": true,
+          "repairs": [],
+          "report": {
+            "checked_at": "2026-09-18T14:25:49.132Z",
+            "ok": true,
+            "workstreams": {
+              "agentic-core": {
+                "count": 22,
+                "head_index": 21,
+                "ok": true,
+                "problems": []
+              }
+            }
+          }
+        }
+      ],
+      "pass": true
+    },
+    "3_metrics_reproduced": {
+      "metrics": {
+        "crash_rate": {
+          "original": 0.2727,
+          "rebuilt": 0.2727,
+          "within_1pct": true
+        },
+        "crash_rate_lifetime": {
+          "original": 0.2727,
+          "rebuilt": 0.2727,
+          "within_1pct": true
+        },
+        "crash_rate_sample_sufficient": {
+          "original": false,
+          "rebuilt": false,
+          "within_1pct": true
+        },
+        "crash_rate_window": {
+          "original": 22,
+          "rebuilt": 22,
+          "within_1pct": true
+        },
+        "receipt_coverage": {
+          "original": 1.0,
+          "rebuilt": 1.0,
+          "within_1pct": true
+        },
+        "receipts_total": {
+          "original": 22,
+          "rebuilt": 22,
+          "within_1pct": true
+        }
+      },
+      "note": "compares every KPI STATE carries; CSR/NSM join when the analytics layer publishes them into STATE (VS-*)",
+      "pass": true,
+      "tolerance": 0.01
+    },
+    "4_dummy_task_e2e": {
+      "chain": {
+        "checked_at": "2026-09-18T14:25:49.154Z",
+        "ok": true,
+        "workstreams": {
+          "drill-restore": {
+            "count": 1,
+            "head_index": 0,
+            "ok": true,
+            "problems": []
+          }
+        }
+      },
+      "pass": true,
+      "task_id": "T-DRILL-COLD-RESTORE"
+    }
+  },
+  "drill": "cold_restore",
+  "mirror": null,
+  "ran_at": "2026-09-18T14:25:48.617Z",
+  "result": "pass",
+  "score": 1.0
+}

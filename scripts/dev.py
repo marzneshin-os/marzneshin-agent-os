@@ -1,0 +1,225 @@
+#!/usr/bin/env python3
+"""
+Marzneshin Agent OS - Unified Service Manager
+Starts all local services defined in configs/services.json
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import signal
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from lib import clock
+from urllib import request, error
+
+# Colors for output
+COLORS = [
+    "\033[36m", # Cyan
+    "\033[32m", # Green
+    "\033[33m", # Yellow
+    "\033[35m", # Magenta
+    "\033[34m", # Blue
+]
+RESET = "\033[0m"
+
+PROJECT_ROOT = Path(__file__).parent.parent
+CONFIG_PATH = PROJECT_ROOT / "configs" / "services.json"
+LOG_DIR = PROJECT_ROOT / "state" / "logs"
+
+processes: dict[str, subprocess.Popen] = {}
+
+def get_config() -> dict:
+    if not CONFIG_PATH.exists():
+        print(f"Error: {CONFIG_PATH} not found.")
+        sys.exit(1)
+    with open(CONFIG_PATH, "r") as f:
+        return json.load(f)
+
+def check_port(port: int) -> bool:
+    """Check if a local port is in use."""
+    import socket
+    try:
+        with socket.create_connection(('127.0.0.1', port), timeout=0.5):
+            return True
+    except OSError:
+        return False
+
+def start_services(only: list[str] = None):
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    config = get_config()
+    
+    target_services = list(config.keys())
+    if only:
+        target_services = [s for s in only if s in config]
+        if not target_services:
+            print(f"None of the specified services ({only}) found in config.")
+            return
+
+    for idx, svc_name in enumerate(target_services):
+        svc = config[svc_name]
+        port = svc.get("port")
+        
+        # Check if already running
+        if port and check_port(port):
+            print(f"{COLORS[idx % len(COLORS)]}[{svc_name}] Already running on port {port}{RESET}")
+            continue
+
+        if not port:
+            cmd = svc.get("command", "")
+            script = svc.get("process_match") or (cmd.split()[-1] if cmd else "")
+            if script:
+                try:
+                    res = subprocess.run(["pgrep", "-f", script], capture_output=True, text=True, timeout=2)
+                    pids = [p for p in res.stdout.strip().split("\n") if p]
+                    if pids:
+                        print(f"{COLORS[idx % len(COLORS)]}[{svc_name}] Already running (stdio PID {','.join(pids)}){RESET}")
+                        continue
+                except Exception:
+                    pass
+
+        cmd = svc.get("command")
+        if not cmd:
+            continue
+            
+        print(f"{COLORS[idx % len(COLORS)]}[{svc_name}] Starting...{RESET}")
+        
+        env = os.environ.copy()
+        for k, v in svc.get("env", {}).items():
+            # Resolve relative paths
+            if v.startswith("./"):
+                v = str(PROJECT_ROOT / v[2:])
+            env[k] = v
+            
+        log_file = LOG_DIR / f"{svc_name}.log"
+        f_out = open(log_file, "a")
+        
+        p = subprocess.Popen(
+            cmd,
+            shell=True,
+            cwd=PROJECT_ROOT,
+            env=env,
+            stdout=f_out,
+            stderr=subprocess.STDOUT
+        )
+        processes[svc_name] = p
+        
+    if not processes:
+        print("No new services started.")
+        return
+        
+    print("\nPress Ctrl+C to stop all services.")
+    try:
+        while True:
+            clock.sleep(1)
+            # Check if any died
+            for name, p in list(processes.items()):
+                if p.poll() is not None:
+                    print(f"[{name}] exited with code {p.returncode}")
+                    del processes[name]
+            if not processes:
+                break
+    except KeyboardInterrupt:
+        print("\nStopping services...")
+        for name, p in processes.items():
+            print(f"[{name}] Terminating...")
+            p.terminate()
+            try:
+                p.wait(timeout=3)
+            except subprocess.TimeoutExpired:
+                p.kill()
+        print("All services stopped.")
+
+
+CORE_TOOLS = ["agentmemory", "headroom", "codeburn", "graphify", "memory_sync", "kimi_k3", "claude_mem"]
+
+def stop_services(only: list[str] = None):
+    config = get_config()
+    target_services = list(config.keys())
+    if only:
+        target_services = [s for s in only if s in config]
+    
+    print(f"Stopping services: {', '.join(target_services)}...")
+    for name in target_services:
+        svc = config[name]
+        port = svc.get("port")
+        check_ports = svc.get("check_ports", [port] if port else [])
+        for p in check_ports:
+            if p:
+                subprocess.run(["fuser", "-k", f"{p}/tcp"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        script = svc.get("process_match") or (svc.get("command", "").split()[-1] if svc.get("command") else "")
+        if script:
+            subprocess.run(["pkill", "-f", script], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        print(f"[{name}] Stopped.")
+
+def status_services():
+    config = get_config()
+    print(f"{'SERVICE':<15} {'PORT':<12} {'STATUS':<15}")
+    print("-" * 45)
+    for name, svc in config.items():
+        check_ports = svc.get("check_ports")
+        port = svc.get("port")
+        
+        if check_ports:
+            all_up = all(check_port(p) for p in check_ports)
+            any_up = any(check_port(p) for p in check_ports)
+            port_str = ", ".join(str(p) for p in check_ports)
+            if all_up:
+                status = "\033[32mUP\033[0m"
+            elif any_up:
+                status = "\033[33mPARTIAL\033[0m"
+            else:
+                status = "\033[31mDOWN\033[0m"
+            print(f"{name:<15} {port_str:<12} {status}")
+            continue
+
+        if not port:
+            cmd = svc.get("command", "")
+            script = svc.get("process_match") or (cmd.split()[-1] if cmd else "")
+            status = "UNKNOWN (No port)"
+            if script:
+                try:
+                    res = subprocess.run(["pgrep", "-f", script], capture_output=True, text=True, timeout=2)
+                    pids = [p for p in res.stdout.strip().split("\n") if p]
+                    if pids:
+                        status = f"\033[32mUP (stdio PID {','.join(pids)})\033[0m"
+                    else:
+                        status = "\033[31mDOWN (stdio)\033[0m"
+                except Exception:
+                    status = "UNKNOWN (No port)"
+            print(f"{name:<15} {'N/A':<12} {status}")
+            continue
+            
+        is_up = check_port(port)
+        status = "\033[32mUP\033[0m" if is_up else "\033[31mDOWN\033[0m"
+        print(f"{name:<15} {str(port):<12} {status}")
+
+def main():
+    parser = argparse.ArgumentParser(description="Unified Service Manager")
+    parser.add_argument("action", choices=["start", "status", "stop", "restart", "health"], help="Action to perform")
+    parser.add_argument("--only", nargs="+", help="Only apply to specific services")
+    parser.add_argument("--tools", action="store_true", help="Target only the 4 core tools (agentmemory, headroom, codeburn, graphify)")
+    
+    args = parser.parse_args()
+    target = CORE_TOOLS if args.tools else args.only
+    
+    if args.action == "start":
+        start_services(target)
+    elif args.action == "status":
+        status_services()
+    elif args.action == "stop":
+        stop_services(target)
+    elif args.action == "restart":
+        stop_services(target)
+        clock.sleep(1)
+        start_services(target)
+    elif args.action == "health":
+        import subprocess as _sp
+        _sp.run([sys.executable, str(PROJECT_ROOT / "scripts" / "watchdog.py"), "status"])
+
+if __name__ == "__main__":
+    main()

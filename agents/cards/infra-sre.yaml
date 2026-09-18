@@ -1,0 +1,58 @@
+id: infra-sre
+name: InfraOps / SRE
+version: 1.0.0
+tier: 0
+lineage: infra-sre@1
+model_default: claude-haiku-4-5
+owns:
+- infra/**
+capabilities:
+- infra.plan
+- infra.apply
+- node.drain
+- node.reboot
+idempotency:
+  infra.plan:
+    class: none
+  infra.apply:
+    class: forever
+  node.drain:
+    class: scoped
+    ttl: 15m
+  node.reboot:
+    class: scoped
+    ttl: 15m
+autonomy:
+  default: L1
+  max: L1
+budget:
+  tokens_per_day: 200000
+  usd_per_day: 2.0
+  reserve_before_execute: true
+kpi:
+- uptime
+- p95_latency
+- mttr
+counter_kpi:
+- change_failure_rate
+- cost_per_node
+counter_kpi_owner: security-compliance
+forbidden:
+- terraform apply without plan approval
+- drain all nodes concurrently
+escalation:
+  to: orchestrator
+  'on':
+  - node_drain_timeout
+  - capacity_exhaustion
+  - budget_exceeded_80pct
+heartbeat_sla_min: 15
+sim_scenarios_required:
+- node_outage
+- gateway_down
+- clock_skew
+transports:
+  preferred: T2
+  fallback: T1
+  forbidden:
+  - T3

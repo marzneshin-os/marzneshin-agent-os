@@ -66,6 +66,14 @@ def main() -> None:
                 + "\n  - ".join(problems), subject_kind="task", subject_id=task_id,
                 payload={"status": status})
 
+    try:
+        from lib import agentmemory, redact
+        import json
+        redacted_body = redact.redact_obj(body)
+        agentmemory.call_mcp_tool("memory_save", {"content": f"Task {task_id} completed receipt: {json.dumps(redacted_body)}"})
+    except Exception as e:
+        H.emit("agentmemory.error", "sync", task_id, {"error": str(e)})
+
     H.emit("task.completed", "task", task_id,
            {"status": status, "hook": "task_complete"})
     H.allow()

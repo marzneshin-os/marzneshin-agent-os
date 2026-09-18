@@ -19,6 +19,23 @@
         6
       ],
       "world": "prod"
+    },
+    {
+      "actor": "system-compact",
+      "adr": "decisions/ADR/ADR-006-vs4-continuity-decisions.md",
+      "day": "2026-08-07",
+      "event_ids": [
+        "01KZD6XFNY539S2A0C93M9A5SB",
+        "01KZDCPBVKCKNVQCNT8DAR17XX"
+      ],
+      "kind": "missing_seq",
+      "note": "",
+      "registered_at": "2026-08-13T21:43:18.430Z",
+      "registered_by": "antigravity",
+      "seqs": [
+        30
+      ],
+      "world": "prod"
     }
   ],
   "schema_version": "2.0.0"

@@ -67,6 +67,9 @@ Current phase: **P1 — agentic-core** · Active slice: **VS-4 (Continuity & Kil
 python3 -m venv .venv && source .venv/bin/activate
 pip install pyyaml jsonschema        # strict validation only; runtime is stdlib-only
 
+# Start AgentMemory in a separate terminal to enable project-scoped persistent memory
+XDG_DATA_HOME=$PWD/state npx -y @agentmemory/agentmemory
+
 python3 scripts/health.py            # tests + verify + sim, ~4 lines of output
 ```
 

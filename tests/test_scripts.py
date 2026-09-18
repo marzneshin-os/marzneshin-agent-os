@@ -535,6 +535,28 @@ class TestSuccession(CliTestCase):
         self.assertFalse((self.tmp / "artifacts" / "succession").exists(),
                          "dry-run must not write a report artifact")
 
+    def test_scan_no_pending_exits_0(self):
+        out = self.run_cli("scripts/succession.py", "scan")
+        self.assertEqual(out.returncode, 0, out.stderr)
+        self.assertIn("no pending", out.stdout)
+
+    def test_scan_processes_offboarding_json_and_archives(self):
+        self.run_cli("scripts/fsp.py", "claim", "sim-config", "--agent", "config-engineer")
+        offboarding_data = [
+            {
+                "agent": "config-engineer",
+                "workstream": "sim-config",
+                "trigger": "member_removed",
+                "reason": "Offboarding test"
+            }
+        ]
+        (self.tmp / "state" / "OFFBOARDING.json").write_text(json.dumps(offboarding_data), encoding="utf-8")
+        out = self.run_cli("scripts/succession.py", "scan")
+        self.assertEqual(out.returncode, 0, out.stderr)
+        self.assertFalse((self.tmp / "state" / "OFFBOARDING.json").exists(), "OFFBOARDING.json should be moved to archive")
+        archived = list((self.tmp / "state" / "archive" / "offboarding").glob("offboarding-*.json"))
+        self.assertTrue(archived, "Archive file not found")
+
 
 # --- escrow.py (§11.2, VS-4) ------------------------------------------------
 

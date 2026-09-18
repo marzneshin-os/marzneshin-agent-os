@@ -28,7 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from lib import budget, clock, events, killswitch, paths, receipts, state  # noqa: E402
+from lib import budget, clock, events, killswitch, paths, receipts, state, canary, probe_fleet, growth, experiments  # noqa: E402
 from lib.atomic import read_json  # noqa: E402
 
 
@@ -137,6 +137,38 @@ def compact(*, start: date, end: date, rebuild: bool = False,
         "freshness_s": ks.freshness_seconds,
         "fail_closed_engaged": ks.verdict is killswitch.Verdict.UNKNOWN,
     }
+
+    # Sense level calculation & enrichment (§12.0)
+    current["sense_level"] = state.compute_sense_level(current.get("active_slice"))
+    if current["sense_level"] in ("Tick-B", "Tick-C", "Tick-D"):
+        pf = probe_fleet.get_latest_probe_result() or probe_fleet.sample_fleet()
+        current["probe_fleet"] = {
+            "healthy": pf.healthy,
+            "csr": round(pf.csr, 4),
+            "asns": pf.healthy_asns,
+        }
+        current["canary"] = {
+            "active_experiments": len(canary.list_canaries()),
+        }
+    if current["sense_level"] in ("Tick-C", "Tick-D"):
+        nsm_data = growth.compute_nsm(window_days=7)
+        funnel_data = growth.compute_funnel(window_days=7)
+        current["growth"] = {
+            "nsm": nsm_data["nsm_count"],
+            "paid_users": nsm_data["paid_users_count"],
+            "funnel_overall_conversion": funnel_data["conversion_rates"]["overall_visit_to_paid"],
+        }
+    if current["sense_level"] in ("Tick-D",):
+        exps = experiments.list_experiments()
+        active_exps = sum(1 for e in exps if e.get("status") in ("active", "created", "running"))
+        shipped_exps = sum(1 for e in exps if e.get("status") == "ship")
+        killed_exps = sum(1 for e in exps if e.get("status") in ("kill", "stopped"))
+        current["experiments"] = {
+            "active": active_exps,
+            "shipped": shipped_exps,
+            "killed": killed_exps,
+            "total": len(exps),
+        }
 
     # Workstream view: leases (authoritative) + receipt chain heads.
     for ws_name, view in _receipt_views().items():

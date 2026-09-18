@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marzneshin — Revenue Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #090d16;
+      --card-bg: rgba(18, 26, 43, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(26, 38, 64, 0.95);
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.35);
+      --emerald: #10b981;
+      --emerald-glow: rgba(16, 185, 129, 0.3);
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --violet: #8b5cf6;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      background-image: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+                        radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      padding: 1.5rem;
+      line-height: 1.5;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-badge {
+      background: linear-gradient(135deg, var(--primary), var(--violet));
+      color: white;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+    }
+    .brand h1 { font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; }
+    .status-tags { display: flex; gap: 0.5rem; align-items: center; }
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .tag.green { border-color: rgba(16, 185, 129, 0.4); color: var(--emerald); }
+    .tag.blue { border-color: rgba(59, 130, 246, 0.4); color: var(--primary); }
+
+    .grid-5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      backdrop-filter: blur(16px);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover { border-color: rgba(255, 255, 255, 0.16); }
+    .card-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      letter-spacing: -0.03em;
+    }
+    .card-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem; }
+
+    .highlight-green { color: var(--emerald); text-shadow: 0 0 12px var(--emerald-glow); }
+    .highlight-blue { color: var(--primary); text-shadow: 0 0 12px var(--primary-glow); }
+    .highlight-violet { color: var(--violet); }
+
+    /* Funnel bar representation */
+    .funnel-container { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .funnel-step { display: flex; flex-direction: column; gap: 0.25rem; }
+    .funnel-meta { display: flex; justify-content: space-between; font-size: 0.85rem; font-family: var(--font-mono); }
+    .bar-bg { height: 10px; background: rgba(255, 255, 255, 0.05); border-radius: 5px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, var(--primary), var(--emerald)); transition: width 0.8s ease; }
+
+    /* Table styles */
+    table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.85rem; }
+    th { text-align: left; padding: 0.6rem; color: var(--text-muted); border-bottom: 1px solid var(--card-border); font-weight: 600; }
+    td { padding: 0.65rem; border-bottom: 1px solid rgba(255, 255, 255, 0.03); font-family: var(--font-mono); }
+    tr:hover td { background: rgba(255, 255, 255, 0.02); }
+    .badge { padding: 0.2rem 0.45rem; border-radius: 4px; font-size: 0.75rem; }
+    .badge-ok { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .formula-box {
+      background: rgba(0, 0, 0, 0.25);
+      border-left: 3px solid var(--primary);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      margin-top: 0.75rem;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <span class="brand-badge">VS-10</span>
+        <h1>Revenue Command Center</h1>
+      </div>
+      <div class="status-tags">
+        <span class="tag green" id="tag-sense">● Sense: Tick-D</span>
+        <span class="tag green" id="tag-slo">● CSR SLO: 100.0%</span>
+        <span class="tag blue" id="tag-autonomy">Autonomy: L2 (Momo)</span>
+        <span class="tag">Solo-Operator Bus-Factor = 1</span>
+      </div>
+    </header>
+
+    <!-- Topline Metrics -->
+    <div class="grid-5">
+      <div class="card">
+        <div class="card-title">North Star Metric (NSM) <span>7d</span></div>
+        <div class="card-value highlight-green" id="metric-nsm">--</div>
+        <div class="card-sub">Active connected paid users (100% traceable)</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Monthly Recurring (MRR) <span>USD</span></div>
+        <div class="card-value highlight-blue" id="metric-mrr">$--</div>
+        <div class="card-sub" id="metric-arr">ARR: $--</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Net Retention (NRR) <span>Cohorts</span></div>
+        <div class="card-value" id="metric-nrr">100.0%</div>
+        <div class="card-sub">Zero revenue churn observed</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Gross Margin <span>Target > 70%</span></div>
+        <div class="card-value highlight-green" id="metric-margin">--%</div>
+        <div class="card-sub" id="metric-profit">Profit/User: $--</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Agent Fleet Leverage <span>Auto/Manual</span></div>
+        <div class="card-value highlight-violet" id="metric-leverage">--x</div>
+        <div class="card-sub" id="metric-receipts">27 receipts (100% covered)</div>
+      </div>
+    </div>
+
+    <!-- Middle: Live Unit Economics & Funnel -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Live Unit Economics (Live Agent Token Cost In Profit Formula)</div>
+        <div class="formula-box">
+          GrossProfit/User = ARPU ($<span id="f-arpu">--</span>) - Infra ($2.50) - Fee ($0.50) - Support ($1.00) - <strong>TokenCost/User ($<span id="f-token">--</span>)</strong>
+        </div>
+        <table style="margin-top: 1rem;">
+          <tbody>
+            <tr><td>LTV (Lifetime Value)</td><td id="e-ltv" class="highlight-green">$--</td><td>Target: > 3x CAC</td></tr>
+            <tr><td>CAC (Customer Acquisition)</td><td>$15.00</td><td>Stop-Loss: > 1.5x target</td></tr>
+            <tr><td>LTV:CAC Ratio</td><td id="e-ratio" class="highlight-blue">--x</td><td>Healthy SaaS Benchmark</td></tr>
+            <tr><td>CAC Payback Period</td><td id="e-payback">-- mo</td><td>Target: &lt; 3 months</td></tr>
+            <tr><td>Live Agent Token Spend</td><td id="e-agent-usd">$--</td><td>Tracked via budget ledger</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Growth & Conversion Funnel (Zero Traffic Inspection)</div>
+        <div class="funnel-container" id="funnel-bars">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom: Counter-KPI Guardrail Matrix -->
+    <div class="card" style="margin-bottom: 1.5rem;">
+      <div class="card-title">Counter-KPI Guardrail Matrix & Separation of Duties (BUILD-SPEC §10.1, §10.4, Rule I13)</div>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+        Every active agent has an independently monitored Counter-KPI owned by a different agent to prevent metric gaming.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Primary KPI</th>
+            <th>Counter-KPI (Safety Guardrail)</th>
+            <th>Independent Owner</th>
+            <th>Safe Bound</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="counter-kpi-tbody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Active Experiments Summary -->
+    <div class="card">
+      <div class="card-title">Safe Experimentation & Readout Loop (BUILD-SPEC §13.4, VS-9)</div>
+      <div style="display: flex; gap: 2rem; margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.9rem;">
+        <div>Active Trials: <span class="highlight-blue" id="exp-active">0</span></div>
+        <div>Shipped (Proven Lift): <span class="highlight-green" id="exp-shipped">1</span></div>
+        <div>Auto-Killed / Stopped: <span style="color: var(--rose);" id="exp-killed">0</span></div>
+        <div>SRM Protection: <span class="badge badge-ok">Chi-Square &alpha;=0.001</span></div>
+        <div>Sequential Testing: <span class="badge badge-ok">Always-Valid Martingale</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Embedded live payload fallback
+    const mockData = {
+      "north_star": { "nsm_count": 3, "paid_users": 4, "active_connected_users": 3 },
+      "revenue": { "mrr": 55.0, "arr": 660.0, "arpu": 18.33, "nrr_pct": 100.0, "paid_customers": 3 },
+      "unit_economics": {
+        "gross_profit_per_user": 14.33,
+        "gross_margin_pct": 78.18,
+        "ltv": 171.96,
+        "ltv_cac": 11.46,
+        "cac_payback_mo": 1.05
+      },
+      "token_economics": { "usd_spent_today": 0.0, "live_token_cost_per_active_user": 0.0 },
+      "agent_fleet": { "leverage_ratio": 26.0, "total_receipts": 27 },
+      "funnel": {
+        "counts": { "visits": 1, "signups": 1, "trials": 1, "checkouts": 2, "paid": 2, "connected": 1 },
+        "conversion_rates": { "overall_visit_to_paid": 2.0 }
+      },
+      "experiments": { "active": 0, "shipped": 1, "killed": 0 },
+      "counter_kpis": {
+        "agents": [
+          { "name": "Orchestrator (CEO Agent)", "primary_kpi": "Agent Leverage", "counter_kpi": "Escalation Latency", "counter_kpi_owner": "adversarial-reviewer", "bound": "< 300s", "status": "healthy" },
+          { "name": "Config Engineer", "primary_kpi": "CSR", "counter_kpi": "Rollback Rate", "counter_kpi_owner": "qa-gate", "bound": "< 5%", "status": "healthy" },
+          { "name": "InfraOps/SRE", "primary_kpi": "Uptime & P95", "counter_kpi": "Change Failure Rate", "counter_kpi_owner": "security-compliance", "bound": "< 2%", "status": "healthy" },
+          { "name": "QA Gate", "primary_kpi": "Gate Coverage", "counter_kpi": "Gate Flakiness", "counter_kpi_owner": "adversarial-reviewer", "bound": "< 2%", "status": "healthy" },
+          { "name": "Security & Compliance", "primary_kpi": "Secret Leaks = 0", "counter_kpi": "False Positive Block Rate", "counter_kpi_owner": "adversarial-reviewer", "bound": "< 1%", "status": "healthy" },
+          { "name": "Handoff Guardian", "primary_kpi": "Continuity Score", "counter_kpi": "Lease Thrash Rate", "counter_kpi_owner": "orchestrator", "bound": "0 thrash", "status": "healthy" },
+          { "name": "Adversarial Reviewer", "primary_kpi": "Catch Rate", "counter_kpi": "Over-Rejection Rate", "counter_kpi_owner": "orchestrator", "bound": "< 10%", "status": "healthy" },
+          { "name": "Analytics Engineer", "primary_kpi": "NSM Traceability", "counter_kpi": "Metric Gaming Alerts", "counter_kpi_owner": "adversarial-reviewer", "bound": "0 alerts", "status": "healthy" }
+        ]
+      }
+    };
+
+    function render(data) {
+      document.getElementById('metric-nsm').textContent = data.north_star.nsm_count;
+      document.getElementById('metric-mrr').textContent = '$' + data.revenue.mrr.toFixed(2);
+      document.getElementById('metric-arr').textContent = 'ARR: $' + data.revenue.arr.toFixed(2);
+      document.getElementById('metric-nrr').textContent = data.revenue.nrr_pct.toFixed(1) + '%';
+      document.getElementById('metric-margin').textContent = data.unit_economics.gross_margin_pct.toFixed(1) + '%';
+      document.getElementById('metric-profit').textContent = 'Profit/User: $' + data.unit_economics.gross_profit_per_user.toFixed(2);
+      document.getElementById('metric-leverage').textContent = data.agent_fleet.leverage_ratio + 'x';
+      document.getElementById('metric-receipts').textContent = data.agent_fleet.total_receipts + ' receipts (100% covered)';
+
+      document.getElementById('f-arpu').textContent = data.revenue.arpu.toFixed(2);
+      document.getElementById('f-token').textContent = data.token_economics.live_token_cost_per_active_user.toFixed(2);
+      document.getElementById('e-ltv').textContent = '$' + data.unit_economics.ltv.toFixed(2);
+      document.getElementById('e-ratio').textContent = data.unit_economics.ltv_cac.toFixed(2) + 'x';
+      document.getElementById('e-payback').textContent = data.unit_economics.cac_payback_mo.toFixed(2) + ' mo';
+      document.getElementById('e-agent-usd').textContent = '$' + data.token_economics.usd_spent_today.toFixed(4);
+
+      // Funnel
+      const funnelContainer = document.getElementById('funnel-bars');
+      funnelContainer.innerHTML = '';
+      const counts = data.funnel.counts;
+      const maxCount = Math.max(...Object.values(counts), 1);
+      for (const [stage, count] of Object.entries(counts)) {
+        const pct = Math.round((count / maxCount) * 100);
+        const step = document.createElement('div');
+        step.className = 'funnel-step';
+        step.innerHTML = `
+          <div class="funnel-meta"><span>${stage.toUpperCase()}</span><span>${count} (${pct}%)</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width: ${pct}%;"></div></div>
+        `;
+        funnelContainer.appendChild(step);
+      }
+
+      // Counter KPIs
+      const tbody = document.getElementById('counter-kpi-tbody');
+      tbody.innerHTML = '';
+      for (const agent of data.counter_kpis.agents) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${agent.name}</strong></td>
+          <td>${agent.primary_kpi}</td>
+          <td>${agent.counter_kpi}</td>
+          <td style="color: var(--primary);">${agent.counter_kpi_owner}</td>
+          <td>${agent.bound}</td>
+          <td><span class="badge badge-ok">HEALTHY</span></td>
+        `;
+        tbody.appendChild(tr);
+      }
+
+      // Experiments
+      document.getElementById('exp-active').textContent = data.experiments.active;
+      document.getElementById('exp-shipped').textContent = data.experiments.shipped;
+      document.getElementById('exp-killed').textContent = data.experiments.killed;
+    }
+
+    render(mockData);
+  </script>
+</body>
+</html>

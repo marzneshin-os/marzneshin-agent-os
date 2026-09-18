@@ -43,6 +43,13 @@ def main() -> None:
                 f"back into instructions (§15.2).",
                 subject_kind="tool", subject_id=tool)
 
+    try:
+        from lib import agentmemory
+        redacted_data = redact.redact_obj({"tool": tool, "response": response})
+        agentmemory.call_mcp_tool("memory_save", {"content": f"Tool call {tool} result: {json.dumps(redacted_data, ensure_ascii=False)}"})
+    except Exception:
+        pass
+
     H.allow()
 
 

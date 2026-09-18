@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/asus/code/marzneshin-agent-os/scripts/langgraph_mcp.py", line 5, in <module>
+    from mcp.server import Server, NotificationOptions
+ModuleNotFoundError: No module named 'mcp'
+Traceback (most recent call last):
+  File "/home/asus/code/marzneshin-agent-os/scripts/langgraph_mcp.py", line 5, in <module>
+    from mcp.server import Server, NotificationOptions
+ModuleNotFoundError: No module named 'mcp'
+Traceback (most recent call last):
+  File "/home/asus/code/marzneshin-agent-os/scripts/langgraph_mcp.py", line 5, in <module>
+    from mcp.server import Server, NotificationOptions
+ModuleNotFoundError: No module named 'mcp'
+Traceback (most recent call last):
+  File "/home/asus/code/marzneshin-agent-os/scripts/langgraph_mcp.py", line 5, in <module>
+    from mcp.server import Server, NotificationOptions
+ModuleNotFoundError: No module named 'mcp'

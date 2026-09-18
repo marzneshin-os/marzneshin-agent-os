@@ -58,10 +58,12 @@ EVENT_TYPES = frozenset({
     # payload — so a mid-phase slice change had no event to carry it and
     # STATE.active_slice went stale for three days (VS-3 vs VS-4), and an ADR
     # could not be announced on the log at all.
-    "slice.transitioned", "decision.recorded",
+    "slice.transitioned", "decision.recorded", "decision.declined",
+    # llm
+    "llm.chat",
     # safety
     "killswitch.engaged", "killswitch.released", "killswitch.unknown",
-    "guardrail.breached", "rollback.executed", "autonomy.changed",
+    "guardrail.breached", "rollback.executed", "autonomy.changed", "autonomy.shadow_decision", "autonomy.promoted", "autonomy.demoted", "autonomy.quarantined", "autonomy.reviewed",
     "budget.reserved", "budget.settled", "budget.exceeded",
     # ops
     "probe.sampled", "slo.breached", "incident.opened", "incident.closed",
@@ -76,6 +78,17 @@ EVENT_TYPES = frozenset({
     "succession.verified", "succession.completed", "succession.failed",
     # escrow (VS-4, §11.2): the encrypted recovery bundle's build/verify trail.
     "escrow.built", "escrow.verified",
+    # adversarial review & continuity (VS-5)
+    "review.requested", "review.rejected", "review.approved", "continuity.scored",
+    # canary & config pipeline (VS-7)
+    "canary.deployed", "canary.promoted", "canary.held", "canary.inconclusive", "canary.rolled_back",
+    # growth & funnel events (VS-8, §13.1)
+    "funnel.visit", "funnel.signup", "funnel.trial_started",
+    "checkout.initiated", "checkout.completed", "checkout.failed",
+    "connection.success", "connection.failure", "campaign.attributed",
+    # experiment loop events (VS-9, §13.4)
+    "experiment.created", "experiment.readout", "experiment.shipped",
+    "experiment.killed", "experiment.stopped", "experiment.negative_result",
 })
 
 ACTOR_KINDS = frozenset({"agent", "human", "system", "workflow", "sim"})

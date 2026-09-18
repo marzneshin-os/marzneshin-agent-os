@@ -1,0 +1,1512 @@
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+'\\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server'
+CMD.EXE was started with the above path as the current directory.
+UNC paths are not supported.  Defaulting to Windows directory.
+'tsx' is not recognized as an internal or external command,
+operable program or batch file.
+npm error Lifecycle script `dev` failed with error:
+npm error code 1
+npm error path \\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server
+npm error workspace @freellmapi/server@0.2.1
+npm error location \\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c tsx watch src/index.ts
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+'\\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server'
+CMD.EXE was started with the above path as the current directory.
+UNC paths are not supported.  Defaulting to Windows directory.
+'tsx' is not recognized as an internal or external command,
+operable program or batch file.
+npm error Lifecycle script `dev` failed with error:
+npm error code 1
+npm error path \\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server
+npm error workspace @freellmapi/server@0.2.1
+npm error location \\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c tsx watch src/index.ts
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+'\\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server'
+CMD.EXE was started with the above path as the current directory.
+UNC paths are not supported.  Defaulting to Windows directory.
+'tsx' is not recognized as an internal or external command,
+operable program or batch file.
+npm error Lifecycle script `dev` failed with error:
+npm error code 1
+npm error path \\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server
+npm error workspace @freellmapi/server@0.2.1
+npm error location \\wsl.localhost\Ubuntu\home\asus\code\freellmapi\server
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c tsx watch src/index.ts
+cd : Cannot find path 'Microsoft.PowerShell.Core\FileSystem::wsl.localhost\Ubuntu\home\asus\code\freellmapi' because 
+it does not exist.
+At line:1 char:1
++ cd \wsl.localhost\Ubuntu\home\asus\code\freellmapi; npm run dev -w se ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Microsoft.Power...code\freellmapi:String) [Set-Location], ItemNotFoundE 
+   xception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+ 
+npm error code ENOENT
+npm error syscall open
+npm error path \\wsl.localhost\Ubuntu\home\asus\code\marzneshin-agent-os\package.json
+npm error errno -4058
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '\\wsl.localhost\Ubuntu\home\asus\code\marzneshin-agent-os\package.json'
+npm error enoent This is related to npm not being able to find a file.
+npm error enoent
+npm error A complete log of this run can be found in: C:\Users\Asus\AppData\Local\npm-cache\_logs\2026-08-28T20_38_57_671Z-debug-0.log
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: WP3KM8JJQA
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.04 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.09.07: 351 updated, 0 new, 1 removed, 36 quirks, 3 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: K9TLLZ96U6
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.07 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: Q9EFG43V45
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.07 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.09.09.bdc867: 331 updated, 64 new, 20 removed, 36 quirks, 3 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: L9LLWKE5K7
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.09.bdc867 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: GCJSZR6WKT
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.09.bdc867 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+2:38:16 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: EEY8GFG2KR
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.09.bdc867 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.09.10: 393 updated, 0 new, 2 removed, 36 quirks, 3 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:15:44 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 6YLXBGY6RE
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+10:58:05 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: G5AHW4Z285
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:03:54 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: JDY9ENUHQ8
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:07:30 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: UM8V5ZA838
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+12:01:34 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 66D9QGTKAL
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+12:04:09 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: L5Y95GJCTX
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+12:14:08 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 2DXD2XG86N
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+12:24:26 AM [tsx] Process didn't exit in 5s. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: YGP3U7QW6Q
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: QV2DKLFQ9U
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+1:07:34 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: X2VEUWFFSD
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.10 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.09.15.d92254: 281 updated, 11 new, 112 removed, 53 quirks, 3 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[wake] resumed after ~1982s (drift) — flushing stale sockets, re-probing keys
+[Health] Checking 0 keys...
+[Health] Check complete.
+[wake] resumed after ~300s (drift) — flushing stale sockets, re-probing keys
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: QGD329ZMX3
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[wake] resumed after ~0s (signal:SIGCONT) — flushing stale sockets, re-probing keys
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: LRHT44SGSS
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: MJFWF8GCXA
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: WZ927G6UZE
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+12:21:00 PM [tsx] Previous process hasn't exited yet. Force killing...
+12:21:00 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: CBC44Z6PWS
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+12:26:06 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: FAFE36BS9W
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+Error: ENOENT: no such file or directory, stat '/home/asus/code/freellmapi/client/dist/index.html'
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+2:40:32 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 3KZJU5B59R
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+7:41:30 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: L2P5P5NGPH
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+10:37:06 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: YRE247PY5S
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+2:43:24 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 4PB7RJMV7C
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.09.15.d92254 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.09.18: 286 updated, 72 new, 6 removed, 57 quirks, 9 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.

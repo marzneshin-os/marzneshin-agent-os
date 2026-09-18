@@ -1,48 +1,76 @@
 {
-  "active_slice": "VS-4",
+  "active_slice": "VS-11",
   "budget": {
-    "day": "2026-08-08",
+    "day": "2026-09-18",
     "forecast": {
-      "tokens": 0,
-      "usd": 0.0
+      "tokens": 45782,
+      "usd": 0.1068
     },
     "state": "normal",
-    "tokens_spent_today": 0,
-    "usd_spent_today": 0.0,
-    "utilization": 0.0
+    "tokens_spent_today": 30300,
+    "usd_spent_today": 0.0707,
+    "utilization": 0.0076
   },
-  "compacted_event_hash": "sha256:ada13f12dab0bfe6006ed63a17dcd7960f23496011e81b25f662ef2b1290e315",
+  "canary": {
+    "active_experiments": 0
+  },
+  "compacted_event_hash": "sha256:0a199aec9cad417061346946468d8d51c749c2f030c636be0381c9393b6e465d",
   "compacted_from": {
     "actor_seq_watermarks": {
+      "prod:agent-adversarial-reviewer": 1,
+      "prod:agent-analytics-engineer": 135,
       "prod:agent-antigravity": 1,
-      "prod:agent-momo": 72,
+      "prod:agent-config-engineer": 60,
+      "prod:agent-infra-sre": 1,
+      "prod:agent-momo": 96,
       "prod:agent-momo-s190811": 4,
       "prod:agent-momo-s190812": 3,
-      "prod:agent-orchestrator": 23,
+      "prod:agent-orchestrator": 29,
       "prod:agent-qa-gate": 7,
+      "prod:agent-test-agent-1": 100,
+      "prod:agent-test-agent-2": 100,
+      "prod:human-owner": 17,
+      "prod:human-u_alice": 4,
+      "prod:human-u_funnel_1": 50,
+      "prod:human-u_nsm_1": 20,
+      "prod:human-u_nsm_2": 10,
+      "prod:human-u_nsm_3": 10,
       "prod:system-a2a-router": 1,
       "prod:system-bootstrap": 3,
-      "prod:system-coldrestore": 9,
-      "prod:system-compact": 102,
-      "prod:system-events": 1,
-      "prod:system-reaper": 12
+      "prod:system-coldrestore": 21,
+      "prod:system-compact": 132,
+      "prod:system-events": 2,
+      "prod:system-reaper": 14,
+      "prod:system-system": 15,
+      "prod:system-watchdog": 122
     },
-    "event_count": 76,
-    "event_hash": "sha256:ada13f12dab0bfe6006ed63a17dcd7960f23496011e81b25f662ef2b1290e315",
-    "until_ts": "2026-08-08T16:03:48.850Z",
+    "event_count": 718,
+    "event_hash": "sha256:0a199aec9cad417061346946468d8d51c749c2f030c636be0381c9393b6e465d",
+    "until_ts": "2026-09-18T15:53:02.628Z",
     "window": [
-      "2026-08-06",
-      "2026-08-08"
+      "2026-09-16",
+      "2026-09-18"
     ]
   },
-  "compacted_from_events": 76,
-  "generated_at": "2026-08-08T16:03:48.850Z",
+  "compacted_from_events": 718,
+  "experiments": {
+    "active": 0,
+    "killed": 0,
+    "shipped": 0,
+    "total": 0
+  },
+  "generated_at": "2026-09-18T15:53:08.082Z",
   "generated_by": "compact.py",
+  "growth": {
+    "funnel_overall_conversion": 2.0,
+    "nsm": 3,
+    "paid_users": 4
+  },
   "kill_switch": {
     "fail_closed_engaged": false,
-    "freshness_s": 0.197827,
+    "freshness_s": 204.105874,
     "global": false,
-    "read_at": "2026-08-08T16:03:48.844Z",
+    "read_at": "2026-09-18T15:53:02.603Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
@@ -51,28 +79,37 @@
     "verdict": "running"
   },
   "kpis": {
-    "crash_rate": 0.25,
-    "crash_rate_lifetime": 0.25,
+    "crash_rate": 0.2069,
+    "crash_rate_lifetime": 0.2069,
     "crash_rate_sample_sufficient": false,
-    "crash_rate_window": 20,
+    "crash_rate_window": 29,
     "receipt_coverage": 1.0,
-    "receipts_total": 20
+    "receipts_total": 29
   },
   "open_risks": [],
   "open_tasks": [],
   "phase": "P1-agentic-core",
+  "probe_fleet": {
+    "asns": [
+      "asn:AS1",
+      "asn:AS2",
+      "asn:AS3"
+    ],
+    "csr": 1.0,
+    "healthy": true
+  },
   "schema_version": "2.0.0",
-  "sense_level": "Tick-A",
+  "sense_level": "Tick-D",
   "workstreams": {
     "agentic-core": {
       "blocked_by": [],
-      "health": "red",
-      "last_receipt": "T-0015",
+      "health": "unknown",
+      "last_receipt": "T-0023",
       "lease": null,
       "open_tasks": [],
-      "owner_agent": "antigravity",
-      "receipt_chain_head": "sha256:bbe45beb16b217bb31eace0533d5838985867b58ad15342807b758a80916045f",
-      "receipt_chain_length": 20
+      "owner_agent": "momo",
+      "receipt_chain_head": "sha256:ee38a1b85729b07f4c8887360572051c4bcbe50cd3f3d5a8d1c0d6ae2408ae74",
+      "receipt_chain_length": 29
     }
   }
 }

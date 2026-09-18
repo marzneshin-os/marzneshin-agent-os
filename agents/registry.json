@@ -35,6 +35,10 @@
     "probe.echo": {"idempotency": {"class": "scoped", "ttl": 3600}, "risk": "read_analyze"},
     "config.publish": {"idempotency": {"class": "forever"}, "risk": "reversible_config"},
     "config.rollback": {"idempotency": {"class": "forever"}, "risk": "reversible_config"},
-    "probe.run": {"idempotency": {"class": "scoped", "ttl": 300}, "risk": "read_analyze"}
+    "probe.run": {"idempotency": {"class": "scoped", "ttl": 300}, "risk": "read_analyze"},
+    "llm.chat": {"idempotency": {"class": "none"}, "risk": "internal_artifact"},
+    "llm.reason": {"idempotency": {"class": "none"}, "risk": "internal_artifact"},
+    "llm.think": {"idempotency": {"class": "none"}, "risk": "internal_artifact"},
+    "llm.search": {"idempotency": {"class": "none"}, "risk": "read_analyze"}
   }
 }

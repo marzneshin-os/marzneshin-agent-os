@@ -1,29 +1,19 @@
-"""Adapter contract test — ONE suite that every adapter passes, fake or real
-(BUILD-SPEC §4, §16.1).
+"""Contract test harness for adapters (§4).
 
-A fake that diverges from its real adapter makes the simulation worthless:
-chaos scenarios would prove things about a system that does not exist. So the
-same checks run against both, and a divergence fails the build:
+All adapters (real and fake) must pass this suite. If a fake passes but the
+real one fails, the fake is useless for §16 simulation scenarios.
 
-    contract_suite(adapter_factory, ops) -> list of {check, ok, detail}
-
-`adapter_factory` is a zero-arg callable returning a fresh adapter instance
-(isolation between checks). `ops` names the operations the adapter declares
-in capabilities() — the suite drives every one of them.
-
-Covered invariants:
-  C1 healthz() returns a well-formed Health
-  C2 capabilities() matches the declared op set exactly
-  C3 every op executes with ok=True on a well-formed payload (fake: success
-     path; real adapter: sandbox)
-  C4 unknown op is refused, not silently ignored
-  C5 idempotency: a `forever` op repeated with the same key returns the
-     stored result and does NOT re-execute (replayed=True)
-  C6 dry_run is real: no state mutation is visible to the next call
-  C7 result schema: every Result carries ok/op/data/dry_run/attempts
-  C8 rollback of a recorded receipt reference returns a Result (ok or a
-     clean refusal — never a crash)
-  C9 provenance is accepted for every op (taint envelope, §15.2)
+C1 healthz returns a well-formed Health object
+C2 capabilities match the declared ops exactly
+C3 every op executes on the success path (using the minimal valid payload)
+C4 unknown op is refused, not silently ignored
+C5 idempotency: a `forever` op repeated with the same key returns the
+   stored result and does NOT re-execute (replayed=True)
+C6 dry_run is real: no state mutation is visible to the next call
+C7 result schema: every Result carries ok/op/data/dry_run/attempts
+C8 rollback of a recorded receipt reference returns a Result (ok or a
+   clean refusal — never a crash)
+C9 provenance is accepted for every op (taint envelope, §15.2)
 """
 
 from __future__ import annotations
@@ -194,5 +184,7 @@ def _payload_for(op: str) -> dict:
         "get_secret": {"name": "contract/probe"},
         "rotate": {"name": "contract/probe"},
         "audit": {},
+        # llm gateway
+        "llm_chat": {"model": "gemini/gemini-3.6-flash", "messages": [{"role": "user", "content": "contract"}]},
     }
     return table.get(op, {})

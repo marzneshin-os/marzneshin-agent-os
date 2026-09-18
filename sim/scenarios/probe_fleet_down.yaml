@@ -1,0 +1,23 @@
+# probe_fleet_down — observability probe fleet goes down (network isolation / monitoring failure);
+# the control loop fails closed (I12): cannot sense SLO, halts mutating actions, and resumes
+# once probes recover without false rollbacks or state corruption (§16).
+name: probe_fleet_down
+description: >
+  At tick 18 the observability probe fleet goes down for 36 ticks (3h virtual).
+  The control loop fails closed: halts mutating operations, records probe failures,
+  and does not trigger spurious rollbacks. When the probe fleet recovers, sensing
+  resumes cleanly.
+duration_h: 72
+tick_s: 300
+world: {nodes: 3, users: 2000, trials_per_tick: 2.0}
+actors: [config-engineer, reaper, guard]
+chaos:
+  - {kind: adapter_down, at_tick: 18, adapter: observability, ticks: 36}
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.05
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  mttr_min_max: 60
+  slo_breach_min_max: 999999

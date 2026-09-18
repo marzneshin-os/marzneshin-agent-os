@@ -4,3 +4,22 @@ __pycache__/
 .env*
 node_modules/
 .next/
+state/agentmemory/
+state/relevance-ai/account-pool.json
+# Scratch & Local Logs
+scratch_*.py
+check_obs.py
+list_models.py
+mcp_tools.json
+memory_smoke_test.txt
+router_test.log
+test_health.py
+test_mcp.py
+test_mem_api.sh
+test_memory_api.py
+FreeLLMAPI_Guide.pdf
+*.bak*
+antigravity-account-switcher/
+state/langgraph_checkpoints.sqlite
+graphify-out/
+package-lock.json

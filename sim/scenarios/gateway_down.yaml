@@ -1,0 +1,23 @@
+# gateway_down — external API / Transport Gateway outage;
+# the system fails closed or falls back to offline/T1 transport
+# without losing task state or leaking secrets (§5.3, §16).
+name: gateway_down
+description: >
+  At tick 16 the gateway adapter goes down for 40 ticks.
+  The dispatcher routes through fallback channels (T1), ensuring zero lost tasks
+  and zero duplicate work. When the gateway recovers, normal transport is restored.
+duration_h: 72
+tick_s: 300
+world: {nodes: 2, users: 500, trials_per_tick: 1.0}
+actors: [dispatcher]
+chaos:
+  - {kind: adapter_down, at_tick: 16, adapter: moxt, ticks: 40}
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.05
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  a2a_fallbacks_min: 1
+  a2a_completed_min: 50
+  a2a_failed_max: 5

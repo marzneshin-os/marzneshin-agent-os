@@ -238,6 +238,14 @@ def tradeoff_register_file() -> Path:
     return _p("decisions", "TRADEOFF-REGISTER.md")
 
 
+def router_config_file() -> Path:
+    return _p("configs", "router.json")
+
+
+def router_usage_file() -> Path:
+    return _p("state", "router", "usage.ndjson")
+
+
 def _slug(value: str) -> str:
     """Filesystem-safe token. Keeps ids readable: 'agent:config-eng' -> 'agent-config-eng'."""
     out = []

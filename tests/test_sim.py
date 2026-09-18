@@ -74,6 +74,9 @@ class TestAdapterContract(unittest.TestCase):
     def test_vault(self):
         self._check("vault")
 
+    def test_omniroute(self):
+        self._check("omniroute")
+
     def test_out_of_band_alert_is_recorded(self):
         """§11.2 hard requirement: the OOB channel actually works in sim."""
         from sim.fakes import build_fakes
@@ -167,9 +170,11 @@ class TestSimHarness(unittest.TestCase):
             capture_output=True, text=True, env=env, timeout=900, cwd=REPO)
         self.assertEqual(out.returncode, 0,
                          f"suite red:\n{out.stdout[-2000:]}\n{out.stderr[-1000:]}")
-        # 11 scenarios x 3 seeds (7 through VS-3 + event_seq_race,
-        # killswitch_unreadable, owner_absent, member_removed in VS-4)
-        self.assertEqual(out.stdout.count("[PASS]"), 33)
+        # 17 scenarios x 3 seeds (11 through session 7 + clock_skew,
+        # control_room_down, gateway_down, metric_gaming,
+        # config_canary_regression, probe_fleet_down)
+        expected_passes = len(list((REPO / "sim" / "scenarios").glob("*.yaml"))) * 3
+        self.assertEqual(out.stdout.count("[PASS]"), expected_passes)
 
 
 if __name__ == "__main__":

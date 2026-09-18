@@ -113,6 +113,10 @@ def now() -> datetime:
     return get_clock().now()
 
 
+def sleep(seconds: float) -> None:
+    get_clock().sleep(seconds)
+
+
 def iso() -> str:
     """ISO8601 UTC with 'Z', millisecond precision. The only timestamp format
     written anywhere in this system."""

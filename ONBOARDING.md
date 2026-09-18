@@ -48,6 +48,13 @@ source .venv/bin/activate
 pip install pyyaml jsonschema
 ```
 
+همچنین برای فعال‌سازی حافظهٔ دائمی عامل‌ها، باید سرور AgentMemory را در یک ترمینال جداگانه اجرا کنی (حافظه در `state/agentmemory/` ذخیره می‌شود):
+
+```bash
+XDG_DATA_HOME=$PWD/state npx -y @agentmemory/agentmemory
+```
+توجه: هرگز از نصبگر بومی پلاگین AgentMemory در Claude Code استفاده نکن، چون هوک‌های امنیتی سیستم‌عامل را دور می‌زند.
+
 اگر `requirements.txt` وجود داشت، از آن استفاده کن.
 
 ---
@@ -248,7 +255,10 @@ You are a fresh session with **no memory** of prior work. All project knowledge 
 1. **Read in order:** `state/STATE.json` → `state/HANDOFF.md` → `CONTEXT-PACK.md` → `CLAUDE.md`
    → `BUILD-SPEC.md` (§0, §16, §17) → newest `decisions/ADR/` → newest `decisions/GAP-REPORT-*`
    → `decisions/TRADEOFF-REGISTER.md` → `RECOVERY.md`. On conflict, **the files win**.
-2. **Rebuild env:** `python3 -m venv .venv && source .venv/bin/activate && pip install pyyaml jsonschema`
+2. **Rebuild env:** `python3 -m venv .venv && source .venv/bin/activate && pip install pyyaml jsonschema`. 
+   Also run the AgentMemory server in a separate terminal to enable persistent agent memory:
+   `XDG_DATA_HOME=$PWD/state npx -y @agentmemory/agentmemory`
+   Never use the native plugin installer for AgentMemory as it bypasses Marzneshin's security hooks.
 3. **Session start (FSP, mandatory):** `fsp.py status` → `killswitch.py reconcile --skip-auto --by <id>`
    (heartbeat is always stale after a handoff — not a failure) → `fsp.py claim <slice> --agent <id>`
 4. **Verify baseline green** before touching code with ONE command: `python3 scripts/health.py`.

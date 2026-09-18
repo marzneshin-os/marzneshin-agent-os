@@ -1,0 +1,53 @@
+id: handoff-guardian
+name: Handoff Guardian
+version: 1.0.0
+tier: 0
+lineage: handoff-guardian@1
+model_default: claude-haiku-4-5
+owns:
+- state/HANDOFF.md
+capabilities:
+- handoff.verify
+- lease.reap
+- continuity.score
+idempotency:
+  handoff.verify:
+    class: none
+  lease.reap:
+    class: scoped
+    ttl: 15m
+  continuity.score:
+    class: none
+autonomy:
+  default: L2
+  max: L3
+budget:
+  tokens_per_day: 200000
+  usd_per_day: 2.0
+  reserve_before_execute: true
+kpi:
+- continuity_score
+- receipt_coverage_100pct
+counter_kpi:
+- lease_thrash
+- false_reap_rate
+counter_kpi_owner: orchestrator
+forbidden:
+- close session without updating HANDOFF.md
+- reap healthy live lease with valid heartbeat
+escalation:
+  to: orchestrator
+  'on':
+  - zombie_lease_unreapable
+  - receipt_chain_corrupt
+  - budget_exceeded_80pct
+heartbeat_sla_min: 15
+sim_scenarios_required:
+- agent_crash_mid_task
+- lease_expiry
+- member_removed
+transports:
+  preferred: T1
+  fallback: T2
+  forbidden:
+  - T3

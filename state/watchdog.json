@@ -1,0 +1,125 @@
+{
+  "services": {
+    "agentmemory": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.109Z",
+      "last_healthy": "2026-09-18T16:22:08.109Z",
+      "last_restart": null,
+      "restart_count": 0
+    },
+    "ccr": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.113Z",
+      "last_healthy": "2026-09-18T16:22:08.113Z",
+      "last_restart": "2026-09-17T08:19:25.233Z",
+      "restart_count": 11
+    },
+    "claude_mem": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.146Z",
+      "last_healthy": "2026-09-18T16:22:08.146Z",
+      "last_restart": "2026-09-16T10:01:24.196Z",
+      "restart_count": 1
+    },
+    "codeburn": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.124Z",
+      "last_healthy": "2026-09-18T16:22:08.124Z",
+      "last_restart": "2026-09-16T08:46:37.960Z",
+      "restart_count": 11
+    },
+    "freellmapi": {
+      "backoff_until": "2026-09-16T08:50:36.644Z",
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.120Z",
+      "last_healthy": "2026-09-18T16:22:08.120Z",
+      "last_restart": "2026-09-16T08:49:44.617Z",
+      "restart_count": 3
+    },
+    "graphify": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.130Z",
+      "last_healthy": "2026-09-18T16:22:08.130Z",
+      "last_restart": null,
+      "restart_count": 0
+    },
+    "headroom": {
+      "backoff_until": "2026-09-18T16:33:15.593Z",
+      "circuit": "open",
+      "consecutive_failures": 19,
+      "cooldown_seconds": 900,
+      "last_check": "2026-09-18T16:22:08.121Z",
+      "last_healthy": "2026-09-18T12:53:18.377Z",
+      "last_restart": "2026-09-18T16:18:38.137Z",
+      "restart_count": 87
+    },
+    "kimi_k3": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.140Z",
+      "last_healthy": "2026-09-18T16:22:08.140Z",
+      "last_restart": null,
+      "restart_count": 0
+    },
+    "langgraph": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.117Z",
+      "last_healthy": "2026-09-18T16:22:08.117Z",
+      "last_restart": "2026-09-16T08:49:14.070Z",
+      "restart_count": 1
+    },
+    "memory_sync": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.137Z",
+      "last_healthy": "2026-09-18T16:22:08.137Z",
+      "last_restart": null,
+      "restart_count": 0
+    },
+    "omniroute": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.115Z",
+      "last_healthy": "2026-09-18T16:22:08.115Z",
+      "last_restart": null,
+      "restart_count": 0
+    },
+    "relevance_bridge": {
+      "backoff_until": null,
+      "circuit": "closed",
+      "consecutive_failures": 0,
+      "cooldown_seconds": 60,
+      "last_check": "2026-09-18T16:22:08.143Z",
+      "last_healthy": "2026-09-18T16:22:08.143Z",
+      "last_restart": null,
+      "restart_count": 0
+    }
+  },
+  "updated_at": "2026-09-18T16:22:08.146Z"
+}

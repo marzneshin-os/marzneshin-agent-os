@@ -1,0 +1,140 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L2",
+  "chain_index": 24,
+  "changes": [
+    {
+      "path": "scripts/lib/canary.py"
+    },
+    {
+      "path": "scripts/lib/probe_fleet.py"
+    },
+    {
+      "path": "scripts/lib/state.py"
+    },
+    {
+      "path": "scripts/lib/events.py"
+    },
+    {
+      "path": "scripts/canary.py"
+    },
+    {
+      "path": "scripts/compact.py"
+    },
+    {
+      "path": "analytics/schemas/event.schema.json"
+    },
+    {
+      "path": "tests/test_canary_pipeline.py"
+    },
+    {
+      "path": "decisions/ADR/ADR-017-vs7-config-canary-pipeline-auto-rollback.md"
+    },
+    {
+      "path": "state/HEALTH-BASELINE.json"
+    }
+  ],
+  "completed_at": "2026-09-18T14:55:37.620Z",
+  "content_hash": "sha256:23cd57db0a73b242068f728f4e96ec7dd9fd7854db81e11cc5be69dcfb1ce983",
+  "cost": {},
+  "fencing_token": 28,
+  "handoff_note": "VS-7 (Config Pipeline) complete and verified green. Canary progression (1%->10%->50%->100%) with always-valid p-value gating and n_min enforcement is active. Multi-ASN probe fleet operates fail-closed, auto-rollback is proven, sense level is elevated to Tick-B, and health baseline stands at 239 tests / 6 verify / 51 sim / 1 coldrestore. Advancing to VS-8 (Growth Spine).",
+  "idempotency": {
+    "attempt": 1,
+    "class": "forever",
+    "components": [
+      "cap",
+      "artifact_hash",
+      "target_epoch"
+    ],
+    "key": "session:S-144955:vs7-config-canary-adr-017"
+  },
+  "inputs_hash": "sha256:4dca31349d2adb7806f9d1e3dea3f39d8bd2a7165c9235d59a9e657325faae3d",
+  "intent": "implement and activate Config Canary Pipeline (VS-7): 1%->10%->50%->100% rollout, multi-ASN probe fleet, n_min statistical gating with always-valid p-value, auto-rollback engine, and state sense elevation to Tick-B, raising health baseline to 239 tests / 6 verify / 51 sim / 1 coldrestore",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:08aafb87b357c1b9a1d1370793dd5c8e0525d3189c2d6e537adc2ab618229169",
+  "reason": "BUILD-SPEC v2.0 §5.7, §12.0, and §13.4 require statistically verified canary deployments, multi-ASN probe fleet fail-closed monitoring, and auto-rollback on regression before broader autonomy",
+  "receipt_hash": "sha256:23cd57db0a73b242068f728f4e96ec7dd9fd7854db81e11cc5be69dcfb1ce983",
+  "rollback": {
+    "evidence": "full health gate green (tests 239 / verify 6 / sim 51 / coldrestore 1 score 1.0)",
+    "max_ttr_s": 300,
+    "method": "canary.py rollback reverts to baseline profile immediately; event log retains immutable audit trail",
+    "tested": true,
+    "tested_at": "2026-09-18T14:55:37.620Z",
+    "tested_in": "prod"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "state/HEALTH-BASELINE.json",
+    "result": "pass",
+    "scenarios": [
+      "a2a_fallback",
+      "agent_crash_mid_task",
+      "clock_skew",
+      "config_canary_regression",
+      "control_room_down",
+      "cost_spike",
+      "event_seq_race",
+      "gateway_down",
+      "killswitch_unreadable",
+      "lease_expiry",
+      "member_removed",
+      "metric_gaming",
+      "node_outage",
+      "owner_absent",
+      "payment_provider_down",
+      "probe_fleet_down",
+      "prompt_injection"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-09-18T14:48:00.000Z",
+  "status": "complete",
+  "task_id": "T-0019",
+  "transport": "T1",
+  "verification": [
+    {
+      "check": "unit-tests",
+      "evidence": "239/239 passing. Includes 7 new tests for Canary gating, n_min, fail-closed probes, and auto-rollback.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "unittest"
+    },
+    {
+      "check": "verify-all",
+      "evidence": "6/6 (chain, events, schemas, agent-cards, lint-imports, lint-clock) passing.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "verify.py"
+    },
+    {
+      "check": "sim-suite",
+      "evidence": "51/51 (17 scenarios x seeds 11, 27, 43), all score 1.0.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "sim.py"
+    },
+    {
+      "check": "cold-restore-drill",
+      "evidence": "score 1.0 (4/4 criteria passed), archived to state/archive/drills/.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "coldrestore.py"
+    },
+    {
+      "check": "canary-pipeline",
+      "evidence": "Tested 1%->10%->50% promotion, inconclusive under n_min, fail-closed on probe degradation, and immediate auto-rollback.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "canary.py"
+    }
+  ],
+  "why_one_sentence": "BUILD-SPEC v2.0 §5.7, §12.0, and §13.4 require statistically verified canary deployments, multi-ASN probe fleet fail-closed monitoring, and auto-rollback on regression before broader autonomy",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

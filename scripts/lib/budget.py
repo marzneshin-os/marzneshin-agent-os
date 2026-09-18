@@ -39,6 +39,20 @@ MODEL_PRICING: dict[str, tuple[float, float]] = {
     "unknown":             (5.00, 25.00),   # assume expensive when unsure
 }
 
+# Free pools from 9Router LLM Gateway integration.
+GATEWAY_PRICING: dict[str, tuple[float, float]] = {
+    "gemini":           (0.0, 0.0),
+    "hf-baseten":       (0.0, 0.0),
+    "cf":               (0.0, 0.0),
+    "ag":               (0.0, 0.0),
+    "kimi":             (0.0, 0.0),
+    "tabitoken":        (0.0, 0.0),
+    "openrouter:free":  (0.0, 0.0),
+    "auto":             (0.0, 0.0),
+    "combo":            (0.0, 0.0),
+}
+
+
 # Which model tier is appropriate for which kind of work (G8).
 MODEL_ROUTING: dict[str, str] = {
     "sense": "claude-haiku-4-5",
@@ -89,13 +103,38 @@ DEFAULT_CAPS: dict[str, Caps] = {
 
 
 def price(model: str, tokens_in: int, tokens_out: int) -> float:
-    rate_in, rate_out = MODEL_PRICING.get(model, MODEL_PRICING["unknown"])
+    # Handle gateway free tiers by checking the provider prefix
+    provider = model.split("/")[0] if "/" in model else model
+    if provider in GATEWAY_PRICING:
+        rate_in, rate_out = GATEWAY_PRICING[provider]
+    else:
+        rate_in, rate_out = MODEL_PRICING.get(model, MODEL_PRICING["unknown"])
     return (tokens_in / 1_000_000) * rate_in + (tokens_out / 1_000_000) * rate_out
 
 
-def route_model(work_kind: str) -> str:
+def savings_usd(model: str, tokens_in: int, tokens_out: int) -> float:
+    """Calculate USD saved by using a free gateway provider instead of the equivalent paid model."""
+    provider = model.split("/")[0] if "/" in model else model
+    if provider not in GATEWAY_PRICING:
+        return 0.0
+    
+    # Assume Gemini is equivalent to Sonnet for pricing logic, Hf-baseten roughly Haiku, etc.
+    # We map back to paid models to compute savings.
+    paid_model = "claude-haiku-4-5"
+    if provider == "gemini" or provider == "openrouter:free":
+        paid_model = "claude-sonnet-5"
+        
+    rate_in, rate_out = MODEL_PRICING.get(paid_model, MODEL_PRICING["unknown"])
+    return (tokens_in / 1_000_000) * rate_in + (tokens_out / 1_000_000) * rate_out
+
+
+def pick_model(work_kind: str) -> str:
     """Pick the cheapest model that can do this class of work."""
     return MODEL_ROUTING.get(work_kind, "claude-sonnet-5")
+
+
+# Alias: sim/actors.py calls route_model — keep both names in sync.
+route_model = pick_model
 
 
 def _today() -> str:

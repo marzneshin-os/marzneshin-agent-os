@@ -78,20 +78,25 @@ class ConfigEngineerActor(ActorBase):
         # Succession reconstruction (§11.1 STEP 3): a standby does not inherit
         # its predecessor's memory — it reconstructs "is a mitigation active?"
         # from observable state: any node out of rotation means someone was.
-        if not self._mitigating:
-            nodes = fakes["marzneshin"].execute(
-                "list_nodes", {}, idem_key=f"nodes:{world.tick}:recon",
-                idem_class="none", dry_run=False, deadline=ctx["deadline"],
-                provenance=[])
-            self._mitigating = any(not n.get("in_rotation", True)
-                                   for n in nodes.data.get("nodes", []))
+        try:
+            if not self._mitigating:
+                nodes = fakes["marzneshin"].execute(
+                    "list_nodes", {}, idem_key=f"nodes:{world.tick}:recon",
+                    idem_class="none", dry_run=False, deadline=ctx["deadline"],
+                    provenance=[])
+                self._mitigating = any(not n.get("in_rotation", True)
+                                       for n in nodes.data.get("nodes", []))
 
-        # SENSE (cheap): SLO read via observability adapter.
-        slo = fakes["observability"].execute(
-            "query_slo", {"slo": "csr", "window": "1h"},
-            idem_key=f"slo:{world.tick}", idem_class="none",
-            dry_run=False, deadline=ctx["deadline"], provenance=[])
-        csr = float(slo.data.get("value", 1.0))
+            # SENSE (cheap): SLO read via observability adapter.
+            slo = fakes["observability"].execute(
+                "query_slo", {"slo": "csr", "window": "1h"},
+                idem_key=f"slo:{world.tick}", idem_class="none",
+                dry_run=False, deadline=ctx["deadline"], provenance=[])
+            csr = float(slo.data.get("value", 1.0))
+        except Exception:
+            # I12 fail-closed: probe fleet / observability unavailable -> halt mutations
+            stats["probe_fleet_down_ticks"] = stats.get("probe_fleet_down_ticks", 0) + 1
+            return
         if csr < 0.98:
             stats["slo_breach_ticks"] += 1
             if self._incident_start is None:

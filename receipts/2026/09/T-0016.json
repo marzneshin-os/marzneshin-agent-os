@@ -1,0 +1,145 @@
+{
+  "agent": "momo",
+  "agent_lineage": "kimi-k3/momo@1",
+  "autonomy_level": "L2",
+  "chain_index": 20,
+  "changes": [
+    {
+      "path": ".github/workflows/drill-coldrestore.yml"
+    },
+    {
+      "path": ".github/workflows/heartbeat.yml"
+    },
+    {
+      "path": "sim/scenarios/clock_skew.yaml"
+    },
+    {
+      "path": "sim/scenarios/control_room_down.yaml"
+    },
+    {
+      "path": "sim/scenarios/gateway_down.yaml"
+    },
+    {
+      "path": "sim/scenarios/metric_gaming.yaml"
+    },
+    {
+      "path": "sim/scenarios/config_canary_regression.yaml"
+    },
+    {
+      "path": "sim/scenarios/probe_fleet_down.yaml"
+    },
+    {
+      "path": "sim/actors.py"
+    },
+    {
+      "path": "scripts/succession.py"
+    },
+    {
+      "path": "tests/test_scripts.py"
+    },
+    {
+      "path": "tests/test_sim.py"
+    },
+    {
+      "path": "decisions/ADR/ADR-014-vs4-closeout-sim-scenarios-succession-coldrestore.md"
+    },
+    {
+      "path": "state/HEALTH-BASELINE.json"
+    }
+  ],
+  "completed_at": "2026-09-18T13:43:13.936Z",
+  "content_hash": "sha256:857129e9808526b3171af5deff99fbc9c773bbae6e1fb5218f3b1703184da22a",
+  "cost": {},
+  "fencing_token": 23,
+  "handoff_note": "VS-4 (Continuity, Resilience & Succession) is fully closed and 100% green. Monthly cold-restore drill is scheduled in CI, all 17 §16 scenarios pass across seeds 11,27,43, succession is wired into heartbeat, and health baseline is elevated to 216 tests / 6 verify / 51 sim / 1 coldrestore. Next is advancing slice to VS-5 (Tier 0 Agents).",
+  "idempotency": {
+    "attempt": 1,
+    "class": "forever",
+    "components": [
+      "cap",
+      "artifact_hash",
+      "target_epoch"
+    ],
+    "key": "session:S-132633:vs4-closeout-adr-014"
+  },
+  "inputs_hash": "sha256:981d5020f35fba7222f2479f9c4bd405e114e960f6d30c924042c1b434d78124",
+  "intent": "close out Vertical Slice 4 (VS-4): add coldrestore monthly cron drill workflow, implement all 6 remaining §16 simulation scenarios with I12 fail-closed handling, wire succession scan and dispatch into heartbeat workflow, and verify full health baseline",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:bbe45beb16b217bb31eace0533d5838985867b58ad15342807b758a80916045f",
+  "reason": "VS-4 continuity, resilience, and recovery requirements of BUILD-SPEC v2.0 §11 and §16 require an automated monthly drill schedule, full simulation matrix coverage across all seeds, and production-wired succession triggers with zero unreceipted tasks (G5)",
+  "receipt_hash": "sha256:857129e9808526b3171af5deff99fbc9c773bbae6e1fb5218f3b1703184da22a",
+  "rollback": {
+    "evidence": "full health gate green (tests 216 / verify 6 / sim 51 / coldrestore 1 score 1.0)",
+    "max_ttr_s": 300,
+    "method": "revert added scenario yamls and workflow additions; emitted events remain on append-only log",
+    "tested": true,
+    "tested_at": "2026-09-18T13:43:13.936Z",
+    "tested_in": "prod"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "state/HEALTH-BASELINE.json",
+    "result": "pass",
+    "scenarios": [
+      "a2a_fallback",
+      "agent_crash_mid_task",
+      "clock_skew",
+      "config_canary_regression",
+      "control_room_down",
+      "cost_spike",
+      "event_seq_race",
+      "gateway_down",
+      "killswitch_unreadable",
+      "lease_expiry",
+      "member_removed",
+      "metric_gaming",
+      "node_outage",
+      "owner_absent",
+      "payment_provider_down",
+      "probe_fleet_down",
+      "prompt_injection"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-09-18T13:26:00.000Z",
+  "status": "complete",
+  "task_id": "T-0016",
+  "transport": "T1",
+  "verification": [
+    {
+      "check": "unit-tests",
+      "evidence": "216/216 passing. All unit tests green, including new succession scan tests.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "unittest"
+    },
+    {
+      "check": "verify-all",
+      "evidence": "6/6 (chain, events, schemas, agent-cards, lint-imports, lint-clock) passing.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "verify.py"
+    },
+    {
+      "check": "sim-suite",
+      "evidence": "51/51 (17 scenarios x seeds 11, 27, 43), all score 1.0.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "sim.py"
+    },
+    {
+      "check": "cold-restore-drill",
+      "evidence": "score 1.0 (4/4 criteria passed), archived to state/archive/drills/.",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "coldrestore.py"
+    }
+  ],
+  "why_one_sentence": "VS-4 continuity, resilience, and recovery requirements of BUILD-SPEC v2.0 §11 and §16 require an automated monthly drill schedule, full simulation matrix coverage across all seeds, and production-wired succession triggers with zero unreceipted tasks (G5)",
+  "workstream": "agentic-core",
+  "world": "prod"
+}

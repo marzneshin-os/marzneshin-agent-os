@@ -7,6 +7,7 @@ suite; each is killable/flaky-injectable by sim/chaos.py.
 from __future__ import annotations
 
 from ._base import FakeBase
+from .omniroute import OmniRouteFake
 
 
 class GithubFake(FakeBase):
@@ -304,4 +305,5 @@ def build_fakes(world_state, *, seed: int = 0) -> dict[str, FakeBase]:
         "messaging": MessagingFake(world_state, seed=seed),
         "observability": ObservabilityFake(world_state, seed=seed),
         "vault": VaultFake(world_state, seed=seed),
+        "omniroute": OmniRouteFake(world_state, seed=seed),
     }

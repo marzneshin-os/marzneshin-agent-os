@@ -1,0 +1,10 @@
+{
+  "test-agent-4": {
+    "capability": "canary.deploy",
+    "demoted_from": "L0",
+    "demoted_to": "L0",
+    "quarantine_until": "2026-09-21T16:16:28.898Z",
+    "quarantined_at": "2026-09-18T16:16:28.899Z",
+    "reason": "CSR dropped below 0.95"
+  }
+}

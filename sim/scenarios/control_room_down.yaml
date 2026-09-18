@@ -1,0 +1,24 @@
+# control_room_down — the Moxt Control Room goes down (SaaS outage / network partition);
+# the §5.5 router degrades T2, routes traffic over T1, and routine operations proceed
+# without data loss or duplicate work (§5.3, §9).
+name: control_room_down
+description: >
+  At tick 15 the Control Room (moxt fake) goes down for 48 ticks (4h virtual).
+  The A2A router must detect the outage, degrade T2 transport health, fall back
+  seamlessly to T1 (Git), and tasks continue completing with zero duplicate work.
+  When moxt recovers, T2 transport health restores cleanly.
+duration_h: 72
+tick_s: 300
+world: {nodes: 2, users: 500, trials_per_tick: 1.0}
+actors: [dispatcher]
+chaos:
+  - {kind: adapter_down, at_tick: 15, adapter: moxt, ticks: 48}
+expect:
+  receipt_coverage: 1.0
+  crash_rate_max: 0.05
+  duplicate_work_max: 0
+  guardrail_breaches_max: 0
+  interventions_max: 0
+  a2a_fallbacks_min: 1
+  a2a_completed_min: 50
+  a2a_failed_max: 5

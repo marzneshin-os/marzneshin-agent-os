@@ -1,0 +1,180 @@
+{
+    "agentmemory": {
+        "command": "bash -c 'source ~/.nvm/nvm.sh && cd /home/asus/code/agentmemory-official && node dist/cli.mjs'",
+        "port": 3111,
+        "env": {
+            "XDG_DATA_HOME": "./state",
+            "EMBEDDING_PROVIDER": "local",
+            "AGENTMEMORY_AUTO_COMPRESS": "true",
+            "LOCAL_LLM_URL": "http://127.0.0.1:8086/v1",
+            "LOCAL_LLM_MODEL": "auto"
+        },
+        "health": {
+            "type": "http",
+            "path": "/agentmemory/livez",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": true
+        }
+    },
+    "ccr": {
+        "command": "bash -c 'source ~/.nvm/nvm.sh && ccr start --no-open --gateway'",
+        "port": 3456,
+        "check_ports": [
+            3456,
+            3458
+        ],
+        "description": "Claude Code Router \u2014 multi-model gateway (API on 3456, Web UI on 3458)",
+        "health": {
+            "type": "http",
+            "path": "/",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": true
+        }
+    },
+    "omniroute": {
+        "command": "python3 scripts/router_server.py --port 8080",
+        "port": 8080,
+        "health": {
+            "type": "http",
+            "path": "/v1/models",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": false
+        }
+    },
+    "langgraph": {
+        "command": "python3 scripts/langgraph_mcp.py --port 8005",
+        "port": 8005,
+        "description": "LangGraph Multi-Agent MCP Server (SSE on 8005 or stdio)",
+        "health": {
+            "type": "http",
+            "path": "/",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": false
+        }
+    },
+    "freellmapi": {
+        "command": "bash -c 'source ~/.nvm/nvm.sh && cd /home/asus/code/freellmapi && npm run dev -w server'",
+        "port": 3001,
+        "health": {
+            "type": "http",
+            "path": "/api/ping",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": true
+        }
+    },
+    "headroom": {
+        "command": "/home/asus/.local/bin/headroom proxy --port 8787",
+        "port": 8787,
+        "env": {
+            "HEADROOM_OUTPUT_SHAPER": "1"
+        },
+        "description": "Headroom context compression proxy on port 8787",
+        "health": {
+            "type": "http",
+            "path": "/health",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 3,
+            "critical": false
+        }
+    },
+    "codeburn": {
+        "command": "bash -c 'source ~/.nvm/nvm.sh && codeburn web --port 4790 --no-open'",
+        "port": 4790,
+        "description": "CodeBurn web dashboard on port 4790",
+        "health": {
+            "type": "http",
+            "path": "/",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": false
+        }
+    },
+    "graphify": {
+        "command": "/home/asus/.local/bin/graphify watch /home/asus/code/marzneshin-agent-os --code-only",
+        "description": "Graphify auto-sync file watcher",
+        "process_match": "graphify watch",
+        "health": {
+            "type": "process",
+            "critical": false
+        }
+    },
+    "memory_sync": {
+        "command": "python3 scripts/memory_sync.py --watch",
+        "process_match": "memory_sync.py --watch",
+        "description": "Continuous autonomous event log sync to AgentMemory",
+        "health": {
+            "type": "process",
+            "critical": false
+        }
+    },
+    "kimi_k3": {
+        "command": "bash /home/asus/code/agentmemory-official/scripts/start-kimi-k3.sh",
+        "port": 8085,
+        "env": {
+            "LOCAL_LLM_PORT": "8085",
+            "LOCAL_LLM_HOST": "127.0.0.1"
+        },
+        "description": "Kimi K3 / Local LLM OpenAI-compatible server on port 8085",
+        "health": {
+            "type": "http",
+            "path": "/v1/models",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": false
+        }
+    },
+    "relevance_bridge": {
+        "command": "python3 scripts/relevance_bridge.py",
+        "port": 8086,
+        "description": "Relevance AI OpenAI-compatible Bridge on port 8086",
+        "health": {
+            "type": "http",
+            "path": "/v1/models",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": true
+        }
+    },
+    "claude_mem": {
+        "command": "/home/asus/.bun/bin/bun /home/asus/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs start",
+        "port": 37700,
+        "process_match": "worker-service.cjs",
+        "env": {
+            "CLAUDE_MEM_HOST_OBSERVER_PORT": "8085",
+            "CLAUDE_MEM_OPENROUTER_BASE_URL": "http://127.0.0.1:8085/v1"
+        },
+        "description": "Claude-Mem / Grok-Mem persistent memory worker on port 37700",
+        "health": {
+            "type": "http",
+            "path": "/api/health",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 3,
+            "critical": false
+        }
+    }
+}
