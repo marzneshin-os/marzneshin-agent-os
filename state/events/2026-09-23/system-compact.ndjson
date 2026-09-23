@@ -1,0 +1,1 @@
+{"actor":{"id":"compact","kind":"system"},"actor_seq":180,"event_id":"01M35XRFJY30XNBTBRPC62KG3F","payload":{"event_count":11,"gaps_detected":0,"rebuild":false,"world":"prod"},"redacted":false,"redaction_map":[],"schema_version":"2.0.0","subject":{"id":"STATE.json","kind":"state"},"trust":"internal","ts":"2026-09-23T01:23:23.870Z","type":"state.compacted","world":"prod"}
