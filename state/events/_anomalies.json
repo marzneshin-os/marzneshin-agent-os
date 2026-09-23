@@ -36,6 +36,23 @@
         30
       ],
       "world": "prod"
+    },
+    {
+      "actor": "system-compact",
+      "adr": "decisions/ADR/ADR-006-vs4-continuity-decisions.md",
+      "day": "2026-09-18",
+      "event_ids": [
+        "01M2TSSDP2X819YEJXS5DY8FMD",
+        "01M2V1KZ24VRA9EXBEF12QBW4F"
+      ],
+      "kind": "missing_seq",
+      "note": "Gap 135 occurred in upstream origin/main during commit 1cf1475 compact run; documented in event 01M2VA77SJW4FD17Y15QCD3A1B",
+      "registered_at": "2026-09-23T14:19:56.129Z",
+      "registered_by": "orchestrator",
+      "seqs": [
+        135
+      ],
+      "world": "prod"
     }
   ],
   "schema_version": "2.0.0"

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  agent-os:
+    build: .
+    volumes:
+      - ./state:/app/state
+      - ./graphify-out:/app/graphify-out
+    environment:
+      - CCR_BASE_URL=http://host.docker.internal:3456
+      - CCR_API_KEY=sk-ccr-local
+    network_mode: "host"
+    restart: unless-stopped

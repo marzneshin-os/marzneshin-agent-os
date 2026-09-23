@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "marzneshin-langgraph": {
+      "url": "http://127.0.0.1:8005/sse"
+    },
+    "memwal": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mysten-incubation/memwal-mcp"
+      ]
+    }
+  }
+}

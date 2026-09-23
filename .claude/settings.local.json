@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_agentmemory_agentmemory__memory_smart_search",
+      "mcp__plugin_agentmemory_agentmemory__memory_sessions",
+      "Bash(python3 -c ' *)",
+      "mcp__plugin_agentmemory_agentmemory__memory_save",
+      "mcp__plugin_agentmemory_agentmemory__memory_recall",
+      "Bash(gh *)",
+      "mcp__memwal__memwal_remember",
+      "mcp__memwal__memwal_recall",
+      "mcp__memwal__memwal_analyze",
+      "mcp__memwal__memwal_restore",
+      "mcp__memwal__memwal_remember_bulk",
+      "mcp__plugin_memwal_memwal__memwal_remember",
+      "mcp__plugin_memwal_memwal__memwal_recall"
+    ]
+  }
+}

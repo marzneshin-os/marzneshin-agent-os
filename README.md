@@ -36,14 +36,14 @@ The repository is the single source of truth. All machine state (`state/STATE.js
 
 | Gate | Result |
 |---|---|
-| Unit tests | **260 / 260** |
+| Unit tests | **287 / 287** |
 | `verify --all` (schemas, chain, events, agent cards, lints) | **6 / 6 (GREEN)** |
 | Sim scenarios × seeds 11, 27, 43 | **51 / 51 (Score 1.0)** |
 | 72-Hour Autonomous Marathon | **10 / 10 seeds (Score 1.0, 0 interventions)** |
 | Cold-restore drill | **1 / 1 (Score 1.0)** |
-| Receipt chain | **29 receipts · `ok=true` (100% G5 coverage)** |
+| Receipt chain | **30 receipts · `ok=true` (100% G5 coverage, head T-0024)** |
 
-Current phase: **P1 — agentic-core** · Slices: **VS-1 through VS-11 (100% Completed)** · 21 ADRs (through ADR-021) · decisions through D67.
+Current phase: **P1 — agentic-core** · Slices: **VS-1 through VS-12 (100% Completed — Full Autonomous OS Production Milestone Achieved)** · 22 ADRs (through ADR-022) · decisions through D72.
 ## Repository layout
 
 ```
@@ -97,6 +97,7 @@ New session? **Read [`ONBOARDING.md`](ONBOARDING.md) first** — it is the compl
 | [`ONBOARDING.md`](ONBOARDING.md) | Cold-start protocol — read first |
 | [`BUILD-SPEC.md`](BUILD-SPEC.md) | Governing spec (§0 session protocol · §16 scenarios · §17 DoD) |
 | [`CLAUDE.md`](CLAUDE.md) | Standing invariants (I1…I17) and daily commands |
+| [`ROADMAP.md`](ROADMAP.md) | System Thinking Map & Architecture Diagram (نقشه تفکر سیستمی) |
 | [`RECOVERY.md`](RECOVERY.md) | Disaster recovery & escrow bundle usage |
 | [`decisions/ADR/`](decisions/ADR/) | Architecture Decision Records (accepted, not up for debate) |
 | [`state/HANDOFF.md`](state/HANDOFF.md) | Last session state + exact next step |

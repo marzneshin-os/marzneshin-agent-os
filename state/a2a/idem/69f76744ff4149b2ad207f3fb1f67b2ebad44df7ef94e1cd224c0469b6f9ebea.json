@@ -1,0 +1,9 @@
+{
+  "expires_at": "2026-09-23T14:43:41.592Z",
+  "key": "sha256:69f76744ff4149b2ad207f3fb1f67b2ebad44df7ef94e1cd224c0469b6f9ebea",
+  "ref": "state/a2a/inbox/qa-gate/A2A-01M378407BY87BBWCSXGSKF3Y4.json",
+  "state": "queued",
+  "stored_at": "2026-09-23T13:43:41.592Z",
+  "task_id": "A2A-01M378407BY87BBWCSXGSKF3Y4",
+  "transport": "T1"
+}

@@ -34,68 +34,85 @@ Marzneshin Autonomous OS is an event-sourced control plane for multi-agent workf
 Run `python3 scripts/dev.py status` to inspect all services.
 Run `python3 scripts/dev.py start` to launch all local services in background.
 
-# CLAUDE.md
+---
 
-Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
+# Autonomous Ecosystem & Strict Compliance Protocol (MANDATORY)
 
-**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
-
-## 1. Think Before Coding
-
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
-
-Before implementing:
-- State your assumptions explicitly. If uncertain, ask.
-- If multiple interpretations exist, present them - don't pick silently.
-- If a simpler approach exists, say so. Push back when warranted.
-- If something is unclear, stop. Name what's confusing. Ask.
-
-## 2. Simplicity First
-
-**Minimum code that solves the problem. Nothing speculative.**
-
-- No features beyond what was asked.
-- No abstractions for single-use code.
-- No "flexibility" or "configurability" that wasn't requested.
-- No error handling for impossible scenarios.
-- If you write 200 lines and it could be 50, rewrite it.
-
-Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
-
-## 3. Surgical Changes
-
-**Touch only what you must. Clean up only your own mess.**
-
-When editing existing code:
-- Don't "improve" adjacent code, comments, or formatting.
-- Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
-- If you notice unrelated dead code, mention it - don't delete it.
-
-When your changes create orphans:
-- Remove imports/variables/functions that YOUR changes made unused.
-- Don't remove pre-existing dead code unless asked.
-
-The test: Every changed line should trace directly to the user's request.
-
-## 4. Goal-Driven Execution
-
-**Define success criteria. Loop until verified.**
-
-Transform tasks into verifiable goals:
-- "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
-- "Refactor X" → "Ensure tests pass before and after"
-
-For multi-step tasks, state a brief plan:
-```
-1. [Step] → verify: [check]
-2. [Step] → verify: [check]
-3. [Step] → verify: [check]
-```
-
-Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+## 1. Automatic Infrastructure Maintenance (Zero-Manual-Intervention)
+The agent MUST ensure all 12 core services remain continuously active without asking:
+- Verify at session/task start: `python3 scripts/dev.py status`
+- If any service is DOWN, AUTOMATICALLY run: `python3 scripts/dev.py start`.
+- The ecosystem components:
+  1. **AgentMemory** (`:3111`) — Persistent cross-session memory and audit store.
+  2. **Claude Code Router (CCR)** (`:3456`, `:3458`) — Multi-model routing gateway.
+  3. **Omniroute** (`:8080`) & **LangGraph** (`:8005`) — Multi-agent orchestrators.
+  4. **FreeLLMAPI** (`:3001`) — LLM endpoints provider.
+  5. **Headroom** (`:8787`) — Context compression proxy (`HEADROOM_OUTPUT_SHAPER=1`) and cache retrieval.
+  6. **Codeburn** (`:4790`) — AI token usage and spend intelligence dashboard.
+  7. **Graphify** (stdio watcher) — Knowledge graph engine (`graphify-out/`).
+  8. **MemorySync** (stdio watcher) — Continuous event-to-memory sync.
+  9. **Kimi K3** (`:8085`) & **Relevance Bridge** (`:8086`) — Local LLM / Agent bridges.
+  10. **Claude-Mem** (`:37700`) — Persistent memory observer.
 
 ---
 
-**These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+# Autonomous Dispatch & Multi-Agent Execution Engine (ZERO MANUAL TYPING)
+
+> **MANDATORY INVARIANT**: The user NEVER needs to manually type slash commands (`/boost`, `/teamwork-preview`, `/agents`) or manually delegate to subagents.
+> The Orchestrator MUST automatically analyze the prompt, classify the problem, engage the appropriate paradigm, and dispatch the required subagents autonomously.
+
+## 1. Autonomous Routing Matrix
+
+| Condition / Trigger | Automatically Engaged Paradigm | Autonomous Action & Subagent Delegation |
+|---------------------|--------------------------------|-----------------------------------------|
+| **Bugs, Concurrency, Deadlocks, Race Conditions, Algorithmic Optimization, Tricky Refactors** | **🚀 Boost Deep Reasoning** | 1. Automatically engage Boost 3-phase pipeline.<br>2. Dispatch `deep-investigator` for non-mutating call graph & root-cause isolation.<br>3. Dispatch `deep-coder` for thread-safe fixes & local unit tests.<br>4. Run regression suite and auto-correction loop until green. |
+| **Large-Scale Features, Multi-File Refactors, Systems Simulation, Multi-Milestone Campaigns** | **👥 Teamwork Multi-Agent Team** | 1. Automatically engage Teamwork 2-phase workflow.<br>2. Activate `sentinel` for scoping, integrity mode calibration, and workspace isolation.<br>3. Project Orchestrator breaks task into milestones with exclusive file ownership.<br>4. Route candidate code through `critic`, `challenger`, and `auditor` gates.<br>5. Execute final Success Audit before delivery. |
+| **Operational Tasks, Config Changes, CI Checks, Canary Rollouts, Telemetry, Handoffs** | **⚙️ FSP 9-Step OS Fleet** | 1. Automatically dispatch specialized Tier 0 agent:<br>- `qa-gate` for tests & verify gates.<br>- `config-engineer` for VPN & canary rollouts.<br>- `infra-sre` for services & killswitches.<br>- `adversarial-reviewer` for anomaly checks.<br>- `analytics-engineer` for NSM & token spend.<br>- `handoff-guardian` for G5 receipts & compacting.<br>- `security-compliance` for secret redactions. |
+
+## 2. Execution Protocol & Status Banner
+Whenever executing a task, the agent MUST prepend a clear status badge indicating the autonomously selected execution path:
+```markdown
+> 🤖 **سیستم اعزام خودکار (Autonomous Dispatch Active)**
+> - **الگوی عملیاتی:** [🚀 Boost Deep Reasoning / 👥 Teamwork Multi-Agent / ⚙️ FSP Tier 0 Fleet]
+> - **ساب‌ایجنت‌های در حال اجرا:** [لیست ساب‌ایجنت‌های مأمور شده]
+> - **وضعیت زیرساخت:** ۱۲ سرویس محلی بررسی و فعال شدند
+```
+
+---
+
+## 3. Mandatory Superpowers Workflow
+Every agent action MUST follow the Superpowers skills framework in `.agents/skills/`:
+- **Exploration & Feature Design**: ALWAYS invoke `brainstorming` (`SKILL.md`) first.
+- **Task Decomposition**: ALWAYS invoke `writing-plans` (`SKILL.md`) before implementation.
+- **Code Authoring**: Enforce `test-driven-development` (`SKILL.md`) — write failing test, verify failure, write minimal code, verify green.
+- **Bug Resolution**: Enforce `systematic-debugging` (`SKILL.md`) — investigate, isolate, fix, verify.
+- **Task Completion**: Enforce `verification-before-completion` (`SKILL.md`) before claiming completion.
+
+## 4. Mandatory Knowledge Graph & Memory Consultation
+- **Graphify First**: Query `graphify-out/GRAPH_REPORT.md` or run `graphify query` / MCP `query_graph` before architectural changes.
+- **AgentMemory First**: Query `http://127.0.0.1:3111` for historical decisions and lessons learned at the beginning of each task.
+
+## 5. No Guessing & Fail-Closed Governance
+- Never invent function signatures or schema shapes — read the actual source code with `view_file` or `grep_search`.
+- Fail-closed: if safety controls or permissions are ambiguous, STOP and fail closed (Iron Rule 6).
+- All changes must pass `python3 scripts/health.py` (260 tests, 6 verify gates, 51 sim scenarios).
+
+---
+
+# CLAUDE.md Behavioral Guidelines
+
+## 1. Think Before Coding
+- State assumptions explicitly. Never assume silently.
+- If multiple interpretations exist, present them.
+- In case of uncertainty: STOP and ask.
+
+## 2. Simplicity First
+- Minimum code that solves the problem. No speculative abstractions.
+- Match existing style.
+
+## 3. Surgical Changes
+- Touch only what you must.
+- Never delete or modify unrelated code.
+
+## 4. Goal-Driven Execution
+- Define verifiable success criteria. Loop until verified green.

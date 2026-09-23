@@ -176,5 +176,19 @@
             "timeout_s": 3,
             "critical": false
         }
+    },
+    "gateway": {
+        "command": "python3 -m gateway.app --port 8000",
+        "port": 8000,
+        "description": "Marzneshin HTTP Gateway \u00a75.3 (T3 Transport & Latency Cache)",
+        "health": {
+            "type": "http",
+            "path": "/healthz",
+            "expected_status": [
+                200
+            ],
+            "timeout_s": 2,
+            "critical": false
+        }
     }
 }

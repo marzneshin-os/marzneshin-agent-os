@@ -1,65 +1,65 @@
 {
-  "active_slice": "VS-11",
+  "active_slice": "VS-12",
   "budget": {
     "day": "2026-09-23",
     "forecast": {
-      "tokens": 0,
-      "usd": 0.0
+      "tokens": 13960,
+      "usd": 0.0326
     },
     "state": "normal",
-    "tokens_spent_today": 0,
-    "usd_spent_today": 0.0,
-    "utilization": 0.0
+    "tokens_spent_today": 8400,
+    "usd_spent_today": 0.0196,
+    "utilization": 0.0021
   },
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:8b1cd4147139f89af6f6a009aeed68f51953a8d7749cbc4c97156c2c0159ca71",
+  "compacted_event_hash": "sha256:f998f7c1b4e27be0e284c335f786f567ceec7f35a9682d2a9ecd456ff5f2433e",
   "compacted_from": {
     "actor_seq_watermarks": {
-      "prod:agent-adversarial-reviewer": 1,
-      "prod:agent-analytics-engineer": 155,
+      "prod:agent-adversarial-reviewer": 2,
+      "prod:agent-analytics-engineer": 575,
       "prod:agent-antigravity": 1,
-      "prod:agent-config-engineer": 65,
+      "prod:agent-config-engineer": 170,
       "prod:agent-infra-sre": 1,
       "prod:agent-momo": 97,
       "prod:agent-momo-s190811": 4,
       "prod:agent-momo-s190812": 3,
-      "prod:agent-orchestrator": 30,
+      "prod:agent-orchestrator": 68,
       "prod:agent-qa-gate": 7,
-      "prod:agent-test-agent-1": 120,
-      "prod:agent-test-agent-2": 120,
-      "prod:human-owner": 18,
+      "prod:agent-test-agent-1": 540,
+      "prod:agent-test-agent-2": 540,
+      "prod:human-owner": 40,
       "prod:human-u_alice": 4,
-      "prod:human-u_funnel_1": 55,
-      "prod:human-u_nsm_1": 22,
-      "prod:human-u_nsm_2": 11,
-      "prod:human-u_nsm_3": 11,
-      "prod:system-a2a-router": 1,
+      "prod:human-u_funnel_1": 160,
+      "prod:human-u_nsm_1": 64,
+      "prod:human-u_nsm_2": 32,
+      "prod:human-u_nsm_3": 32,
+      "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
-      "prod:system-coldrestore": 21,
-      "prod:system-compact": 181,
-      "prod:system-events": 2,
+      "prod:system-coldrestore": 24,
+      "prod:system-compact": 187,
+      "prod:system-events": 3,
       "prod:system-reaper": 14,
-      "prod:system-system": 18,
-      "prod:system-watchdog": 124
+      "prod:system-system": 81,
+      "prod:system-watchdog": 476
     },
-    "event_count": 13,
-    "event_hash": "sha256:8b1cd4147139f89af6f6a009aeed68f51953a8d7749cbc4c97156c2c0159ca71",
-    "until_ts": "2026-09-23T11:59:06.187Z",
+    "event_count": 1598,
+    "event_hash": "sha256:f998f7c1b4e27be0e284c335f786f567ceec7f35a9682d2a9ecd456ff5f2433e",
+    "until_ts": "2026-09-23T14:26:25.712Z",
     "window": [
       "2026-09-21",
       "2026-09-23"
     ]
   },
-  "compacted_from_events": 13,
+  "compacted_from_events": 1598,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-09-23T11:59:06.187Z",
+  "generated_at": "2026-09-23T14:26:25.713Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 2.0,
@@ -68,9 +68,9 @@
   },
   "kill_switch": {
     "fail_closed_engaged": false,
-    "freshness_s": 0.409167,
+    "freshness_s": 116.66488,
     "global": false,
-    "read_at": "2026-09-23T11:59:06.156Z",
+    "read_at": "2026-09-23T14:26:25.641Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
@@ -79,12 +79,12 @@
     "verdict": "running"
   },
   "kpis": {
-    "crash_rate": 0.2069,
-    "crash_rate_lifetime": 0.2069,
+    "crash_rate": 0.2,
+    "crash_rate_lifetime": 0.2,
     "crash_rate_sample_sufficient": false,
-    "crash_rate_window": 29,
+    "crash_rate_window": 30,
     "receipt_coverage": 1.0,
-    "receipts_total": 29
+    "receipts_total": 30
   },
   "open_risks": [],
   "open_tasks": [],
@@ -104,12 +104,12 @@
     "agentic-core": {
       "blocked_by": [],
       "health": "unknown",
-      "last_receipt": "T-0023",
+      "last_receipt": "T-0024",
       "lease": null,
       "open_tasks": [],
       "owner_agent": "momo",
-      "receipt_chain_head": "sha256:ee38a1b85729b07f4c8887360572051c4bcbe50cd3f3d5a8d1c0d6ae2408ae74",
-      "receipt_chain_length": 29
+      "receipt_chain_head": "sha256:4251a1de4d79b7529163f24a7830ab5694c28723b6a6ddbfa85486f4fa949c10",
+      "receipt_chain_length": 30
     }
   }
 }

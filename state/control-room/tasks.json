@@ -80,165 +80,177 @@
     "status": "Done",
     "task_id": "ADR-017-vs7-config-canary-pipeline-auto-rollback",
     "title": "Decision: ADR-017-vs7-config-canary-pipeline-auto-rollback",
-    "updated_at": "2026-09-18T16:16:29.343Z",
+    "updated_at": "2026-09-23T13:45:13.576Z",
     "workflow": "Security & Gov"
   },
   "ADR-018-vs8-growth-spine-taxonomy-nsm-upcasters": {
     "created_at": "2026-09-18T15:25:03.065Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "ADR-018-vs8-growth-spine-taxonomy-nsm-upcasters",
     "title": "Decision: ADR-018-vs8-growth-spine-taxonomy-nsm-upcasters",
-    "updated_at": "2026-09-18T16:16:29.348Z",
+    "updated_at": "2026-09-23T14:24:28.365Z",
     "workflow": "Security & Gov"
   },
   "ADR-019-vs9-safe-experimentation-srm-guardrails-negative-results": {
     "created_at": "2026-09-18T15:36:34.516Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "ADR-019-vs9-safe-experimentation-srm-guardrails-negative-results",
     "title": "Decision: ADR-019-vs9-safe-experimentation-srm-guardrails-negative-results",
-    "updated_at": "2026-09-18T16:16:29.352Z",
+    "updated_at": "2026-09-23T14:24:28.369Z",
     "workflow": "Security & Gov"
   },
   "ADR-020-vs10-revenue-command-center-unit-economics-counter-kpi-guardrails": {
     "created_at": "2026-09-18T15:49:15.917Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "ADR-020-vs10-revenue-command-center-unit-economics-counter-kpi-guardrails",
     "title": "Decision: ADR-020-vs10-revenue-command-center-unit-economics-counter-kpi-guardrails",
-    "updated_at": "2026-09-18T16:16:29.357Z",
+    "updated_at": "2026-09-23T14:24:28.373Z",
     "workflow": "Security & Gov"
   },
   "ADR-021-vs11-autonomy-ratchet-shadow-mode-72h-autonomous-marathon": {
     "created_at": "2026-09-18T16:16:29.361Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "ADR-021-vs11-autonomy-ratchet-shadow-mode-72h-autonomous-marathon",
     "title": "Decision: ADR-021-vs11-autonomy-ratchet-shadow-mode-72h-autonomous-marathon",
-    "updated_at": "2026-09-18T16:16:29.361Z",
+    "updated_at": "2026-09-23T14:24:28.377Z",
+    "workflow": "Security & Gov"
+  },
+  "ADR-022-vs12-http-gateway-production-hardening-live-readiness": {
+    "created_at": "2026-09-23T13:56:50.301Z",
+    "fields": {
+      "Autonomy Level": "L3",
+      "Slice": "VS-12"
+    },
+    "status": "Done",
+    "task_id": "ADR-022-vs12-http-gateway-production-hardening-live-readiness",
+    "title": "Decision: ADR-022-vs12-http-gateway-production-hardening-live-readiness",
+    "updated_at": "2026-09-23T14:24:28.381Z",
     "workflow": "Security & Gov"
   },
   "CARD-adversarial-reviewer": {
     "created_at": "2026-09-18T14:30:37.203Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "CARD-adversarial-reviewer",
     "title": "Agent Card: adversarial-reviewer",
-    "updated_at": "2026-09-18T16:16:29.384Z",
+    "updated_at": "2026-09-23T14:24:28.402Z",
     "workflow": "Knowledge"
   },
   "CARD-analytics-engineer": {
     "created_at": "2026-09-18T15:04:16.280Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "CARD-analytics-engineer",
     "title": "Agent Card: analytics-engineer",
-    "updated_at": "2026-09-18T16:16:29.388Z",
+    "updated_at": "2026-09-23T14:24:28.407Z",
     "workflow": "Knowledge"
   },
   "CARD-config-engineer": {
     "created_at": "2026-09-18T14:30:37.198Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "CARD-config-engineer",
     "title": "Agent Card: config-engineer",
-    "updated_at": "2026-09-18T16:16:29.380Z",
+    "updated_at": "2026-09-23T14:24:28.398Z",
     "workflow": "Knowledge"
   },
   "CARD-handoff-guardian": {
     "created_at": "2026-09-18T14:30:37.208Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "CARD-handoff-guardian",
     "title": "Agent Card: handoff-guardian",
-    "updated_at": "2026-09-18T16:16:29.393Z",
+    "updated_at": "2026-09-23T14:24:28.411Z",
     "workflow": "Knowledge"
   },
   "CARD-infra-sre": {
     "created_at": "2026-09-18T14:30:37.192Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "CARD-infra-sre",
     "title": "Agent Card: infra-sre",
-    "updated_at": "2026-09-18T16:16:29.375Z",
+    "updated_at": "2026-09-23T14:24:28.394Z",
     "workflow": "Knowledge"
   },
   "CARD-orchestrator": {
     "created_at": "2026-09-18T14:30:37.188Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "CARD-orchestrator",
     "title": "Agent Card: orchestrator",
-    "updated_at": "2026-09-18T16:16:29.371Z",
+    "updated_at": "2026-09-23T14:24:28.390Z",
     "workflow": "Knowledge"
   },
   "CARD-qa-gate": {
     "created_at": "2026-09-18T14:30:37.213Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "CARD-qa-gate",
     "title": "Agent Card: qa-gate",
-    "updated_at": "2026-09-18T16:16:29.397Z",
+    "updated_at": "2026-09-23T14:24:28.415Z",
     "workflow": "Knowledge"
   },
   "CARD-security-compliance": {
     "created_at": "2026-09-18T14:30:37.182Z",
     "fields": {
       "Autonomy Level": "L3",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "CARD-security-compliance",
     "title": "Agent Card: security-compliance",
-    "updated_at": "2026-09-18T16:16:29.366Z",
+    "updated_at": "2026-09-23T14:24:28.386Z",
     "workflow": "Knowledge"
   },
   "HEALTH-BASELINE-TASK": {
     "created_at": "2026-09-18T14:30:20.676Z",
     "fields": {
-      "Baseline Saved": "2026-09-18T15:52:20Z",
+      "Baseline Saved": "2026-09-23T14:03:20Z",
       "Sim Passed": 51,
-      "Slice": "VS-11",
-      "Tests Passed": 260
+      "Slice": "VS-12",
+      "Tests Passed": 287
     },
     "status": "Done",
     "task_id": "HEALTH-BASELINE-TASK",
-    "title": "Health Baseline (VS-11)",
-    "updated_at": "2026-09-18T16:16:29.333Z",
+    "title": "Health Baseline (VS-12)",
+    "updated_at": "2026-09-23T14:24:28.356Z",
     "workflow": "Control Room"
   },
   "KILL-SWITCH-TASK": {
@@ -246,12 +258,12 @@
     "fields": {
       "Autonomy Level": "L0",
       "Kill Switch": "Clear",
-      "Slice": "VS-11"
+      "Slice": "VS-12"
     },
     "status": "In Progress",
     "task_id": "KILL-SWITCH-TASK",
     "title": "Global Kill Switch (K3)",
-    "updated_at": "2026-09-18T16:16:29.328Z",
+    "updated_at": "2026-09-23T14:24:28.351Z",
     "workflow": "Control Room"
   },
   "T-moxt-0001": {
@@ -596,18 +608,414 @@
     "updated_at": "2026-09-18T16:16:29.428Z",
     "workflow": "control-room"
   },
+  "T-moxt-0061": {
+    "created_at": "2026-09-18T17:35:42.175Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0061",
+    "title": "contract",
+    "updated_at": "2026-09-18T17:35:42.175Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0062": {
+    "created_at": "2026-09-18T17:35:42.181Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0062",
+    "title": "contract",
+    "updated_at": "2026-09-18T17:35:42.181Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0063": {
+    "created_at": "2026-09-18T20:22:51.403Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0063",
+    "title": "contract",
+    "updated_at": "2026-09-18T20:22:51.403Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0064": {
+    "created_at": "2026-09-18T20:22:51.411Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0064",
+    "title": "contract",
+    "updated_at": "2026-09-18T20:22:51.411Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0065": {
+    "created_at": "2026-09-18T20:35:45.803Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0065",
+    "title": "contract",
+    "updated_at": "2026-09-18T20:35:45.803Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0066": {
+    "created_at": "2026-09-18T20:35:45.810Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0066",
+    "title": "contract",
+    "updated_at": "2026-09-18T20:35:45.810Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0067": {
+    "created_at": "2026-09-18T20:49:10.042Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0067",
+    "title": "contract",
+    "updated_at": "2026-09-18T20:49:10.042Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0068": {
+    "created_at": "2026-09-18T20:49:10.049Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0068",
+    "title": "contract",
+    "updated_at": "2026-09-18T20:49:10.049Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0069": {
+    "created_at": "2026-09-22T12:15:45.663Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0069",
+    "title": "contract",
+    "updated_at": "2026-09-22T12:15:45.663Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0070": {
+    "created_at": "2026-09-22T12:15:45.669Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0070",
+    "title": "contract",
+    "updated_at": "2026-09-22T12:15:45.669Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0071": {
+    "created_at": "2026-09-22T12:19:32.677Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0071",
+    "title": "contract",
+    "updated_at": "2026-09-22T12:19:32.677Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0072": {
+    "created_at": "2026-09-22T12:19:32.684Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0072",
+    "title": "contract",
+    "updated_at": "2026-09-22T12:19:32.684Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0073": {
+    "created_at": "2026-09-22T13:17:38.988Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0073",
+    "title": "contract",
+    "updated_at": "2026-09-22T13:17:38.988Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0074": {
+    "created_at": "2026-09-22T13:17:38.994Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0074",
+    "title": "contract",
+    "updated_at": "2026-09-22T13:17:38.994Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0075": {
+    "created_at": "2026-09-22T13:23:19.606Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0075",
+    "title": "contract",
+    "updated_at": "2026-09-22T13:23:19.606Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0076": {
+    "created_at": "2026-09-22T13:23:19.612Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0076",
+    "title": "contract",
+    "updated_at": "2026-09-22T13:23:19.612Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0077": {
+    "created_at": "2026-09-22T13:27:25.243Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0077",
+    "title": "contract",
+    "updated_at": "2026-09-22T13:27:25.243Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0078": {
+    "created_at": "2026-09-22T13:27:25.249Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0078",
+    "title": "contract",
+    "updated_at": "2026-09-22T13:27:25.249Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0079": {
+    "created_at": "2026-09-22T13:51:16.416Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0079",
+    "title": "contract",
+    "updated_at": "2026-09-22T13:51:16.416Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0080": {
+    "created_at": "2026-09-22T13:51:16.423Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0080",
+    "title": "contract",
+    "updated_at": "2026-09-22T13:51:16.423Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0081": {
+    "created_at": "2026-09-22T14:44:21.472Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0081",
+    "title": "contract",
+    "updated_at": "2026-09-22T14:44:21.472Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0082": {
+    "created_at": "2026-09-22T14:44:21.478Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0082",
+    "title": "contract",
+    "updated_at": "2026-09-22T14:44:21.478Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0083": {
+    "created_at": "2026-09-23T11:17:21.284Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0083",
+    "title": "contract",
+    "updated_at": "2026-09-23T11:17:21.285Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0084": {
+    "created_at": "2026-09-23T11:17:21.292Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0084",
+    "title": "contract",
+    "updated_at": "2026-09-23T11:17:21.292Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0085": {
+    "created_at": "2026-09-23T11:18:10.290Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0085",
+    "title": "contract",
+    "updated_at": "2026-09-23T11:18:10.290Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0086": {
+    "created_at": "2026-09-23T11:18:10.297Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0086",
+    "title": "contract",
+    "updated_at": "2026-09-23T11:18:10.297Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0087": {
+    "created_at": "2026-09-23T11:18:50.397Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0087",
+    "title": "contract",
+    "updated_at": "2026-09-23T11:18:50.397Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0088": {
+    "created_at": "2026-09-23T11:18:50.404Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0088",
+    "title": "contract",
+    "updated_at": "2026-09-23T11:18:50.404Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0089": {
+    "created_at": "2026-09-23T13:26:58.956Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0089",
+    "title": "contract",
+    "updated_at": "2026-09-23T13:26:58.956Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0090": {
+    "created_at": "2026-09-23T13:26:58.964Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0090",
+    "title": "contract",
+    "updated_at": "2026-09-23T13:26:58.964Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0091": {
+    "created_at": "2026-09-23T13:45:13.538Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0091",
+    "title": "contract",
+    "updated_at": "2026-09-23T13:45:13.538Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0092": {
+    "created_at": "2026-09-23T13:45:13.547Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0092",
+    "title": "contract",
+    "updated_at": "2026-09-23T13:45:13.547Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0094": {
+    "created_at": "2026-09-23T13:56:50.356Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0094",
+    "title": "contract",
+    "updated_at": "2026-09-23T13:56:50.356Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0095": {
+    "created_at": "2026-09-23T13:56:50.362Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0095",
+    "title": "contract",
+    "updated_at": "2026-09-23T13:56:50.362Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0096": {
+    "created_at": "2026-09-23T14:00:36.068Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0096",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:00:36.068Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0097": {
+    "created_at": "2026-09-23T14:00:36.074Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0097",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:00:36.074Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0098": {
+    "created_at": "2026-09-23T14:07:41.554Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0098",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:07:41.554Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0099": {
+    "created_at": "2026-09-23T14:07:41.561Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0099",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:07:41.561Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0100": {
+    "created_at": "2026-09-23T14:21:54.852Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0100",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:21:54.852Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0101": {
+    "created_at": "2026-09-23T14:21:54.858Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0101",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:21:54.858Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0102": {
+    "created_at": "2026-09-23T14:23:58.008Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0102",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:23:58.008Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0103": {
+    "created_at": "2026-09-23T14:23:58.020Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0103",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:23:58.020Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0104": {
+    "created_at": "2026-09-23T14:24:28.436Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0104",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:24:28.436Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0105": {
+    "created_at": "2026-09-23T14:24:28.443Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0105",
+    "title": "contract",
+    "updated_at": "2026-09-23T14:24:28.443Z",
+    "workflow": "control-room"
+  },
   "WS-agentic-core": {
     "created_at": "2026-09-18T14:30:37.149Z",
     "fields": {
       "Autonomy Level": "L2",
       "Owner (agent)": "free",
-      "Receipt ID": "T-0023",
-      "Slice": "VS-11"
+      "Receipt ID": "T-0024",
+      "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "WS-agentic-core",
     "title": "Workstream: agentic-core",
-    "updated_at": "2026-09-18T16:16:29.338Z",
+    "updated_at": "2026-09-23T14:24:28.361Z",
     "workflow": "Engineering"
   }
 }

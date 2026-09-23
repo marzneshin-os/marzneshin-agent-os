@@ -176,6 +176,15 @@ def a2a_t2_health_file() -> Path:
     return _p("state", "a2a", "t2", "health.json")
 
 
+def a2a_t3_dir() -> Path:
+    """T3 dispatch records: envelope <-> HTTP Gateway task mapping (§5.3)."""
+    return _p("state", "a2a", "t3")
+
+
+def a2a_t3_health_file() -> Path:
+    return _p("state", "a2a", "t3", "health.json")
+
+
 def transport_health_file() -> Path:
     return _p("state", "a2a", "transport_health.json")
 

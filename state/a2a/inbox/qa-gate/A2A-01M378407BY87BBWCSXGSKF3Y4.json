@@ -1,0 +1,48 @@
+{
+  "autonomy_requested": "L2",
+  "callback": {
+    "T1": "state/a2a/outbox/orchestrator/",
+    "T2": null,
+    "T3": null
+  },
+  "capability": "probe.echo",
+  "correlation_id": "C-01M378407C2H4VCG6MFMFFQMRW",
+  "created_at": "2026-09-23T13:43:41.548Z",
+  "deadline": "2026-09-23T14:43:41.548Z",
+  "from": "orchestrator",
+  "idempotency": {
+    "attempt": 1,
+    "class": "scoped",
+    "components": [
+      "from",
+      "to",
+      "capability",
+      "inputs_hash",
+      "env_epoch"
+    ],
+    "env_epoch": "epoch-send-fail-fallback",
+    "key": "sha256:69f76744ff4149b2ad207f3fb1f67b2ebad44df7ef94e1cd224c0469b6f9ebea",
+    "retry_of": null,
+    "target_epoch": null,
+    "ttl_s": 3600
+  },
+  "input": {
+    "nonce": "send-fail-fallback",
+    "val": 42
+  },
+  "input_provenance": [
+    {
+      "field": "$.input",
+      "source": "test",
+      "trust": "internal"
+    }
+  ],
+  "priority": "normal",
+  "schema_version": "2.0.0",
+  "seed": null,
+  "task_id": "A2A-01M378407BY87BBWCSXGSKF3Y4",
+  "to": "qa-gate",
+  "trace_id": "sha256:8c582eafb7cc167dddd78a3ec",
+  "transport": "T1",
+  "world": "prod"
+}

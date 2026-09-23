@@ -259,6 +259,44 @@ class T2Client:
         raise NotImplementedError
 
 
+class T3Client:
+    """Interface for T3 HTTP Gateway client (§5.3). Lib stays stdlib-only (G9)."""
+
+    def deliver(self, envelope: dict) -> dict:  # pragma: no cover - interface
+        raise NotImplementedError
+
+    def healthz(self) -> bool:  # pragma: no cover - interface
+        raise NotImplementedError
+
+
+class FileT3Client(T3Client):
+    """Prod T3 bridge: records dispatch in state/a2a/t3/ + heartbeat freshness."""
+
+    def deliver(self, envelope: dict) -> dict:
+        rec = {
+            "task_id": envelope["task_id"],
+            "gateway_ref": f"http://127.0.0.1:8000/v1/tasks/{envelope['task_id']}",
+            "status": "admitted",
+            "envelope": envelope,
+            "recorded_at": clock.iso(),
+        }
+        path = paths.a2a_t3_dir() / f"{envelope['task_id']}.json"
+        atomic.write_json_atomic(path, rec)
+        return {"ref": rec["gateway_ref"], "status": "admitted"}
+
+    def healthz(self) -> bool:
+        beat = atomic.read_json(paths.a2a_t3_health_file(), default=None)
+        if not beat or not beat.get("heartbeat_at"):
+            return False
+        return clock.age_seconds(beat["heartbeat_at"]) <= T2_HEALTH_FRESH_S
+
+
+def t3_heartbeat(*, source: str) -> None:
+    """Gateway or probe calls this to prove the T3 path is alive."""
+    atomic.write_json_atomic(paths.a2a_t3_health_file(),
+                             {"heartbeat_at": clock.iso(), "source": source})
+
+
 class FileT2Client(T2Client):
     """Prod T2 bridge: dispatch records on disk + heartbeat freshness.
 
@@ -294,19 +332,34 @@ def t2_heartbeat(*, source: str) -> None:
 
 
 def choose_route(agent_id: str, *, t2_client: T2Client | None = None,
+                 t3_client: T3Client | None = None,
                  actor: events.Actor | None = None) -> str:
-    """Preferred transport if usable, else T1 (§5.5). T1 is always usable."""
+    """Preferred transport if usable, with graceful fallback (§5.5). T1 is always usable."""
     entry = agent_entry(agent_id)
     preferred = entry.get("transports", {}).get("preferred", "T1")
     allowed = entry.get("transports", {}).get("allowed", ["T1"])
     actor = actor or events.Actor(kind="system", id="a2a-router")
+
+    # If preferred is T3 and T3 is allowed:
+    if preferred == "T3" and "T3" in allowed:
+        c3 = t3_client or FileT3Client()
+        usable3 = bool(c3.healthz())
+        record_transport_result("T3", usable3, actor=actor, detail="healthz")
+        if not transport_state("T3").get("degraded") and usable3:
+            return "T3"
+        # T3 failed or degraded -> try T2 fallback if allowed
+        if "T2" in allowed:
+            c2 = t2_client or FileT2Client()
+            usable2 = bool(c2.healthz())
+            record_transport_result("T2", usable2, actor=actor, detail="healthz")
+            if not transport_state("T2").get("degraded") and usable2:
+                return "T2"
+        return "T1"
+
     if preferred == "T1" or "T2" not in allowed:
         return "T1"
     st = transport_state("T2")
     client = t2_client or FileT2Client()
-    # Always probe — also when degraded: the §5.5 recovery rule (5 consecutive
-    # greens) can only ever trigger if a degraded route still gets health
-    # checks. This is the half-open probe, and it is cheap.
     usable = bool(client.healthz())
     record_transport_result("T2", usable, actor=actor, detail="healthz")
     if transport_state("T2").get("degraded"):
@@ -333,7 +386,7 @@ class DispatchResult:
                 "reason": self.reason, "policy": self.policy_decision}
 
 
-def send(envelope: dict, *, t2_client: T2Client | None = None,
+def send(envelope: dict, *, t2_client: T2Client | None = None, t3_client: T3Client | None = None,
          actor: events.Actor | None = None) -> DispatchResult:
     """Route one envelope: policy gate -> idempotency -> transport. §5.4 states."""
     actor = actor or events.Actor(kind="agent", id=envelope.get("from", "unknown"))
@@ -380,10 +433,15 @@ def send(envelope: dict, *, t2_client: T2Client | None = None,
                               policy_decision=decision.to_dict())
 
     # --- route + deliver ---
-    route = choose_route(envelope["to"], t2_client=t2_client, actor=actor)
+    route = choose_route(envelope["to"], t2_client=t2_client, t3_client=t3_client, actor=actor)
     envelope["transport"] = route  # content unchanged except the route marker
     try:
-        if route == "T2":
+        if route == "T3":
+            client = t3_client or FileT3Client()
+            out = client.deliver(envelope)
+            record_transport_result("T3", True, actor=actor)
+            ref = out.get("ref")
+        elif route == "T2":
             client = t2_client or FileT2Client()
             out = client.deliver(envelope)
             record_transport_result("T2", True, actor=actor)
@@ -393,11 +451,15 @@ def send(envelope: dict, *, t2_client: T2Client | None = None,
             atomic.write_json_atomic(path, envelope)
             ref = paths.rel(path)
     except Exception as exc:
-        if route == "T2":
+        if route == "T3":
+            record_transport_result("T3", False, actor=actor, detail=str(exc))
+            envelope["transport"] = "T1"
+            path = paths.a2a_inbox(envelope["to"]) / f"{envelope['task_id']}.json"
+            atomic.write_json_atomic(path, envelope)
+            route = "T1"
+            ref = paths.rel(path)
+        elif route == "T2":
             record_transport_result("T2", False, actor=actor, detail=str(exc))
-            # §5 governing principle: the gateway can die and the system must
-            # continue with degraded LATENCY, not a stop. The same envelope —
-            # zero content change (§3.5) — falls back to the T1 baseline.
             envelope["transport"] = "T1"
             path = paths.a2a_inbox(envelope["to"]) / f"{envelope['task_id']}.json"
             atomic.write_json_atomic(path, envelope)

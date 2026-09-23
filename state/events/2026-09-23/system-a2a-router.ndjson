@@ -1,0 +1,1 @@
+{"actor":{"id":"a2a-router","kind":"system"},"actor_seq":2,"event_id":"01M3789GVRZS84R92893T7YDWR","payload":{"after_failures":3,"detail":"healthz"},"redacted":false,"redaction_map":[],"schema_version":"2.0.0","subject":{"id":"T2","kind":"transport"},"transport":"T2","trust":"internal","ts":"2026-09-23T13:46:42.424Z","type":"transport.degraded","world":"prod"}

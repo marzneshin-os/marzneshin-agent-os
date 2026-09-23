@@ -1,0 +1,42 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Marzneshin: Auto-Start AI Daemons",
+            "type": "shell",
+            "windows": {
+                "command": "wsl -d Ubuntu -e bash -lc \"cd /home/asus/code/marzneshin-agent-os && python3 scripts/dev.py start\""
+            },
+            "linux": {
+                "command": "python3 scripts/dev.py start"
+            },
+            "isBackground": true,
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "reveal": "never",
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": [
+                {
+                    "pattern": [
+                        {
+                            "regexp": ".",
+                            "file": 1,
+                            "location": 2,
+                            "message": 3
+                        }
+                    ],
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern": ".*Starting.*",
+                        "endsPattern": ".*Press Ctrl\\+C to stop all services.*"
+                    }
+                }
+            ]
+        }
+    ]
+}

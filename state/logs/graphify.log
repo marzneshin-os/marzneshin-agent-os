@@ -1521,3 +1521,635 @@ Tip: run with --obsidian for full node-level detail.
   AST extraction: 100/260 uncached files (38%) [16 workers]
   AST extraction: 200/260 uncached files (76%) [16 workers]
   AST extraction: 260/260 uncached files (100%) [16 workers]
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/271 uncached files (36%) [16 workers]
+  AST extraction: 200/271 uncached files (73%) [16 workers]
+  AST extraction: 271/271 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1418 saved labels, 1425 communities now; renamed 38 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-18/
+Graph has 19246 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1425 community nodes, 726 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19246 nodes, 22465 edges, 1425 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/261 uncached files (38%) [16 workers]
+  AST extraction: 200/261 uncached files (76%) [16 workers]
+  AST extraction: 261/261 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/275 uncached files (36%) [16 workers]
+  AST extraction: 200/275 uncached files (72%) [16 workers]
+  AST extraction: 275/275 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1425 saved labels, 1438 communities now; renamed 37 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-19/
+Graph has 19296 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1438 community nodes, 712 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19296 nodes, 22505 edges, 1438 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/262 uncached files (38%) [16 workers]
+  AST extraction: 200/262 uncached files (76%) [16 workers]
+  AST extraction: 262/262 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/266 uncached files (37%) [16 workers]
+  AST extraction: 200/266 uncached files (75%) [16 workers]
+  AST extraction: 266/266 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1438 saved labels, 1438 communities now; renamed 45 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-19/
+Graph has 19297 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1438 community nodes, 731 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19297 nodes, 22505 edges, 1438 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/263 uncached files (38%) [16 workers]
+  AST extraction: 200/263 uncached files (76%) [16 workers]
+  AST extraction: 263/263 uncached files (100%) [16 workers]
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/264 uncached files (37%) [16 workers]
+  AST extraction: 200/264 uncached files (75%) [16 workers]
+  AST extraction: 264/264 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/264 uncached files (37%) [16 workers]
+  AST extraction: 200/264 uncached files (75%) [16 workers]
+  AST extraction: 264/264 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/265 uncached files (37%) [16 workers]
+  AST extraction: 200/265 uncached files (75%) [16 workers]
+  AST extraction: 265/265 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/265 uncached files (37%) [16 workers]
+  AST extraction: 200/265 uncached files (75%) [16 workers]
+  AST extraction: 265/265 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/271 uncached files (36%) [16 workers]
+  AST extraction: 200/271 uncached files (73%) [16 workers]
+  AST extraction: 271/271 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/272 uncached files (36%) [16 workers]
+  AST extraction: 200/272 uncached files (73%) [16 workers]
+  AST extraction: 272/272 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1438 saved labels, 1441 communities now; renamed 49 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19299 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1441 community nodes, 735 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19299 nodes, 22509 edges, 1441 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/273 uncached files (36%) [16 workers]
+  AST extraction: 200/273 uncached files (73%) [16 workers]
+  AST extraction: 273/273 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1441 saved labels, 1439 communities now; renamed 27 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19308 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1439 community nodes, 735 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19308 nodes, 22525 edges, 1439 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/273 uncached files (36%) [16 workers]
+  AST extraction: 200/273 uncached files (73%) [16 workers]
+  AST extraction: 273/273 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1439 saved labels, 1444 communities now; renamed 24 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19313 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1444 community nodes, 730 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19313 nodes, 22548 edges, 1444 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/272 uncached files (36%) [16 workers]
+  AST extraction: 200/272 uncached files (73%) [16 workers]
+  AST extraction: 272/272 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1444 saved labels, 1444 communities now; renamed 35 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19327 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1444 community nodes, 744 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19327 nodes, 22580 edges, 1444 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/271 uncached files (36%) [16 workers]
+  AST extraction: 200/271 uncached files (73%) [16 workers]
+  AST extraction: 271/271 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/272 uncached files (36%) [16 workers]
+  AST extraction: 200/272 uncached files (73%) [16 workers]
+  AST extraction: 272/272 uncached files (100%) [16 workers]
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19327 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1444 community nodes, 745 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19327 nodes, 22582 edges, 1444 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/271 uncached files (36%) [16 workers]
+  AST extraction: 200/271 uncached files (73%) [16 workers]
+  AST extraction: 271/271 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/272 uncached files (36%) [16 workers]
+  AST extraction: 200/272 uncached files (73%) [16 workers]
+  AST extraction: 272/272 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/272 uncached files (36%) [16 workers]
+  AST extraction: 200/272 uncached files (73%) [16 workers]
+  AST extraction: 272/272 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/273 uncached files (36%) [16 workers]
+  AST extraction: 200/273 uncached files (73%) [16 workers]
+  AST extraction: 273/273 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/273 uncached files (36%) [16 workers]
+  AST extraction: 200/273 uncached files (73%) [16 workers]
+  AST extraction: 273/273 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/274 uncached files (36%) [16 workers]
+  AST extraction: 200/274 uncached files (72%) [16 workers]
+  AST extraction: 274/274 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1444 saved labels, 1443 communities now; renamed 2 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19327 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1443 community nodes, 741 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19327 nodes, 22585 edges, 1443 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/274 uncached files (36%) [16 workers]
+  AST extraction: 200/274 uncached files (72%) [16 workers]
+  AST extraction: 274/274 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/273 uncached files (36%) [16 workers]
+  AST extraction: 200/273 uncached files (73%) [16 workers]
+  AST extraction: 273/273 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/274 uncached files (36%) [16 workers]
+  AST extraction: 200/274 uncached files (72%) [16 workers]
+  AST extraction: 274/274 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/274 uncached files (36%) [16 workers]
+  AST extraction: 200/274 uncached files (72%) [16 workers]
+  AST extraction: 274/274 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/276 uncached files (36%) [16 workers]
+  AST extraction: 200/276 uncached files (72%) [16 workers]
+  AST extraction: 276/276 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1443 saved labels, 1443 communities now; renamed 28 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19338 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1443 community nodes, 736 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19338 nodes, 22600 edges, 1443 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/275 uncached files (36%) [16 workers]
+  AST extraction: 200/275 uncached files (72%) [16 workers]
+  AST extraction: 275/275 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1443 saved labels, 1444 communities now; renamed 27 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19338 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1444 community nodes, 713 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19338 nodes, 22601 edges, 1444 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/275 uncached files (36%) [16 workers]
+  AST extraction: 200/275 uncached files (72%) [16 workers]
+  AST extraction: 275/275 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1444 saved labels, 1452 communities now; renamed 26 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-22/
+Graph has 19354 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1452 community nodes, 732 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19354 nodes, 22629 edges, 1452 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/275 uncached files (36%) [16 workers]
+  AST extraction: 200/275 uncached files (72%) [16 workers]
+  AST extraction: 275/275 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/275 uncached files (36%) [16 workers]
+  AST extraction: 200/275 uncached files (72%) [16 workers]
+  AST extraction: 275/275 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/276 uncached files (36%) [16 workers]
+  AST extraction: 200/276 uncached files (72%) [16 workers]
+  AST extraction: 276/276 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/276 uncached files (36%) [16 workers]
+  AST extraction: 200/276 uncached files (72%) [16 workers]
+  AST extraction: 276/276 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/279 uncached files (35%) [16 workers]
+  AST extraction: 200/279 uncached files (71%) [16 workers]
+  AST extraction: 279/279 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1452 saved labels, 1443 communities now; renamed 35 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/289 uncached files (34%) [16 workers]
+  AST extraction: 200/289 uncached files (69%) [16 workers]
+  AST extraction: 289/289 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1443 saved labels, 1460 communities now; renamed 32 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19480 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1460 community nodes, 746 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19480 nodes, 22748 edges, 1460 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/278 uncached files (35%) [16 workers]
+  AST extraction: 200/278 uncached files (71%) [16 workers]
+  AST extraction: 278/278 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/279 uncached files (35%) [16 workers]
+  AST extraction: 200/279 uncached files (71%) [16 workers]
+  AST extraction: 279/279 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/279 uncached files (35%) [16 workers]
+  AST extraction: 200/279 uncached files (71%) [16 workers]
+  AST extraction: 279/279 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 10 file(s) changed
+  AST extraction: 100/280 uncached files (35%) [16 workers]
+  AST extraction: 200/280 uncached files (71%) [16 workers]
+  AST extraction: 280/280 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/291 uncached files (34%) [16 workers]
+  AST extraction: 200/291 uncached files (68%) [16 workers]
+  AST extraction: 291/291 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1460 saved labels, 1466 communities now; renamed 31 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19542 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1466 community nodes, 735 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19542 nodes, 22800 edges, 1466 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/281 uncached files (35%) [16 workers]
+  AST extraction: 200/281 uncached files (71%) [16 workers]
+  AST extraction: 281/281 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/283 uncached files (35%) [16 workers]
+  AST extraction: 200/283 uncached files (70%) [16 workers]
+  AST extraction: 283/283 uncached files (100%) [16 workers]
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19543 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1467 community nodes, 735 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19543 nodes, 22800 edges, 1467 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 15 file(s) changed
+  AST extraction: 100/297 uncached files (33%) [16 workers]
+  AST extraction: 200/297 uncached files (67%) [16 workers]
+  AST extraction: 297/297 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: gateway/routes/tasks.py (first error at line 146, 13 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1467 saved labels, 1488 communities now; renamed 44 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19623 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1488 community nodes, 774 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19623 nodes, 22948 edges, 1488 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/283 uncached files (35%) [16 workers]
+  AST extraction: 200/283 uncached files (70%) [16 workers]
+  AST extraction: 283/283 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: gateway/routes/tasks.py (first error at line 146, 13 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1488 saved labels, 1488 communities now; renamed 47 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19647 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1488 community nodes, 760 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19647 nodes, 22980 edges, 1488 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/283 uncached files (35%) [16 workers]
+  AST extraction: 200/283 uncached files (70%) [16 workers]
+  AST extraction: 283/283 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/285 uncached files (35%) [16 workers]
+  AST extraction: 200/285 uncached files (70%) [16 workers]
+  AST extraction: 285/285 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1488 saved labels, 1480 communities now; renamed 42 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19645 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1480 community nodes, 753 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19645 nodes, 22978 edges, 1480 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/284 uncached files (35%) [16 workers]
+  AST extraction: 200/284 uncached files (70%) [16 workers]
+  AST extraction: 284/284 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/284 uncached files (35%) [16 workers]
+  AST extraction: 200/284 uncached files (70%) [16 workers]
+  AST extraction: 284/284 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1480 saved labels, 1481 communities now; renamed 22 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19658 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1481 community nodes, 781 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19658 nodes, 23003 edges, 1481 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/283 uncached files (35%) [16 workers]
+  AST extraction: 200/283 uncached files (70%) [16 workers]
+  AST extraction: 283/283 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1481 saved labels, 1487 communities now; renamed 41 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19676 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1487 community nodes, 807 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19676 nodes, 23034 edges, 1487 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/284 uncached files (35%) [16 workers]
+  AST extraction: 200/284 uncached files (70%) [16 workers]
+  AST extraction: 284/284 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1487 saved labels, 1487 communities now; renamed 1 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19676 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1487 community nodes, 807 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19676 nodes, 23034 edges, 1487 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/286 uncached files (34%) [16 workers]
+  AST extraction: 200/286 uncached files (69%) [16 workers]
+  AST extraction: 286/286 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/287 uncached files (34%) [16 workers]
+  AST extraction: 200/287 uncached files (69%) [16 workers]
+  AST extraction: 287/287 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/287 uncached files (34%) [16 workers]
+  AST extraction: 200/287 uncached files (69%) [16 workers]
+  AST extraction: 287/287 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/289 uncached files (34%) [16 workers]
+  AST extraction: 200/289 uncached files (69%) [16 workers]
+  AST extraction: 289/289 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1487 saved labels, 1481 communities now; renamed 26 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19676 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1481 community nodes, 758 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19676 nodes, 23035 edges, 1481 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/288 uncached files (34%) [16 workers]
+  AST extraction: 200/288 uncached files (69%) [16 workers]
+  AST extraction: 288/288 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/292 uncached files (34%) [16 workers]
+  AST extraction: 200/292 uncached files (68%) [16 workers]
+  AST extraction: 292/292 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1481 saved labels, 1477 communities now; renamed 35 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19686 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1477 community nodes, 777 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19686 nodes, 23044 edges, 1477 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/291 uncached files (34%) [16 workers]
+  AST extraction: 200/291 uncached files (68%) [16 workers]
+  AST extraction: 291/291 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/291 uncached files (34%) [16 workers]
+  AST extraction: 200/291 uncached files (68%) [16 workers]
+  AST extraction: 291/291 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/292 uncached files (34%) [16 workers]
+  AST extraction: 200/292 uncached files (68%) [16 workers]
+  AST extraction: 292/292 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/292 uncached files (34%) [16 workers]
+  AST extraction: 200/292 uncached files (68%) [16 workers]
+  AST extraction: 292/292 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/293 uncached files (34%) [16 workers]
+  AST extraction: 200/293 uncached files (68%) [16 workers]
+  AST extraction: 293/293 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/296 uncached files (33%) [16 workers]
+  AST extraction: 200/296 uncached files (67%) [16 workers]
+  AST extraction: 296/296 uncached files (100%) [16 workers]
+[graphify watch] community set changed since labeling (1477 saved labels, 1477 communities now; renamed 1 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-23/
+Graph has 19686 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1477 community nodes, 777 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 19686 nodes, 23044 edges, 1477 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/294 uncached files (34%) [16 workers]
+  AST extraction: 200/294 uncached files (68%) [16 workers]
+  AST extraction: 294/294 uncached files (100%) [16 workers]
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/295 uncached files (33%) [16 workers]
+  AST extraction: 200/295 uncached files (67%) [16 workers]
+  AST extraction: 295/295 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/296 uncached files (33%) [16 workers]
+  AST extraction: 200/296 uncached files (67%) [16 workers]
+  AST extraction: 296/296 uncached files (100%) [16 workers]
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/296 uncached files (33%) [16 workers]
+  AST extraction: 200/296 uncached files (67%) [16 workers]
+  AST extraction: 296/296 uncached files (100%) [16 workers]

@@ -1,18 +1,47 @@
 import sqlite3
 from typing import Literal
 from langgraph.graph import StateGraph, START, END
+from langgraph.types import Send
 from langgraph.checkpoint.sqlite import SqliteSaver
 
-from .graph_state import AgentState
-from .graph_nodes import supervisor_node, coder_node, reviewer_node, memory_node
+from .graph_state import AgentState, TaskSpec
+from .graph_nodes import (
+    supervisor_node,
+    coder_node,
+    reviewer_node,
+    memory_node,
+    aggregator_node,
+)
 
-# --- Define Routing Logic ---
-def route_next(state: AgentState) -> Literal["Coder", "Memory", "Reviewer", "__end__"]:
-    """Route to the next agent based on the supervisor's decision."""
+
+def parallel_router(state: AgentState):
+    """
+    Fan-Out router:
+    If next_agent is 'FINISH', route to END.
+    If next_agent is 'parallel_dispatch', dispatch pending_tasks in parallel via Send.
+    Otherwise, route to the designated single node.
+    """
     next_agent = state.get("next_agent", "FINISH")
     if next_agent == "FINISH":
         return END
-    return next_agent
+
+    pending = state.get("pending_tasks", [])
+    if pending and next_agent == "parallel_dispatch":
+        sends = []
+        for task in pending:
+            assigned = task.get("assigned_to", "Coder").capitalize()
+            if assigned in ("Coder", "Reviewer"):
+                sends.append(Send(assigned, task))
+            else:
+                sends.append(Send("Coder", task))
+        if sends:
+            return sends
+
+    if next_agent in ("Coder", "Reviewer", "Memory", "Aggregator"):
+        return next_agent
+
+    return END
+
 
 # --- Build the Graph ---
 workflow = StateGraph(AgentState)
@@ -22,38 +51,33 @@ workflow.add_node("Supervisor", supervisor_node)
 workflow.add_node("Coder", coder_node)
 workflow.add_node("Reviewer", reviewer_node)
 workflow.add_node("Memory", memory_node)
+workflow.add_node("Aggregator", aggregator_node)
 
 # Add edges
-# We always start with the Supervisor
+# Always start at Supervisor
 workflow.add_edge(START, "Supervisor")
 
-# The Supervisor decides who goes next
+# Supervisor branches to parallel workers or END
 workflow.add_conditional_edges(
     "Supervisor",
-    route_next,
-    {
-        "Coder": "Coder",
-        "Memory": "Memory",
-        "Reviewer": "Reviewer",
-        "__end__": END
-    }
+    parallel_router,
+    ["Coder", "Reviewer", "Memory", "Aggregator", END]
 )
 
-# After any worker finishes, they report back to the Supervisor
-workflow.add_edge("Coder", "Supervisor")
-workflow.add_edge("Reviewer", "Supervisor")
+# Parallel workers fan-in to Aggregator
+workflow.add_edge("Coder", "Aggregator")
+workflow.add_edge("Reviewer", "Aggregator")
 workflow.add_edge("Memory", "Supervisor")
 
-# --- Configure Checkpointer for Persistence ---
-# This ensures that state is saved locally and can be accessed across different IDEs via MCP.
-# We store the sqlite DB inside the `state/` directory to adhere to marzneshin rules.
+# Aggregator loops back to Supervisor for adjudication / next milestone
+workflow.add_edge("Aggregator", "Supervisor")
+
+# Checkpointer configuration
 db_path = "state/langgraph_checkpoints.sqlite"
 conn = sqlite3.connect(db_path, check_same_thread=False)
 memory_saver = SqliteSaver(conn)
 
 # Compile the graph
-# We add an interrupt before Coder to allow Human-in-the-loop review if needed.
 app = workflow.compile(
-    checkpointer=memory_saver,
-    interrupt_before=["Coder"]
+    checkpointer=memory_saver
 )

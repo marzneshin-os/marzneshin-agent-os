@@ -1,0 +1,73 @@
+{
+  "completed_at": "2026-09-23T13:54:11.162Z",
+  "human_interventions": 0,
+  "marathon": "72h_unsupervised_autonomous_marathon",
+  "marathon_passed": true,
+  "passed_seeds": 10,
+  "receipt_coverage": 1.0,
+  "scenario": "node_outage",
+  "seed_details": [
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 101,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 102,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 103,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 104,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 105,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 106,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 107,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 108,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 109,
+      "virtual_hours": 72
+    },
+    {
+      "result": "pass",
+      "score": 1.0,
+      "seed": 110,
+      "virtual_hours": 72
+    }
+  ],
+  "total_seeds": 10,
+  "total_virtual_hours": 720
+}

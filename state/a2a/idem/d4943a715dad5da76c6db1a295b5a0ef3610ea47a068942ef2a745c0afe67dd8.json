@@ -1,0 +1,9 @@
+{
+  "expires_at": "2026-09-23T14:42:35.205Z",
+  "key": "sha256:d4943a715dad5da76c6db1a295b5a0ef3610ea47a068942ef2a745c0afe67dd8",
+  "ref": "http://127.0.0.1:8000/v1/tasks/A2A-01M3781ZCSP25E6K807CY137ND",
+  "state": "queued",
+  "stored_at": "2026-09-23T13:42:35.205Z",
+  "task_id": "A2A-01M3781ZCSP25E6K807CY137ND",
+  "transport": "T3"
+}

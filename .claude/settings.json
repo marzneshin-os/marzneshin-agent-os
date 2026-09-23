@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 scripts/dev.py health)",
+      "Bash(python3 scripts/dev.py status)",
+      "Bash(python3 scripts/verify.py)",
+      "Bash(pytest tests/*)",
+      "mcp__plugin_agentmemory_agentmemory__memory_smart_search",
+      "mcp__plugin_agentmemory_agentmemory__memory_sessions",
+      "mcp__plugin_agentmemory_agentmemory__memory_save",
+      "mcp__plugin_agentmemory_agentmemory__memory_recall",
+      "Bash(gh *)",
+      "mcp__memwal__memwal_remember",
+      "mcp__memwal__memwal_recall",
+      "mcp__memwal__memwal_analyze",
+      "mcp__memwal__memwal_restore",
+      "mcp__memwal__memwal_remember_bulk",
+      "mcp__plugin_memwal_memwal__memwal_remember",
+      "mcp__plugin_memwal_memwal__memwal_recall"
+    ]
+  }
+}

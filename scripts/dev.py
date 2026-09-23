@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from lib import clock
+from lib import clock, service_probes
 from urllib import request, error
 
 # Colors for output
@@ -158,45 +158,21 @@ def stop_services(only: list[str] = None):
 
 def status_services():
     config = get_config()
-    print(f"{'SERVICE':<15} {'PORT':<12} {'STATUS':<15}")
-    print("-" * 45)
+    print(f"{'SERVICE':<18} {'PORT/PID':<14} {'STATUS':<10} {'LATENCY':<12} {'MEMORY':<12} {'DETAIL'}")
+    print("-" * 80)
     for name, svc in config.items():
-        check_ports = svc.get("check_ports")
-        port = svc.get("port")
-        
-        if check_ports:
-            all_up = all(check_port(p) for p in check_ports)
-            any_up = any(check_port(p) for p in check_ports)
-            port_str = ", ".join(str(p) for p in check_ports)
-            if all_up:
-                status = "\033[32mUP\033[0m"
-            elif any_up:
-                status = "\033[33mPARTIAL\033[0m"
-            else:
-                status = "\033[31mDOWN\033[0m"
-            print(f"{name:<15} {port_str:<12} {status}")
-            continue
+        probe = service_probes.probe_single_service(name, svc)
+        status_raw = probe["status"]
+        if status_raw == "UP":
+            status_str = "[32mUP[0m"
+        else:
+            status_str = "[31mDOWN[0m"
 
-        if not port:
-            cmd = svc.get("command", "")
-            script = svc.get("process_match") or (cmd.split()[-1] if cmd else "")
-            status = "UNKNOWN (No port)"
-            if script:
-                try:
-                    res = subprocess.run(["pgrep", "-f", script], capture_output=True, text=True, timeout=2)
-                    pids = [p for p in res.stdout.strip().split("\n") if p]
-                    if pids:
-                        status = f"\033[32mUP (stdio PID {','.join(pids)})\033[0m"
-                    else:
-                        status = "\033[31mDOWN (stdio)\033[0m"
-                except Exception:
-                    status = "UNKNOWN (No port)"
-            print(f"{name:<15} {'N/A':<12} {status}")
-            continue
-            
-        is_up = check_port(port)
-        status = "\033[32mUP\033[0m" if is_up else "\033[31mDOWN\033[0m"
-        print(f"{name:<15} {str(port):<12} {status}")
+        port_or_pid = str(probe["port"]) if probe.get("port") else (f"PID {','.join(map(str, probe['pids'][:2]))}" if probe.get("pids") else "N/A")
+        lat_str = f"{probe['latency_ms']:.1f} ms"
+        mem_str = f"{probe['rss_mb']:.1f} MB" if probe.get("rss_mb", 0) > 0 else "-"
+        detail = probe.get("error") or "healthy"
+        print(f"{name:<18} {port_or_pid:<14} {status_str:<19} {lat_str:<12} {mem_str:<12} {detail[:25]}")
 
 def main():
     parser = argparse.ArgumentParser(description="Unified Service Manager")

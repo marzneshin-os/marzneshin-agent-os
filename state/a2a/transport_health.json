@@ -1,7 +1,12 @@
 {
   "T2": {
+    "consecutive_failures": 3,
+    "consecutive_successes": 0,
+    "degraded": true
+  },
+  "T3": {
     "consecutive_failures": 0,
-    "consecutive_successes": 7,
+    "consecutive_successes": 1,
     "degraded": false
   }
 }
