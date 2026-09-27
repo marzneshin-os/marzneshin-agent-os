@@ -1,0 +1,56 @@
+name: Codex OSS PR Review & Security Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  codex-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install jsonschema pyyaml requests
+
+      - name: Pre-flight Verification Gate
+        run: |
+          python3 scripts/verify.py --all
+
+      - name: Unit Test Suite
+        run: |
+          python3 -m unittest discover -s tests
+
+      - name: Adversarial Reviewer Check
+        run: |
+          python3 scripts/review.py check \
+            --author "github-pr-${{ github.actor }}" \
+            --lineage "contributor/pr" \
+            --intent "PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}" \
+            --emit
+
+      - name: Run Codex Review Bridge
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/codex_bridge.py review \
+            --pr-number "${{ github.event.pull_request.number }}" \
+            --base "${{ github.event.pull_request.base.sha }}" \
+            --head "${{ github.event.pull_request.head.sha }}" \
+            --post-comment

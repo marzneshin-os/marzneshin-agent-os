@@ -1,3 +1,27 @@
+# Marzneshin Agent OS — Codex Configuration
+# Compliant with BUILD-SPEC.md v2.0 & OpenAI Codex for Open Source Program
+
+[project]
+name = "marzneshin-agent-os"
+version = "0.9.29"
+spec = "BUILD-SPEC.md v2.0"
+repository = "https://github.com/marzneshin-os/marzneshin-agent-os"
+license = "MIT"
+
+[codex]
+default_model = "gpt-4o"
+reasoning_model = "o3-mini"
+security_scan_enabled = true
+two_key_verification = true
+receipt_chain_enforcement = true
+max_tokens = 8192
+
+[codex.workflows]
+pr_review = true
+maintainer_automation = true
+issue_triage = true
+adversarial_inspection = true
+
 [mcp_servers.marzneshin-langgraph]
 url = "http://127.0.0.1:8005/sse"
 
@@ -7,3 +31,6 @@ args = [
     "-y",
     "@mysten-incubation/memwal-mcp",
 ]
+
+[mcp_servers.agentmemory]
+url = "http://127.0.0.1:3111/sse"
