@@ -24,7 +24,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install strict-validation dependency
-        run: pip install jsonschema pyyaml fastapi httpx langchain-core
+        run: pip install jsonschema pyyaml fastapi httpx langchain-core langchain-openai langgraph mcp
 
       - name: Unit suite (stdlib-only, no network)
         run: python3 -m unittest discover -s tests
