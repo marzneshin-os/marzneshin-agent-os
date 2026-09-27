@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch, MagicMock
 import sys
 from pathlib import Path
 
@@ -25,13 +26,18 @@ class TestServiceHealthUpgrade(unittest.TestCase):
         self.assertGreaterEqual(res["latency_ms"], 0.0)
         self.assertIsNotNone(res["error"])
 
-    def test_measure_http_probe_mock_expected(self):
-        """Verify expected status code matching."""
-        # Using port 8005 which is running langgraph
+    @patch("urllib.request.urlopen")
+    def test_measure_http_probe_mock_expected(self, mock_urlopen):
+        """Verify expected status code matching with mock."""
+        mock_resp = MagicMock()
+        mock_resp.getcode.return_value = 200
+        mock_resp.__enter__.return_value = mock_resp
+        mock_urlopen.return_value = mock_resp
+
         res = measure_http_probe(port=8005, path="/", expected_status=[200], timeout_s=2.0)
         self.assertTrue(res["ok"])
         self.assertEqual(res["status_code"], 200)
-        self.assertGreater(res["latency_ms"], 0.0)
+        self.assertGreaterEqual(res["latency_ms"], 0.0)
 
     def test_measure_process_probe_missing(self):
         """Verify missing process returns ok=False and empty PIDs."""

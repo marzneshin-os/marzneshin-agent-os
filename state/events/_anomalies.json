@@ -53,6 +53,23 @@
         135
       ],
       "world": "prod"
+    },
+    {
+      "actor": "system-compact",
+      "adr": "decisions/ADR/ADR-006-vs4-continuity-decisions.md",
+      "day": "2026-09-24",
+      "event_ids": [
+        "01M37JJ6904PDA0DXM0RYYRX0J",
+        "01M38FHCZKBR8JVBJZ1SRSE8YQ"
+      ],
+      "kind": "missing_seq",
+      "note": "Gap 190 in system-compact caused by upstream scheduled compact crash",
+      "registered_at": "2026-09-27T15:21:02.755Z",
+      "registered_by": "orchestrator",
+      "seqs": [
+        190
+      ],
+      "world": "prod"
     }
   ],
   "schema_version": "2.0.0"
