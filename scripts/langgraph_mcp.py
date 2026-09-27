@@ -24,7 +24,6 @@ from agents.graph_state import AgentState
 mcp_server = Server("marzneshin-langgraph")
 
 
-@mcp_server.list_tools()
 async def handle_list_tools() -> list[types.Tool]:
     """List the MCP tools exposed by our LangGraph integration."""
     return [
@@ -65,7 +64,6 @@ async def handle_list_tools() -> list[types.Tool]:
     ]
 
 
-@mcp_server.call_tool()
 async def handle_call_tool(
     name: str, arguments: dict | None
 ) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
@@ -230,3 +228,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+if hasattr(mcp_server, "list_tools"):
+    handle_list_tools = mcp_server.list_tools()(handle_list_tools)
+if hasattr(mcp_server, "call_tool"):
+    handle_call_tool = mcp_server.call_tool()(handle_call_tool)
