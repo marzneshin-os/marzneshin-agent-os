@@ -18,35 +18,35 @@
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 2,
-      "prod:agent-analytics-engineer": 575,
+      "prod:agent-analytics-engineer": 735,
       "prod:agent-antigravity": 1,
-      "prod:agent-config-engineer": 170,
+      "prod:agent-config-engineer": 210,
       "prod:agent-infra-sre": 1,
       "prod:agent-momo": 97,
       "prod:agent-momo-s190811": 4,
       "prod:agent-momo-s190812": 3,
-      "prod:agent-orchestrator": 68,
+      "prod:agent-orchestrator": 76,
       "prod:agent-qa-gate": 7,
-      "prod:agent-test-agent-1": 540,
-      "prod:agent-test-agent-2": 540,
-      "prod:human-owner": 40,
+      "prod:agent-test-agent-1": 700,
+      "prod:agent-test-agent-2": 700,
+      "prod:human-owner": 48,
       "prod:human-u_alice": 4,
-      "prod:human-u_funnel_1": 160,
-      "prod:human-u_nsm_1": 64,
-      "prod:human-u_nsm_2": 32,
-      "prod:human-u_nsm_3": 32,
+      "prod:human-u_funnel_1": 200,
+      "prod:human-u_nsm_1": 80,
+      "prod:human-u_nsm_2": 40,
+      "prod:human-u_nsm_3": 40,
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 24,
-      "prod:system-compact": 226,
-      "prod:system-events": 3,
+      "prod:system-compact": 227,
+      "prod:system-events": 4,
       "prod:system-reaper": 14,
-      "prod:system-system": 81,
-      "prod:system-watchdog": 476
+      "prod:system-system": 105,
+      "prod:system-watchdog": 930
     },
     "event_count": 22,
     "event_hash": "sha256:dd8294f00d31e37df916d668b2d1f0f0edae7dc34fa175ae0d0429e96752742a",
-    "until_ts": "2026-09-27T15:22:29.652Z",
+    "until_ts": "2026-09-27T15:48:50.381Z",
     "window": [
       "2026-09-25",
       "2026-09-27"
@@ -59,7 +59,7 @@
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-09-27T15:22:29.653Z",
+  "generated_at": "2026-09-27T15:48:50.381Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -67,16 +67,16 @@
     "paid_users": 3
   },
   "kill_switch": {
-    "fail_closed_engaged": true,
-    "freshness_s": 13440.828486,
+    "fail_closed_engaged": false,
+    "freshness_s": 0.34378,
     "global": false,
-    "read_at": "2026-09-27T15:22:29.625Z",
+    "read_at": "2026-09-27T15:48:50.353Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
     ],
     "scoped": [],
-    "verdict": "unknown"
+    "verdict": "running"
   },
   "kpis": {
     "crash_rate": 0.2,

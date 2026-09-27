@@ -70,6 +70,22 @@
         190
       ],
       "world": "prod"
+    },
+    {
+      "actor": "system-compact",
+      "adr": "decisions/ADR/ADR-006-vs4-continuity-decisions.md",
+      "day": "2026-09-27",
+      "event_ids": [
+        "NONE"
+      ],
+      "kind": "missing_seq",
+      "note": "Sequence 227 skipped during heartbeat action run before 228",
+      "registered_at": "2026-09-27T16:01:36.408Z",
+      "registered_by": "orchestrator",
+      "seqs": [
+        227
+      ],
+      "world": "prod"
     }
   ],
   "schema_version": "2.0.0"
