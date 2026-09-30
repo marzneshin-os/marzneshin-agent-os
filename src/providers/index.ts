@@ -11,6 +11,8 @@ import { OpenAIProvider } from "./openai.js";
 import { OpenRouterProvider } from "./openrouter.js";
 import { ResilientProvider } from "./resilient.js";
 import { FallbackChainProvider } from "./fallback-chain.js";
+import { FastInferenceRouter, FastInferenceProvider } from "./fast-inference.js";
+export { FastInferenceRouter, FastInferenceProvider } from "./fast-inference.js";
 import { getEnvVar } from "../config.js";
 
 export { createEmbeddingProvider, createImageEmbeddingProvider } from "./embedding/index.js";
@@ -141,6 +143,8 @@ function createBaseProvider(config: ProviderConfig): MemoryProvider {
         config.baseURL,
       );
     }
+    case "fast-inference":
+      return new FastInferenceProvider(new FastInferenceRouter());
     case "noop":
       return new NoopProvider();
     case "agent-sdk":
