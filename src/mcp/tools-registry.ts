@@ -1008,6 +1008,67 @@ export const ESSENTIAL_TOOLS = new Set([
   "memory_reflect",
 ]);
 
+export const FAST_INFERENCE_TOOLS: McpToolDef[] = [
+  {
+    name: "memory_fast_inference_route",
+    description:
+      "Route prompt to the lowest-latency available inference channel with dynamic speed ranking, automatic failover, and token telemetry",
+    inputSchema: {
+      type: "object",
+      properties: {
+        prompt: { type: "string", description: "The user prompt or query to route to the fastest inference channel" },
+        systemPrompt: { type: "string", description: "Optional system instructions" },
+        preferredModel: { type: "string", description: "Optional preferred model family (e.g. kimi-k3, deepseek, glm)" },
+        strategy: {
+          type: "string",
+          enum: ["lowest-latency", "fallback-chain", "cost-optimized"],
+          description: "Routing strategy (default: lowest-latency)",
+        },
+        maxTokens: { type: "number", description: "Max output tokens" },
+        temperature: { type: "number", description: "Sampling temperature" },
+      },
+      required: ["prompt"],
+    },
+  },
+  {
+    name: "memory_fast_inference_channels",
+    description:
+      "List all configured inference channels, live latency rankings, health status, and circuit breaker states",
+    inputSchema: {
+      type: "object",
+      properties: {},
+    },
+  },
+  {
+    name: "memory_fast_inference_benchmark",
+    description:
+      "Execute active speed benchmark across all or specified inference channels to refresh latency rankings",
+    inputSchema: {
+      type: "object",
+      properties: {
+        channelId: { type: "string", description: "Optional specific channel ID to benchmark" },
+      },
+    },
+  },
+  {
+    name: "memory_fast_inference_configure",
+    description:
+      "Configure inference channel settings, toggle channel availability, adjust priority, or update endpoint",
+    inputSchema: {
+      type: "object",
+      properties: {
+        channelId: { type: "string", description: "Channel ID to configure" },
+        enabled: { type: "boolean", description: "Enable or disable channel" },
+        priority: { type: "number", description: "Channel priority" },
+        endpoint: { type: "string", description: "Base URL or endpoint" },
+        model: { type: "string", description: "Model name" },
+        apiKey: { type: "string", description: "API key" },
+      },
+      required: ["channelId"],
+    },
+  },
+];
+
 export function getAllTools(): McpToolDef[] {
   return [
     ...CORE_TOOLS,
@@ -1019,6 +1080,7 @@ export function getAllTools(): McpToolDef[] {
     ...V073_TOOLS,
     ...V010_SLOTS_TOOLS,
     ...CAMPAIGN_TOOLS,
+    ...FAST_INFERENCE_TOOLS,
   ];
 }
 

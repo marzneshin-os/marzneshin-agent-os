@@ -1343,6 +1343,87 @@ export function registerMcpEndpoints(
             };
           }
 
+          case "memory_fast_inference_route": {
+            if (typeof args.prompt !== "string" || !args.prompt.trim()) {
+              return {
+                status_code: 400,
+                body: { error: "prompt is required for memory_fast_inference_route" },
+              };
+            }
+            const result = await sdk.trigger({
+              function_id: "mem::fast-inference-route",
+              payload: {
+                prompt: args.prompt,
+                systemPrompt: typeof args.systemPrompt === "string" ? args.systemPrompt : undefined,
+                preferredModel: typeof args.preferredModel === "string" ? args.preferredModel : undefined,
+                strategy: typeof args.strategy === "string" ? args.strategy : undefined,
+                maxTokens: typeof args.maxTokens === "number" ? args.maxTokens : undefined,
+                temperature: typeof args.temperature === "number" ? args.temperature : undefined,
+              },
+            });
+            return {
+              status_code: 200,
+              body: {
+                content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+              },
+            };
+          }
+
+          case "memory_fast_inference_channels": {
+            const result = await sdk.trigger({
+              function_id: "mem::fast-inference-channels",
+              payload: {},
+            });
+            return {
+              status_code: 200,
+              body: {
+                content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+              },
+            };
+          }
+
+          case "memory_fast_inference_benchmark": {
+            const result = await sdk.trigger({
+              function_id: "mem::fast-inference-benchmark",
+              payload: {
+                channelId: typeof args.channelId === "string" ? args.channelId : undefined,
+              },
+            });
+            return {
+              status_code: 200,
+              body: {
+                content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+              },
+            };
+          }
+
+          case "memory_fast_inference_configure": {
+            if (typeof args.channelId !== "string" || !args.channelId.trim()) {
+              return {
+                status_code: 400,
+                body: { error: "channelId is required for memory_fast_inference_configure" },
+              };
+            }
+            const result = await sdk.trigger({
+              function_id: "mem::fast-inference-configure",
+              payload: {
+                channelId: args.channelId,
+                enabled: typeof args.enabled === "boolean" ? args.enabled : undefined,
+                priority: typeof args.priority === "number" ? args.priority : undefined,
+                endpoint: typeof args.endpoint === "string" ? args.endpoint : undefined,
+                model: typeof args.model === "string" ? args.model : undefined,
+                apiKey: typeof args.apiKey === "string" ? args.apiKey : undefined,
+              },
+            });
+            return {
+              status_code: 200,
+              body: {
+                content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+              },
+            };
+          }
+
+
           default:
             return {
               status_code: 400,
