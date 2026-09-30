@@ -943,6 +943,60 @@ export const V010_SLOTS_TOOLS: McpToolDef[] = [
   },
 ];
 
+
+export const CAMPAIGN_TOOLS: McpToolDef[] = [
+  {
+    name: "memory_campaign_create",
+    description:
+      "Orchestrate an autonomous campaign from an asset or prompt across 3 tiers (market intelligence, strategy briefs, creative assets) with lineage tracking",
+    inputSchema: {
+      type: "object",
+      properties: {
+        name: { type: "string", description: "Name of the campaign" },
+        description: { type: "string", description: "Optional overview or brief" },
+        assetRef: { type: "string", description: "Optional asset file path or reference" },
+        project: { type: "string", description: "Optional project scope" },
+        prompt: { type: "string", description: "User intent (e.g. 'Launch a campaign for this')" },
+      },
+      required: ["name"],
+    },
+  },
+  {
+    name: "memory_campaign_get",
+    description: "Retrieve an orchestrated campaign by ID",
+    inputSchema: {
+      type: "object",
+      properties: {
+        id: { type: "string", description: "Campaign ID" },
+      },
+      required: ["id"],
+    },
+  },
+  {
+    name: "memory_campaign_list",
+    description: "List orchestrated campaigns with optional project filtering and pagination",
+    inputSchema: {
+      type: "object",
+      properties: {
+        project: { type: "string", description: "Filter by project" },
+        limit: { type: "number", description: "Max campaigns to return (default 50)" },
+        offset: { type: "number", description: "Pagination offset (default 0)" },
+      },
+    },
+  },
+  {
+    name: "memory_campaign_canvas",
+    description: "Retrieve the visual canvas payload (insights, strategies, creatives, and lineage links) for a campaign",
+    inputSchema: {
+      type: "object",
+      properties: {
+        id: { type: "string", description: "Campaign ID" },
+      },
+      required: ["id"],
+    },
+  },
+];
+
 export const ESSENTIAL_TOOLS = new Set([
   "memory_save",
   "memory_recall",
@@ -964,6 +1018,7 @@ export function getAllTools(): McpToolDef[] {
     ...V070_TOOLS,
     ...V073_TOOLS,
     ...V010_SLOTS_TOOLS,
+    ...CAMPAIGN_TOOLS,
   ];
 }
 

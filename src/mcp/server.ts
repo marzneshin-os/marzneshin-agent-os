@@ -1272,6 +1272,77 @@ export function registerMcpEndpoints(
             };
           }
 
+                    case "memory_campaign_create": {
+            if (typeof args.name !== "string" || !args.name.trim()) {
+              return {
+                status_code: 400,
+                body: { error: "name is required for memory_campaign_create" },
+              };
+            }
+            const result = await sdk.trigger({
+              function_id: "mem::campaign-orchestrate",
+              payload: {
+                name: args.name.trim(),
+                description: typeof args.description === "string" ? args.description : undefined,
+                assetRef: typeof args.assetRef === "string" ? args.assetRef : undefined,
+                project: typeof args.project === "string" ? args.project : undefined,
+                prompt: typeof args.prompt === "string" ? args.prompt : undefined,
+              },
+            });
+            return {
+              status_code: 200,
+              body: { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] },
+            };
+          }
+
+          case "memory_campaign_get": {
+            if (typeof args.id !== "string" || !args.id.trim()) {
+              return {
+                status_code: 400,
+                body: { error: "id is required for memory_campaign_get" },
+              };
+            }
+            const result = await sdk.trigger({
+              function_id: "mem::campaign-get",
+              payload: { id: args.id.trim() },
+            });
+            return {
+              status_code: 200,
+              body: { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] },
+            };
+          }
+
+          case "memory_campaign_list": {
+            const limit = typeof args.limit === "number" ? args.limit : undefined;
+            const offset = typeof args.offset === "number" ? args.offset : undefined;
+            const project = typeof args.project === "string" ? args.project : undefined;
+            const result = await sdk.trigger({
+              function_id: "mem::campaign-list",
+              payload: { project, limit, offset },
+            });
+            return {
+              status_code: 200,
+              body: { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] },
+            };
+          }
+
+          case "memory_campaign_canvas": {
+            if (typeof args.id !== "string" || !args.id.trim()) {
+              return {
+                status_code: 400,
+                body: { error: "id is required for memory_campaign_canvas" },
+              };
+            }
+            const result = await sdk.trigger({
+              function_id: "mem::campaign-canvas",
+              payload: { id: args.id.trim() },
+            });
+            return {
+              status_code: 200,
+              body: { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] },
+            };
+          }
+
           default:
             return {
               status_code: 400,
