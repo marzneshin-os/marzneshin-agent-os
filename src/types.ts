@@ -619,6 +619,8 @@ export interface AuditEntry {
     | "lesson_strengthen"
     | "lesson_delete"
     | "obsidian_export"
+    | "campaign_create"
+    | "campaign_delete"
     | "reflect"
     | "insight_search"
     | "skill_extract"
@@ -970,3 +972,50 @@ export interface StateScope {
 }
 
 export type StateScopeKey = keyof StateScope;
+
+
+export interface CampaignInsight {
+  id: string;
+  topic: string;
+  source: string;
+  summary: string;
+  confidence: number;
+  timestamp: string;
+  metadata?: Record<string, unknown>;
+}
+
+export interface CampaignStrategy {
+  id: string;
+  targetAudience: string;
+  valueProp: string;
+  hooks: string[];
+  inspiredByInsightIds: string[];
+  timestamp: string;
+  metadata?: Record<string, unknown>;
+}
+
+export interface CampaignCreative {
+  id: string;
+  format: "video-script" | "image-concept" | "ad-copy" | "carousel";
+  headline: string;
+  body: string;
+  visualPrompt?: string;
+  generatedFromStrategyIds: string[];
+  timestamp: string;
+  metadata?: Record<string, unknown>;
+}
+
+export interface Campaign {
+  id: string;
+  name: string;
+  description?: string;
+  assetRef?: string;
+  status: "draft" | "processing" | "ready" | "failed";
+  project?: string;
+  insights: CampaignInsight[];
+  strategies: CampaignStrategy[];
+  creatives: CampaignCreative[];
+  createdAt: string;
+  updatedAt: string;
+  metadata?: Record<string, unknown>;
+}
