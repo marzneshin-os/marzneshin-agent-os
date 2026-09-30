@@ -1052,6 +1052,7 @@
     <button data-tab="audit">Audit</button>
     <button data-tab="activity">Activity</button>
     <button data-tab="profile">Profile</button>
+    <button data-tab="campaigns">Campaign Canvas</button>
     <button data-tab="replay">Replay</button>
   </div>
 
@@ -4570,3 +4571,51 @@
   </script>
 </body>
 </html>
+    <!-- CAMPAIGN CANVAS VIEW -->
+    <div class="view" id="view-campaigns" style="display:none;">
+      <div class="view-header" style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2 style="margin: 0; font-size: 1.4rem;">Campaign Canvas</h2>
+          <p style="margin: 0.25rem 0 0; color: var(--text-muted); font-size: 0.85rem;">
+            Autonomous multi-agent workspace with end-to-end lineage: Insights &rarr; Strategy &rarr; Creatives.
+          </p>
+        </div>
+        <div id="campaign-selector-wrap" style="display: flex; gap: 0.5rem; align-items: center;">
+          <select id="campaign-select" style="padding: 0.4rem 0.8rem; background: var(--bg-card); color: var(--text); border: 1px solid var(--border); border-radius: 6px;">
+            <option value="">Select a Campaign...</option>
+          </select>
+          <button id="btn-refresh-campaign" class="btn" style="padding: 0.4rem 0.8rem;">Refresh</button>
+        </div>
+      </div>
+
+      <div class="canvas-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; min-height: 480px;">
+        <div class="canvas-column" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+          <div style="font-weight: 600; font-size: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>💡</span> Market Insights
+          </div>
+          <div id="canvas-insights-list" style="display: flex; flexDirection: column; gap: 0.75rem;">
+            <div style="color: var(--text-muted); font-size: 0.85rem;">Select or generate a campaign to view insights.</div>
+          </div>
+        </div>
+
+        <div class="canvas-column" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+          <div style="font-weight: 600; font-size: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🎯</span> Campaign Strategy
+          </div>
+          <div id="canvas-strategies-list" style="display: flex; flexDirection: column; gap: 0.75rem;">
+            <div style="color: var(--text-muted); font-size: 0.85rem;">Strategy and targeting briefs will display here.</div>
+          </div>
+        </div>
+
+        <div class="canvas-column" style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem;">
+          <div style="font-weight: 600; font-size: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span>🎨</span> Creative Assets
+          </div>
+          <div id="canvas-creatives-list" style="display: flex; flexDirection: column; gap: 0.75rem;">
+            <div style="color: var(--text-muted); font-size: 0.85rem;">Production-ready scripts and concepts will display here.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
