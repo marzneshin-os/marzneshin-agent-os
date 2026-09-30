@@ -92,6 +92,7 @@ import { registerRetentionFunctions } from "./functions/retention.js";
 import { registerCompressFileFunction } from "./functions/compress-file.js";
 import { registerReplayFunctions } from "./functions/replay.js";
 import { registerCampaignFunctions } from "./functions/campaign.js";
+import { registerFastInferenceFunctions } from "./functions/fast-inference.js";
 import { registerApiTriggers } from "./triggers/api.js";
 import { registerEventTriggers } from "./triggers/events.js";
 import { registerMcpEndpoints } from "./mcp/server.js";
@@ -336,6 +337,7 @@ async function main() {
   registerCompressFileFunction(sdk, kv, provider);
   registerReplayFunctions(sdk, kv);
   registerCampaignFunctions(sdk, kv);
+  registerFastInferenceFunctions(sdk, kv);
   bootLog(
     `v0.6 advanced retrieval: sliding-window, query-expansion, temporal-graph, retention-scoring`,
   );
