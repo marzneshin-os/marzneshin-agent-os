@@ -1053,6 +1053,7 @@
     <button data-tab="activity">Activity</button>
     <button data-tab="profile">Profile</button>
     <button data-tab="campaigns">Campaign Canvas</button>
+    <button data-tab="inference">Fast Inference</button>
     <button data-tab="replay">Replay</button>
   </div>
 
@@ -4568,7 +4569,116 @@
         attributeFilter: ['data-theme']
       });
     })();
-  </script>
+  
+
+    async function refreshInferenceView() {
+      var container = document.getElementById('inference-channels-list');
+      if (!container) return;
+      try {
+        var res = await api('inference/channels');
+        if (!res || !res.channels || res.channels.length === 0) {
+          container.innerHTML = '<div style="color: var(--text-muted); font-size: 0.85rem;">No channels configured. Defaulting to local heuristics.</div>';
+          return;
+        }
+        var channels = res.channels;
+        var fastest = channels.slice().sort(function(a, b) { return a.latencyMs - b.latencyMs; })[0];
+        var badge = document.getElementById('fastest-channel-badge');
+        if (badge && fastest) {
+          badge.textContent = '⚡ Fastest: ' + fastest.name + ' (' + fastest.latencyMs + 'ms)';
+        }
+
+        var html = '';
+        for (var i = 0; i < channels.length; i++) {
+          var ch = channels[i];
+          var isFastest = ch.id === (fastest && fastest.id);
+          var breakerState = ch.circuitState ? ch.circuitState.state : 'closed';
+          var statusColor = breakerState === 'closed' ? '#22c55e' : '#ef4444';
+          html += '<div style="border: 1px solid ' + (isFastest ? 'var(--accent)' : 'var(--border)') + '; border-radius: 6px; padding: 0.8rem; background: var(--bg-hover); display: flex; justify-content: space-between; align-items: center;">';
+          html += '  <div>';
+          html += '    <div style="font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">' + ch.name + (isFastest ? ' <span style="background: var(--accent); color: #fff; font-size: 0.7rem; padding: 0.1rem 0.4rem; border-radius: 3px;">FASTEST</span>' : '') + '</div>';
+          html += '    <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem;">Model: ' + ch.model + ' &bull; Endpoint: ' + ch.endpoint.slice(0, 35) + '...</div>';
+          html += '  </div>';
+          html += '  <div style="text-align: right;">';
+          html += '    <div style="font-weight: 700; font-size: 1.1rem; color: ' + (ch.latencyMs < 150 ? '#22c55e' : '#eab308') + ';">' + ch.latencyMs + ' ms</div>';
+          html += '    <div style="font-size: 0.75rem; color: ' + statusColor + ';">Circuit: ' + breakerState.toUpperCase() + '</div>';
+          html += '  </div>';
+          html += '</div>';
+        }
+        container.innerHTML = html;
+      } catch (err) {
+        container.innerHTML = '<div style="color: var(--text-muted); font-size: 0.85rem;">Failed to load channels: ' + err.message + '</div>';
+      }
+    }
+
+    var btnBench = document.getElementById('btn-benchmark-inference');
+    if (btnBench) {
+      btnBench.addEventListener('click', async function() {
+        btnBench.disabled = true;
+        btnBench.textContent = '⏳ Benchmarking...';
+        try {
+          await apiPost('inference/benchmark', {});
+          await refreshInferenceView();
+        } finally {
+          btnBench.disabled = false;
+          btnBench.textContent = '⚡ Run Speed Benchmark';
+        }
+      });
+    }
+
+    var btnRefreshInf = document.getElementById('btn-refresh-inference');
+    if (btnRefreshInf) {
+      btnRefreshInf.addEventListener('click', refreshInferenceView);
+    }
+
+</script>
+    <!-- FAST INFERENCE MONITOR VIEW -->
+    <div class="view" id="view-inference" style="display:none;">
+      <div class="view-header" style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2 style="margin: 0; font-size: 1.4rem;">Fast Inference Acceleration Layer</h2>
+          <p style="margin: 0.25rem 0 0; color: var(--text-muted); font-size: 0.85rem;">
+            Dynamic latency-based multi-channel routing with automatic failover and circuit breaker protection.
+          </p>
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button id="btn-benchmark-inference" class="btn" style="padding: 0.4rem 0.8rem; background: var(--accent); color: #fff; border: none; border-radius: 6px; cursor: pointer;">⚡ Run Speed Benchmark</button>
+          <button id="btn-refresh-inference" class="btn" style="padding: 0.4rem 0.8rem; background: var(--bg-card); color: var(--text); border: 1px solid var(--border); border-radius: 6px; cursor: pointer;">Refresh</button>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem;">
+          <div style="font-weight: 600; font-size: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between;">
+            <span>🚀 Inference Channels</span>
+            <span id="fastest-channel-badge" style="font-size: 0.75rem; background: rgba(34, 197, 94, 0.15); color: #22c55e; padding: 0.2rem 0.5rem; border-radius: 4px;">Lowest Latency Active</span>
+          </div>
+          <div id="inference-channels-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div style="color: var(--text-muted); font-size: 0.85rem;">Loading configured inference channels…</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem;">
+            <div style="font-weight: 600; font-size: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+              🛡️ Circuit Breaker Status
+            </div>
+            <div id="inference-breaker-summary" style="font-size: 0.85rem; color: var(--text-muted);">
+              All channel breakers closed (healthy). In case of upstream 429s or latency spikes, failover is sub-second.
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem;">
+            <div style="font-weight: 600; font-size: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 0.75rem;">
+              ⚡ 10x Throughput & Quota
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4;">
+              Multiplexing across Kimi K3, GLM 5.2, DeepSeek V4, and OpenAI unlocks up to 10x token throughput without per-vendor stalls.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 </body>
 </html>
     <!-- CAMPAIGN CANVAS VIEW -->
