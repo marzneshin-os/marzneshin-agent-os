@@ -3401,4 +3401,92 @@ export function registerApiTriggers(
     function_id: "api::campaign-canvas",
     config: { api_path: "/agentmemory/campaigns/canvas", http_method: "GET" },
   });
+
+  // --- Fast Inference Endpoints ---
+  sdk.registerFunction("api::inference-route", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const body = req.body as Record<string, unknown>;
+    if (!body?.prompt || typeof body.prompt !== "string") {
+      return { status_code: 400, body: { error: "prompt is required" } };
+    }
+    const result = await sdk.trigger({
+      function_id: "mem::fast-inference-route",
+      payload: {
+        prompt: body.prompt,
+        systemPrompt: typeof body.systemPrompt === "string" ? body.systemPrompt : undefined,
+        preferredModel: typeof body.preferredModel === "string" ? body.preferredModel : undefined,
+        strategy: typeof body.strategy === "string" ? body.strategy : undefined,
+        maxTokens: typeof body.maxTokens === "number" ? body.maxTokens : undefined,
+        temperature: typeof body.temperature === "number" ? body.temperature : undefined,
+      },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::inference-route",
+    config: { api_path: "/agentmemory/inference/route", http_method: "POST" },
+  });
+
+  sdk.registerFunction("api::inference-channels", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const result = await sdk.trigger({
+      function_id: "mem::fast-inference-channels",
+      payload: {},
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::inference-channels",
+    config: { api_path: "/agentmemory/inference/channels", http_method: "GET" },
+  });
+
+  sdk.registerFunction("api::inference-benchmark", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const body = (req.body as Record<string, unknown>) || {};
+    const result = await sdk.trigger({
+      function_id: "mem::fast-inference-benchmark",
+      payload: {
+        channelId: typeof body.channelId === "string" ? body.channelId : undefined,
+      },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::inference-benchmark",
+    config: { api_path: "/agentmemory/inference/benchmark", http_method: "POST" },
+  });
+
+  sdk.registerFunction("api::inference-configure", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const body = req.body as Record<string, unknown>;
+    if (!body?.channelId || typeof body.channelId !== "string") {
+      return { status_code: 400, body: { error: "channelId is required" } };
+    }
+    const result = await sdk.trigger({
+      function_id: "mem::fast-inference-configure",
+      payload: {
+        channelId: body.channelId,
+        enabled: typeof body.enabled === "boolean" ? body.enabled : undefined,
+        priority: typeof body.priority === "number" ? body.priority : undefined,
+        latencyMs: typeof body.latencyMs === "number" ? body.latencyMs : undefined,
+        endpoint: typeof body.endpoint === "string" ? body.endpoint : undefined,
+        model: typeof body.model === "string" ? body.model : undefined,
+        apiKey: typeof body.apiKey === "string" ? body.apiKey : undefined,
+      },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::inference-configure",
+    config: { api_path: "/agentmemory/inference/configure", http_method: "POST" },
+  });
+
 }
