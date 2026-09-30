@@ -33,7 +33,7 @@
   - `Campaign`, `CampaignInsight`, `CampaignStrategy`, `CampaignCreative` interfaces
   - `AuditEntry.operation: ... | "campaign_create" | "campaign_delete"`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 Create `test/campaign-schema.test.ts`:
 ```typescript
@@ -91,12 +91,12 @@ describe("Campaign Schema & Types", () => {
 });
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run test/campaign-schema.test.ts`
 Expected: FAIL with `KV.campaigns is undefined`
 
-- [ ] **Step 3: Implement minimal schema & types**
+- [x] **Step 3: Implement minimal schema & types**
 
 In `src/state/schema.ts`, add:
 ```typescript
@@ -104,12 +104,12 @@ campaigns: "campaigns",
 ```
 In `src/types.ts`, add `Campaign`, `CampaignInsight`, `CampaignStrategy`, `CampaignCreative`, and update `AuditEntry.operation`.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run test/campaign-schema.test.ts`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/state/schema.ts src/types.ts test/campaign-schema.test.ts
@@ -132,16 +132,16 @@ git commit -m "feat(campaign): add campaign KV scope and type definitions"
   - `mem::campaign-list`
   - `mem::campaign-canvas`
 
-- [ ] **Step 1: Write the failing unit and integration tests**
+- [x] **Step 1: Write the failing unit and integration tests**
 
 Create `test/campaign.test.ts` testing orchestration, graph lineage creation (`INSPIRED_BY`, `GENERATED_FROM`), campaign retrieval, listing, and canvas payload formatting.
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run test/campaign.test.ts`
 Expected: FAIL with module `src/functions/campaign.ts` not found.
 
-- [ ] **Step 3: Implement `src/functions/campaign.ts`**
+- [x] **Step 3: Implement `src/functions/campaign.ts`**
 
 Implement `registerCampaignFunctions(sdk: ISdk, kv: StateKV)` with:
 1. `mem::campaign-orchestrate`: Generates 3-phase items (Insights, Strategies, Creatives), saves to `KV.campaigns`, and triggers `mem::graph-link` for lineage.
@@ -149,12 +149,12 @@ Implement `registerCampaignFunctions(sdk: ISdk, kv: StateKV)` with:
 3. `mem::campaign-list`: Lists all campaigns.
 4. `mem::campaign-canvas`: Prepares columnated Canvas payload with node coordinates and connector edges.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run test/campaign.test.ts`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/functions/campaign.ts test/campaign.test.ts
@@ -177,25 +177,25 @@ git commit -m "feat(campaign): implement campaign orchestrator and canvas functi
   - `GET /agentmemory/campaigns/list`
   - `GET /agentmemory/campaigns/canvas`
 
-- [ ] **Step 1: Write failing REST API test**
+- [x] **Step 1: Write failing REST API test**
 
 Create `test/campaign-api.test.ts` checking authentication, request validation, field whitelisting, and 200 responses.
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run test/campaign-api.test.ts`
 Expected: FAIL with endpoint not found.
 
-- [ ] **Step 3: Register REST endpoints in `src/triggers/api.ts`**
+- [x] **Step 3: Register REST endpoints in `src/triggers/api.ts`**
 
 Register the 4 endpoints following the standard project pattern: check auth, whitelist parameters, and invoke `sdk.trigger()`.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run test/campaign-api.test.ts`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/triggers/api.ts test/campaign-api.test.ts
@@ -218,26 +218,26 @@ git commit -m "feat(campaign): register authenticated REST endpoints for campaig
   - `memory_campaign_list`
   - `memory_campaign_canvas`
 
-- [ ] **Step 1: Write failing MCP tool test**
+- [x] **Step 1: Write failing MCP tool test**
 
 Create `test/campaign-mcp.test.ts` invoking the 4 campaign tools through `src/mcp/server.ts`.
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run test/campaign-mcp.test.ts`
 Expected: FAIL with unknown tool error.
 
-- [ ] **Step 3: Add tool definitions and switch handlers**
+- [x] **Step 3: Add tool definitions and switch handlers**
 
 In `src/mcp/tools-registry.ts`, define the 4 tools and append them to `getAllTools()`.
 In `src/mcp/server.ts`, add the corresponding cases to `mcp::tools::call`.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run test/campaign-mcp.test.ts`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/mcp/tools-registry.ts src/mcp/server.ts test/campaign-mcp.test.ts
@@ -255,23 +255,23 @@ git commit -m "feat(campaign): register campaign MCP tools and call handlers"
 - Modify: `plugin/.claude-plugin/plugin.json`
 - Modify: `plugin/plugin.json` (if present)
 
-- [ ] **Step 1: Run consistency test to see what fails**
+- [x] **Step 1: Run consistency test to see what fails**
 
 Run: `npx vitest run test/mcp-standalone.test.ts`
 Expected: FAIL with tool count mismatch (expected 54, found 58).
 
-- [ ] **Step 2: Update all counts across the 5 files**
+- [x] **Step 2: Update all counts across the 5 files**
   - In `src/index.ts`: Register `registerCampaignFunctions(sdk, kv)`, update startup log tool and endpoint counts (54 -> 58 tools, 130 -> 134 endpoints).
   - In `test/mcp-standalone.test.ts`: Assert 58 tools.
   - In `README.md`: Update tool count (54 -> 58) and REST endpoints (130 -> 134).
   - In `plugin/.claude-plugin/plugin.json`: Update tool count in description.
 
-- [ ] **Step 3: Run standalone and consistency checks**
+- [x] **Step 3: Run standalone and consistency checks**
 
 Run: `npx vitest run test/mcp-standalone.test.ts`
 Expected: PASS
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add src/index.ts test/mcp-standalone.test.ts README.md plugin/.claude-plugin/plugin.json
@@ -287,27 +287,27 @@ git commit -m "chore: synchronize consistency counts for campaign tools and endp
 - Modify: `src/viewer/index.html`
 - Test: `test/campaign-viewer.test.ts`
 
-- [ ] **Step 1: Write failing viewer test**
+- [x] **Step 1: Write failing viewer test**
 
 Create `test/campaign-viewer.test.ts` checking that `/api/campaigns/canvas` returns valid JSON data and HTML contains the Campaign Canvas tab and view containers.
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run test/campaign-viewer.test.ts`
 Expected: FAIL
 
-- [ ] **Step 3: Implement canvas route and UI markup**
+- [x] **Step 3: Implement canvas route and UI markup**
 
 In `src/viewer/server.ts`, add route `/api/campaigns/canvas` fetching data via `mem::campaign-canvas`.
 In `src/viewer/index.html`, add the "Campaign Canvas" tab with column layout:
 `[ 💡 Market Insights ] ──→ [ 🎯 Campaign Strategy ] ──→ [ 🎨 Creative Assets ]`.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `npx vitest run test/campaign-viewer.test.ts`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add src/viewer/server.ts src/viewer/index.html test/campaign-viewer.test.ts
@@ -318,17 +318,17 @@ git commit -m "feat(viewer): add interactive campaign canvas tab and api route"
 
 ### Task 7: Full System Verification and Regression Testing
 
-- [ ] **Step 1: Run full test suite**
+- [x] **Step 1: Run full test suite**
 
 Run: `npm test`
 Expected: All tests pass (1,720+ tests, 0 failures).
 
-- [ ] **Step 2: Build project**
+- [x] **Step 2: Build project**
 
 Run: `npm run build`
 Expected: Build succeeds with 0 TypeScript/tsdown errors.
 
-- [ ] **Step 3: Final verification commit**
+- [x] **Step 3: Final verification commit**
 
 ```bash
 git commit --allow-empty -m "chore: verify full campaign engine integration and test suite"
