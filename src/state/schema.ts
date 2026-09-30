@@ -60,6 +60,7 @@ export const KV = {
   lessons: "mem:lessons",
   insights: "mem:insights",
   campaigns: "mem:campaigns",
+  fastInference: "mem:fast_inference",
   graphEdgeHistory: "mem:graph:edge-history",
   enrichedChunks: (sessionId: string) => `mem:enriched:${sessionId}`,
   latentEmbeddings: (obsId: string) => `mem:latent:${obsId}`,

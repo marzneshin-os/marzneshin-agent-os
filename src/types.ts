@@ -167,7 +167,7 @@ export interface ProviderConfig {
   baseURL?: string;
 }
 
-export type ProviderType = "agent-sdk" | "anthropic" | "gemini" | "openrouter" | "minimax" | "openai" | "noop";
+export type ProviderType = "agent-sdk" | "anthropic" | "gemini" | "openrouter" | "minimax" | "openai" | "fast-inference" | "noop";
 
 export interface MemoryProvider {
   name: string;
@@ -621,6 +621,8 @@ export interface AuditEntry {
     | "obsidian_export"
     | "campaign_create"
     | "campaign_delete"
+    | "fast_inference_route"
+    | "fast_inference_configure"
     | "reflect"
     | "insight_search"
     | "skill_extract"
@@ -1018,4 +1020,59 @@ export interface Campaign {
   createdAt: string;
   updatedAt: string;
   metadata?: Record<string, unknown>;
+}
+
+export interface FastInferenceChannel {
+  id: string;
+  name: string;
+  provider: ProviderType | "custom";
+  endpoint: string;
+  model: string;
+  apiKey?: string;
+  priority: number;
+  enabled: boolean;
+  latencyMs: number;
+  successRate: number;
+  failureCount: number;
+  circuitState: CircuitBreakerState;
+  lastCheckedAt?: string;
+}
+
+export interface FastInferenceRouteRequest {
+  prompt: string;
+  systemPrompt?: string;
+  maxTokens?: number;
+  temperature?: number;
+  preferredModel?: string;
+  strategy?: "lowest-latency" | "fallback-chain" | "cost-optimized";
+}
+
+export interface FastInferenceRouteResponse {
+  content: string;
+  channelId: string;
+  channelName: string;
+  model: string;
+  latencyMs: number;
+  failoverCount: number;
+  failoverHops?: string[];
+  tokensUsed?: {
+    prompt: number;
+    completion: number;
+    total: number;
+  };
+}
+
+export interface FastInferenceBenchmarkResult {
+  channelId: string;
+  latencyMs: number;
+  healthy: boolean;
+  timestamp: string;
+  error?: string;
+}
+
+export interface FastInferenceConfig {
+  defaultStrategy: "lowest-latency" | "fallback-chain" | "cost-optimized";
+  timeoutMs: number;
+  maxFailoverRetries: number;
+  channels: FastInferenceChannel[];
 }
