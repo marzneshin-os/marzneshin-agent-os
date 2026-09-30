@@ -20,7 +20,7 @@ describe("MCP tool surface default (#553)", () => {
     else process.env["AGENTMEMORY_TOOLS"] = ORIG;
   });
 
-  it("default returns the full 54-tool surface, matching plugin advertising", () => {
+  it("default returns the full 58-tool surface, matching plugin advertising", () => {
     const visible = getVisibleTools();
     const all = getAllTools();
     expect(visible.length).toBe(all.length);

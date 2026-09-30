@@ -116,9 +116,17 @@ Hook scripts in `src/hooks/` are standalone Node.js scripts (no iii-sdk import).
 
 ## Current Stats (v0.9.29)
 
-- 54 MCP tools (8 visible by default, `AGENTMEMORY_TOOLS=all` for all)
-- 130 REST endpoints
+- 58 MCP tools (8 visible by default, `AGENTMEMORY_TOOLS=all` for all)
+- 134 REST endpoints
 - 6 MCP resources, 3 MCP prompts
 - 12 hooks, 17 skills
 - 260+ iii functions
 - 1,596+ tests
+
+
+## Engineering Methodology (Superpowers Integration)
+
+The workspace has the Superpowers framework configured in `.agents/`:
+- **Workflow Order:** Brainstorming (`brainstorming`) → Planning (`writing-plans`) → TDD implementation (`test-driven-development`) → Systematic debugging (`systematic-debugging`) → Verification (`verification-before-completion`).
+- **Memory Coordination:** Apply `memory-discipline` alongside Superpowers — search memory before starting a task, record settled architecture/design decisions with reasons, and persist lessons upon user corrections.
+- **Karpathy Guidelines:** Surface assumptions, prioritize simplicity (no speculative abstractions), make surgical changes, and define verifiable success criteria.
