@@ -172,11 +172,11 @@ Rather than introducing an external black-box dependency, `agentmemory` implemen
 ---
 
 ## 6. Verification & Acceptance Criteria
-- [ ] Unit tests for `FastInferenceRouter` and channel failover pass.
-- [ ] Integration tests for all 4 MCP tools pass.
-- [ ] Integration tests for all 4 REST endpoints pass.
-- [ ] Benchmark and latency tracking verify sub-second routing.
-- [ ] Consistency tests pass (`test/tool-count-consistency.test.ts` updated to 62 tools, 138 endpoints).
-- [ ] Viewer dashboard renders Fast Inference monitor tab.
-- [ ] `npm test` runs all 1,750+ tests with 0 failures.
-- [ ] `npm run build` succeeds cleanly.
+- [x] Unit tests for `FastInferenceRouter` and channel failover pass (`test/fast-inference-router.test.ts` — Commit `3221033`).
+- [x] Integration tests for all 4 MCP tools pass (`test/fast-inference-mcp.test.ts` — Commit `aa34e0a`).
+- [x] Integration tests for all 4 REST endpoints pass (`test/fast-inference-api.test.ts` — Commit `32aa686`).
+- [x] Benchmark and latency tracking verify sub-second routing (`test/fast-inference-functions.test.ts` — Commit `fb3125f`).
+- [x] Consistency tests pass (`test/tool-count-consistency.test.ts` updated to 62 tools, 138 endpoints — Commit `2f97a3d`).
+- [x] Viewer dashboard renders Fast Inference monitor tab (`test/fast-inference-viewer.test.ts` — Commit `782a148`).
+- [x] `npm test` runs all 1,750+ tests with 0 failures (1,753 passed across 170 test files).
+- [x] `npm run build` succeeds cleanly (dist/ generated with ESM and type declarations).
