@@ -3309,4 +3309,96 @@ export function registerApiTriggers(
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::insight-search", config: { api_path: "/agentmemory/insights/search", http_method: "POST" } });
+
+  sdk.registerFunction("api::campaign-create", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const body = req.body as Record<string, unknown>;
+    if (!body?.name || typeof body.name !== "string") {
+      return { status_code: 400, body: { error: "name is required" } };
+    }
+    const result = await sdk.trigger({
+      function_id: "mem::campaign-orchestrate",
+      payload: {
+        name: body.name,
+        description: typeof body.description === "string" ? body.description : undefined,
+        assetRef: typeof body.assetRef === "string" ? body.assetRef : undefined,
+        project: typeof body.project === "string" ? body.project : undefined,
+        prompt: typeof body.prompt === "string" ? body.prompt : undefined,
+        metadata: body.metadata && typeof body.metadata === "object" ? body.metadata : undefined,
+      },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::campaign-create",
+    config: { api_path: "/agentmemory/campaigns/create", http_method: "POST" },
+  });
+
+  sdk.registerFunction("api::campaign-get", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const params = req.query_params || {};
+    if (!params.id || typeof params.id !== "string") {
+      return { status_code: 400, body: { error: "id is required" } };
+    }
+    const result = await sdk.trigger({
+      function_id: "mem::campaign-get",
+      payload: { id: params.id },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::campaign-get",
+    config: { api_path: "/agentmemory/campaigns/get", http_method: "GET" },
+  });
+
+  sdk.registerFunction("api::campaign-list", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const params = req.query_params || {};
+    const limit = parseOptionalPositiveInt(params.limit);
+    if (limit === null) {
+      return { status_code: 400, body: { error: "invalid numeric parameter: limit" } };
+    }
+    const offset = parseOptionalPositiveInt(params.offset);
+    if (offset === null) {
+      return { status_code: 400, body: { error: "invalid numeric parameter: offset" } };
+    }
+    const result = await sdk.trigger({
+      function_id: "mem::campaign-list",
+      payload: {
+        project: typeof params.project === "string" ? params.project : undefined,
+        limit,
+        offset,
+      },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::campaign-list",
+    config: { api_path: "/agentmemory/campaigns/list", http_method: "GET" },
+  });
+
+  sdk.registerFunction("api::campaign-canvas", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const params = req.query_params || {};
+    if (!params.id || typeof params.id !== "string") {
+      return { status_code: 400, body: { error: "id is required" } };
+    }
+    const result = await sdk.trigger({
+      function_id: "mem::campaign-canvas",
+      payload: { id: params.id },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::campaign-canvas",
+    config: { api_path: "/agentmemory/campaigns/canvas", http_method: "GET" },
+  });
 }
