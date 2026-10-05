@@ -1,7 +1,7 @@
 {
   "active_slice": "VS-12",
   "budget": {
-    "day": "2026-10-04",
+    "day": "2026-10-05",
     "forecast": {
       "tokens": 0,
       "usd": 0.0
@@ -14,7 +14,7 @@
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:33ea309bf8987876abf8e5b4b7cf7620356a20b90f288d7d5344b3805ffbb1b6",
+  "compacted_event_hash": "sha256:dab000b4476c8da8b33fbb0cf50a4777472e0b892db883a19930e3f91a5baece",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 2,
@@ -38,39 +38,39 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 25,
-      "prod:system-compact": 277,
+      "prod:system-compact": 278,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 105,
       "prod:system-watchdog": 931
     },
-    "event_count": 15,
-    "event_hash": "sha256:33ea309bf8987876abf8e5b4b7cf7620356a20b90f288d7d5344b3805ffbb1b6",
-    "until_ts": "2026-10-04T21:47:54.692Z",
+    "event_count": 11,
+    "event_hash": "sha256:dab000b4476c8da8b33fbb0cf50a4777472e0b892db883a19930e3f91a5baece",
+    "until_ts": "2026-10-05T00:31:51.199Z",
     "window": [
-      "2026-10-02",
-      "2026-10-04"
+      "2026-10-03",
+      "2026-10-05"
     ]
   },
-  "compacted_from_events": 15,
+  "compacted_from_events": 11,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-10-04T21:47:54.692Z",
+  "generated_at": "2026-10-05T00:31:51.200Z",
   "generated_by": "compact.py",
   "growth": {
-    "funnel_overall_conversion": 3.0,
-    "nsm": 2,
-    "paid_users": 3
+    "funnel_overall_conversion": 0.0,
+    "nsm": 0,
+    "paid_users": 0
   },
   "kill_switch": {
     "fail_closed_engaged": false,
-    "freshness_s": 0.329625,
+    "freshness_s": 0.266862,
     "global": false,
-    "read_at": "2026-10-04T21:47:54.678Z",
+    "read_at": "2026-10-05T00:31:51.195Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
