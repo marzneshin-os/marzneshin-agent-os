@@ -38,7 +38,7 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 25,
-      "prod:system-compact": 324,
+      "prod:system-compact": 325,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 105,
@@ -46,7 +46,7 @@
     },
     "event_count": 9,
     "event_hash": "sha256:b3572c4a20dc7c5475e1b07b49662fcefbac010dd624494902e1c0744b314bcd",
-    "until_ts": "2026-10-13T03:34:17.872Z",
+    "until_ts": "2026-10-13T07:37:20.202Z",
     "window": [
       "2026-10-11",
       "2026-10-13"
@@ -59,7 +59,7 @@
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-10-13T03:34:17.872Z",
+  "generated_at": "2026-10-13T07:37:20.202Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 0.0,
@@ -67,16 +67,16 @@
     "paid_users": 0
   },
   "kill_switch": {
-    "fail_closed_engaged": true,
-    "freshness_s": 9296.847221,
+    "fail_closed_engaged": false,
+    "freshness_s": 0.342045,
     "global": false,
-    "read_at": "2026-10-13T03:34:17.866Z",
+    "read_at": "2026-10-13T07:37:20.197Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
     ],
     "scoped": [],
-    "verdict": "unknown"
+    "verdict": "running"
   },
   "kpis": {
     "crash_rate": 0.2,
