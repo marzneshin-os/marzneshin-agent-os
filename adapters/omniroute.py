@@ -100,7 +100,7 @@ class OmniRouteAdapter(Adapter):
             return Health(ok=False, detail=str(e), latency_ms=0.0)
 
     def capabilities(self) -> list[str]:
-        return ["llm_chat", "llm_reason", "llm_think", "llm_search"]
+        return ["llm_chat", "llm_reason", "llm_think", "llm_search", "llm_stack"]
 
     def execute(
         self,
@@ -108,11 +108,20 @@ class OmniRouteAdapter(Adapter):
         payload: dict,
         *,
         idem_key: str,
-        idem_class: IdemClass,
-        dry_run: bool,
+        idem_class: IdemClass = "scoped",
+        dry_run: bool = False,
         deadline: datetime,
-        provenance: list[dict]
+        provenance: list[dict] | None = None,
     ) -> Result:
+        if op == "llm_stack":
+            return self._execute_stack(
+                payload,
+                idem_key=idem_key,
+                idem_class=idem_class,
+                dry_run=dry_run,
+                deadline=deadline,
+            )
+
         if op not in self.capabilities():
             return Result(ok=False, op=op, error=f"unknown op: {op}")
 
@@ -297,6 +306,88 @@ class OmniRouteAdapter(Adapter):
         if last_err:
             raise Exception(f"All candidates failed for '{model}'. Last error: {last_err}")
         raise AdapterRefused(f"No enabled providers found for '{model}'")
+
+
+    def _execute_stack(
+        self,
+        payload: dict,
+        *,
+        idem_key: str,
+        idem_class: IdemClass,
+        dry_run: bool,
+        deadline: datetime,
+    ) -> Result:
+        """Fast System 1 (Laya) pass + System 2 (Claude) escalation stacking."""
+        from scripts.lib import stacking
+
+        stored = self._idem.lookup(idem_key)
+        if stored:
+            return stored
+
+        if dry_run:
+            res = Result(
+                ok=True,
+                op="llm_stack",
+                dry_run=True,
+                data={"status": "dry_run", "fast_path": True, "ratio": "440x"},
+            )
+            self._idem.save(idem_key, res, klass=idem_class)
+            return res
+
+        prompt = payload.get("prompt", "")
+        if not prompt and "messages" in payload and payload["messages"]:
+            prompt = payload["messages"][-1].get("content", "")
+
+        criteria = payload.get("criteria", ["billing", "technical", "general"])
+        threshold = float(payload.get("threshold", 0.90))
+
+        verdict = stacking.evaluate_stack(
+            prompt,
+            criteria=criteria,
+            threshold=threshold,
+            world=self.world,
+        )
+
+        if verdict.fast_path:
+            res = Result(
+                ok=True,
+                op="llm_stack",
+                data={
+                    "id": "laya-fast-pass",
+                    "object": "chat.completion.stack",
+                    "choices": [{
+                        "message": {
+                            "role": "assistant",
+                            "content": json.dumps({"decision": verdict.decision, "confidence": verdict.confidence}),
+                        },
+                        "finish_reason": "stop",
+                    }],
+                    "stacking": verdict.to_dict(),
+                    "usage": {
+                        "prompt_tokens": 0,
+                        "completion_tokens": 0,
+                        "total_tokens": 0,
+                        "tokens_saved": verdict.tokens_saved,
+                        "cost_savings_ratio": verdict.cost_savings_ratio,
+                        "est_cost_saved_usd": verdict.est_cost_saved_usd,
+                    },
+                },
+                duration_ms=verdict.latency_ms,
+            )
+            self._idem.save(idem_key, res, klass=idem_class)
+            return res
+
+        # Escalation path: forward to Claude / target model in payload
+        escalate_model = payload.get("model", "stacked-claude")
+        if escalate_model in ("stacked-claude", "laya"):
+            payload["model"] = "antigravity"
+
+        res = self._execute_chat(payload, deadline, op="llm_chat")
+        if res.ok and isinstance(res.data, dict):
+            res.data["escalated_from_stack"] = True
+            res.data["stacking_verdict"] = verdict.to_dict()
+        self._idem.save(idem_key, res, klass=idem_class)
+        return res
 
     def rollback(self, receipt_ref: str) -> Result:
         return Result(ok=True, op="rollback", data={"ref": receipt_ref})

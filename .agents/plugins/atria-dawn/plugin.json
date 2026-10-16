@@ -1,0 +1,18 @@
+{
+  "id": "atria-dawn",
+  "name": "atria-dawn",
+  "version": "1.0.0",
+  "description": "Atria-Dawn 744B MoE Agentic Intelligence integration for Antigravity IDE and Claude Code, leveraging 100 Million Free Tokens from Shanghai AI Lab.",
+  "author": {
+    "name": "Antigravity High-Tech Integration"
+  },
+  "homepage": "https://api.atria-asi.ai",
+  "keywords": [
+    "atria-dawn",
+    "moe",
+    "coding-agent",
+    "mcp",
+    "free-tokens",
+    "claude-code"
+  ]
+}

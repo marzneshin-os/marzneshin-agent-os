@@ -71,6 +71,19 @@
             "base_url": "http://127.0.0.1:8086/v1",
             "api_key": "relevance",
             "description": "Relevance AI Bridge - Claude Sonnet 5, GPT-5.6, Claude Opus 5"
+        },
+        "laya": {
+            "enabled": true,
+            "base_url": "${LAYA_BASE_URL:-http://127.0.0.1:8088/v1}",
+            "api_key": "${LAYA_API_KEY:-laya-local}",
+            "flavor": "laya",
+            "description": "Laya-MLX Non-Autoregressive Typed Decision Engine (7-13ms latency, 440x cheaper)"
+        },
+        "freellm_local": {
+            "enabled": true,
+            "base_url": "http://127.0.0.1:3001/v1",
+            "api_key": "${FREELLM_API_KEY:-free}",
+            "description": "FreeLLMAPI Universal Free-Tier Token Pool (34 providers, ~7.4B tokens/mo)"
         }
     },
     "combos": {
@@ -208,6 +221,7 @@
             "freemodels:kimi-k3"
         ],
         "smart": [
+            "bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0",
             "freemodels:claude-fable-5.1",
             "freemodels:claude-sonnet-5",
             "freemodels:gpt-5.6-sol",
@@ -229,6 +243,43 @@
             "ccr:Google Gemini (AI Studio)/models/gemini-3.5-flash-lite",
             "ccr:FreeLLMAPI/deepseek-v4-flash",
             "freemodels:kimi-k3"
+        ],
+        "stacked-claude": [
+            "laya:convaiinnovations/laya-typed-decisions",
+            "freemodels:claude-sonnet-5",
+            "ccr:TabiToken/claude-sonnet-4-6-thinking",
+            "ccr:Google Gemini (AI Studio)/models/gemini-3.8-flash"
+        ],
+        "stacked-fast": [
+            "laya:convaiinnovations/laya-typed-decisions",
+            "xkiro:deepseek/deepseek-v4-flash",
+            "ccr:Google Gemini (AI Studio)/models/gemini-3.8-flash"
+        ],
+        "freellm-coding": [
+            "bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0",
+            "mistral:codestral-latest",
+            "sambanova:Qwen2.5-Coder-32B-Instruct",
+            "groq:qwen-2.5-32b",
+            "deepinfra:Qwen/Qwen2.5-Coder-32B-Instruct",
+            "google_gemini:gemini-2.5-flash"
+        ],
+        "freellm-fast": [
+            "groq:llama-3.1-8b-instant",
+            "cerebras:llama3.1-8b",
+            "google_gemini:gemini-2.5-flash"
+        ],
+        "freellm-reasoning": [
+            "bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0",
+            "openrouter_free:deepseek/deepseek-r1:free",
+            "groq:deepseek-r1-distill-llama-70b",
+            "google_gemini:gemini-2.5-flash"
+        ],
+        "aws-bedrock-pool": [
+            "bedrock:anthropic.claude-3-5-sonnet-20241022-v2:0",
+            "bedrock:anthropic.claude-3-7-sonnet-20250219-v1:0",
+            "bedrock:anthropic.claude-3-5-haiku-20241022-v1:0",
+            "bedrock:meta.llama3-3-70b-instruct-v1:0",
+            "bedrock:mistral.mistral-large-2407-v1:0"
         ]
     },
     "routing": {

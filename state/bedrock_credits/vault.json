@@ -1,0 +1,59 @@
+{
+  "active_account_id": "builder_id_default",
+  "updated_at": "2026-10-16T19:48:12.165368+00:00",
+  "accounts": [
+    {
+      "account_id": "builder_id_default",
+      "alias": "Default AWS Builder ID Account",
+      "region": "us-east-1",
+      "access_key_id": "ASIATEMPKEYDEFAULT",
+      "secret_access_key": "tempsecretkeydefault",
+      "session_token": null,
+      "initial_credit_usd": 120.0,
+      "spent_usd": 0.019604999999999987,
+      "remaining_usd": 119.980395,
+      "issued_at": "2026-10-11T07:28:17.259132+00:00",
+      "expires_at": "2027-04-09T07:28:17.259132+00:00",
+      "status": "active",
+      "safety_buffer_usd": 5.0,
+      "onboarding_tasks": {
+        "ec2": {
+          "name": "Launch EC2 Instance",
+          "completed": false,
+          "resource_cleaned": true,
+          "credit_value_usd": 20.0,
+          "note": "Temporary instance must be stopped and terminated immediately to avoid credit burn."
+        },
+        "bedrock": {
+          "name": "Try Bedrock Foundation Model",
+          "completed": true,
+          "resource_cleaned": true,
+          "credit_value_usd": 20.0,
+          "note": "Verify model invocation in Bedrock playground or API."
+        },
+        "lambda": {
+          "name": "Deploy Serverless Lambda App",
+          "completed": false,
+          "resource_cleaned": true,
+          "credit_value_usd": 20.0,
+          "note": "Minimal test function."
+        },
+        "rds": {
+          "name": "Create RDS Database",
+          "completed": false,
+          "resource_cleaned": true,
+          "credit_value_usd": 20.0,
+          "note": "CRITICAL: Terminate RDS instance immediately after creation to prevent standing charges."
+        },
+        "budget": {
+          "name": "Set AWS Cost Budget",
+          "completed": false,
+          "resource_cleaned": true,
+          "credit_value_usd": 20.0,
+          "note": "Configure $0.01 limit alert to guarantee zero-cost fail-closed governance."
+        }
+      },
+      "total_tokens_processed": 1395
+    }
+  ]
+}

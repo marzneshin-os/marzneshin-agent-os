@@ -1,0 +1,293 @@
+{
+  "title": "Next.js Agent Evals: Success Rate (pass@4)",
+  "source": "nextjs.org/evals, Sep 25, 2026",
+  "generated_at": "2026-09-27T07:52:02.605152+00:00",
+  "models": [
+    {
+      "name": "Claude Fable 5.1 (high)",
+      "id": "claude-fable-5.1",
+      "pass4_rate": 0.97,
+      "pass4_pct": "97%",
+      "pass1_rate": 0.885,
+      "pass1_pct": "88%",
+      "cost_per_task_usd": 0.72,
+      "cost_display": "$0.72",
+      "highlight": false,
+      "color": "#334155",
+      "badge": "Top Quality"
+    },
+    {
+      "name": "Pixel Canary",
+      "id": "stealth/pixel-canary",
+      "pass4_rate": 0.9,
+      "pass4_pct": "90%",
+      "pass1_rate": 0.782,
+      "pass1_pct": "78%",
+      "cost_per_task_usd": 0.0,
+      "cost_display": "FREE",
+      "highlight": true,
+      "color": "#f59e0b",
+      "badge": "Best Value (FREE)"
+    },
+    {
+      "name": "GPT 6 Astra (high)",
+      "id": "gpt-6-astra",
+      "pass4_rate": 0.9,
+      "pass4_pct": "90%",
+      "pass1_rate": 0.794,
+      "pass1_pct": "79%",
+      "cost_per_task_usd": 0.89,
+      "cost_display": "$0.89",
+      "highlight": false,
+      "color": "#334155",
+      "badge": "Tied #2"
+    },
+    {
+      "name": "Kimi K3",
+      "id": "kimi-k3",
+      "pass4_rate": 0.84,
+      "pass4_pct": "84%",
+      "pass1_rate": 0.71,
+      "pass1_pct": "71%",
+      "cost_per_task_usd": 0.28,
+      "cost_display": "$0.28",
+      "highlight": false,
+      "color": "#334155",
+      "badge": "Budget Runner"
+    },
+    {
+      "name": "Claude Sonnet 5",
+      "id": "claude-sonnet-5",
+      "pass4_rate": 0.81,
+      "pass4_pct": "81%",
+      "pass1_rate": 0.685,
+      "pass1_pct": "68%",
+      "cost_per_task_usd": 0.39,
+      "cost_display": "$0.39",
+      "highlight": false,
+      "color": "#334155",
+      "badge": "Reliable"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "NEXT-01",
+      "title": "Server Action with Form Validation",
+      "category": "Server Actions",
+      "difficulty": "Medium",
+      "prompt": "Create a Next.js Server Action in 'app/actions/user.ts' that validates email & name using Zod, writes to database, and calls revalidatePath('/users').",
+      "required_checks": [
+        "use server",
+        "zod",
+        "revalidatePath",
+        "try",
+        "catch"
+      ],
+      "model_results": {
+        "claude-fable-5.1": {
+          "passed": true,
+          "attempts": 1
+        },
+        "stealth/pixel-canary": {
+          "passed": true,
+          "attempts": 1
+        },
+        "gpt-6-astra": {
+          "passed": true,
+          "attempts": 1
+        },
+        "kimi-k3": {
+          "passed": true,
+          "attempts": 2
+        },
+        "claude-sonnet-5": {
+          "passed": true,
+          "attempts": 2
+        }
+      }
+    },
+    {
+      "id": "NEXT-02",
+      "title": "RSC Streaming with Suspense Skeleton",
+      "category": "React Server Components",
+      "difficulty": "Hard",
+      "prompt": "Implement a parallel data fetching component in Next.js 15 using React Suspense and dynamic streaming for slow API dependencies.",
+      "required_checks": [
+        "Suspense",
+        "fallback",
+        "async",
+        "await",
+        "export default async function"
+      ],
+      "model_results": {
+        "claude-fable-5.1": {
+          "passed": true,
+          "attempts": 1
+        },
+        "stealth/pixel-canary": {
+          "passed": true,
+          "attempts": 2
+        },
+        "gpt-6-astra": {
+          "passed": true,
+          "attempts": 1
+        },
+        "kimi-k3": {
+          "passed": true,
+          "attempts": 3
+        },
+        "claude-sonnet-5": {
+          "passed": true,
+          "attempts": 3
+        }
+      }
+    },
+    {
+      "id": "NEXT-03",
+      "title": "Hydration Mismatch Resolution in ThemeProvider",
+      "category": "SSR & Hydration",
+      "difficulty": "Hard",
+      "prompt": "Resolve a client/server timestamp and localStorage theme hydration mismatch in Next.js layout using suppressHydrationWarning or useEffect mounted state.",
+      "required_checks": [
+        "use client",
+        "useEffect",
+        "useState",
+        "suppressHydrationWarning"
+      ],
+      "model_results": {
+        "claude-fable-5.1": {
+          "passed": true,
+          "attempts": 1
+        },
+        "stealth/pixel-canary": {
+          "passed": true,
+          "attempts": 1
+        },
+        "gpt-6-astra": {
+          "passed": true,
+          "attempts": 2
+        },
+        "kimi-k3": {
+          "passed": false,
+          "attempts": 4
+        },
+        "claude-sonnet-5": {
+          "passed": true,
+          "attempts": 3
+        }
+      }
+    },
+    {
+      "id": "NEXT-04",
+      "title": "Edge Route Handler with JWT Verification",
+      "category": "Route Handlers",
+      "difficulty": "Medium",
+      "prompt": "Implement 'app/api/auth/route.ts' running on Edge runtime with NextRequest, NextResponse, Bearer token extraction, and jose JWT validation.",
+      "required_checks": [
+        "export const runtime = 'edge'",
+        "NextRequest",
+        "NextResponse",
+        "Authorization"
+      ],
+      "model_results": {
+        "claude-fable-5.1": {
+          "passed": true,
+          "attempts": 1
+        },
+        "stealth/pixel-canary": {
+          "passed": true,
+          "attempts": 1
+        },
+        "gpt-6-astra": {
+          "passed": true,
+          "attempts": 1
+        },
+        "kimi-k3": {
+          "passed": true,
+          "attempts": 2
+        },
+        "claude-sonnet-5": {
+          "passed": true,
+          "attempts": 2
+        }
+      }
+    },
+    {
+      "id": "NEXT-05",
+      "title": "Intercepting Route & Modal Navigation",
+      "category": "App Router Routing",
+      "difficulty": "Expert",
+      "prompt": "Create an intercepting modal route '(.)photo/[id]' that renders inside parallel slot '@modal' while preserving URL sharability.",
+      "required_checks": [
+        "@modal",
+        "(.)photo",
+        "useRouter",
+        "router.back()",
+        "children"
+      ],
+      "model_results": {
+        "claude-fable-5.1": {
+          "passed": true,
+          "attempts": 1
+        },
+        "stealth/pixel-canary": {
+          "passed": true,
+          "attempts": 2
+        },
+        "gpt-6-astra": {
+          "passed": true,
+          "attempts": 2
+        },
+        "kimi-k3": {
+          "passed": true,
+          "attempts": 4
+        },
+        "claude-sonnet-5": {
+          "passed": false,
+          "attempts": 4
+        }
+      }
+    },
+    {
+      "id": "NEXT-06",
+      "title": "Next.js 15 Async Request APIs Migration",
+      "category": "Framework Upgrades",
+      "difficulty": "Hard",
+      "prompt": "Migrate page params, searchParams, and cookies() calls from synchronous to Promise-based async pattern per Next.js 15 breaking changes.",
+      "required_checks": [
+        "await params",
+        "await searchParams",
+        "await cookies()",
+        "async function Page"
+      ],
+      "model_results": {
+        "claude-fable-5.1": {
+          "passed": true,
+          "attempts": 1
+        },
+        "stealth/pixel-canary": {
+          "passed": true,
+          "attempts": 1
+        },
+        "gpt-6-astra": {
+          "passed": true,
+          "attempts": 1
+        },
+        "kimi-k3": {
+          "passed": true,
+          "attempts": 3
+        },
+        "claude-sonnet-5": {
+          "passed": true,
+          "attempts": 3
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "highlight_model": "Pixel Canary",
+    "highlight_reason": "Tied with GPT 6 Astra (90%) with $0.00 cost (100% Free via Cline)",
+    "benchmark_version": "v4.0.0",
+    "tasks_count": 6
+  }
+}

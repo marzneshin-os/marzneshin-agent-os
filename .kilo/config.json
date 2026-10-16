@@ -1,0 +1,10 @@
+{
+  "defaultModel": "stealth/pixel-canary",
+  "provider": "vercel-ai-gateway",
+  "fallbackProviders": [
+    "cline",
+    "token-router"
+  ],
+  "projectContext": "AGENTS.md",
+  "enableRules": true
+}

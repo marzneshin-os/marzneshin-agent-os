@@ -1,9 +1,7 @@
 {
   "entries": [],
   "reconciled_from": [
-    "K1:state/KILL",
-    "K2:env/KILL_SWITCH",
-    "K5:auto"
+    "K3"
   ],
   "release_log": [
     {
@@ -19,8 +17,176 @@
       "removed": 1,
       "scope": "global",
       "target": null
+    },
+    {
+      "released_at": "2026-09-30T10:51:29.258Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T11:21:05.722Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T11:25:40.613Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T12:17:08.377Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T12:36:59.100Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T12:37:47.019Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T12:43:08.340Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T21:14:50.737Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T21:44:50.441Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T21:46:41.098Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-09-30T22:29:22.542Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-01T10:28:33.480Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-01T10:44:55.576Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-09T20:06:29.112Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-09T20:09:23.730Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-09T20:46:12.738Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-16T18:40:31.212Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-16T18:57:01.141Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-16T19:05:56.142Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-16T19:09:52.297Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-16T19:13:46.693Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-16T19:19:48.472Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-16T19:24:22.855Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-16T19:48:15.427Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
     }
   ],
   "schema_version": "2.0.0",
-  "updated_at": "2026-09-27T15:48:50.002Z"
+  "updated_at": "2026-10-16T19:48:15.427Z"
 }

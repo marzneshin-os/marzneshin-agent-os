@@ -1,135 +1,135 @@
 {
   "services": {
     "agentmemory": {
-      "backoff_until": null,
+      "backoff_until": "2026-10-16T18:28:43.496Z",
       "circuit": "closed",
-      "consecutive_failures": 2,
+      "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:20:51.837Z",
-      "last_healthy": "2026-09-23T14:13:49.410Z",
-      "last_restart": "2026-09-23T14:20:51.837Z",
-      "restart_count": 2
+      "last_check": "2026-10-16T19:52:14.347Z",
+      "last_healthy": "2026-10-16T19:52:14.347Z",
+      "last_restart": "2026-10-16T19:52:14.320Z",
+      "restart_count": 1772
     },
     "ccr": {
-      "backoff_until": null,
-      "circuit": "closed",
-      "consecutive_failures": 0,
-      "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:20:56.023Z",
-      "last_healthy": "2026-09-23T14:20:56.023Z",
-      "last_restart": "2026-09-23T14:20:56.014Z",
-      "restart_count": 83
+      "backoff_until": "2026-10-16T20:06:37.367Z",
+      "circuit": "open",
+      "consecutive_failures": 10,
+      "cooldown_seconds": 900,
+      "last_check": "2026-10-16T19:52:44.880Z",
+      "last_healthy": "2026-10-16T18:31:04.706Z",
+      "last_restart": "2026-10-16T19:52:44.880Z",
+      "restart_count": 1891
     },
     "claude_mem": {
-      "backoff_until": null,
-      "circuit": "closed",
-      "consecutive_failures": 0,
-      "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:25:32.070Z",
-      "last_healthy": "2026-09-23T14:25:32.070Z",
-      "last_restart": "2026-09-23T14:25:32.061Z",
-      "restart_count": 3
+      "backoff_until": "2026-10-16T19:55:20.921Z",
+      "circuit": "open",
+      "consecutive_failures": 9,
+      "cooldown_seconds": 900,
+      "last_check": "2026-10-16T19:52:48.924Z",
+      "last_healthy": "2026-10-16T18:31:12.396Z",
+      "last_restart": "2026-10-16T19:37:53.332Z",
+      "restart_count": 808
     },
     "codeburn": {
-      "backoff_until": null,
-      "circuit": "closed",
-      "consecutive_failures": 2,
-      "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:23:26.199Z",
-      "last_healthy": "2026-09-23T14:13:49.425Z",
-      "last_restart": "2026-09-23T14:23:26.199Z",
-      "restart_count": 13
+      "backoff_until": "2026-10-16T20:06:19.012Z",
+      "circuit": "open",
+      "consecutive_failures": 18,
+      "cooldown_seconds": 900,
+      "last_check": "2026-10-16T19:52:47.411Z",
+      "last_healthy": "2026-10-16T14:31:36.514Z",
+      "last_restart": "2026-10-16T19:50:41.359Z",
+      "restart_count": 169
     },
     "freellmapi": {
-      "backoff_until": "2026-09-23T14:35:13.672Z",
+      "backoff_until": "2026-10-16T19:53:47.365Z",
       "circuit": "open",
-      "consecutive_failures": 27,
+      "consecutive_failures": 18,
       "cooldown_seconds": 900,
-      "last_check": "2026-09-23T14:22:26.133Z",
-      "last_healthy": "2026-09-22T22:21:12.611Z",
-      "last_restart": "2026-09-23T14:22:26.133Z",
-      "restart_count": 30
+      "last_check": "2026-10-16T19:52:46.409Z",
+      "last_healthy": "2026-10-16T14:31:36.510Z",
+      "last_restart": "2026-10-16T19:36:50.723Z",
+      "restart_count": 213
     },
     "gateway": {
-      "backoff_until": null,
+      "backoff_until": "2026-10-14T13:10:35.438Z",
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:25:33.285Z",
-      "last_healthy": "2026-09-23T14:25:33.285Z",
-      "last_restart": "2026-09-23T14:25:33.277Z",
-      "restart_count": 54
+      "last_check": "2026-10-16T19:52:52.119Z",
+      "last_healthy": "2026-10-16T19:52:52.119Z",
+      "last_restart": "2026-10-16T19:52:52.094Z",
+      "restart_count": 3042
     },
     "graphify": {
       "backoff_until": null,
       "circuit": "closed",
-      "consecutive_failures": 2,
+      "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:23:56.236Z",
-      "last_healthy": "2026-09-23T14:13:49.431Z",
+      "last_check": "2026-10-16T19:52:47.416Z",
+      "last_healthy": "2026-10-16T19:52:47.416Z",
       "last_restart": "2026-09-23T14:23:56.236Z",
       "restart_count": 2
     },
     "headroom": {
-      "backoff_until": "2026-09-23T14:38:16.828Z",
+      "backoff_until": "2026-10-16T19:52:58.991Z",
       "circuit": "open",
-      "consecutive_failures": 56,
+      "consecutive_failures": 19,
       "cooldown_seconds": 900,
-      "last_check": "2026-09-23T14:22:56.156Z",
-      "last_healthy": "2026-09-22T15:05:32.653Z",
-      "last_restart": "2026-09-23T14:22:56.156Z",
-      "restart_count": 228
+      "last_check": "2026-10-16T19:52:46.910Z",
+      "last_healthy": "2026-10-16T14:28:56.699Z",
+      "last_restart": "2026-10-16T19:35:51.540Z",
+      "restart_count": 752
     },
     "kimi_k3": {
-      "backoff_until": null,
-      "circuit": "closed",
-      "consecutive_failures": 2,
-      "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:24:56.326Z",
-      "last_healthy": "2026-09-23T14:13:49.441Z",
-      "last_restart": "2026-09-23T14:24:56.326Z",
-      "restart_count": 8
+      "backoff_until": "2026-10-16T19:56:26.614Z",
+      "circuit": "open",
+      "consecutive_failures": 18,
+      "cooldown_seconds": 900,
+      "last_check": "2026-10-16T19:52:47.922Z",
+      "last_healthy": "2026-10-16T14:31:36.530Z",
+      "last_restart": "2026-10-16T19:43:17.899Z",
+      "restart_count": 196
     },
     "langgraph": {
-      "backoff_until": null,
-      "circuit": "closed",
-      "consecutive_failures": 2,
-      "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:21:56.093Z",
-      "last_healthy": "2026-09-23T14:13:49.420Z",
-      "last_restart": "2026-09-23T14:21:56.093Z",
-      "restart_count": 16
+      "backoff_until": "2026-10-16T20:06:07.044Z",
+      "circuit": "open",
+      "consecutive_failures": 19,
+      "cooldown_seconds": 900,
+      "last_check": "2026-10-16T19:52:45.908Z",
+      "last_healthy": "2026-10-16T14:31:36.507Z",
+      "last_restart": "2026-10-16T19:49:05.932Z",
+      "restart_count": 330
     },
     "memory_sync": {
       "backoff_until": null,
       "circuit": "closed",
-      "consecutive_failures": 2,
+      "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:24:26.285Z",
-      "last_healthy": "2026-09-23T14:13:49.438Z",
+      "last_check": "2026-10-16T19:52:47.421Z",
+      "last_healthy": "2026-10-16T19:52:47.421Z",
       "last_restart": "2026-09-23T14:24:26.285Z",
       "restart_count": 2
     },
     "omniroute": {
-      "backoff_until": null,
-      "circuit": "closed",
-      "consecutive_failures": 2,
-      "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:21:26.056Z",
-      "last_healthy": "2026-09-23T14:13:49.416Z",
-      "last_restart": "2026-09-23T14:21:26.056Z",
-      "restart_count": 2
+      "backoff_until": "2026-10-16T19:59:45.738Z",
+      "circuit": "open",
+      "consecutive_failures": 18,
+      "cooldown_seconds": 900,
+      "last_check": "2026-10-16T19:52:45.407Z",
+      "last_healthy": "2026-10-16T14:31:36.504Z",
+      "last_restart": "2026-10-16T19:46:30.362Z",
+      "restart_count": 191
     },
     "relevance_bridge": {
-      "backoff_until": null,
-      "circuit": "closed",
-      "consecutive_failures": 2,
-      "cooldown_seconds": 60,
-      "last_check": "2026-09-23T14:25:26.873Z",
-      "last_healthy": "2026-09-23T14:13:49.444Z",
-      "last_restart": "2026-09-23T14:25:26.873Z",
-      "restart_count": 15
+      "backoff_until": "2026-10-16T20:03:00.693Z",
+      "circuit": "open",
+      "consecutive_failures": 18,
+      "cooldown_seconds": 900,
+      "last_check": "2026-10-16T19:52:48.423Z",
+      "last_healthy": "2026-10-16T14:31:36.533Z",
+      "last_restart": "2026-10-16T19:47:33.076Z",
+      "restart_count": 215
     }
   },
-  "updated_at": "2026-09-23T14:25:33.285Z"
+  "updated_at": "2026-10-16T19:52:52.119Z"
 }

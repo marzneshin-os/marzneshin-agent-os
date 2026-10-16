@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "summary": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 4,
+    "INFO": 0
+  },
+  "findings": [
+    {
+      "rule_id": "AS-SEC-001",
+      "severity": "LOW",
+      "file": "configs/router.json",
+      "line": 6,
+      "description": "Potential OpenAI/Anthropic API Key leak (template fallback expression detected)",
+      "remediation": "Use environment variables without hardcoded fallbacks. Redact via lib.redact."
+    },
+    {
+      "rule_id": "AS-SEC-001",
+      "severity": "LOW",
+      "file": "configs/router.json",
+      "line": 17,
+      "description": "Potential OpenAI/Anthropic API Key leak (template fallback expression detected)",
+      "remediation": "Use environment variables without hardcoded fallbacks. Redact via lib.redact."
+    },
+    {
+      "rule_id": "AS-SEC-001",
+      "severity": "LOW",
+      "file": "configs/router.json",
+      "line": 29,
+      "description": "Potential OpenAI/Anthropic API Key leak (template fallback expression detected)",
+      "remediation": "Use environment variables without hardcoded fallbacks. Redact via lib.redact."
+    },
+    {
+      "rule_id": "AS-SEC-001",
+      "severity": "LOW",
+      "file": "configs/router.json",
+      "line": 35,
+      "description": "Potential OpenAI/Anthropic API Key leak (template fallback expression detected)",
+      "remediation": "Use environment variables without hardcoded fallbacks. Redact via lib.redact."
+    }
+  ],
+  "timestamp": "2026-09-30T22:21:05.553922+00:00"
+}

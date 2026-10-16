@@ -1,0 +1,14 @@
+﻿cat << "EOF" > /home/asus/code/marzneshin-agent-os/.agents/rules/laya-typed-decisions.md
+# Laya & Jev System 1 Typed Decisions & Stacking Rule
+
+When performing agent routing, intent classification, guardrail validation, safety pre-screening, or rubric scoring:
+
+1. **System 1 First (440x Cheaper)**: Avoid invoking heavyweight generative LLMs (Claude Opus/Sonnet, GPT-4/5) for binary propositions (`noul`), discrete categorical routing (`choice`), or risk ranking (`score`). Always evaluate with the System 1 Decision Engine first (<15ms, 0 output tokens).
+2. **Confidence Thresholding (Stacking Pattern)**:
+   - If System 1 calibrated confidence $c \ge \tau$ (default $\tau = 0.90$ for stacking, $\tau = 0.85$ for routing), resolve immediately via the fast-path.
+   - If confidence $c < \tau$ or creative multi-file code synthesis is required, escalate to System 2 (Claude / Gemini / OmniRoute).
+3. **Guardrail Pre-Screening**:
+   - Use `laya_guardrail_check` or `LayaAdapter.execute('guardrail_check')` before executing potentially destructive operations or untrusted prompts.
+4. **Tool Access**:
+   - In MCP-enabled environments (Antigravity, Claude Code, Cursor, OpenCode), use `laya_status`, `laya_classify_intent`, `laya_guardrail_check`, `laya_score_rubric`, `laya_stacking_evaluate`, and `laya_typed_decision`.
+   - In Python scripts or CLI, use `from scripts.lib import stacking` or `python3 scripts/laya_cli.py`.

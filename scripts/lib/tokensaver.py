@@ -66,6 +66,7 @@ _FIND_PAT = re.compile(r'^(\./|/)', re.MULTILINE)
 _LS_PAT = re.compile(r'^total \d+', re.MULTILINE)
 _TREE_PAT = re.compile(r'^[│├└─ ]+', re.MULTILINE)
 _LOG_PAT = re.compile(r'^commit [0-9a-f]{7,40}', re.MULTILINE)
+_HTML_PAT = re.compile(r'<!DOCTYPE html|<html[\s>]|<head[\s>]|<body[\s>]', re.IGNORECASE)
 
 
 def autodetect(text: str) -> str | None:
@@ -75,6 +76,8 @@ def autodetect(text: str) -> str | None:
         return "git-diff"
     if _LOG_PAT.search(window):
         return "git-log"
+    if _HTML_PAT.search(window):
+        return "html-web"
     if _STATUS_PAT.search(window) and len(window.splitlines()) < 50:
         return "git-status"
     if _GREP_PAT.search(window):
@@ -222,7 +225,18 @@ def _filter_dedup_log(text: str) -> str:
     return "\n".join(out)
 
 
+def _filter_html_web(text: str) -> str:
+    """Compress HTML/Web tool outputs using WebCMD semantic DOM reduction."""
+    try:
+        from . import webcmd_memory
+        comp = webcmd_memory.compress_html(text)
+        return comp.compressed_text
+    except Exception:
+        return text
+
+
 _FILTERS: dict[str, Any] = {
+    "html-web": _filter_html_web,
     "git-diff": _filter_git_diff,
     "git-status": _filter_git_status,
     "git-log": _filter_git_log,

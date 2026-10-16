@@ -1,0 +1,12 @@
+---
+description: Pixel Canary Model Preference & Marzneshin Autonomous OS Guidelines
+globs: *
+alwaysApply: true
+---
+
+# Pixel Canary Steering & Agent Standards
+
+- **Model Identifier:** `stealth/pixel-canary`
+- **Context Alignment:** Use `AGENTS.md` and `BUILD-SPEC.md` for architectural context.
+- **Service Stack:** AgentMemory (3111), CCR (3456/3458), Graphify, Headroom (8787), Codeburn (4747).
+- **Rule of Simplicity:** Minimal surgical code changes. Always run tests to verify.

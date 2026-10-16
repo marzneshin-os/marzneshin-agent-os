@@ -9,6 +9,52 @@
         "-y",
         "@mysten-incubation/memwal-mcp"
       ]
+    },
+    "webcmd-browser": {
+      "command": "python3",
+      "args": [
+        "scripts/mcp_webcmd.py"
+      ]
+    },
+    "ecc-harness": {
+      "command": "python3",
+      "args": [
+        "scripts/mcp_ecc.py"
+      ]
+    },
+    "freellm-pool": {
+      "command": "python3",
+      "args": [
+        "scripts/mcp_freellm.py"
+      ]
+    },
+    "antigravity-doctor": {
+      "command": "python3",
+      "args": [
+        "scripts/mcp_antigravity_doctor.py"
+      ],
+      "description": "Google Antigravity Account Doctor & Health Recovery Engine (ADR-025)"
+    },
+    "grounded-notebook": {
+      "command": "python3",
+      "args": [
+        "scripts/mcp_grounded_notebook.py"
+      ],
+      "description": "Grounded Notebook Knowledge Engine (ADR-026, Synthesizing NotebookLM & Antigravity)"
+    },
+    "laya-typed-decisions": {
+      "command": "python3",
+      "args": [
+        "scripts/mcp_laya.py"
+      ],
+      "description": "Laya & Jev System 1 Typed Decisions & Stacking Engine (ADR-027)"
+    },
+    "aws-bedrock-credits": {
+      "command": "python3",
+      "args": [
+        "scripts/mcp_aws_bedrock.py"
+      ],
+      "description": "AWS Bedrock Promotional Credit Pool & Zero-Cost Guardrail (ADR-029)"
     }
   }
 }

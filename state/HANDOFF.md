@@ -73,3 +73,22 @@ All planned vertical slices (VS-1 to VS-12) of **Marzneshin Agent OS** are **100
 8. **Revenue Command Center:** Production Grafana 10+ dashboard JSON model, responsive Telegram/Web Mini App UI, and CLI inspection tool.
 9. **Autonomy Ratchet & Shadow Mode:** 3-condition promotion ratchet, automated demotion & quarantine, and verified 72-hour unsupervised marathon.
 10. **Three-Tier Transport Plane (T1, T2, T3):** Baseline Git transport (T1), fast-path native Moxt workflow (T2), and high-performance HTTP Gateway latency cache (T3) with automatic degradation and zero single point of failure (SPOF).
+
+
+---
+
+## Post-VS-12 Autonomous Extensions
+
+### ADR-025: Google Antigravity Account Doctor & Health Recovery
+- Diagnostic matrix, credential cleaner, environment repair, and eligibility checking.
+
+### ADR-026: Grounded Notebook Knowledge Engine (NotebookLM × Antigravity)
+- **Reference:** Liam Turner (@liam_turner_ai, Oct 4, 2026) — *NotebookLM vs Antigravity*.
+- **Paradigm Synthesis:** Bridged NotebookLM-style citation-grounded knowledge exploration (*"Research → Understand → Learn"*) with Antigravity-style autonomous action loop (*"Set a goal → Let AI help you get things done"*).
+- **Core Library (`scripts/lib/grounded_notebook.py`):** Pure stdlib, virtual clock compliant (ADR-001 D6), paragraph & line-aware chunking preserving 1-indexed line spans, BM25-scored retrieval, deterministic citation anchors `[<source>#L<start>-L<end>]`, multi-source synthesis, and adversarial grounding verification.
+- **L0 System Adapter (`adapters/grounded_notebook.py`):** Inherits from `Adapter` (§4 / BUILD-SPEC v2.0), supports `create_notebook`, `ingest_sources`, `grounded_query`, `synthesize_sources`, `verify_grounding`, `list_notebooks`, `get_notebook`, real `dry_run`, circuit breaker, and idempotency store.
+- **Simulation Fake (`sim/fakes/grounded_notebook.py`):** In-memory fake passing all 9 contract checks (C1–C9) of `adapters.contract.run_contract`.
+- **CLI & MCP Server:** `scripts/grounded_notebook_cli.py` and stdio MCP server `scripts/mcp_grounded_notebook.py` registered in root `.mcp.json`.
+- **LangGraph Worker Tools:** Integrated `grounded_notebook_query` and `grounded_notebook_verify` into `WORKER_TOOLS` in `agents/graph_nodes.py` to ground coding and reviewing subagents before code changes.
+- **Cross-Agent Governance:** Rules and skills deployed across `.agents/`, `.claude/`, and `.cursor/`.
+- **Verification Baseline:** 11/11 unit and contract tests passing, 6/6 CI checks in `scripts/verify.py` passing GREEN.

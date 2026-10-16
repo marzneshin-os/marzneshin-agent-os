@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next.js Agent Evals: Success Rate (pass@4) | Pixel Canary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Announcement Banner -->
+    <header class="top-nav">
+      <div class="brand">
+        <span class="pulse-indicator"></span>
+        <span class="brand-title">Marzneshin Autonomous OS</span>
+        <span class="version-tag">Next.js Benchmark Suite 2026</span>
+      </div>
+      <div class="nav-links">
+        <a href="https://cline.bot/desktop" target="_blank" class="nav-btn cline-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Cline.bot/desktop
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Benchmark Hero Section (Exact Replica of Photo) -->
+      <section class="chart-hero-card">
+        <div class="chart-header">
+          <div class="chart-title-group">
+            <h1 class="chart-title" id="mainChartTitle">Next.js Agent Evals: Success Rate (pass@4)</h1>
+            <p class="chart-source">Source: nextjs.org/evals, Sep 25, 2026</p>
+          </div>
+          <div class="metric-switchers">
+            <button class="switcher-btn active" data-metric="pass4">pass@4 (Official)</button>
+            <button class="switcher-btn" data-metric="pass1">pass@1 (Single-Shot)</button>
+            <button class="switcher-btn" data-metric="efficiency">Cost-Efficiency (pts/$)</button>
+          </div>
+        </div>
+
+        <!-- The Bar Chart Container -->
+        <div class="bar-chart-stage" id="barChartStage">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+        <!-- Telegram Channel Card -->
+        <div class="telegram-banner-card">
+          <div class="telegram-header">
+            <div class="channel-info">
+              <span class="telegram-icon">📢</span>
+              <span class="channel-name">مدرسه هوشیار (Houshyar School)</span>
+            </div>
+            <span class="timestamp-badge">Today at 9:50 PM • 575 views</span>
+          </div>
+          <div class="telegram-body" dir="rtl">
+            <p class="persian-text">
+              <strong>🔔 باز هم یک مدل مرموز دیگه!</strong><br>
+              یک مدل جدید و ناشناخته با اسم <strong>Pixel Canary</strong> منتشر شده که از نظر عملکرد تنه به تنه <strong>GPT 6 Astra</strong> می‌زنه (۹۰٪ در بنچمارک Next.js). جالب اینکه همین الان به‌صورت <strong>رایگان</strong> از طریق اپ <strong>Cline</strong> می‌تونید ازش استفاده کنید: <a href="https://cline.bot/desktop" target="_blank" class="gold-link">Cline.bot/desktop</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid of Interactive Sections -->
+      <div class="dashboard-grid">
+        
+        <!-- ROI & Cost Savings Calculator -->
+        <section class="glass-card calculator-card">
+          <div class="card-header">
+            <div class="header-icon-title">
+              <span class="card-icon">💰</span>
+              <h2>Autonomous Cost Savings Calculator</h2>
+            </div>
+            <span class="badge green-badge">Zero Cost Advantage</span>
+          </div>
+          <p class="card-subtitle">Calculate how much you save using Pixel Canary vs GPT 6 Astra / Claude Fable across agent loops.</p>
+          
+          <div class="slider-control">
+            <div class="slider-labels">
+              <span>Task Volume:</span>
+              <span class="slider-val" id="taskVolumeDisplay">1,000 tasks</span>
+            </div>
+            <input type="range" id="taskSlider" min="100" max="10000" step="100" value="1000">
+          </div>
+
+          <div class="savings-grid">
+            <div class="savings-item highlight-savings">
+              <span class="savings-label">Savings vs GPT 6 Astra</span>
+              <span class="savings-number" id="savingsGpt6">$890.00</span>
+              <span class="savings-detail">GPT 6 Astra: $890.00 | Pixel Canary: $0.00</span>
+            </div>
+            <div class="savings-item">
+              <span class="savings-label">Savings vs Claude Fable 5.1</span>
+              <span class="savings-number" id="savingsFable">$720.00</span>
+              <span class="savings-detail">Claude Fable: $720.00 | Pixel Canary: $0.00</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cline Integration & Router Status -->
+        <section class="glass-card integration-card">
+          <div class="card-header">
+            <div class="header-icon-title">
+              <span class="card-icon">⚙️</span>
+              <h2>Cline & Router Integration</h2>
+            </div>
+            <span class="badge active-badge" id="integrationStatusBadge">Active & Ready</span>
+          </div>
+          <p class="card-subtitle">Current status in Marzneshin Agent OS router and local Cline desktop setup.</p>
+          
+          <div class="config-table">
+            <div class="config-row">
+              <span class="config-prop">Model ID</span>
+              <span class="config-val code-val">stealth/pixel-canary</span>
+            </div>
+            <div class="config-row">
+              <span class="config-prop">Gateway Endpoint</span>
+              <span class="config-val code-val">https://ai-gateway.vercel.sh/v1</span>
+            </div>
+            <div class="config-row">
+              <span class="config-prop">Pricing Tier</span>
+              <span class="config-val gold-val">100% FREE ($0.00)</span>
+            </div>
+            <div class="config-row">
+              <span class="config-prop">Marzneshin Combos</span>
+              <span class="config-val code-val">nextjs-evals, free-mega, smart, antigravity</span>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-secondary" id="copyClineConfigBtn">
+              📋 Copy Cline Config JSON
+            </button>
+            <button class="btn btn-primary" id="openClineGuideBtn">
+              🚀 Setup Guide
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- Challenge Explorer & Live Playground -->
+      <section class="glass-card tasks-card">
+        <div class="card-header">
+          <div class="header-icon-title">
+            <span class="card-icon">⚡</span>
+            <h2>Next.js 15 Benchmark Evaluation Suite</h2>
+          </div>
+          <span class="badge blue-badge">6 Official Challenges</span>
+        </div>
+        <p class="card-subtitle">Explore the exact benchmark tasks used in the Next.js Agent Evals suite.</p>
+
+        <!-- Task Tabs -->
+        <div class="task-tabs" id="taskTabsContainer"></div>
+
+        <!-- Task Detail View -->
+        <div class="task-detail-container" id="taskDetailContainer"></div>
+      </section>
+
+      <!-- Live Interactive Playground -->
+      <section class="glass-card playground-card">
+        <div class="card-header">
+          <div class="header-icon-title">
+            <span class="card-icon">🧪</span>
+            <h2>Live Model Evaluation Simulator</h2>
+          </div>
+          <span class="badge gold-badge">Real-time Code Test</span>
+        </div>
+        <p class="card-subtitle">Generate and verify Next.js code using Pixel Canary or compare with other benchmark models.</p>
+
+        <div class="playground-controls">
+          <div class="control-group">
+            <label for="modelSelect">Select Model:</label>
+            <select id="modelSelect">
+              <option value="stealth/pixel-canary" selected>⭐ Pixel Canary (FREE - 90% Pass@4)</option>
+              <option value="claude-fable-5.1">Claude Fable 5.1 (97% - $0.72)</option>
+              <option value="gpt-6-astra">GPT 6 Astra (90% - $0.89)</option>
+              <option value="kimi-k3">Kimi K3 (84% - $0.28)</option>
+              <option value="claude-sonnet-5">Claude Sonnet 5 (81% - $0.39)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="promptSelect">Task Challenge:</label>
+            <select id="promptSelect">
+              <option value="0">NEXT-01: Server Action with Form Validation</option>
+              <option value="1">NEXT-02: RSC Streaming with Suspense Skeleton</option>
+              <option value="2">NEXT-03: Hydration Mismatch Resolution</option>
+              <option value="3">NEXT-04: Edge Route Handler with JWT Verification</option>
+              <option value="4">NEXT-05: Intercepting Route & Modal Navigation</option>
+              <option value="5">NEXT-06: Next.js 15 Async Request APIs Migration</option>
+            </select>
+          </div>
+
+          <button id="runEvalBtn" class="btn btn-gold">
+            ▶ Run Evaluation
+          </button>
+        </div>
+
+        <!-- Playground Output -->
+        <div class="playground-output-grid">
+          <div class="code-editor-box">
+            <div class="editor-header">
+              <span class="editor-title">Generated Code Output</span>
+              <span class="badge" id="evalResultBadge">Ready</span>
+            </div>
+            <pre class="code-display" id="codeDisplay"><code>// Click "Run Evaluation" to test model code generation...</code></pre>
+          </div>
+
+          <div class="verification-box">
+            <div class="editor-header">
+              <span class="editor-title">Next.js Agent Evals Checklist</span>
+              <span class="score-pill" id="scorePill">Score: --</span>
+            </div>
+            <div class="checklist-items" id="checklistContainer">
+              <div class="check-row pending"><span>Waiting for evaluation...</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p>Marzneshin Autonomous OS • Benchmark telemetry derived from <a href="https://nextjs.org/evals" target="_blank">nextjs.org/evals (Sep 25, 2026)</a></p>
+        <p>Pixel Canary is accessible via Vercel AI Gateway & Cline Agent (<a href="https://cline.bot/desktop" target="_blank">cline.bot/desktop</a>)</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

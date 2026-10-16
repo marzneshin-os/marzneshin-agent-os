@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Profit & Contribution Command Center — Claudex Loop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand-section">
+        <div class="brand-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.25 2.25L15 7.5" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Product Contribution Command Center</h1>
+          <p>Claudex Loop Hardened • Multi-Model Verification (Claude Fable 5.1 &amp; GPT-6 Astra)</p>
+        </div>
+      </div>
+      <div class="header-badges">
+        <div class="badge badge-claudex">
+          <span class="badge-pulse"></span>
+          <span>CLAUDEX LOOP: ACTIVE</span>
+        </div>
+        <div class="badge badge-currency">
+          <span>CURRENCY: USD ($)</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Loss Leader / Negative Alert Banner -->
+    <div id="negative-alert-banner" class="alert-banner alert-danger" style="display: none;">
+      <div class="alert-content">
+        <div class="alert-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <div>
+          <div class="alert-title">Critical Financial Alert: Unprofitable SKUs Detected</div>
+          <div id="alert-loss-text" class="alert-desc">Warning: Line items are operating at negative contribution after allocated advertising.</div>
+        </div>
+      </div>
+      <button class="btn btn-danger" onclick="document.getElementById('status-filter').value='loss'; updateDashboard(currentItems, rejectedRows, warnings);">
+        Filter Loss SKUs
+      </button>
+    </div>
+
+    <!-- Toolbar & Actions -->
+    <div class="toolbar">
+      <div class="toolbar-group">
+        <button id="btn-load-fixture" class="btn btn-primary" title="Loads TEST-001 fixture from Steve Tan's guide">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Load Known-Answer Fixture (TEST-001)
+        </button>
+        <button id="btn-load-demo" class="btn btn-secondary">
+          Load Catalog Demo
+        </button>
+        <label for="csv-file-input" class="btn btn-secondary">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+          Import Local CSV
+        </label>
+        <input type="file" id="csv-file-input" accept=".csv" style="display: none;">
+        <button id="btn-export-csv" class="btn btn-accent">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Export CSV Results
+        </button>
+      </div>
+
+      <div class="toolbar-group">
+        <input type="text" id="sku-search" class="input-field" placeholder="Search SKU or Order ID..." style="width: 200px;">
+        <select id="status-filter" class="input-field">
+          <option value="all">All Contribution Statuses</option>
+          <option value="profit">Profitable Only</option>
+          <option value="loss">Loss / Deficit Only</option>
+        </select>
+        <input type="date" id="start-date" class="input-field" title="Start Date">
+        <input type="date" id="end-date" class="input-field" title="End Date">
+        <button id="btn-reset-filters" class="btn btn-secondary" title="Reset Filters">
+          Reset
+        </button>
+      </div>
+    </div>
+
+    <!-- KPI Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Gross Sales</div>
+        <div id="kpi-gross" class="kpi-value">$0.00</div>
+        <div class="kpi-sub">Before discounts &amp; refunds</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Net Product Sales</div>
+        <div id="kpi-net" class="kpi-value">$0.00</div>
+        <div class="kpi-sub">Gross - Discounts - Refunds</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Contrib. Before Ads</div>
+        <div id="kpi-before-ads" class="kpi-value">$0.00</div>
+        <div class="kpi-sub">Net + Ship - Cost - Fulfill - Fees</div>
+      </div>
+      <div class="kpi-card kpi-positive">
+        <div class="kpi-label">Contribution After Ads</div>
+        <div id="kpi-after-ads" class="kpi-value">$0.00</div>
+        <div class="kpi-sub">Net Product Contribution</div>
+      </div>
+      <div class="kpi-card kpi-accent">
+        <div class="kpi-label">Allocated Ad Spend</div>
+        <div id="kpi-ads" class="kpi-value">$0.00</div>
+        <div class="kpi-sub">Attributed campaign spend</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Contribution Margin</div>
+        <div id="kpi-margin" class="kpi-value">0.0%</div>
+        <div class="kpi-sub">After all allocated costs</div>
+      </div>
+      <div class="kpi-card kpi-negative">
+        <div class="kpi-label">Negative SKUs</div>
+        <div id="kpi-negative-count" class="kpi-value">0</div>
+        <div class="kpi-sub">Loss-making products</div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="sku-tab">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+        Product Contribution by SKU
+      </button>
+      <button class="tab-btn" data-tab="orders-tab">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+        </svg>
+        Order Line Item Ledger
+      </button>
+      <button class="tab-btn" data-tab="reconcile-tab">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        Reconciliation &amp; Input Integrity Audit
+      </button>
+    </div>
+
+    <!-- Data Table Container -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr id="table-headers">
+            <th>Product SKU</th>
+            <th>Units</th>
+            <th>Gross Sales</th>
+            <th>Net Sales</th>
+            <th>Product Cost</th>
+            <th>Fulfillment + Fees</th>
+            <th>Contrib. Before Ads</th>
+            <th>Allocated Ads</th>
+            <th>Net Contribution</th>
+            <th>Health Status</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <!-- Rows dynamically inserted by app.js -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Mathematical Formula Definition -->
+    <div class="formula-box">
+      <div><strong>Financial Formulas (Claudex Hardened Audit Standard):</strong></div>
+      <div>1. <span class="formula-highlight">Net Product Sales</span> = Gross Sales - Discounts - Product Refunds</div>
+      <div>2. <span class="formula-highlight">Contribution Before Ads</span> = Net Sales + Customer Shipping Collected - Net Product Cost - Fulfillment Cost - Payment Fees</div>
+      <div>3. <span class="formula-highlight">Contribution After Allocated Ads</span> = Contribution Before Ads - Allocated Ad Spend</div>
+      <div style="margin-top: 0.5rem; color: var(--text-muted);">
+        * Fictional Fixture Check (TEST-001): Gross $200, Disc $20, Refund $30, Ship $10, Cost $60, Fulfill $15, Fee $6, Ads $25 &rarr; 
+        <strong>Net Sales: $150.00</strong> | <strong>Before Ads: $79.00</strong> | <strong>After Ads: $54.00</strong> (100% Verified).
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "notebook_id": "nb-governance",
+  "title": "Governance Specs",
+  "description": "",
+  "created_at": "2026-10-09T21:19:47.757892+00:00",
+  "updated_at": "2026-10-09T21:19:47.875088+00:00",
+  "sources": {
+    "src-57bec63cf471": {
+      "source_id": "src-57bec63cf471",
+      "source_name": "gov.md",
+      "source_path": "inline",
+      "content_hash": "7a0b450109d570b1f61b439e6f516d93600e5b8f8f07b3bf29d9f0bd9808353d",
+      "total_lines": 1,
+      "total_chunks": 1,
+      "added_at": "2026-10-09T21:19:47.875079+00:00"
+    }
+  },
+  "chunks_count": 1,
+  "chunks": [
+    {
+      "chunk_id": "src-57bec63cf471-chk-0000",
+      "source_id": "src-57bec63cf471",
+      "source_name": "gov.md",
+      "start_line": 1,
+      "end_line": 1,
+      "content": "All adapters must pass 9 contract checks C1 through C9. Fencing tokens protect state mutations.",
+      "content_hash": "7a0b450109d570b1f61b439e6f516d93600e5b8f8f07b3bf29d9f0bd9808353d",
+      "token_count": 14
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"actor":{"id":"u_nsm_2","kind":"human"},"actor_seq":57,"event_id":"01M4JP23T6CZ566P6GBB9JBRNC","payload":{"consent_state":"granted","tier":"starter"},"redacted":false,"redaction_map":[],"schema_version":"2.0.0","subject":{"id":"checkout.completed","kind":"growth"},"trust":"internal","ts":"2026-10-10T10:34:40.326Z","type":"checkout.completed","world":"prod"}

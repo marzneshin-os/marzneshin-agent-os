@@ -186,5 +186,23 @@ def _payload_for(op: str) -> dict:
         "audit": {},
         # llm gateway
         "llm_chat": {"model": "gemini/gemini-3.6-flash", "messages": [{"role": "user", "content": "contract"}]},
+        "llm_messages": {"model": "claude-sonnet-5-free", "messages": [{"role": "user", "content": "contract"}]},
+        "pool_status": {},
+        "rotate_key": {"provider": "groq"},
+        "test_provider": {"provider": "groq"},
+        # grounded notebook (ADR-026)
+        "create_notebook": {"notebook_id": "nb-contract", "title": "Contract Notebook"},
+        "ingest_sources": {"notebook_id": "nb-contract", "content": "Contract source evidence text.", "source_name": "contract.md"},
+        "grounded_query": {"notebook_id": "nb-contract", "query": "evidence"},
+        "synthesize_sources": {"notebook_id": "nb-contract", "topic": "evidence"},
+        "verify_grounding": {"notebook_id": "nb-contract", "statement": "Contract source evidence text."},
+        "list_notebooks": {},
+        "get_notebook": {"notebook_id": "nb-contract"},
+        # aws bedrock (ADR-029)
+        "bedrock_invoke_model": {"model": "anthropic.claude-3-5-sonnet-20241022-v2:0", "prompt": "contract probe"},
+        "bedrock_converse": {"model": "anthropic.claude-3-5-sonnet-20241022-v2:0", "messages": [{"role": "user", "content": "hello"}]},
+        "bedrock_check_credits": {},
+        "bedrock_rotate_account": {},
+        "bedrock_onboarding_checklist": {"account_id": "builder_id_default", "task_id": "bedrock"},
     }
     return table.get(op, {})

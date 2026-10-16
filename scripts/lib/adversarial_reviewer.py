@@ -93,7 +93,30 @@ def review_change(
                 "metric gaming risk: KPI modification without corresponding counter-KPI guardrail (§10.4)"
             )
 
-    verdict = ReviewVerdict.REJECT if rejection_reasons else ReviewVerdict.APPROVE
+    # 4. Rule: Laya Typed Decision Pre-screen (Fast System 1 Guardrail & Rubric Scoring)
+    laya_screen = None
+    if diff_text or intent:
+        try:
+            from adapters.laya import LayaAdapter
+            laya = LayaAdapter(world="prod")
+            import datetime
+            deadline = clock.now() + datetime.timedelta(seconds=5)
+            laya_res = laya.execute(
+                "score_rubric",
+                {"text": f"Intent: {intent}\nDiff: {diff_text[:1000]}", "rubric": ["critical_risk", "medium_risk", "safe"]},
+                idem_key=f"ar-laya-{abs(hash(diff_text[:500]))}",
+                deadline=deadline,
+            )
+            if laya_res.ok:
+                laya_screen = laya_res.data
+                if laya_screen.get("level") == "critical_risk" and laya_screen.get("score", 0.0) < 0.20:
+                    rejection_reasons.append(
+                        f"laya pre-screen rejection: code change scored as critical_risk (score={laya_screen.get('score')})"
+                    )
+        except Exception:
+            pass
+
+        verdict = ReviewVerdict.REJECT if rejection_reasons else ReviewVerdict.APPROVE
     now_str = clock.iso()
 
     result = {

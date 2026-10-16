@@ -20,7 +20,8 @@ test_memory_api.py
 FreeLLMAPI_Guide.pdf
 *.bak*
 antigravity-account-switcher/
-state/langgraph_checkpoints.sqlite
+state/langgraph_checkpoints.sqlite*
+*.tmp
 graphify-out/
 package-lock.json
 data/

@@ -1,0 +1,19 @@
+# Kilo Code Rules — Marzneshin Autonomous Agent OS
+
+## Preferred Model & Engine
+- **Primary Model:** Pixel Canary (`stealth/pixel-canary` via Vercel AI Gateway / Kilo Free / Token Router).
+- **Project Guidelines:** Reference `AGENTS.md` and `BUILD-SPEC.md`.
+
+## Development Protocols
+1. **Agent Services Maintenance:** Verify `python3 scripts/dev.py status` before executing multi-agent tasks.
+2. **Surgical Changes:** Minimum viable modifications without collateral edits.
+3. **Receipt Generation:** All tier actions require cryptographic / signed receipts under `receipts/`.
+4. **Verification:** Red-Green-Refactor testing cycle; run existing suites before finishing.
+- **Web Browsing & Research:** Route external web requests through WebCMD (`webcmd-browser` MCP or `python3 scripts/webcmd_cli.py`) for 90% token reduction and persistent sitemap memory.
+- **ECC Universal Harness & AgentShield:** Run `python3 scripts/ecc_cli.py scan` for pre-commit security audits and `python3 scripts/ecc_cli.py instincts` to query or record continuous learning heuristics.
+
+## FreeLLMAPI Universal Free-Tier Token Pool (~7.4B Tokens/Month)
+- **Local Gateway**: `http://127.0.0.1:3001/v1` (OpenAI & Anthropic `/v1/messages` compatible)
+- **Status & Diagnostics**: `python3 scripts/freellm_cli.py status`
+- **Catalog of Free Models**: `python3 scripts/freellm_cli.py catalog --domain coding`
+- **Failover**: Auto-switches across 34+ free-tier providers on 429 rate limit with multi-key cooldown.

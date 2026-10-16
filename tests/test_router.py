@@ -41,6 +41,13 @@ class TestTokenSaver(unittest.TestCase):
         self.assertEqual(body["messages"][0]["role"], "system")
         self.assertTrue("caveman" in body["messages"][0]["content"].lower())
 
+    def test_apply_token_saver_html_web(self):
+        html = "<!DOCTYPE html><html><head><style>body{color:red;}</style></head><body><h1>Doc</h1><p>Main content paragraph with lots of details to reach minimum size.</p><button id='btn'>Click</button></body></html>" * 5
+        compressed, name = tokensaver.compress_tool_result(html)
+        self.assertEqual(name, "html-web")
+        self.assertIn("Doc", compressed)
+        self.assertNotIn("<style>", compressed)
+
     def test_apply_token_saver_ponytail(self):
         body = {
             "model": "gpt-4o",

@@ -45,6 +45,11 @@ python3 scripts/killswitch.py verify          # تمرین عملی هر ۵ مس
 python3 scripts/reaper.py --dry-run           # leaseهای زامبی
 python3 -m unittest discover -s tests         # مجموعهٔ تست
 python3 scripts/context_pack.py               # بازتولید CONTEXT-PACK.md
+python3 scripts/webcmd_cli.py status       # بررسی وضعیت و صرفه‌جویی توکن مرورگر WebCMD
+python3 scripts/webcmd_cli.py browse <url> # وب‌گردی بهینه‌شده با کاهش ۹۰ درصدی توکن
+python3 scripts/ecc_cli.py status          # ????? ???? ????? ???????? ECC ? ?????? ?????
+python3 scripts/ecc_cli.py scan            # ???? ?????? ??????-????? AgentShield
+python3 scripts/ecc_cli.py instincts       # ??????? ????? ? ?????? ????????????
 ```
 
 ## ۵) ساختار و مالکیت
@@ -134,3 +139,9 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+## FreeLLMAPI Universal Free-Tier Token Pool (~7.4B Tokens/Month)
+- **Local Gateway**: `http://127.0.0.1:3001/v1` (OpenAI & Anthropic `/v1/messages` compatible)
+- **Status & Diagnostics**: `python3 scripts/freellm_cli.py status`
+- **Catalog of Free Models**: `python3 scripts/freellm_cli.py catalog --domain coding`
+- **Failover**: Auto-switches across 34+ free-tier providers on 429 rate limit with multi-key cooldown.

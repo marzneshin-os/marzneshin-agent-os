@@ -1,0 +1,9 @@
+{
+  "chat.defaultModel": "stealth/pixel-canary",
+  "chat.modelProvider": "vercel-ai-gateway",
+  "steering.files": [
+    ".kiro/steering/pixel-canary.md",
+    ".kiro/steering/marzneshin-spec.md"
+  ],
+  "specDrivenDevelopment.enabled": true
+}

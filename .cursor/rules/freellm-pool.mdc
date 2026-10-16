@@ -1,0 +1,12 @@
+---
+description: FreeLLMAPI Universal Free-Tier Token Pool & Gateway Rules
+globs: **/*
+alwaysApply: true
+---
+
+# FreeLLMAPI Universal Free-Tier Token Pool
+
+- **Local Gateway**: Connect Cursor to `http://127.0.0.1:3001/v1` with OpenAI compatibility.
+- **Capacity**: 34+ providers, ~7.4B tokens/mo free pooled capacity.
+- **Failover**: When running long batch tasks, use combos (`freellm-coding`, `freellm-fast`) to ensure automatic 429 failover.
+- **Status Check**: `python3 scripts/freellm_cli.py status`.

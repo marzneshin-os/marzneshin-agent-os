@@ -1,0 +1,11 @@
+---
+description: AWS Bedrock Promotional Credit Pool & Zero-Cost Guardrails (ADR-029)
+globs: adapters/aws_bedrock.py, scripts/lib/aws_bedrock_credits.py, scripts/aws_bedrock_cli.py, scripts/mcp_aws_bedrock.py
+---
+
+# AWS Bedrock Promotional Credit Pool Rules
+
+- Enforce strict `max_daily_usd: 0.0`.
+- All requests must use promotional credits with a fail-closed $5.00 safety buffer.
+- Accounts expiring after 180 days must be retired automatically.
+- Always redact AWS Secret Access Keys in responses.

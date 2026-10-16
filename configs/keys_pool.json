@@ -9,5 +9,54 @@
         "depleted": [
             "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"
         ]
+    },
+    "groq": {
+        "active_key": "${GROQ_API_KEY:-free}",
+        "pool": [
+            "${GROQ_API_KEY:-free}"
+        ],
+        "depleted": []
+    },
+    "google_gemini": {
+        "active_key": "${GEMINI_API_KEY:-free}",
+        "pool": [
+            "${GEMINI_API_KEY:-free}"
+        ],
+        "depleted": []
+    },
+    "cerebras": {
+        "active_key": "${CEREBRAS_API_KEY:-free}",
+        "pool": [
+            "${CEREBRAS_API_KEY:-free}"
+        ],
+        "depleted": []
+    },
+    "mistral": {
+        "active_key": "${MISTRAL_API_KEY:-free}",
+        "pool": [
+            "${MISTRAL_API_KEY:-free}"
+        ],
+        "depleted": []
+    },
+    "sambanova": {
+        "active_key": "${SAMBANOVA_API_KEY:-free}",
+        "pool": [
+            "${SAMBANOVA_API_KEY:-free}"
+        ],
+        "depleted": []
+    },
+    "openrouter_free": {
+        "active_key": "${OPENROUTER_API_KEY:-free}",
+        "pool": [
+            "${OPENROUTER_API_KEY:-free}"
+        ],
+        "depleted": []
+    },
+    "aws_bedrock": {
+        "active_key": "${AWS_BEDROCK_API_KEY:-builder_id_pool_1}",
+        "pool": [
+            "${AWS_BEDROCK_API_KEY:-builder_id_pool_1}"
+        ],
+        "depleted": []
     }
 }

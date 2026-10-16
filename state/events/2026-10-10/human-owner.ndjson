@@ -1,0 +1,1 @@
+{"actor":{"id":"owner","kind":"human"},"actor_seq":65,"event_id":"01M4JP2030HPG3FKE6A5ZYJQCQ","payload":{"approval":"granted","channel":"control-room"},"redacted":false,"redaction_map":[],"schema_version":"2.0.0","subject":{"id":"T-TEST-APPR-1","kind":"task"},"trust":"internal","ts":"2026-10-10T10:34:36.512Z","type":"approval.granted","world":"prod"}

@@ -2153,3 +2153,1859 @@ Tip: run with --obsidian for full node-level detail.
   AST extraction: 100/296 uncached files (33%) [16 workers]
   AST extraction: 200/296 uncached files (67%) [16 workers]
   AST extraction: 296/296 uncached files (100%) [16 workers]
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/327 uncached files (30%) [16 workers]
+  AST extraction: 200/327 uncached files (61%) [16 workers]
+  AST extraction: 300/327 uncached files (91%) [16 workers]
+  AST extraction: 327/327 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/327 uncached files (30%) [16 workers]
+  AST extraction: 200/327 uncached files (61%) [16 workers]
+  AST extraction: 300/327 uncached files (91%) [16 workers]
+  AST extraction: 327/327 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 5 file(s) changed
+  AST extraction: 100/332 uncached files (30%) [16 workers]
+  AST extraction: 200/332 uncached files (60%) [16 workers]
+  AST extraction: 300/332 uncached files (90%) [16 workers]
+  AST extraction: 332/332 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1814 saved labels, 1814 communities now; renamed 221 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30387 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1814 community nodes, 2359 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30387 nodes, 52497 edges, 1814 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 5 file(s) changed
+  AST extraction: 100/332 uncached files (30%) [16 workers]
+  AST extraction: 200/332 uncached files (60%) [16 workers]
+  AST extraction: 300/332 uncached files (90%) [16 workers]
+  AST extraction: 332/332 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1814 saved labels, 1814 communities now; renamed 2 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30387 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1814 community nodes, 2359 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30387 nodes, 52497 edges, 1814 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 5 file(s) changed
+  AST extraction: 100/330 uncached files (30%) [16 workers]
+  AST extraction: 200/330 uncached files (60%) [16 workers]
+  AST extraction: 300/330 uncached files (90%) [16 workers]
+  AST extraction: 330/330 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30387 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1814 community nodes, 2359 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30387 nodes, 52497 edges, 1814 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 5 file(s) changed
+  AST extraction: 100/328 uncached files (30%) [16 workers]
+  AST extraction: 200/328 uncached files (60%) [16 workers]
+  AST extraction: 300/328 uncached files (91%) [16 workers]
+  AST extraction: 328/328 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 4 file(s) changed
+  AST extraction: 100/330 uncached files (30%) [16 workers]
+  AST extraction: 200/330 uncached files (60%) [16 workers]
+  AST extraction: 300/330 uncached files (90%) [16 workers]
+  AST extraction: 330/330 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1814 saved labels, 1822 communities now; renamed 213 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30389 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1822 community nodes, 2359 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30389 nodes, 52506 edges, 1822 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 10 file(s) changed
+  AST extraction: 100/328 uncached files (30%) [16 workers]
+  AST extraction: 200/328 uncached files (60%) [16 workers]
+  AST extraction: 300/328 uncached files (91%) [16 workers]
+  AST extraction: 328/328 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/329 uncached files (30%) [16 workers]
+  AST extraction: 200/329 uncached files (60%) [16 workers]
+  AST extraction: 300/329 uncached files (91%) [16 workers]
+  AST extraction: 329/329 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1822 saved labels, 1823 communities now; renamed 155 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30389 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1823 community nodes, 2446 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30389 nodes, 52510 edges, 1823 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/328 uncached files (30%) [16 workers]
+  AST extraction: 200/328 uncached files (60%) [16 workers]
+  AST extraction: 300/328 uncached files (91%) [16 workers]
+  AST extraction: 328/328 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/329 uncached files (30%) [16 workers]
+  AST extraction: 200/329 uncached files (60%) [16 workers]
+  AST extraction: 300/329 uncached files (91%) [16 workers]
+  AST extraction: 329/329 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1823 saved labels, 1839 communities now; renamed 210 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30391 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1839 community nodes, 2527 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30391 nodes, 52513 edges, 1839 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/329 uncached files (30%) [16 workers]
+  AST extraction: 200/329 uncached files (60%) [16 workers]
+  AST extraction: 300/329 uncached files (91%) [16 workers]
+  AST extraction: 329/329 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 10 file(s) changed
+  AST extraction: 100/329 uncached files (30%) [16 workers]
+  AST extraction: 200/329 uncached files (60%) [16 workers]
+  AST extraction: 300/329 uncached files (91%) [16 workers]
+  AST extraction: 329/329 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/330 uncached files (30%) [16 workers]
+  AST extraction: 200/330 uncached files (60%) [16 workers]
+  AST extraction: 300/330 uncached files (90%) [16 workers]
+  AST extraction: 330/330 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1839 saved labels, 1808 communities now; renamed 196 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30401 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1808 community nodes, 2409 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30401 nodes, 52545 edges, 1808 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/331 uncached files (30%) [16 workers]
+  AST extraction: 200/331 uncached files (60%) [16 workers]
+  AST extraction: 300/331 uncached files (90%) [16 workers]
+  AST extraction: 331/331 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1808 saved labels, 1815 communities now; renamed 190 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30407 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1815 community nodes, 2506 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30407 nodes, 52550 edges, 1815 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/329 uncached files (30%) [16 workers]
+  AST extraction: 200/329 uncached files (60%) [16 workers]
+  AST extraction: 300/329 uncached files (91%) [16 workers]
+  AST extraction: 329/329 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/330 uncached files (30%) [16 workers]
+  AST extraction: 200/330 uncached files (60%) [16 workers]
+  AST extraction: 300/330 uncached files (90%) [16 workers]
+  AST extraction: 330/330 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/330 uncached files (30%) [16 workers]
+  AST extraction: 200/330 uncached files (60%) [16 workers]
+  AST extraction: 300/330 uncached files (90%) [16 workers]
+  AST extraction: 330/330 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/332 uncached files (30%) [16 workers]
+  AST extraction: 200/332 uncached files (60%) [16 workers]
+  AST extraction: 300/332 uncached files (90%) [16 workers]
+  AST extraction: 332/332 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1815 saved labels, 1831 communities now; renamed 214 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30429 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1831 community nodes, 2493 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30429 nodes, 52570 edges, 1831 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/331 uncached files (30%) [16 workers]
+  AST extraction: 200/331 uncached files (60%) [16 workers]
+  AST extraction: 300/331 uncached files (90%) [16 workers]
+  AST extraction: 331/331 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted), scripts/lib/webcmd_memory.py (first error at line 192, 29 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1831 saved labels, 1841 communities now; renamed 222 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30459 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1841 community nodes, 2512 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30459 nodes, 52626 edges, 1841 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 4 file(s) changed
+  AST extraction: 100/331 uncached files (30%) [16 workers]
+  AST extraction: 200/331 uncached files (60%) [16 workers]
+  AST extraction: 300/331 uncached files (90%) [16 workers]
+  AST extraction: 331/331 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1841 saved labels, 1841 communities now; renamed 1 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30459 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1841 community nodes, 2512 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30459 nodes, 52626 edges, 1841 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/331 uncached files (30%) [16 workers]
+  AST extraction: 200/331 uncached files (60%) [16 workers]
+  AST extraction: 300/331 uncached files (90%) [16 workers]
+  AST extraction: 331/331 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1841 saved labels, 1841 communities now; renamed 221 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30469 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1841 community nodes, 2494 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30469 nodes, 52639 edges, 1841 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/333 uncached files (30%) [16 workers]
+  AST extraction: 200/333 uncached files (60%) [16 workers]
+  AST extraction: 300/333 uncached files (90%) [16 workers]
+  AST extraction: 333/333 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1841 saved labels, 1827 communities now; renamed 177 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30495 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1827 community nodes, 2440 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30495 nodes, 52729 edges, 1827 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/333 uncached files (30%) [16 workers]
+  AST extraction: 200/333 uncached files (60%) [16 workers]
+  AST extraction: 300/333 uncached files (90%) [16 workers]
+  AST extraction: 333/333 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1827 saved labels, 1824 communities now; renamed 143 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30495 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1824 community nodes, 2489 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30495 nodes, 52730 edges, 1824 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/332 uncached files (30%) [16 workers]
+  AST extraction: 200/332 uncached files (60%) [16 workers]
+  AST extraction: 300/332 uncached files (90%) [16 workers]
+  AST extraction: 332/332 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/331 uncached files (30%) [16 workers]
+  AST extraction: 200/331 uncached files (60%) [16 workers]
+  AST extraction: 300/331 uncached files (90%) [16 workers]
+  AST extraction: 331/331 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1824 saved labels, 1819 communities now; renamed 226 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30497 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1819 community nodes, 2425 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30497 nodes, 52734 edges, 1819 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/331 uncached files (30%) [16 workers]
+  AST extraction: 200/331 uncached files (60%) [16 workers]
+  AST extraction: 300/331 uncached files (90%) [16 workers]
+  AST extraction: 331/331 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1819 saved labels, 1814 communities now; renamed 211 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30499 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1814 community nodes, 2385 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30499 nodes, 52738 edges, 1814 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/330 uncached files (30%) [16 workers]
+  AST extraction: 200/330 uncached files (60%) [16 workers]
+  AST extraction: 300/330 uncached files (90%) [16 workers]
+  AST extraction: 330/330 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1814 saved labels, 1817 communities now; renamed 197 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30497 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1817 community nodes, 2423 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30497 nodes, 52735 edges, 1817 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/332 uncached files (30%) [16 workers]
+  AST extraction: 200/332 uncached files (60%) [16 workers]
+  AST extraction: 300/332 uncached files (90%) [16 workers]
+  AST extraction: 332/332 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1817 saved labels, 1840 communities now; renamed 191 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30508 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1840 community nodes, 2530 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30508 nodes, 52764 edges, 1840 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/331 uncached files (30%) [16 workers]
+  AST extraction: 200/331 uncached files (60%) [16 workers]
+  AST extraction: 300/331 uncached files (90%) [16 workers]
+  AST extraction: 331/331 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1840 saved labels, 1827 communities now; renamed 188 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30515 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1827 community nodes, 2564 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30515 nodes, 52782 edges, 1827 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/337 uncached files (29%) [16 workers]
+  AST extraction: 200/337 uncached files (59%) [16 workers]
+  AST extraction: 300/337 uncached files (89%) [16 workers]
+  AST extraction: 337/337 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1827 saved labels, 1841 communities now; renamed 222 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30531 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1841 community nodes, 2558 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30531 nodes, 52795 edges, 1841 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/332 uncached files (30%) [16 workers]
+  AST extraction: 200/332 uncached files (60%) [16 workers]
+  AST extraction: 300/332 uncached files (90%) [16 workers]
+  AST extraction: 332/332 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/332 uncached files (30%) [16 workers]
+  AST extraction: 200/332 uncached files (60%) [16 workers]
+  AST extraction: 300/332 uncached files (90%) [16 workers]
+  AST extraction: 332/332 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/332 uncached files (30%) [16 workers]
+  AST extraction: 200/332 uncached files (60%) [16 workers]
+  AST extraction: 300/332 uncached files (90%) [16 workers]
+  AST extraction: 332/332 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 151, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/334 uncached files (29%) [16 workers]
+  AST extraction: 200/334 uncached files (59%) [16 workers]
+  AST extraction: 300/334 uncached files (89%) [16 workers]
+  AST extraction: 334/334 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/graph_nodes.py (first error at line 155, 27 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1841 saved labels, 1839 communities now; renamed 153 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30531 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1839 community nodes, 2493 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30531 nodes, 52799 edges, 1839 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/333 uncached files (30%) [16 workers]
+  AST extraction: 200/333 uncached files (60%) [16 workers]
+  AST extraction: 300/333 uncached files (90%) [16 workers]
+  AST extraction: 333/333 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1839 saved labels, 1839 communities now; renamed 4 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-09-30/
+Graph has 30531 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1839 community nodes, 2493 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30531 nodes, 52799 edges, 1839 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 10 file(s) changed
+  AST extraction: 100/333 uncached files (30%) [16 workers]
+  AST extraction: 200/333 uncached files (60%) [16 workers]
+  AST extraction: 300/333 uncached files (90%) [16 workers]
+  AST extraction: 333/333 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/333 uncached files (30%) [16 workers]
+  AST extraction: 200/333 uncached files (60%) [16 workers]
+  AST extraction: 300/333 uncached files (90%) [16 workers]
+  AST extraction: 333/333 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/333 uncached files (30%) [16 workers]
+  AST extraction: 200/333 uncached files (60%) [16 workers]
+  AST extraction: 300/333 uncached files (90%) [16 workers]
+  AST extraction: 333/333 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/338 uncached files (29%) [16 workers]
+  AST extraction: 200/338 uncached files (59%) [16 workers]
+  AST extraction: 300/338 uncached files (88%) [16 workers]
+  AST extraction: 338/338 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1839 saved labels, 1835 communities now; renamed 239 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30563 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1835 community nodes, 2578 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30563 nodes, 52828 edges, 1835 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/334 uncached files (29%) [16 workers]
+  AST extraction: 200/334 uncached files (59%) [16 workers]
+  AST extraction: 300/334 uncached files (89%) [16 workers]
+  AST extraction: 334/334 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/334 uncached files (29%) [16 workers]
+  AST extraction: 200/334 uncached files (59%) [16 workers]
+  AST extraction: 300/334 uncached files (89%) [16 workers]
+  AST extraction: 334/334 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 4 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/339 uncached files (29%) [16 workers]
+  AST extraction: 200/339 uncached files (58%) [16 workers]
+  AST extraction: 300/339 uncached files (88%) [16 workers]
+  AST extraction: 339/339 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted), scripts/lib/ecc_harness.py (first error at line 1, 6 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1835 saved labels, 1828 communities now; renamed 207 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30601 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1828 community nodes, 2478 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30601 nodes, 52865 edges, 1828 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/335 uncached files (29%) [16 workers]
+  AST extraction: 200/335 uncached files (59%) [16 workers]
+  AST extraction: 300/335 uncached files (89%) [16 workers]
+  AST extraction: 335/335 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1828 saved labels, 1848 communities now; renamed 182 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30625 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1848 community nodes, 2555 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30625 nodes, 52911 edges, 1848 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/336 uncached files (29%) [16 workers]
+  AST extraction: 200/336 uncached files (59%) [16 workers]
+  AST extraction: 300/336 uncached files (89%) [16 workers]
+  AST extraction: 336/336 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1848 saved labels, 1825 communities now; renamed 187 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30636 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1825 community nodes, 2459 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30636 nodes, 52929 edges, 1825 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/335 uncached files (29%) [16 workers]
+  AST extraction: 200/335 uncached files (59%) [16 workers]
+  AST extraction: 300/335 uncached files (89%) [16 workers]
+  AST extraction: 335/335 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/336 uncached files (29%) [16 workers]
+  AST extraction: 200/336 uncached files (59%) [16 workers]
+  AST extraction: 300/336 uncached files (89%) [16 workers]
+  AST extraction: 336/336 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1825 saved labels, 1851 communities now; renamed 183 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30651 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1851 community nodes, 2635 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30651 nodes, 52982 edges, 1851 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/338 uncached files (29%) [16 workers]
+  AST extraction: 200/338 uncached files (59%) [16 workers]
+  AST extraction: 300/338 uncached files (88%) [16 workers]
+  AST extraction: 338/338 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1851 saved labels, 1840 communities now; renamed 213 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30672 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1840 community nodes, 2544 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30672 nodes, 53041 edges, 1840 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/336 uncached files (29%) [16 workers]
+  AST extraction: 200/336 uncached files (59%) [16 workers]
+  AST extraction: 300/336 uncached files (89%) [16 workers]
+  AST extraction: 336/336 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1840 saved labels, 1829 communities now; renamed 194 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30676 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1829 community nodes, 2444 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30676 nodes, 53050 edges, 1829 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/337 uncached files (29%) [16 workers]
+  AST extraction: 200/337 uncached files (59%) [16 workers]
+  AST extraction: 300/337 uncached files (89%) [16 workers]
+  AST extraction: 337/337 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1829 saved labels, 1846 communities now; renamed 194 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30683 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1846 community nodes, 2599 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30683 nodes, 53067 edges, 1846 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/337 uncached files (29%) [16 workers]
+  AST extraction: 200/337 uncached files (59%) [16 workers]
+  AST extraction: 300/337 uncached files (89%) [16 workers]
+  AST extraction: 337/337 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1846 saved labels, 1840 communities now; renamed 218 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30692 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1840 community nodes, 2488 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30692 nodes, 53095 edges, 1840 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1840 saved labels, 1833 communities now; renamed 223 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30701 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1833 community nodes, 2357 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30701 nodes, 53101 edges, 1833 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/339 uncached files (29%) [16 workers]
+  AST extraction: 200/339 uncached files (58%) [16 workers]
+  AST extraction: 300/339 uncached files (88%) [16 workers]
+  AST extraction: 339/339 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30701 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1833 community nodes, 2357 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30701 nodes, 53101 edges, 1833 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/337 uncached files (29%) [16 workers]
+  AST extraction: 200/337 uncached files (59%) [16 workers]
+  AST extraction: 300/337 uncached files (89%) [16 workers]
+  AST extraction: 337/337 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/337 uncached files (29%) [16 workers]
+  AST extraction: 200/337 uncached files (59%) [16 workers]
+  AST extraction: 300/337 uncached files (89%) [16 workers]
+  AST extraction: 337/337 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 10 file(s) changed
+  AST extraction: 100/338 uncached files (29%) [16 workers]
+  AST extraction: 200/338 uncached files (59%) [16 workers]
+  AST extraction: 300/338 uncached files (88%) [16 workers]
+  AST extraction: 338/338 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/338 uncached files (29%) [16 workers]
+  AST extraction: 200/338 uncached files (59%) [16 workers]
+  AST extraction: 300/338 uncached files (88%) [16 workers]
+  AST extraction: 338/338 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/338 uncached files (29%) [16 workers]
+  AST extraction: 200/338 uncached files (59%) [16 workers]
+  AST extraction: 300/338 uncached files (88%) [16 workers]
+  AST extraction: 338/338 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/338 uncached files (29%) [16 workers]
+  AST extraction: 200/338 uncached files (59%) [16 workers]
+  AST extraction: 300/338 uncached files (88%) [16 workers]
+  AST extraction: 338/338 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/339 uncached files (29%) [16 workers]
+  AST extraction: 200/339 uncached files (58%) [16 workers]
+  AST extraction: 300/339 uncached files (88%) [16 workers]
+  AST extraction: 339/339 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/339 uncached files (29%) [16 workers]
+  AST extraction: 200/339 uncached files (58%) [16 workers]
+  AST extraction: 300/339 uncached files (88%) [16 workers]
+  AST extraction: 339/339 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/339 uncached files (29%) [16 workers]
+  AST extraction: 200/339 uncached files (58%) [16 workers]
+  AST extraction: 300/339 uncached files (88%) [16 workers]
+  AST extraction: 339/339 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/339 uncached files (29%) [16 workers]
+  AST extraction: 200/339 uncached files (58%) [16 workers]
+  AST extraction: 300/339 uncached files (88%) [16 workers]
+  AST extraction: 339/339 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1833 saved labels, 1834 communities now; renamed 204 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30716 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1834 community nodes, 2479 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30716 nodes, 53115 edges, 1834 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1834 saved labels, 1840 communities now; renamed 202 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30756 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1840 community nodes, 2531 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30756 nodes, 53185 edges, 1840 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1840 saved labels, 1850 communities now; renamed 206 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30771 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1850 community nodes, 2599 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30771 nodes, 53241 edges, 1850 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1850 saved labels, 1849 communities now; renamed 214 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30783 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1849 community nodes, 2554 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30783 nodes, 53276 edges, 1849 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1849 saved labels, 1843 communities now; renamed 232 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30794 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1843 community nodes, 2480 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30794 nodes, 53301 edges, 1843 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1843 saved labels, 1839 communities now; renamed 214 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30799 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1839 community nodes, 2485 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30799 nodes, 53326 edges, 1839 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1839 saved labels, 1838 communities now; renamed 211 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30811 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1838 community nodes, 2449 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30811 nodes, 53374 edges, 1838 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1838 saved labels, 1843 communities now; renamed 225 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30817 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1843 community nodes, 2549 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30817 nodes, 53395 edges, 1843 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1843 saved labels, 1841 communities now; renamed 218 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30822 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1841 community nodes, 2523 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30822 nodes, 53408 edges, 1841 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/339 uncached files (29%) [16 workers]
+  AST extraction: 200/339 uncached files (58%) [16 workers]
+  AST extraction: 300/339 uncached files (88%) [16 workers]
+  AST extraction: 339/339 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1841 saved labels, 1850 communities now; renamed 219 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1850 saved labels, 1842 communities now; renamed 217 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30835 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1842 community nodes, 2585 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30835 nodes, 53423 edges, 1842 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1842 saved labels, 1860 communities now; renamed 216 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30836 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1860 community nodes, 2598 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30836 nodes, 53424 edges, 1860 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1860 saved labels, 1860 communities now; renamed 1 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30836 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1860 community nodes, 2598 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30836 nodes, 53424 edges, 1860 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1860 saved labels, 1828 communities now; renamed 206 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30851 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1828 community nodes, 2371 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30851 nodes, 53453 edges, 1828 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/342 uncached files (29%) [16 workers]
+  AST extraction: 200/342 uncached files (58%) [16 workers]
+  AST extraction: 300/342 uncached files (87%) [16 workers]
+  AST extraction: 342/342 uncached files (100%) [16 workers]
+  warning: 2 file(s) had syntax errors and may be partially extracted: agents/gate_nodes.py (first error at line 107, 9 symbol(s) extracted), engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1828 saved labels, 1856 communities now; renamed 202 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30864 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1856 community nodes, 2546 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30864 nodes, 53493 edges, 1856 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/342 uncached files (29%) [16 workers]
+  AST extraction: 200/342 uncached files (58%) [16 workers]
+  AST extraction: 300/342 uncached files (87%) [16 workers]
+  AST extraction: 342/342 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1856 saved labels, 1863 communities now; renamed 210 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30866 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1863 community nodes, 2642 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30866 nodes, 53504 edges, 1863 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/340 uncached files (29%) [16 workers]
+  AST extraction: 200/340 uncached files (58%) [16 workers]
+  AST extraction: 300/340 uncached files (88%) [16 workers]
+  AST extraction: 340/340 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/343 uncached files (29%) [16 workers]
+  AST extraction: 200/343 uncached files (58%) [16 workers]
+  AST extraction: 300/343 uncached files (87%) [16 workers]
+  AST extraction: 343/343 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1863 saved labels, 1856 communities now; renamed 239 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30894 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1856 community nodes, 2556 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30894 nodes, 53596 edges, 1856 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1856 saved labels, 1837 communities now; renamed 208 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30901 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1837 community nodes, 2437 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30901 nodes, 53623 edges, 1837 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/342 uncached files (29%) [16 workers]
+  AST extraction: 200/342 uncached files (58%) [16 workers]
+  AST extraction: 300/342 uncached files (87%) [16 workers]
+  AST extraction: 342/342 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1837 saved labels, 1833 communities now; renamed 207 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30908 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1833 community nodes, 2396 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30908 nodes, 53649 edges, 1833 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1833 saved labels, 1838 communities now; renamed 210 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-01/
+Graph has 30919 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1838 community nodes, 2467 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 30919 nodes, 53659 edges, 1838 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 10 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/341 uncached files (29%) [16 workers]
+  AST extraction: 200/341 uncached files (58%) [16 workers]
+  AST extraction: 300/341 uncached files (87%) [16 workers]
+  AST extraction: 341/341 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/342 uncached files (29%) [16 workers]
+  AST extraction: 200/342 uncached files (58%) [16 workers]
+  AST extraction: 300/342 uncached files (87%) [16 workers]
+  AST extraction: 342/342 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/343 uncached files (29%) [16 workers]
+  AST extraction: 200/343 uncached files (58%) [16 workers]
+  AST extraction: 300/343 uncached files (87%) [16 workers]
+  AST extraction: 343/343 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/352 uncached files (28%) [16 workers]
+  AST extraction: 200/352 uncached files (56%) [16 workers]
+  AST extraction: 300/352 uncached files (85%) [16 workers]
+  AST extraction: 352/352 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1838 saved labels, 1847 communities now; renamed 204 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-09/
+Graph has 31007 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1847 community nodes, 2566 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31007 nodes, 53838 edges, 1847 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1847 saved labels, 1841 communities now; renamed 238 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-09/
+Graph has 31009 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1841 community nodes, 2419 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31009 nodes, 53844 edges, 1841 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/345 uncached files (28%) [16 workers]
+  AST extraction: 200/345 uncached files (57%) [16 workers]
+  AST extraction: 300/345 uncached files (86%) [16 workers]
+  AST extraction: 345/345 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1841 saved labels, 1828 communities now; renamed 174 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-09/
+Graph has 31009 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1828 community nodes, 2394 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31009 nodes, 53843 edges, 1828 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify] backed up curated graph (5 files) -> 2026-10-09/
+Graph has 31009 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1828 community nodes, 2394 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31009 nodes, 53843 edges, 1828 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/345 uncached files (28%) [16 workers]
+  AST extraction: 200/345 uncached files (57%) [16 workers]
+  AST extraction: 300/345 uncached files (86%) [16 workers]
+  AST extraction: 345/345 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1828 saved labels, 1829 communities now; renamed 165 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-09/
+Graph has 31009 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1829 community nodes, 2388 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31009 nodes, 53845 edges, 1829 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1829 saved labels, 1846 communities now; renamed 191 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31017 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1846 community nodes, 2486 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31017 nodes, 53851 edges, 1846 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/345 uncached files (28%) [16 workers]
+  AST extraction: 200/345 uncached files (57%) [16 workers]
+  AST extraction: 300/345 uncached files (86%) [16 workers]
+  AST extraction: 345/345 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/345 uncached files (28%) [16 workers]
+  AST extraction: 200/345 uncached files (57%) [16 workers]
+  AST extraction: 300/345 uncached files (86%) [16 workers]
+  AST extraction: 345/345 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/345 uncached files (28%) [16 workers]
+  AST extraction: 200/345 uncached files (57%) [16 workers]
+  AST extraction: 300/345 uncached files (86%) [16 workers]
+  AST extraction: 345/345 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1846 saved labels, 1817 communities now; renamed 209 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31071 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1817 community nodes, 2421 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31071 nodes, 53936 edges, 1817 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1817 saved labels, 1847 communities now; renamed 195 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31082 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1847 community nodes, 2514 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31082 nodes, 53967 edges, 1847 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1847 saved labels, 1844 communities now; renamed 220 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31095 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1844 community nodes, 2534 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31095 nodes, 54013 edges, 1844 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1844 saved labels, 1840 communities now; renamed 202 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31108 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1840 community nodes, 2580 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31108 nodes, 54056 edges, 1840 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1840 saved labels, 1849 communities now; renamed 213 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31118 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1849 community nodes, 2540 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31118 nodes, 54080 edges, 1849 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1849 saved labels, 1838 communities now; renamed 215 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31120 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1838 community nodes, 2484 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31120 nodes, 54086 edges, 1838 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1838 saved labels, 1846 communities now; renamed 209 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31123 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1846 community nodes, 2519 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31123 nodes, 54093 edges, 1846 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1846 saved labels, 1846 communities now; renamed 1 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31123 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1846 community nodes, 2519 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31123 nodes, 54093 edges, 1846 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1846 saved labels, 1827 communities now; renamed 193 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31128 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1827 community nodes, 2313 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31128 nodes, 54103 edges, 1827 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1827 saved labels, 1855 communities now; renamed 197 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 8 file(s) changed
+  AST extraction: 100/351 uncached files (28%) [16 workers]
+  AST extraction: 200/351 uncached files (56%) [16 workers]
+  AST extraction: 300/351 uncached files (85%) [16 workers]
+  AST extraction: 351/351 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1855 saved labels, 1855 communities now; renamed 227 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31156 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1855 community nodes, 2486 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31156 nodes, 54134 edges, 1855 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1855 saved labels, 1853 communities now; renamed 205 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31157 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1853 community nodes, 2449 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31157 nodes, 54140 edges, 1853 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/348 uncached files (28%) [16 workers]
+  AST extraction: 200/348 uncached files (57%) [16 workers]
+  AST extraction: 300/348 uncached files (86%) [16 workers]
+  AST extraction: 348/348 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1853 saved labels, 1867 communities now; renamed 197 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31163 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1867 community nodes, 2624 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31163 nodes, 54154 edges, 1867 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1867 saved labels, 1843 communities now; renamed 209 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31164 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1843 community nodes, 2507 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31164 nodes, 54155 edges, 1843 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/349 uncached files (28%) [16 workers]
+  AST extraction: 200/349 uncached files (57%) [16 workers]
+  AST extraction: 300/349 uncached files (85%) [16 workers]
+  AST extraction: 349/349 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1843 saved labels, 1856 communities now; renamed 218 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-10/
+Graph has 31167 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1856 community nodes, 2462 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31167 nodes, 54158 edges, 1856 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+
+[graphify watch] New or changed files detected in /home/asus/code/marzneshin-agent-os
+[graphify watch] Non-code files changed - semantic re-extraction requires LLM.
+[graphify watch] Run `/graphify --update` in Claude Code to update the graph.
+[graphify watch] Flag written to /home/asus/code/marzneshin-agent-os/graphify-out/needs_update
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/350 uncached files (28%) [16 workers]
+  AST extraction: 200/350 uncached files (57%) [16 workers]
+  AST extraction: 300/350 uncached files (85%) [16 workers]
+  AST extraction: 350/350 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1856 saved labels, 1848 communities now; renamed 219 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/349 uncached files (28%) [16 workers]
+  AST extraction: 200/349 uncached files (57%) [16 workers]
+  AST extraction: 300/349 uncached files (85%) [16 workers]
+  AST extraction: 349/349 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1848 saved labels, 1858 communities now; renamed 217 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-11/
+Graph has 31239 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1858 community nodes, 2481 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31239 nodes, 54259 edges, 1858 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/347 uncached files (28%) [16 workers]
+  AST extraction: 200/347 uncached files (57%) [16 workers]
+  AST extraction: 300/347 uncached files (86%) [16 workers]
+  AST extraction: 347/347 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1858 saved labels, 1858 communities now; renamed 1 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-11/
+Graph has 31239 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1858 community nodes, 2481 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31239 nodes, 54259 edges, 1858 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/346 uncached files (28%) [16 workers]
+  AST extraction: 200/346 uncached files (57%) [16 workers]
+  AST extraction: 300/346 uncached files (86%) [16 workers]
+  AST extraction: 346/346 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/349 uncached files (28%) [16 workers]
+  AST extraction: 200/349 uncached files (57%) [16 workers]
+  AST extraction: 300/349 uncached files (85%) [16 workers]
+  AST extraction: 349/349 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1858 saved labels, 1848 communities now; renamed 211 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-11/
+Graph has 31269 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1848 community nodes, 2530 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31269 nodes, 54348 edges, 1848 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/348 uncached files (28%) [16 workers]
+  AST extraction: 200/348 uncached files (57%) [16 workers]
+  AST extraction: 300/348 uncached files (86%) [16 workers]
+  AST extraction: 348/348 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1848 saved labels, 1843 communities now; renamed 199 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-11/
+Graph has 31280 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1843 community nodes, 2395 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31280 nodes, 54373 edges, 1843 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/349 uncached files (28%) [16 workers]
+  AST extraction: 200/349 uncached files (57%) [16 workers]
+  AST extraction: 300/349 uncached files (85%) [16 workers]
+  AST extraction: 349/349 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/350 uncached files (28%) [16 workers]
+  AST extraction: 200/350 uncached files (57%) [16 workers]
+  AST extraction: 300/350 uncached files (85%) [16 workers]
+  AST extraction: 350/350 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1843 saved labels, 1838 communities now; renamed 199 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-11/
+Graph has 31289 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1838 community nodes, 2483 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31289 nodes, 54388 edges, 1838 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/348 uncached files (28%) [16 workers]
+  AST extraction: 200/348 uncached files (57%) [16 workers]
+  AST extraction: 300/348 uncached files (86%) [16 workers]
+  AST extraction: 348/348 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1838 saved labels, 1837 communities now; renamed 211 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-11/
+Graph has 31308 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1837 community nodes, 2413 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31308 nodes, 54413 edges, 1837 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/348 uncached files (28%) [16 workers]
+  AST extraction: 200/348 uncached files (57%) [16 workers]
+  AST extraction: 300/348 uncached files (86%) [16 workers]
+  AST extraction: 348/348 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1837 saved labels, 1849 communities now; renamed 174 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-11/
+Graph has 31308 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1849 community nodes, 2413 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31308 nodes, 54412 edges, 1849 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/349 uncached files (28%) [16 workers]
+  AST extraction: 200/349 uncached files (57%) [16 workers]
+  AST extraction: 300/349 uncached files (85%) [16 workers]
+  AST extraction: 349/349 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1849 saved labels, 1849 communities now; renamed 178 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-11/
+Graph has 31308 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1849 community nodes, 2281 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31308 nodes, 54414 edges, 1849 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/351 uncached files (28%) [16 workers]
+  AST extraction: 200/351 uncached files (56%) [16 workers]
+  AST extraction: 300/351 uncached files (85%) [16 workers]
+  AST extraction: 351/351 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1849 saved labels, 1849 communities now; renamed 211 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify watch] Watching /home/asus/code/marzneshin-agent-os - press Ctrl+C to stop
+[graphify watch] Code changes rebuild graph automatically. Doc/image changes require /graphify --update.
+[graphify watch] Debounce: 3.0s
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/349 uncached files (28%) [16 workers]
+  AST extraction: 200/349 uncached files (57%) [16 workers]
+  AST extraction: 300/349 uncached files (85%) [16 workers]
+  AST extraction: 349/349 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify] backed up curated graph (5 files) -> 2026-10-16/
+Graph has 31340 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1849 community nodes, 2437 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31340 nodes, 54442 edges, 1849 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/348 uncached files (28%) [16 workers]
+  AST extraction: 200/348 uncached files (57%) [16 workers]
+  AST extraction: 300/348 uncached files (86%) [16 workers]
+  AST extraction: 348/348 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/348 uncached files (28%) [16 workers]
+  AST extraction: 200/348 uncached files (57%) [16 workers]
+  AST extraction: 300/348 uncached files (86%) [16 workers]
+  AST extraction: 348/348 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/349 uncached files (28%) [16 workers]
+  AST extraction: 200/349 uncached files (57%) [16 workers]
+  AST extraction: 300/349 uncached files (85%) [16 workers]
+  AST extraction: 349/349 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/350 uncached files (28%) [16 workers]
+  AST extraction: 200/350 uncached files (57%) [16 workers]
+  AST extraction: 300/350 uncached files (85%) [16 workers]
+  AST extraction: 350/350 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] community set changed since labeling (1849 saved labels, 1849 communities now; renamed 4 community(ies) by their hub). Run `graphify label` to refresh names with the LLM.
+[graphify] backed up curated graph (5 files) -> 2026-10-16/
+Graph has 31340 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1849 community nodes, 2437 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31340 nodes, 54442 edges, 1849 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 10 file(s) changed
+  AST extraction: 100/350 uncached files (28%) [16 workers]
+  AST extraction: 200/350 uncached files (57%) [16 workers]
+  AST extraction: 300/350 uncached files (85%) [16 workers]
+  AST extraction: 350/350 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/350 uncached files (28%) [16 workers]
+  AST extraction: 200/350 uncached files (57%) [16 workers]
+  AST extraction: 300/350 uncached files (85%) [16 workers]
+  AST extraction: 350/350 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/350 uncached files (28%) [16 workers]
+  AST extraction: 200/350 uncached files (57%) [16 workers]
+  AST extraction: 300/350 uncached files (85%) [16 workers]
+  AST extraction: 350/350 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/351 uncached files (28%) [16 workers]
+  AST extraction: 200/351 uncached files (56%) [16 workers]
+  AST extraction: 300/351 uncached files (85%) [16 workers]
+  AST extraction: 351/351 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify] backed up curated graph (5 files) -> 2026-10-16/
+Graph has 31340 nodes (above 5000 limit). Building aggregated community view...
+graph.html written (aggregated: 1849 community nodes, 2437 cross-community edges)
+Tip: run with --obsidian for full node-level detail.
+[graphify watch] Rebuilt: 31340 nodes, 54442 edges, 1849 communities
+[graphify watch] graph.json, graph.html and GRAPH_REPORT.md updated in /home/asus/code/marzneshin-agent-os/graphify-out
+
+[graphify watch] 10 file(s) changed
+  AST extraction: 100/351 uncached files (28%) [16 workers]
+  AST extraction: 200/351 uncached files (56%) [16 workers]
+  AST extraction: 300/351 uncached files (85%) [16 workers]
+  AST extraction: 351/351 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/351 uncached files (28%) [16 workers]
+  AST extraction: 200/351 uncached files (56%) [16 workers]
+  AST extraction: 300/351 uncached files (85%) [16 workers]
+  AST extraction: 351/351 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/351 uncached files (28%) [16 workers]
+  AST extraction: 200/351 uncached files (56%) [16 workers]
+  AST extraction: 300/351 uncached files (85%) [16 workers]
+  AST extraction: 351/351 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/352 uncached files (28%) [16 workers]
+  AST extraction: 200/352 uncached files (56%) [16 workers]
+  AST extraction: 300/352 uncached files (85%) [16 workers]
+  AST extraction: 352/352 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/352 uncached files (28%) [16 workers]
+  AST extraction: 200/352 uncached files (56%) [16 workers]
+  AST extraction: 300/352 uncached files (85%) [16 workers]
+  AST extraction: 352/352 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/353 uncached files (28%) [16 workers]
+  AST extraction: 200/353 uncached files (56%) [16 workers]
+  AST extraction: 300/353 uncached files (84%) [16 workers]
+  AST extraction: 353/353 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/353 uncached files (28%) [16 workers]
+  AST extraction: 200/353 uncached files (56%) [16 workers]
+  AST extraction: 300/353 uncached files (84%) [16 workers]
+  AST extraction: 353/353 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/353 uncached files (28%) [16 workers]
+  AST extraction: 200/353 uncached files (56%) [16 workers]
+  AST extraction: 300/353 uncached files (84%) [16 workers]
+  AST extraction: 353/353 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/355 uncached files (28%) [16 workers]
+  AST extraction: 200/355 uncached files (56%) [16 workers]
+  AST extraction: 300/355 uncached files (84%) [16 workers]
+  AST extraction: 355/355 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/355 uncached files (28%) [16 workers]
+  AST extraction: 200/355 uncached files (56%) [16 workers]
+  AST extraction: 300/355 uncached files (84%) [16 workers]
+  AST extraction: 355/355 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/355 uncached files (28%) [16 workers]
+  AST extraction: 200/355 uncached files (56%) [16 workers]
+  AST extraction: 300/355 uncached files (84%) [16 workers]
+  AST extraction: 355/355 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 1 file(s) changed
+  AST extraction: 100/356 uncached files (28%) [16 workers]
+  AST extraction: 200/356 uncached files (56%) [16 workers]
+  AST extraction: 300/356 uncached files (84%) [16 workers]
+  AST extraction: 356/356 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 9 file(s) changed
+  AST extraction: 100/359 uncached files (27%) [16 workers]
+  AST extraction: 200/359 uncached files (55%) [16 workers]
+  AST extraction: 300/359 uncached files (83%) [16 workers]
+  AST extraction: 359/359 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 2 file(s) changed
+  AST extraction: 100/359 uncached files (27%) [16 workers]
+  AST extraction: 200/359 uncached files (55%) [16 workers]
+  AST extraction: 300/359 uncached files (83%) [16 workers]
+  AST extraction: 359/359 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)
+[graphify watch] No code-graph topology changes detected; outputs left untouched.
+
+[graphify watch] 3 file(s) changed
+  AST extraction: 100/359 uncached files (27%) [16 workers]
+  AST extraction: 200/359 uncached files (55%) [16 workers]
+  AST extraction: 300/359 uncached files (83%) [16 workers]
+  AST extraction: 359/359 uncached files (100%) [16 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: engines/turbo-fieldfare/Tests/TurboFieldfareServer/ServerCoordinatorTests.swift (first error at line 28, 10 symbol(s) extracted)

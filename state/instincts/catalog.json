@@ -1,0 +1,99 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-10-16T19:48:12.383604+00:00",
+  "instincts": [
+    {
+      "id": "inst_stdlib_imports",
+      "trigger": "(?i)scripts/lib/.*\\.py",
+      "action": "scripts/lib/ must remain strictly stdlib-only. No third-party packages or circular imports.",
+      "rationale": "Enforces scripts/verify.py --lint-imports and ensures hooks execute within 3s budget.",
+      "domain": [
+        "python",
+        "architecture",
+        "lint"
+      ],
+      "confidence": 1.0,
+      "provenance": "BUILD-SPEC ?7 / ADR-005"
+    },
+    {
+      "id": "inst_clock_discipline",
+      "trigger": "(?i)(scripts|hooks|sim|adapters)/.*\\.py",
+      "action": "Never invoke datetime now or time time directly; always route through lib.clock.",
+      "rationale": "Enforces scripts/verify.py --lint-clock so deterministic virtual time simulation works (D6).",
+      "domain": [
+        "python",
+        "simulation",
+        "clock"
+      ],
+      "confidence": 1.0,
+      "provenance": "BUILD-SPEC ?4 / D6"
+    },
+    {
+      "id": "inst_fail_closed_security",
+      "trigger": "(?i)(killswitch|security|adapter|auth|gate)",
+      "action": "All security controls, kill switches, and adapter failures must fail-closed (I12).",
+      "rationale": "An unreadable or unreachable safety check must be treated as active/refused.",
+      "domain": [
+        "security",
+        "safety",
+        "invariants"
+      ],
+      "confidence": 1.0,
+      "provenance": "BUILD-SPEC I12"
+    },
+    {
+      "id": "inst_canonical_receipt",
+      "trigger": "(?i)(task|complete|receipt|execute)",
+      "action": "Every executed task must emit a valid receipt with status and evidence before completion (I3).",
+      "rationale": "Enforces audit trail and prevents rogue unverified operations.",
+      "domain": [
+        "receipts",
+        "fsp",
+        "invariants"
+      ],
+      "confidence": 1.0,
+      "provenance": "BUILD-SPEC I3"
+    },
+    {
+      "id": "inst_secret_redaction",
+      "trigger": "(?i)(secret|token|password|key|event|log|receipt)",
+      "action": "Never persist raw secrets. All values must be sanitized via lib.redact (I6).",
+      "rationale": "Prevents credential leakage into repository or event logs.",
+      "domain": [
+        "security",
+        "privacy",
+        "invariants"
+      ],
+      "confidence": 1.0,
+      "provenance": "BUILD-SPEC I6"
+    },
+    {
+      "id": "inst_adapter_contract_fake",
+      "trigger": "(?i)adapters/.*\\.py",
+      "action": "Every adapter in adapters/ must have a matching fake in sim/fakes/ passing adapters/contract.py.",
+      "rationale": "Enforces airgapped simulation capability for ?16 scenarios.",
+      "domain": [
+        "adapters",
+        "contract",
+        "testing"
+      ],
+      "confidence": 1.0,
+      "provenance": "BUILD-SPEC ?4"
+    },
+    {
+      "id": "inst_8f5de4faf5df",
+      "trigger": "tests/.*\\.py",
+      "action": "Always assert on expected behavior explicitly, never leave empty asserts.",
+      "rationale": "Maintains TDD integrity.",
+      "domain": [
+        "testing",
+        "tdd"
+      ],
+      "confidence": 0.75,
+      "executions_count": 3,
+      "success_count": 2,
+      "last_validated_at": "2026-10-16T19:48:12.383585+00:00",
+      "provenance": "test_case"
+    }
+  ]
+}

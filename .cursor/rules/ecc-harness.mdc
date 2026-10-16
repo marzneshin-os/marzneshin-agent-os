@@ -1,0 +1,22 @@
+---
+description: ECC Universal Agent Harness, AgentShield Security, and Continuous Learning Rules
+globs: *
+alwaysApply: true
+---
+
+# ECC Harness & AgentShield Security Rule (Cursor)
+
+All operations in this codebase must adhere to the Everything Claude Code (ECC) harness standards:
+
+1. **AgentShield Pre-Commit Audit**:
+   - Run `python3 scripts/ecc_cli.py scan` before committing changes.
+   - Any CRITICAL or HIGH finding (e.g. raw secret leaks, prompt injections, or unsafe shell piping) must be remediated immediately.
+
+2. **Continuous Learning Instincts**:
+   - Query project invariants and heuristics with `python3 scripts/ecc_cli.py instincts --query "<task>"`.
+   - Never repeat architectural mistakes already documented in `state/instincts/catalog.json`.
+
+3. **Invariants**:
+   - I1: GitHub is the single SSoT.
+   - I6: All secrets redacted via `lib.redact`.
+   - I12: Fail-closed safety on all checks.

@@ -1,0 +1,17 @@
+# Cursor Rules — Marzneshin Autonomous Agent OS
+
+## Model Directives
+- **Preferred Model:** Pixel Canary (`stealth/pixel-canary`) via Vercel AI Gateway / OpenRouter / Custom Endpoint.
+- **Context Injection:** Always refer to `AGENTS.md` for project architecture, service ports, and coding standards.
+
+## Engineering Methodology
+- Follow Karpathy guidelines: Think before coding, surgical edits, verify with tests.
+- Keep agent infrastructure active via `python3 scripts/dev.py status`.
+- **Web Browsing & Research:** Route external web requests through WebCMD (`webcmd-browser` MCP or `python3 scripts/webcmd_cli.py`) for 90% token reduction and persistent sitemap memory.
+- **ECC Universal Harness & AgentShield:** Run `python3 scripts/ecc_cli.py scan` for pre-commit security audits and `python3 scripts/ecc_cli.py instincts` to query or record continuous learning heuristics.
+
+## FreeLLMAPI Universal Free-Tier Token Pool (~7.4B Tokens/Month)
+- **Local Gateway**: `http://127.0.0.1:3001/v1` (OpenAI & Anthropic `/v1/messages` compatible)
+- **Status & Diagnostics**: `python3 scripts/freellm_cli.py status`
+- **Catalog of Free Models**: `python3 scripts/freellm_cli.py catalog --domain coding`
+- **Failover**: Auto-switches across 34+ free-tier providers on 429 rate limit with multi-key cooldown.
