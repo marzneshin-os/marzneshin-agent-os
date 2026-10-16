@@ -50,7 +50,7 @@
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/tags/light/stat-tools.svg"><img src="assets/tags/stat-tools.svg" alt="66 MCP tools" height="38" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/tags/light/stat-hooks.svg"><img src="assets/tags/stat-hooks.svg" alt="12 auto hooks" height="38" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="assets/tags/light/stat-deps.svg"><img src="assets/tags/stat-deps.svg" alt="0 external DBs" height="38" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/tags/light/stat-tests.svg"><img src="assets/tags/stat-tests.svg" alt="1,674+ tests passing" height="38" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="assets/tags/light/stat-tests.svg"><img src="assets/tags/stat-tests.svg" alt="1,771+ tests passing" height="38" /></picture>
 </p>
 
 <p align="center">
@@ -645,7 +645,7 @@ copilot plugin install rohitg00/agentmemory:plugin
 <summary><b>OpenClaw (paste this prompt)</b></summary>
 
 ```text
-Install agentmemory for OpenClaw. Run `npx -y @agentmemory/agentmemory@latest` in a separate terminal to start the memory server on localhost:3111. Then add this to my OpenClaw MCP config so agentmemory is available with all 54 memory tools:
+Install agentmemory for OpenClaw. Run `npx -y @agentmemory/agentmemory@latest` in a separate terminal to start the memory server on localhost:3111. Then add this to my OpenClaw MCP config so agentmemory is available with all 66 memory tools:
 
 {
   "mcpServers": {
@@ -670,7 +670,7 @@ Full guide: [`integrations/openclaw/`](integrations/openclaw/)
 <summary><b>Hermes Agent (paste this prompt)</b></summary>
 
 ```text
-Install agentmemory for Hermes. Run `npx -y @agentmemory/agentmemory@latest` in a separate terminal to start the memory server on localhost:3111. Then add this to ~/.hermes/config.yaml so Hermes can use agentmemory as an MCP server with all 54 memory tools:
+Install agentmemory for Hermes. Run `npx -y @agentmemory/agentmemory@latest` in a separate terminal to start the memory server on localhost:3111. Then add this to ~/.hermes/config.yaml so Hermes can use agentmemory as an MCP server with all 66 memory tools:
 
 mcp_servers:
   agentmemory:
@@ -1046,11 +1046,11 @@ The normal npm install includes the optional `@huggingface/transformers` runtime
 
 66 tools, 6 resources, 3 prompts, and 17 skills.
 
-> **MCP shim vs full server:** the published `@agentmemory/mcp` package is a thin shim. It exposes the full 54-tool surface **only when it can reach a running agentmemory server** via `AGENTMEMORY_URL` (proxy mode). With no server reachable, the shim falls back to a 7-tool local set (`memory_save`, `memory_recall`, `memory_smart_search`, `memory_sessions`, `memory_export`, `memory_audit`, `memory_governance_delete`). The `AGENTMEMORY_TOOLS=core|all` env var is a *server-side* flag; setting it in the shim's `env` block has no effect. If you see only 7 tools in Cursor / OpenCode / Gemini CLI, start `npx -y @agentmemory/agentmemory@latest` (or the Docker stack) and set `AGENTMEMORY_URL=http://localhost:3111`.
+> **MCP shim vs full server:** the published `@agentmemory/mcp` package is a thin shim. It exposes the full 66-tool surface **only when it can reach a running agentmemory server** via `AGENTMEMORY_URL` (proxy mode). With no server reachable, the shim falls back to a 7-tool local set (`memory_save`, `memory_recall`, `memory_smart_search`, `memory_sessions`, `memory_export`, `memory_audit`, `memory_governance_delete`). The `AGENTMEMORY_TOOLS=core|all` env var is a *server-side* flag; setting it in the shim's `env` block has no effect. If you see only 7 tools in Cursor / OpenCode / Gemini CLI, start `npx -y @agentmemory/agentmemory@latest` (or the Docker stack) and set `AGENTMEMORY_URL=http://localhost:3111`.
 
-### 54 Tools
+### 66 Tools
 
-Three tool surfaces, smallest to largest: `AGENTMEMORY_TOOLS=core` trims visibility to 8 essentials (`memory_save`, `memory_recall`, `memory_consolidate`, `memory_smart_search`, `memory_sessions`, `memory_diagnose`, `memory_lesson_save`, `memory_reflect`); the base set below is the registry's 14 foundational tools; the default (`AGENTMEMORY_TOOLS=all`) exposes all 54.
+Three tool surfaces, smallest to largest: `AGENTMEMORY_TOOLS=core` trims visibility to 8 essentials (`memory_save`, `memory_recall`, `memory_consolidate`, `memory_smart_search`, `memory_sessions`, `memory_diagnose`, `memory_lesson_save`, `memory_reflect`); the base set below is the registry's 14 foundational tools; the default (`AGENTMEMORY_TOOLS=all`) exposes all 66.
 
 <details>
 <summary>Base tools (14)</summary>
@@ -1075,7 +1075,7 @@ Three tool surfaces, smallest to largest: `AGENTMEMORY_TOOLS=core` trims visibil
 </details>
 
 <details>
-<summary>Extended tools (54 total, the default surface)</summary>
+<summary>Extended tools (66 total, the default surface)</summary>
 
 | Tool | Description |
 |------|-------------|
@@ -1110,6 +1110,30 @@ Three tool surfaces, smallest to largest: `AGENTMEMORY_TOOLS=core` trims visibil
 | `memory_facet_tag` | Dimension:value tags |
 | `memory_facet_query` | Query by facet tags |
 | `memory_verify` | Trace provenance |
+| `memory_lesson_save` | Save a lesson learned with confidence scoring |
+| `memory_lesson_recall` | Search lessons by query sorted by confidence |
+| `memory_lesson_delete` | Soft-delete a lesson by ID |
+| `memory_obsidian_export` | Export memories and lessons to Obsidian markdown format |
+| `memory_reflect` | Traverse knowledge graph and synthesize higher-order insights |
+| `memory_insight_list` | List synthesized higher-order insights |
+| `memory_slot_list` | List dynamic memory slots (pinned, project, global) |
+| `memory_slot_get` | Read content of a memory slot by label |
+| `memory_slot_create` | Create a new size-limited memory slot |
+| `memory_slot_append` | Append text to an existing memory slot |
+| `memory_slot_replace` | Replace memory slot content in place |
+| `memory_slot_delete` | Delete a memory slot |
+| `memory_campaign_create` | Orchestrate an autonomous campaign across 3 tiers |
+| `memory_campaign_get` | Retrieve an orchestrated campaign by ID |
+| `memory_campaign_list` | List orchestrated campaigns with status and metrics |
+| `memory_campaign_canvas` | Retrieve visual campaign canvas payload |
+| `memory_fast_inference_route` | Dynamic latency and circuit-breaker routed inference |
+| `memory_fast_inference_channels` | List configured inference channels and live health |
+| `memory_fast_inference_benchmark` | Execute speed benchmark across inference channels |
+| `memory_fast_inference_configure` | Configure inference channel parameters and failovers |
+| `memory_kolibri_discover` | Discover local sovereign MoE backends (vLLM, llama.cpp, Colibri) |
+| `memory_kolibri_configure` | Configure local MoE model parameters, SWA, and expert cache tiering |
+| `memory_kolibri_infer` | Execute sovereign local MoE inference with controllable reasoning depth |
+| `memory_kolibri_status` | Telemetry and health metrics for sovereign MoE engines |
 
 </details>
 
