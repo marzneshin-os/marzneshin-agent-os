@@ -1,4 +1,4 @@
-﻿import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 import { readFileSync, existsSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { createServer } from "node:http";
@@ -295,7 +295,7 @@ describe("Copilot hook scripts", () => {
     expect(result.requests[0]?.path).toBe("/agentmemory/session/start");
     expect(result.requests[0]?.body).toMatchObject({
       sessionId: "copilot-session",
-      project: process.platform === "win32" ? "repo" : "C:\\\\repo",
+      project: process.platform === "win32" ? "repo" : "C:\\repo",
       cwd: "C:\\repo",
     });
   });
