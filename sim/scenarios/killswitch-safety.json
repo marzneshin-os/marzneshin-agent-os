@@ -1,0 +1,10 @@
+{
+  "name": "killswitch-safety",
+  "description": "Verify kill switch mechanisms, state file integration, and fail-closed safety",
+  "checks": [
+    { "name": "Killswitch script exists", "type": "file_exists", "target": "scripts/killswitch.py", "expected": true },
+    { "name": "STATE.json has kill_switch field", "type": "contains", "target": "state/STATE.json", "value": "kill_switch", "expected": true },
+    { "name": "STATE.json has verdict running", "type": "contains", "target": "state/STATE.json", "value": "\"verdict\": \"running\"", "expected": true },
+    { "name": "Killswitch script enforces fail-closed", "type": "contains", "target": "scripts/killswitch.py", "value": "Fail-closed", "expected": true }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "event-schema-validation",
+  "description": "Verify event schema validator, canonical fields, and events directory",
+  "checks": [
+    { "name": "Validate events script exists", "type": "file_exists", "target": "scripts/validate_events.py", "expected": true },
+    { "name": "Events directory exists", "type": "file_exists", "target": "state/events", "expected": true },
+    { "name": "Validator enforces REQUIRED_FIELDS", "type": "contains", "target": "scripts/validate_events.py", "value": "REQUIRED_FIELDS", "expected": true },
+    { "name": "Validator enforces VALID_TYPES", "type": "contains", "target": "scripts/validate_events.py", "value": "VALID_TYPES", "expected": true }
+  ]
+}

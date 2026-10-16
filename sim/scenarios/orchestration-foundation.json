@@ -1,0 +1,17 @@
+{
+  "name": "orchestration-foundation",
+  "description": "Verify all orchestration foundation components exist and are valid",
+  "checks": [
+    { "name": "STATE.json exists", "type": "file_exists", "target": "state/STATE.json", "expected": true },
+    { "name": "STATE.json valid JSON", "type": "json_valid", "target": "state/STATE.json", "expected": true },
+    { "name": "STATE.json has kill_switch", "type": "contains", "target": "state/STATE.json", "value": "kill_switch", "expected": true },
+    { "name": "HANDOFF.md exists", "type": "file_exists", "target": "state/HANDOFF.md", "expected": true },
+    { "name": "HANDOFF.md has Current State", "type": "contains", "target": "state/HANDOFF.md", "value": "Current State", "expected": true },
+    { "name": "killswitch.py exists", "type": "file_exists", "target": "scripts/killswitch.py", "expected": true },
+    { "name": "verify.py exists", "type": "file_exists", "target": "scripts/verify.py", "expected": true },
+    { "name": "lease.py exists", "type": "file_exists", "target": "scripts/lease.py", "expected": true },
+    { "name": "Hub skill exists", "type": "file_exists", "target": ".agents/skills/unified-orchestration-hub/SKILL.md", "expected": true },
+    { "name": "Activation rule exists", "type": "file_exists", "target": ".agents/rules/orchestration-activation.md", "expected": true },
+    { "name": "Marzneshin skill exists", "type": "file_exists", "target": ".agents/skills/marzneshin-orchestration/SKILL.md", "expected": true }
+  ]
+}

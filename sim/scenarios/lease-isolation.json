@@ -1,0 +1,10 @@
+{
+  "name": "lease-isolation",
+  "description": "Verify lease management, leases directory, and fencing token generation",
+  "checks": [
+    { "name": "Lease management script exists", "type": "file_exists", "target": "scripts/lease.py", "expected": true },
+    { "name": "Leases directory exists", "type": "file_exists", "target": "state/leases", "expected": true },
+    { "name": "Lease script supports claim and release", "type": "contains", "target": "scripts/lease.py", "value": "claim", "expected": true },
+    { "name": "Lease script supports reaping", "type": "contains", "target": "scripts/lease.py", "value": "reap", "expected": true }
+  ]
+}

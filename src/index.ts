@@ -93,6 +93,9 @@ import { registerCompressFileFunction } from "./functions/compress-file.js";
 import { registerReplayFunctions } from "./functions/replay.js";
 import { registerCampaignFunctions } from "./functions/campaign.js";
 import { registerFastInferenceFunctions } from "./functions/fast-inference.js";
+import { registerKolibriConfigFunction } from "./functions/kolibri-config.js";
+import { registerKolibriInferenceFunctions } from "./functions/kolibri-inference.js";
+import { registerKolibriMetricsFunction } from "./functions/kolibri-metrics.js";
 import { registerApiTriggers } from "./triggers/api.js";
 import { registerEventTriggers } from "./triggers/events.js";
 import { registerMcpEndpoints } from "./mcp/server.js";
@@ -338,6 +341,9 @@ async function main() {
   registerReplayFunctions(sdk, kv);
   registerCampaignFunctions(sdk, kv);
   registerFastInferenceFunctions(sdk, kv);
+  registerKolibriConfigFunction(sdk, kv);
+  registerKolibriInferenceFunctions(sdk, kv);
+  registerKolibriMetricsFunction(sdk, kv);
   bootLog(
     `v0.6 advanced retrieval: sliding-window, query-expansion, temporal-graph, retention-scoring`,
   );
@@ -540,7 +546,7 @@ async function main() {
     `Ready. ${embeddingProvider ? "Triple-stream (BM25+Vector+Graph)" : "BM25+Graph"} search active.`,
   );
   bootLog(
-    `REST API: 138 endpoints at http://localhost:${config.restPort}/agentmemory/*`,
+    `REST API: 142 endpoints at http://localhost:${config.restPort}/agentmemory/*`,
   );
   bootLog(
     `MCP surface (opt-in via \`npx @agentmemory/mcp\`): ${getAllTools().length} tools · 6 resources · 3 prompts`,

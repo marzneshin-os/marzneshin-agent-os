@@ -1,0 +1,68 @@
+{
+  "name": "argon-rollback-minimizer",
+  "description": "Verify Gemini 4 Argon DeepSWE Rollback Minimizer & Pre-Merge Invariant Engine",
+  "checks": [
+    {
+      "name": "Rollback minimizer script exists",
+      "type": "file_exists",
+      "target": "scripts/rollback_minimizer.py",
+      "expected": true
+    },
+    {
+      "name": "Minimizer has analyze_blast_radius",
+      "type": "contains",
+      "target": "scripts/rollback_minimizer.py",
+      "value": "analyze_blast_radius",
+      "expected": true
+    },
+    {
+      "name": "Minimizer has verify_invariants",
+      "type": "contains",
+      "target": "scripts/rollback_minimizer.py",
+      "value": "verify_invariants",
+      "expected": true
+    },
+    {
+      "name": "Minimizer has create_snapshot",
+      "type": "contains",
+      "target": "scripts/rollback_minimizer.py",
+      "value": "create_snapshot",
+      "expected": true
+    },
+    {
+      "name": "Minimizer has restore_snapshot",
+      "type": "contains",
+      "target": "scripts/rollback_minimizer.py",
+      "value": "restore_snapshot",
+      "expected": true
+    },
+    {
+      "name": "Orchestrator invokes rollback minimizer",
+      "type": "contains",
+      "target": "scripts/orchestrator/orchestrator.ts",
+      "value": "rollback_minimizer.py",
+      "expected": true
+    },
+    {
+      "name": "Orchestrator has Rollback Defense Triggered handler",
+      "type": "contains",
+      "target": "scripts/orchestrator/orchestrator.ts",
+      "value": "Rollback Defense Triggered",
+      "expected": true
+    },
+    {
+      "name": "Schemas defines rollbackTriggered field",
+      "type": "contains",
+      "target": "scripts/orchestrator/schemas.ts",
+      "value": "rollbackTriggered",
+      "expected": true
+    },
+    {
+      "name": "Schemas defines blastRadiusScore field",
+      "type": "contains",
+      "target": "scripts/orchestrator/schemas.ts",
+      "value": "blastRadiusScore",
+      "expected": true
+    }
+  ]
+}

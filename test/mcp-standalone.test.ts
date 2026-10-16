@@ -23,6 +23,7 @@ import {
   getAllTools,
   CORE_TOOLS,
   V040_TOOLS,
+  KOLIBRI_TOOLS,
 } from "../src/mcp/tools-registry.js";
 import { InMemoryKV } from "../src/mcp/in-memory-kv.js";
 import { handleToolCall } from "../src/mcp/standalone.js";
@@ -58,6 +59,10 @@ describe("Tools Registry", () => {
     const names = new Set(tools.map((t) => t.name));
     expect(names.size).toBe(tools.length);
     for (const required of [
+      "memory_kolibri_discover",
+      "memory_kolibri_configure",
+      "memory_kolibri_infer",
+      "memory_kolibri_status",
       "memory_verify",
       "memory_lesson_save",
       "memory_lesson_recall",
@@ -75,6 +80,10 @@ describe("Tools Registry", () => {
 
   it("V040_TOOLS has 8 items", () => {
     expect(V040_TOOLS.length).toBe(8);
+  });
+
+  it("KOLIBRI_TOOLS has 4 items", () => {
+    expect(KOLIBRI_TOOLS.length).toBe(4);
   });
 
   it("all tools have required name, description, inputSchema fields", () => {

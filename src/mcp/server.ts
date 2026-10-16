@@ -1424,6 +1424,114 @@ export function registerMcpEndpoints(
           }
 
 
+          case "memory_kolibri_discover": {
+            const probeUrls = typeof args.probeUrls === "string"
+              ? args.probeUrls.split(",").map((u: string) => u.trim()).filter(Boolean)
+              : undefined;
+            const result = await sdk.trigger({
+              function_id: "mem::kolibri-discover",
+              payload: { probeUrls },
+            });
+            return {
+              status_code: 200,
+              body: {
+                content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+              },
+            };
+          }
+
+          case "memory_kolibri_configure": {
+            if (!args.modelId || typeof args.modelId !== "string") {
+              return {
+                status_code: 400,
+                body: { error: "modelId is required for memory_kolibri_configure" },
+              };
+            }
+            const action = typeof args.action === "string" ? args.action : "set";
+            const reasoningEffortLevels = typeof args.reasoningEffortLevels === "string"
+              ? args.reasoningEffortLevels.split(",").map((s: string) => s.trim()).filter(Boolean)
+              : undefined;
+
+            const result = await sdk.trigger({
+              function_id: "mem::kolibri-config",
+              payload: {
+                action,
+                modelId: args.modelId,
+                config: {
+                  modelId: args.modelId,
+                  displayName: typeof args.displayName === "string" ? args.displayName : undefined,
+                  backend: typeof args.backend === "string" ? args.backend : undefined,
+                  backendUrl: typeof args.backendUrl === "string" ? args.backendUrl : undefined,
+                  totalParams: typeof args.totalParams === "number" ? args.totalParams : undefined,
+                  activeParams: typeof args.activeParams === "number" ? args.activeParams : undefined,
+                  expertCount: typeof args.expertCount === "number" ? args.expertCount : undefined,
+                  activeExperts: typeof args.activeExperts === "number" ? args.activeExperts : undefined,
+                  quantFormat: typeof args.quantFormat === "string" ? args.quantFormat : undefined,
+                  contextWindow: typeof args.contextWindow === "number" ? args.contextWindow : undefined,
+                  maxContextWindow: typeof args.maxContextWindow === "number" ? args.maxContextWindow : undefined,
+                  slidingWindowSize: typeof args.slidingWindowSize === "number" ? args.slidingWindowSize : undefined,
+                  slidingWindowRatio: typeof args.slidingWindowRatio === "string" ? args.slidingWindowRatio : undefined,
+                  reasoningEffortLevels,
+                  cachingStrategy: typeof args.cachingStrategy === "string" ? args.cachingStrategy : undefined,
+                  memoryTier: typeof args.memoryTier === "string" ? args.memoryTier : undefined,
+                  toolCallingSupport: typeof args.toolCallingSupport === "boolean" ? args.toolCallingSupport : undefined,
+                  hermesFunctionCalling: typeof args.hermesFunctionCalling === "boolean" ? args.hermesFunctionCalling : undefined,
+                },
+              },
+            });
+            return {
+              status_code: 200,
+              body: {
+                content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+              },
+            };
+          }
+
+          case "memory_kolibri_infer": {
+            if (!args.modelId || typeof args.modelId !== "string") {
+              return {
+                status_code: 400,
+                body: { error: "modelId is required for memory_kolibri_infer" },
+              };
+            }
+            if (!args.prompt || typeof args.prompt !== "string") {
+              return {
+                status_code: 400,
+                body: { error: "prompt is required for memory_kolibri_infer" },
+              };
+            }
+            const result = await sdk.trigger({
+              function_id: "mem::kolibri-infer",
+              payload: {
+                modelId: args.modelId,
+                prompt: args.prompt,
+                systemPrompt: typeof args.systemPrompt === "string" ? args.systemPrompt : undefined,
+                reasoningEffort: typeof args.reasoningEffort === "string" ? args.reasoningEffort : undefined,
+                maxTokens: typeof args.maxTokens === "number" ? args.maxTokens : undefined,
+                temperature: typeof args.temperature === "number" ? args.temperature : undefined,
+              },
+            });
+            return {
+              status_code: 200,
+              body: {
+                content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+              },
+            };
+          }
+
+          case "memory_kolibri_status": {
+            const result = await sdk.trigger({
+              function_id: "mem::kolibri-status",
+              payload: {},
+            });
+            return {
+              status_code: 200,
+              body: {
+                content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+              },
+            };
+          }
+
           default:
             return {
               status_code: 400,

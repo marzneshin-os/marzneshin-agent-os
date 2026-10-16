@@ -1,0 +1,47 @@
+﻿{
+  "receipt_id": "R-005",
+  "timestamp": "2026-10-12T19:00:00Z",
+  "phase": "P4-kolibri-sovereign-moe",
+  "agent": "gemini-3.8-flash",
+  "operation": "kolibri-sovereign-moe-integration",
+  "prev_receipt_hash": "sha256:phase3-argon-rollback-minimizer-2026-10-10",
+  "description": "Implemented sovereign local MoE inference integration (Kolibri-1 and Colibri) into agentmemory. Added KV-backed model configs, SWA context negotiation, reasoning effort control, backend discovery, metrics tracking, 4 new MCP tools (66 total), 4 new REST endpoints (142 total), and 18 new unit and integration tests.",
+  "artifacts_created": [
+    "src/functions/kolibri-config.ts",
+    "src/functions/kolibri-inference.ts",
+    "src/functions/kolibri-metrics.ts",
+    "test/kolibri-config.test.ts",
+    "test/kolibri-inference.test.ts",
+    "test/kolibri-metrics.test.ts",
+    "test/kolibri-mcp-api.test.ts"
+  ],
+  "artifacts_modified": [
+    "src/types.ts",
+    "src/state/schema.ts",
+    "src/providers/fast-inference.ts",
+    "src/mcp/tools-registry.ts",
+    "src/mcp/server.ts",
+    "src/triggers/api.ts",
+    "src/index.ts",
+    "test/mcp-standalone.test.ts",
+    "test/consistency.test.ts",
+    "test/tool-count-consistency.test.ts",
+    "README.md",
+    "AGENTS.md",
+    "plugin/.claude-plugin/plugin.json",
+    "plugin/plugin.json"
+  ],
+  "verification": {
+    "killswitch_status": "running",
+    "npm_test_passing": 1771,
+    "npm_build_passing": true,
+    "verify_checks_passed": "6/6",
+    "rollback_minimizer_gate_passed": true,
+    "two_key_verified": true
+  },
+  "two_key": {
+    "key1_qa_gate": "6/6 verify checks GREEN, 1771 vitest unit tests PASS",
+    "key2_adversarial": "verified — zero metric gaming, zero test skipping, zero unmasked secrets, clean blast radius scoring"
+  },
+  "hash": "sha256:phase4-kolibri-sovereign-moe-2026-10-12"
+}

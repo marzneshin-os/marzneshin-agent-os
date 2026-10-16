@@ -1,0 +1,58 @@
+{
+  "version": "0.9.29",
+  "phase": "P4-kolibri-sovereign-moe",
+  "kill_switch": {
+    "verdict": "running",
+    "updated_at": "2026-10-03T10:30:00Z",
+    "updated_by": "claude-opus-4.6"
+  },
+  "agents": {
+    "agent-orchestrator": {
+      "status": "registered",
+      "events": 0
+    },
+    "agent-config-engineer": {
+      "status": "registered",
+      "events": 0
+    },
+    "agent-adversarial-reviewer": {
+      "status": "registered",
+      "events": 0
+    },
+    "agent-qa-gate": {
+      "status": "registered",
+      "events": 0
+    },
+    "agent-security-compliance": {
+      "status": "registered",
+      "events": 0
+    },
+    "agent-handoff-guardian": {
+      "status": "registered",
+      "events": 0
+    },
+    "agent-infra-sre": {
+      "status": "registered",
+      "events": 0
+    },
+    "agent-analytics-engineer": {
+      "status": "registered",
+      "events": 0
+    }
+  },
+  "budget": {
+    "mode": "normal",
+    "token_limit": null
+  },
+  "receipt_chain": {
+    "count": 5,
+    "last_hash": "sha256:phase4-kolibri-sovereign-moe-2026-10-12"
+  },
+  "last_session": {
+    "agent": "gemini-3.8-flash",
+    "timestamp": "2026-10-12T19:00:00Z",
+    "receipt": "R-005",
+    "verdict": "all_checks_green"
+  },
+  "created_at": "2026-10-03T10:30:00Z"
+}

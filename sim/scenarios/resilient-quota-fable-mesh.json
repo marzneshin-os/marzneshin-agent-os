@@ -1,0 +1,14 @@
+{
+  "name": "resilient-quota-fable-mesh",
+  "description": "Verify Antigravity quota doctor and Fable 5.1 orchestration mesh components",
+  "checks": [
+    { "name": "Quota doctor script exists", "type": "file_exists", "target": "scripts/quota_doctor.py", "expected": true },
+    { "name": "Fable graph validator exists", "type": "file_exists", "target": "scripts/fable_graph.py", "expected": true },
+    { "name": "Two-key gate exists", "type": "file_exists", "target": "scripts/two_key_gate.py", "expected": true },
+    { "name": "Quota doctor has check-eligibility", "type": "contains", "target": "scripts/quota_doctor.py", "value": "check-eligibility", "expected": true },
+    { "name": "Quota doctor has diagnose", "type": "contains", "target": "scripts/quota_doctor.py", "value": "diagnose", "expected": true },
+    { "name": "Quota doctor has route-tier", "type": "contains", "target": "scripts/quota_doctor.py", "value": "route-tier", "expected": true },
+    { "name": "Fable graph has compute_stages", "type": "contains", "target": "scripts/fable_graph.py", "value": "compute_stages", "expected": true },
+    { "name": "Fable graph has Kahn cycle check", "type": "contains", "target": "scripts/fable_graph.py", "value": "Cycle detected", "expected": true }
+  ]
+}

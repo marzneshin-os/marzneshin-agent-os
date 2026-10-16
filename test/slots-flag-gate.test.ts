@@ -3,30 +3,28 @@ import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-// Regression tests for #678:
-//   - isSlotsEnabled / isReflectEnabled must read from ~/.agentmemory/.env
-//     (not only process.env), so users who set AGENTMEMORY_SLOTS in the
-//     dotfile see the flag take effect.
-//   - HTTP triggers must return 503 with enableHow when the flag is off,
-//     not 500.
-
 describe("isSlotsEnabled — reads merged env (#678)", () => {
   let home: string;
   let ORIG_HOME: string | undefined;
+  let ORIG_USERPROFILE: string | undefined;
   let ORIG_FLAG: string | undefined;
 
   beforeEach(() => {
     home = mkdtempSync(join(tmpdir(), "am-slots-flag-"));
     mkdirSync(join(home, ".agentmemory"), { recursive: true });
     ORIG_HOME = process.env["HOME"];
+    ORIG_USERPROFILE = process.env["USERPROFILE"];
     ORIG_FLAG = process.env["AGENTMEMORY_SLOTS"];
     process.env["HOME"] = home;
+    process.env["USERPROFILE"] = home;
     delete process.env["AGENTMEMORY_SLOTS"];
     vi.resetModules();
   });
 
   afterEach(() => {
     if (ORIG_HOME !== undefined) process.env["HOME"] = ORIG_HOME;
+    if (ORIG_USERPROFILE !== undefined) process.env["USERPROFILE"] = ORIG_USERPROFILE;
+    else delete process.env["USERPROFILE"];
     if (ORIG_FLAG !== undefined) process.env["AGENTMEMORY_SLOTS"] = ORIG_FLAG;
     else delete process.env["AGENTMEMORY_SLOTS"];
     rmSync(home, { recursive: true, force: true });
@@ -60,20 +58,25 @@ describe("isSlotsEnabled — reads merged env (#678)", () => {
 describe("isReflectEnabled — reads merged env (#678)", () => {
   let home: string;
   let ORIG_HOME: string | undefined;
+  let ORIG_USERPROFILE: string | undefined;
   let ORIG_FLAG: string | undefined;
 
   beforeEach(() => {
     home = mkdtempSync(join(tmpdir(), "am-reflect-flag-"));
     mkdirSync(join(home, ".agentmemory"), { recursive: true });
     ORIG_HOME = process.env["HOME"];
+    ORIG_USERPROFILE = process.env["USERPROFILE"];
     ORIG_FLAG = process.env["AGENTMEMORY_REFLECT"];
     process.env["HOME"] = home;
+    process.env["USERPROFILE"] = home;
     delete process.env["AGENTMEMORY_REFLECT"];
     vi.resetModules();
   });
 
   afterEach(() => {
     if (ORIG_HOME !== undefined) process.env["HOME"] = ORIG_HOME;
+    if (ORIG_USERPROFILE !== undefined) process.env["USERPROFILE"] = ORIG_USERPROFILE;
+    else delete process.env["USERPROFILE"];
     if (ORIG_FLAG !== undefined) process.env["AGENTMEMORY_REFLECT"] = ORIG_FLAG;
     else delete process.env["AGENTMEMORY_REFLECT"];
     rmSync(home, { recursive: true, force: true });

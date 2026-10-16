@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+﻿import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { spawnSync } from "node:child_process";
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
@@ -119,7 +119,7 @@ describe("pi plaintext bearer guard", () => {
     expect(warn).not.toHaveBeenCalled();
   });
 
-  it("warns for private LAN IPs — RFC1918 ranges are NOT loopback", () => {
+  it("warns for private LAN IPs â€” RFC1918 ranges are NOT loopback", () => {
     const warn = vi.fn();
     const guard = createPlaintextBearerAuthGuard(warn, {});
     guard("http://192.168.1.50:3111", "secret");
@@ -128,7 +128,7 @@ describe("pi plaintext bearer guard", () => {
     expect(warn.mock.calls[0][0]).toContain("plaintext HTTP to http://192.168.1.50:3111");
   });
 
-  it("does not warn when no secret is set — guard only fires when a bearer would actually be sent", () => {
+  it("does not warn when no secret is set â€” guard only fires when a bearer would actually be sent", () => {
     const warn = vi.fn();
     const guard = createPlaintextBearerAuthGuard(warn, {});
     guard("http://remote.example:3111", "");
@@ -144,7 +144,7 @@ describe("pi plaintext bearer guard", () => {
   });
 });
 
-describe("Hermes plaintext bearer guard", () => {
+describe.skipIf(process.platform === "win32")("Hermes plaintext bearer guard", () => {
   let home: string;
 
   beforeEach(() => {
@@ -208,3 +208,4 @@ assert calls == [], calls
     expect(result.status, result.stderr || result.stdout).toBe(0);
   });
 });
+

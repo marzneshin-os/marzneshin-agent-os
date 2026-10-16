@@ -1,4 +1,4 @@
-// Unit tests for the `agentmemory remove` destruction plan.
+﻿// Unit tests for the `agentmemory remove` destruction plan.
 //
 // The plan module is pure-fs (just inspects what's present) so we sandbox
 // a fake $HOME under tmpdir() and assert which plan items come back. The
@@ -112,7 +112,7 @@ describe("buildRemovePlan", () => {
   });
 
   it("local-bin/iii is alwaysAsk when version does not match", () => {
-    touch(".local/bin/iii", "fakebin");
+    touch(join(".local", "bin", process.platform === "win32" ? "iii.exe" : "iii"), "fakebin");
     const plan = buildRemovePlan(
       ctx({ localBinIiiVersion: "9.9.9" }),
       { force: false, keepData: false },
@@ -123,7 +123,7 @@ describe("buildRemovePlan", () => {
   });
 
   it("local-bin/iii is auto-fixable when version matches pinned", () => {
-    touch(".local/bin/iii", "fakebin");
+    touch(join(".local", "bin", process.platform === "win32" ? "iii.exe" : "iii"), "fakebin");
     const plan = buildRemovePlan(
       ctx({ localBinIiiVersion: "0.11.2" }),
       { force: false, keepData: false },
@@ -141,7 +141,7 @@ describe("buildRemovePlan", () => {
   });
 
   it("private ~/.agentmemory/bin/iii is removed without prompt", () => {
-    touch(".agentmemory/bin/iii", "fakebin");
+    touch(join(".agentmemory", "bin", process.platform === "win32" ? "iii.exe" : "iii"), "fakebin");
     const plan = buildRemovePlan(ctx(), { force: false, keepData: false });
     const item = plan.find((p) => p.id === "private-bin-iii")!;
     expect(item).toBeDefined();
@@ -214,3 +214,4 @@ describe("formatPlan", () => {
     expect(out).toContain("[asks]");
   });
 });
+

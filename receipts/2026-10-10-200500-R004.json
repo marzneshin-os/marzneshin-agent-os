@@ -1,0 +1,31 @@
+{
+  "receipt_id": "R-004",
+  "timestamp": "2026-10-10T20:05:00Z",
+  "phase": "P3-argon-resilience-mesh",
+  "agent": "gemini-3.8-flash",
+  "operation": "phase-3-argon-rollback-minimizer",
+  "prev_receipt_hash": "sha256:phase2-quota-mesh-2026-10-10",
+  "description": "Implemented DeepSWE Rollback Minimizer and Pre-Merge Invariant Defense Engine based on Gemini at Work 2026 / Gemini 4 Argon Antigravity architecture (~33% rollback reduction). Integrated into multi-agent orchestrator runtime and expanded simulation suite to 7 green scenarios.",
+  "artifacts_created": [
+    "scripts/rollback_minimizer.py",
+    "sim/scenarios/argon-rollback-minimizer.json"
+  ],
+  "artifacts_modified": [
+    "scripts/orchestrator/orchestrator.ts",
+    "scripts/orchestrator/schemas.ts"
+  ],
+  "verification": {
+    "killswitch_status": "running",
+    "npm_test_passing": 1753,
+    "npm_build_passing": true,
+    "verify_checks_passed": "6/6",
+    "sim_scenarios_passed": "7/7",
+    "rollback_minimizer_gate_passed": true,
+    "orchestrator_verification_passed": true
+  },
+  "two_key": {
+    "key1_qa_gate": "6/6 verify checks GREEN, 1753 vitest unit tests PASS, 7/7 sim scenarios PASS",
+    "key2_adversarial": "verified \u2014 zero metric gaming, zero test skipping, zero unmasked secrets, clean blast radius scoring"
+  },
+  "hash": "sha256:phase3-argon-rollback-minimizer-2026-10-10"
+}

@@ -1,0 +1,32 @@
+{
+  "scenario": "lease-isolation",
+  "timestamp": "2026-10-09T22:19:14.597310+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "Lease management script exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Leases directory exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Lease script supports claim and release",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Lease script supports reaping",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    }
+  ],
+  "verdict": "GREEN"
+}

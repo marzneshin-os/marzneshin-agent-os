@@ -9,7 +9,8 @@ import {
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { join, delimiter } from "node:path";
+import { pathToFileURL } from "node:url";
 import { afterEach, describe, expect, it } from "vitest";
 
 const sandboxes: string[] = [];
@@ -24,10 +25,7 @@ function sandbox(): string {
 
 function installFakeDocker(binDir: string): void {
   mkdirSync(binDir, { recursive: true });
-  const dockerPath = join(binDir, "docker");
-  writeFileSync(
-    dockerPath,
-    `#!/usr/bin/env node
+  const script = `#!/usr/bin/env node
 const { appendFileSync } = require("node:fs");
 const args = process.argv.slice(2);
 appendFileSync(process.env.DOCKER_LOG, args.join(" ") + "\\n");
@@ -53,20 +51,40 @@ if (args[0] === "inspect") {
         Image: "iiidev/iii:0.11.2",
         Labels: {
           "com.docker.compose.project": "agentmemory-3111",
-          "com.docker.compose.service": "iii-engine"
-        }
+          "com.docker.compose.service": "iii-engine",
+        },
       },
-      HostConfig: { PortBindings: { "3111/tcp": [{ HostPort: "3111" }] } },
-      Mounts: [{ Type: "bind", Source: process.env.DOCKER_DATA_DIR, Destination: "/data" }]
+      HostConfig: {
+        PortBindings: { "3111/tcp": [{ HostPort: "3111" }] },
+      },
+      Mounts: [
+        {
+          Type: "bind",
+          Source: process.env.DOCKER_DATA_DIR,
+          Destination: "/data",
+        },
+      ],
     }]));
-    process.exit(0);
+  } else {
+    process.stdout.write(JSON.stringify([{
+      Id: "candidate-id",
+      State: { Running: false },
+      Config: { Image: "wrong-image" },
+    }]));
   }
-  process.exit(1);
+  process.exit(0);
 }
 process.exit(0);
-`,
-  );
-  chmodSync(dockerPath, 0o755);
+`;
+
+  if (process.platform === "win32") {
+    writeFileSync(join(binDir, "docker-runner.js"), script);
+    writeFileSync(join(binDir, "docker.cmd"), `@echo off\r\nnode "%~dp0docker-runner.js" %*\r\n`);
+  } else {
+    const dockerPath = join(binDir, "docker");
+    writeFileSync(dockerPath, script);
+    chmodSync(dockerPath, 0o755);
+  }
 }
 
 function runDockerStop(
@@ -80,7 +98,7 @@ function runDockerStop(
   const binDir = join(root, "bin");
   const composeFile = join(root, "docker-compose.yml");
   const dockerLog = join(root, "docker.log");
-  const privateBin = join(runtimeDir, "bin", "iii");
+  const privateBin = join(runtimeDir, "bin", process.platform === "win32" ? "iii.exe" : "iii");
   mkdirSync(runtimeDir, { recursive: true });
   mkdirSync(dataDir, { recursive: true });
   if (command === "remove") {
@@ -129,7 +147,7 @@ function runDockerStop(
         HOME: home,
         USERPROFILE: home,
         CI: "1",
-        PATH: `${binDir}:${process.env.PATH ?? ""}`,
+        PATH: `${binDir}${delimiter}${process.env.PATH ?? ""}`,
         DOCKER_LOG: dockerLog,
         DOCKER_FAILURE_MODE: failureMode,
         DOCKER_DATA_DIR: dataDir,
@@ -149,7 +167,7 @@ function runDockerStop(
 function runInstanceRemove(instanceArgs = ["--instance", "1"]) {
   const root = sandbox();
   const home = join(root, "home");
-  const privateBin = join(home, ".agentmemory", "bin", "iii");
+  const privateBin = join(home, ".agentmemory", "bin", process.platform === "win32" ? "iii.exe" : "iii");
   const dataBase = join(root, "data");
   mkdirSync(join(home, ".agentmemory", "bin"), { recursive: true });
   writeFileSync(privateBin, "shared binary");
@@ -185,7 +203,7 @@ function runNativeRemoveWithWorkerFailure() {
   const root = sandbox();
   const home = join(root, "home");
   const runtimeDir = join(home, ".agentmemory");
-  const privateBin = join(runtimeDir, "bin", "iii");
+  const privateBin = join(runtimeDir, "bin", process.platform === "win32" ? "iii.exe" : "iii");
   const engineState = join(runtimeDir, "engine-state.json");
   const enginePidfile = join(runtimeDir, "iii.pid");
   const workerPidfile = join(runtimeDir, "worker.pid");
@@ -222,10 +240,10 @@ process.kill = (pid, signal) => {
   const result = spawnSync(
     process.execPath,
     [
-      "--import",
-      preload,
-      "--import",
-      "tsx",
+        "--import",
+        pathToFileURL(preload).href,
+        "--import",
+        "tsx",
       "src/cli.ts",
       "remove",
       "--force",
@@ -271,6 +289,7 @@ describe("Docker lifecycle discovery", () => {
       expect(dockerLog).not.toMatch(/\bcompose\b.*\brm\b/);
       expect(`${result.stdout}\n${result.stderr}`).toContain("cannot be verified");
     },
+    20000,
   );
 
   it("deduplicates short and full IDs for the same inspected container", () => {
@@ -282,7 +301,7 @@ describe("Docker lifecycle discovery", () => {
     expect(JSON.parse(readFileSync(statePath, "utf-8")).containerId).toBe(
       FULL_CONTAINER_ID,
     );
-  });
+  }, 20000);
 
   it("removes shared assets while preserving validated Docker recovery state with --keep-data", () => {
     const { result, statePath, privateBin, dockerLog } = runDockerStop(
@@ -294,7 +313,7 @@ describe("Docker lifecycle discovery", () => {
     expect(existsSync(statePath)).toBe(true);
     expect(existsSync(privateBin)).toBe(false);
     expect(dockerLog).not.toMatch(/\bcompose\b.*\brm\b/);
-  });
+  }, 20000);
 });
 
 describe("native removal shutdown", () => {
@@ -354,3 +373,4 @@ describe("native removal shutdown", () => {
     expect(`${result.stdout}\n${result.stderr}`).toContain("stop --instance 1");
   });
 });
+

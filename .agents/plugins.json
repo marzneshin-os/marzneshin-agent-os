@@ -1,0 +1,9 @@
+{
+  "plugins": [
+    {
+      "name": "superpowers",
+      "path": "./plugins/superpowers",
+      "enabled": true
+    }
+  ]
+}

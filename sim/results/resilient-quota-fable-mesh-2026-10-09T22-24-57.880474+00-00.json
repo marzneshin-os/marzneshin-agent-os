@@ -1,0 +1,56 @@
+{
+  "scenario": "resilient-quota-fable-mesh",
+  "timestamp": "2026-10-09T22:24:57.880474+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "Quota doctor script exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Fable graph validator exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Two-key gate exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Quota doctor has check-eligibility",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Quota doctor has diagnose",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Quota doctor has route-tier",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Fable graph has compute_stages",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Fable graph has Kahn cycle check",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    }
+  ],
+  "verdict": "GREEN"
+}

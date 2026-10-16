@@ -1,0 +1,11 @@
+{
+  "name": "canary-rollout",
+  "description": "Verify canary rollout script, staged directory structure, and status commands",
+  "checks": [
+    { "name": "Canary script exists", "type": "file_exists", "target": "scripts/canary.py", "expected": true },
+    { "name": "Configs directory exists", "type": "file_exists", "target": "configs", "expected": true },
+    { "name": "Canary script supports stage", "type": "contains", "target": "scripts/canary.py", "value": "cmd_stage", "expected": true },
+    { "name": "Canary script supports rollback", "type": "contains", "target": "scripts/canary.py", "value": "cmd_rollback", "expected": true },
+    { "name": "Canary script supports promote", "type": "contains", "target": "scripts/canary.py", "value": "cmd_promote", "expected": true }
+  ]
+}

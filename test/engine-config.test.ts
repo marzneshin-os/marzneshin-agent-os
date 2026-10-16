@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+﻿import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { renderEngineConfig } from "../src/cli/engine-config.js";
@@ -39,16 +39,17 @@ describe("renderEngineConfig", () => {
     });
 
     expect(rendered).toMatch(
-      /- name: iii-http\n\s+config:\n\s+port: 3211/,
+      /- name: iii-http\r?\n\s+config:\r?\n\s+port: 3211/,
     );
     expect(rendered).toMatch(
-      /- name: iii-stream\n\s+config:\n\s+port: 3212/,
+      /- name: iii-stream\r?\n\s+config:\r?\n\s+port: 3212/,
     );
     expect(rendered).toContain(
       'allowed_origins: ["http://localhost:3211", "http://localhost:3213", "http://127.0.0.1:3211", "http://127.0.0.1:3213"]',
     );
     expect(rendered).toMatch(
-      /- name: iii-worker-manager\n\s+config:\n\s+port: 49234\n\s+host: 127\.0\.0\.1/,
+      /- name: iii-worker-manager\r?\n\s+config:\r?\n\s+port: 49234\r?\n\s+host: 127\.0\.0\.1/,
     );
   });
 });
+

@@ -1,0 +1,31 @@
+{
+  "receipt_id": "R-003",
+  "timestamp": "2026-10-10T02:00:00Z",
+  "phase": "P2-resilient-orchestration",
+  "agent": "gemini-3.8-flash",
+  "operation": "phase-2-quota-mesh-resilience",
+  "prev_receipt_hash": "sha256:phase1-orch-runtime-2026-10-04",
+  "description": "Integrated Antigravity Tier-0 Quota Doctor and Fable 5.1 Orchestration Mesh. Repaired POSIX subprocess shell execution in scripts/verify.py.",
+  "artifacts_created": [
+    "scripts/quota_doctor.py",
+    "scripts/fable_graph.py",
+    "sim/scenarios/resilient-quota-fable-mesh.json"
+  ],
+  "artifacts_modified": [
+    "scripts/verify.py"
+  ],
+  "verification": {
+    "killswitch_status": "running",
+    "npm_test_passing": 1753,
+    "npm_build_passing": true,
+    "verify_checks_passed": "6/6",
+    "sim_scenarios_passed": "6/6",
+    "quota_doctor_diagnose_passed": true,
+    "fable_graph_validate_passed": true
+  },
+  "two_key": {
+    "key1_qa_gate": "6/6 verify checks GREEN, 1753 vitest unit tests PASS, 6 sim scenarios PASS",
+    "key2_adversarial": "verified \u2014 zero metric gaming, fail-closed 429 degradation, no plaintext credentials"
+  },
+  "hash": "sha256:phase2-quota-mesh-2026-10-10"
+}

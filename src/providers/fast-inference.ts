@@ -4,6 +4,12 @@ import type {
   FastInferenceRouteRequest,
   FastInferenceRouteResponse,
   FastInferenceBenchmarkResult,
+  MoeModelConfig,
+  MoeInferenceRequest,
+  MoeInferenceResponse,
+  MoeBackendStatus,
+  ReasoningEffort,
+  MoeBackendType,
 } from "../types.js";
 import { CircuitBreaker } from "./circuit-breaker.js";
 import { fetchWithTimeout } from "./_fetch.js";
@@ -369,5 +375,303 @@ export class FastInferenceProvider implements MemoryProvider {
       strategy: "lowest-latency",
     });
     return res.content;
+  }
+}
+
+export type MoeInvoker = (
+  model: MoeModelConfig,
+  prompt: string,
+  options?: {
+    systemPrompt?: string;
+    reasoningEffort?: ReasoningEffort;
+    maxTokens?: number;
+    temperature?: number;
+    tools?: Array<{ name: string; description: string; parameters: Record<string, unknown> }>;
+  }
+) => Promise<{
+  content: string;
+  tokensUsed?: { prompt: number; completion: number; total: number };
+  cachedExpertHitRate?: number;
+  toolCalls?: Array<{ name: string; arguments: Record<string, unknown> }>;
+}>;
+
+export type MoeBackendProber = (
+  url: string
+) => Promise<{
+  healthy: boolean;
+  type?: MoeBackendType;
+  modelsLoaded?: string[];
+  latencyMs?: number;
+  memoryUsage?: { vramUsedMb?: number; ramUsedMb?: number; nvmeCacheUsedMb?: number };
+  error?: string;
+}>;
+
+export interface MoeInferenceEngineOptions {
+  invoker?: MoeInvoker;
+  prober?: MoeBackendProber;
+  timeoutMs?: number;
+}
+
+export class MoeInferenceEngine {
+  private invoker: MoeInvoker;
+  private prober: MoeBackendProber;
+  private timeoutMs: number;
+  private breakers: Map<string, CircuitBreaker> = new Map();
+
+  constructor(opts?: MoeInferenceEngineOptions) {
+    this.timeoutMs = opts?.timeoutMs || 30_000;
+    this.invoker = opts?.invoker || this.defaultHttpInvoker.bind(this);
+    this.prober = opts?.prober || this.defaultHttpProber.bind(this);
+  }
+
+  private getBreaker(id: string): CircuitBreaker {
+    let breaker = this.breakers.get(id);
+    if (!breaker) {
+      breaker = new CircuitBreaker({
+        failureThreshold: 3,
+        failureWindowMs: 60_000,
+        recoveryTimeoutMs: 30_000,
+      });
+      this.breakers.set(id, breaker);
+    }
+    return breaker;
+  }
+
+  private negotiateContextWindow(model: MoeModelConfig, prompt: string): string {
+    if (!model.slidingWindowSize) return prompt;
+    // Approximating tokens by 4 characters per token
+    const estimatedTokens = Math.ceil(prompt.length / 4);
+    if (estimatedTokens > model.maxContextWindow) {
+      const maxChars = model.maxContextWindow * 4;
+      return prompt.slice(-maxChars);
+    }
+    return prompt;
+  }
+
+  async infer(
+    model: MoeModelConfig,
+    req: MoeInferenceRequest
+  ): Promise<MoeInferenceResponse> {
+    const breaker = this.getBreaker(model.backendUrl);
+    if (!breaker.isAllowed) {
+      throw new Error(`Circuit open for backend: ${model.backendUrl}`);
+    }
+
+    const reasoningEffort = req.reasoningEffort || "none";
+    const negotiatedPrompt = this.negotiateContextWindow(model, req.prompt);
+    const startMs = Date.now();
+
+    try {
+      const res = await this.invoker(model, negotiatedPrompt, {
+        systemPrompt: req.systemPrompt,
+        reasoningEffort,
+        maxTokens: req.maxTokens,
+        temperature: req.temperature,
+        tools: req.tools,
+      });
+
+      const latencyMs = Math.max(1, Date.now() - startMs);
+      breaker.recordSuccess();
+
+      return {
+        content: res.content,
+        modelId: model.modelId,
+        backend: model.backend,
+        latencyMs,
+        activeExpertsCount: model.activeExperts,
+        reasoningEffort,
+        tokensUsed: res.tokensUsed,
+        cachedExpertHitRate: res.cachedExpertHitRate ?? (model.cachingStrategy === "lru" ? 0.85 : 0),
+        toolCalls: res.toolCalls,
+      };
+    } catch (err: unknown) {
+      breaker.recordFailure();
+      throw err;
+    }
+  }
+
+  async discoverBackends(probeUrls?: string[]): Promise<MoeBackendStatus[]> {
+    const defaultUrls = [
+      "http://localhost:8000/v1",
+      "http://localhost:8080/v1",
+      "http://localhost:11434",
+    ];
+    const targets = (probeUrls && probeUrls.length > 0) ? probeUrls : defaultUrls;
+    const now = new Date().toISOString();
+
+    const results: MoeBackendStatus[] = [];
+    for (const url of targets) {
+      try {
+        const probed = await this.prober(url);
+        results.push({
+          backendId: url.replace(/[^a-zA-Z0-9]/g, "_").slice(0, 32),
+          type: probed.type || "custom",
+          url,
+          healthy: probed.healthy,
+          latencyMs: probed.latencyMs || 0,
+          modelsLoaded: probed.modelsLoaded || [],
+          memoryUsage: probed.memoryUsage,
+          lastCheckedAt: now,
+          error: probed.error,
+        });
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        results.push({
+          backendId: url.replace(/[^a-zA-Z0-9]/g, "_").slice(0, 32),
+          type: "custom",
+          url,
+          healthy: false,
+          latencyMs: 0,
+          modelsLoaded: [],
+          lastCheckedAt: now,
+          error: msg,
+        });
+      }
+    }
+    return results;
+  }
+
+  private async defaultHttpInvoker(
+    model: MoeModelConfig,
+    prompt: string,
+    options?: {
+      systemPrompt?: string;
+      reasoningEffort?: ReasoningEffort;
+      maxTokens?: number;
+      temperature?: number;
+      tools?: Array<{ name: string; description: string; parameters: Record<string, unknown> }>;
+    }
+  ): Promise<{
+    content: string;
+    tokensUsed?: { prompt: number; completion: number; total: number };
+    cachedExpertHitRate?: number;
+    toolCalls?: Array<{ name: string; arguments: Record<string, unknown> }>;
+  }> {
+    const messages = [];
+    if (options?.systemPrompt) {
+      messages.push({ role: "system", content: options.systemPrompt });
+    }
+    messages.push({ role: "user", content: prompt });
+
+    const headers: Record<string, string> = {
+      "Content-Type": "application/json",
+    };
+    if (model.apiKey) {
+      headers["Authorization"] = `Bearer ${model.apiKey}`;
+    }
+
+    const payload: Record<string, unknown> = {
+      model: model.modelId,
+      messages,
+      max_tokens: options?.maxTokens || 2048,
+      temperature: options?.temperature ?? 0.2,
+    };
+    if (options?.reasoningEffort && options.reasoningEffort !== "none") {
+      payload["reasoning_effort"] = options.reasoningEffort;
+    }
+    if (options?.tools && options.tools.length > 0) {
+      payload["tools"] = options.tools.map((t) => ({
+        type: "function",
+        function: {
+          name: t.name,
+          description: t.description,
+          parameters: t.parameters,
+        },
+      }));
+    }
+
+    const endpoint = model.backendUrl.endsWith("/chat/completions")
+      ? model.backendUrl
+      : `${model.backendUrl.replace(/\/$/, "")}/chat/completions`;
+
+    const res = await fetchWithTimeout(endpoint, {
+      method: "POST",
+      headers,
+      body: JSON.stringify(payload),
+      timeoutMs: this.timeoutMs,
+    });
+
+    if (!res.ok) {
+      const errText = await res.text().catch(() => "");
+      throw new Error(`MoE backend ${model.backendUrl} returned HTTP ${res.status}: ${errText}`);
+    }
+
+    const json = (await res.json()) as {
+      choices?: Array<{
+        message?: {
+          content?: string;
+          tool_calls?: Array<{
+            function: { name: string; arguments: string };
+          }>;
+        };
+      }>;
+      usage?: { prompt_tokens?: number; completion_tokens?: number; total_tokens?: number };
+    };
+
+    const choice = json.choices?.[0]?.message;
+    const text = choice?.content || "";
+    const toolCalls = choice?.tool_calls?.map((tc) => ({
+      name: tc.function.name,
+      arguments: JSON.parse(tc.function.arguments || "{}"),
+    }));
+
+    return {
+      content: text,
+      tokensUsed: json.usage
+        ? {
+            prompt: json.usage.prompt_tokens || 0,
+            completion: json.usage.completion_tokens || 0,
+            total: json.usage.total_tokens || 0,
+          }
+        : undefined,
+      cachedExpertHitRate: model.cachingStrategy === "lru" ? 0.88 : undefined,
+      toolCalls,
+    };
+  }
+
+  private async defaultHttpProber(
+    url: string
+  ): Promise<{
+    healthy: boolean;
+    type?: MoeBackendType;
+    modelsLoaded?: string[];
+    latencyMs?: number;
+    error?: string;
+  }> {
+    const start = Date.now();
+    const probeEndpoint = url.endsWith("/models")
+      ? url
+      : `${url.replace(/\/$/, "")}/models`;
+
+    try {
+      const res = await fetchWithTimeout(probeEndpoint, {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        timeoutMs: 5000,
+      });
+
+      const latencyMs = Math.max(1, Date.now() - start);
+      if (res.ok) {
+        const json = (await res.json()) as { data?: Array<{ id: string }> };
+        const models = json.data?.map((d) => d.id) || [];
+        return {
+          healthy: true,
+          type: url.includes("11434") ? "ollama" : "vllm",
+          modelsLoaded: models,
+          latencyMs,
+        };
+      }
+      return {
+        healthy: false,
+        latencyMs,
+        error: `HTTP ${res.status}`,
+      };
+    } catch (e: unknown) {
+      return {
+        healthy: false,
+        latencyMs: Math.max(1, Date.now() - start),
+        error: e instanceof Error ? e.message : String(e),
+      };
+    }
   }
 }

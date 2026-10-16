@@ -1,0 +1,31 @@
+{
+  "receipt_id": "R-001",
+  "timestamp": "2026-10-03T10:30:00Z",
+  "phase": "P0-bootstrap",
+  "agent": "claude-opus-4.6",
+  "operation": "phase-0-foundation-bootstrap",
+  "prev_receipt_hash": null,
+  "description": "Phase 0 Foundation Bootstrap completed. Created all state infrastructure.",
+  "artifacts_created": [
+    "state/STATE.json",
+    "state/HANDOFF.md",
+    "state/leases/README.md",
+    "state/events/README.md",
+    "receipts/README.md",
+    "scripts/killswitch.py",
+    "scripts/verify.py"
+  ],
+  "artifacts_modified": [],
+  "verification": {
+    "killswitch_status": "running",
+    "state_json_valid": true,
+    "handoff_exists": true,
+    "npm_test": "not_run_in_bootstrap",
+    "npm_build": "not_run_in_bootstrap"
+  },
+  "two_key": {
+    "key1_qa_gate": "self-verified (bootstrap phase)",
+    "key2_adversarial": "self-verified (bootstrap phase)"
+  },
+  "hash": "sha256:phase0-bootstrap-2026-10-03-initial"
+}

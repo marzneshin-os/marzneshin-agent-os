@@ -1,0 +1,62 @@
+{
+  "scenario": "argon-rollback-minimizer",
+  "timestamp": "2026-10-10T20:01:10.841136+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "Rollback minimizer script exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Minimizer has analyze_blast_radius",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Minimizer has verify_invariants",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Minimizer has create_snapshot",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Minimizer has restore_snapshot",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Orchestrator invokes rollback minimizer",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Orchestrator has Rollback Defense Triggered handler",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Schemas defines rollbackTriggered field",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Schemas defines blastRadiusScore field",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    }
+  ],
+  "verdict": "GREEN"
+}

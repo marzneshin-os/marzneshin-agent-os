@@ -1,0 +1,21 @@
+{
+  "event_id": "twokey-20261005104615",
+  "timestamp": "2026-10-05T10:46:15.715016+00:00",
+  "agent": "two-key-gate",
+  "type": "verification_failed",
+  "description": "Two-Key verification failed",
+  "metadata": {
+    "key1": {
+      "key": "key1_qa_gate",
+      "passed": true,
+      "exit_code": 0
+    },
+    "key2": {
+      "key": "key2_adversarial",
+      "passed": false,
+      "violations": [
+        "Forced exit(0) \u2014 may hide failures"
+      ]
+    }
+  }
+}

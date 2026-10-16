@@ -1,3 +1,4 @@
+import { resolve } from "node:path";
 import { describe, it, expect, beforeEach, vi } from "vitest";
 
 vi.mock("../src/logger.js", () => ({
@@ -9,10 +10,10 @@ const createdDirs = new Set<string>();
 
 vi.mock("node:fs/promises", () => ({
   mkdir: vi.fn(async (dir: string) => {
-    createdDirs.add(dir);
+    createdDirs.add(dir.replace(/\\/g, "/"));
   }),
   writeFile: vi.fn(async (path: string, content: string) => {
-    writtenFiles.set(path, content);
+    writtenFiles.set(path.replace(/\\/g, "/"), content);
   }),
 }));
 
@@ -121,7 +122,7 @@ function makeSession(id: string): Session {
 describe("Obsidian Export", () => {
   let sdk: ReturnType<typeof mockSdk>;
   let kv: ReturnType<typeof mockKV>;
-  const exportRoot = "/tmp/agentmemory-export-root";
+  const exportRoot = resolve("/tmp/agentmemory-export-root");
 
   beforeEach(() => {
     process.env.AGENTMEMORY_EXPORT_ROOT = exportRoot;
@@ -227,14 +228,14 @@ describe("Obsidian Export", () => {
     });
 
     const hasCustomPath = [...createdDirs].some((d) =>
-      d.startsWith("/tmp/agentmemory-export-root/test-vault"),
+      d.startsWith(exportRoot.replace(/\\/g, "/") + "/test-vault"),
     );
     expect(hasCustomPath).toBe(true);
   });
 
   it("rejects vaultDir outside the export root", async () => {
     const result = (await sdk.trigger("mem::obsidian-export", {
-      vaultDir: "/tmp/outside-root",
+      vaultDir: resolve("/tmp/outside-root"),
     })) as { success: boolean; error: string };
 
     expect(result.success).toBe(false);

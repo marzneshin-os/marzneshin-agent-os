@@ -1,0 +1,18 @@
+{
+  "name": "superpowers",
+  "version": "6.3.0",
+  "description": "Complete agentic software development methodology: TDD, systematic debugging, brainstorming, planning, and code review.",
+  "author": {
+    "name": "Jesse Vincent / Prime Radiant",
+    "url": "https://github.com/obra/superpowers"
+  },
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "tdd",
+    "debugging",
+    "brainstorming",
+    "subagents",
+    "software-engineering"
+  ]
+}

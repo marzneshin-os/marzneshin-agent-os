@@ -1069,6 +1069,107 @@ export const FAST_INFERENCE_TOOLS: McpToolDef[] = [
   },
 ];
 
+
+export const KOLIBRI_TOOLS: McpToolDef[] = [
+  {
+    name: "memory_kolibri_discover",
+    description:
+      "Discover local sovereign Mixture-of-Experts (MoE) backends (vLLM, llama.cpp, Colibri, Ollama) and list available models",
+    inputSchema: {
+      type: "object",
+      properties: {
+        probeUrls: {
+          type: "string",
+          description: "Optional comma-separated URLs to probe (defaults to localhost:8000, 8080, 11434)",
+        },
+      },
+    },
+  },
+  {
+    name: "memory_kolibri_configure",
+    description:
+      "Configure or update local MoE model settings (expert count, active experts, quant format FP8/int4, sliding window attention, reasoning effort)",
+    inputSchema: {
+      type: "object",
+      properties: {
+        action: {
+          type: "string",
+          enum: ["set", "get", "list", "delete"],
+          description: "Configuration action (default: set)",
+        },
+        modelId: { type: "string", description: "MoE Model ID" },
+        displayName: { type: "string", description: "Human-readable model name" },
+        backend: {
+          type: "string",
+          enum: ["vllm", "llamacpp", "colibri", "ollama", "custom"],
+          description: "Inference backend runtime",
+        },
+        backendUrl: { type: "string", description: "Backend URL endpoint" },
+        totalParams: { type: "number", description: "Total model parameter count (e.g. 78103074560 for Kolibri-1)" },
+        activeParams: { type: "number", description: "Active parameters per token (e.g. 3457573120)" },
+        expertCount: { type: "number", description: "Total expert count per layer (e.g. 384)" },
+        activeExperts: { type: "number", description: "Active routed experts per token (e.g. 6)" },
+        quantFormat: {
+          type: "string",
+          enum: ["fp8", "int4", "int8", "fp16", "bf16"],
+          description: "Weight quantization format",
+        },
+        contextWindow: { type: "number", description: "Base context window length" },
+        maxContextWindow: { type: "number", description: "Maximum supported context length" },
+        slidingWindowSize: { type: "number", description: "Sliding window attention size in tokens" },
+        slidingWindowRatio: { type: "string", description: "Sliding window to full attention ratio (e.g. 4:1)" },
+        reasoningEffortLevels: {
+          type: "string",
+          description: "Comma-separated supported reasoning depths (none, low, medium, high)",
+        },
+        cachingStrategy: {
+          type: "string",
+          enum: ["lru", "none", "adaptive"],
+          description: "Per-layer expert caching strategy",
+        },
+        memoryTier: {
+          type: "string",
+          enum: ["vram", "ram", "ram+nvme", "auto"],
+          description: "Memory tiering configuration",
+        },
+        toolCallingSupport: { type: "boolean", description: "Whether model supports tool calling" },
+        hermesFunctionCalling: { type: "boolean", description: "Whether model supports Hermes-style tool calling" },
+      },
+      required: ["modelId"],
+    },
+  },
+  {
+    name: "memory_kolibri_infer",
+    description:
+      "Execute MoE inference through sovereign local engines with sliding-window attention negotiation, expert caching, and controllable reasoning effort",
+    inputSchema: {
+      type: "object",
+      properties: {
+        modelId: { type: "string", description: "Target MoE model ID" },
+        prompt: { type: "string", description: "User prompt to process" },
+        systemPrompt: { type: "string", description: "Optional system instructions" },
+        reasoningEffort: {
+          type: "string",
+          enum: ["none", "low", "medium", "high"],
+          description: "Reasoning effort depth (user-controllable reasoning)",
+        },
+        maxTokens: { type: "number", description: "Maximum tokens to generate" },
+        temperature: { type: "number", description: "Sampling temperature" },
+      },
+      required: ["modelId", "prompt"],
+    },
+  },
+  {
+    name: "memory_kolibri_status",
+    description:
+      "Retrieve live Kolibri MoE runtime status, active backends, loaded models, request volume, and cache utilization",
+    inputSchema: {
+      type: "object",
+      properties: {},
+    },
+  },
+];
+
 export function getAllTools(): McpToolDef[] {
   return [
     ...CORE_TOOLS,
@@ -1081,6 +1182,7 @@ export function getAllTools(): McpToolDef[] {
     ...V010_SLOTS_TOOLS,
     ...CAMPAIGN_TOOLS,
     ...FAST_INFERENCE_TOOLS,
+    ...KOLIBRI_TOOLS,
   ];
 }
 

@@ -830,6 +830,7 @@ function inspectDockerContainer(
     encoding: "utf-8",
     stdio: ["ignore", "pipe", "ignore"],
     maxBuffer: 1024 * 1024,
+    shell: IS_WINDOWS,
   });
   if (result.status !== 0) {
     return { status: "unavailable", reason: `docker inspect failed for ${containerId}` };
@@ -999,7 +1000,7 @@ function inspectOwnedDockerEngine(state: EngineState): DockerEngineInspection {
           "--all",
           "iii-engine",
         ]),
-        { encoding: "utf-8", stdio: ["ignore", "pipe", "ignore"] },
+        { encoding: "utf-8", stdio: ["ignore", "pipe", "ignore"], shell: IS_WINDOWS },
       );
       if (psResult.status === 0) {
         for (const id of (psResult.stdout ?? "").trim().split(/\s+/)) {
@@ -1026,7 +1027,7 @@ function inspectOwnedDockerEngine(state: EngineState): DockerEngineInspection {
     const scanResult = spawnSync(
       dockerBin,
       scanArgs,
-      { encoding: "utf-8", stdio: ["ignore", "pipe", "ignore"] },
+      { encoding: "utf-8", stdio: ["ignore", "pipe", "ignore"], shell: IS_WINDOWS },
     );
     if (scanResult.status === 0) {
       for (const id of (scanResult.stdout ?? "").trim().split(/\s+/)) {
@@ -3129,6 +3130,7 @@ function runCommand(
     cwd: options.cwd || process.cwd(),
     stdio: "pipe",
     encoding: "utf-8",
+    shell: IS_WINDOWS,
   });
 
   if (result.status === 0) {

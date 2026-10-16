@@ -3489,4 +3489,90 @@ export function registerApiTriggers(
     config: { api_path: "/agentmemory/inference/configure", http_method: "POST" },
   });
 
+  sdk.registerFunction("api::kolibri-discover", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const body = (req.body as Record<string, unknown>) || {};
+    const result = await sdk.trigger({
+      function_id: "mem::kolibri-discover",
+      payload: {
+        probeUrls: Array.isArray(body.probeUrls) ? body.probeUrls : undefined,
+      },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::kolibri-discover",
+    config: { api_path: "/agentmemory/kolibri/discover", http_method: "POST" },
+  });
+
+  sdk.registerFunction("api::kolibri-configure", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const body = (req.body as Record<string, unknown>) || {};
+    if (!body.modelId || typeof body.modelId !== "string") {
+      return { status_code: 400, body: { error: "modelId is required" } };
+    }
+    const action = typeof body.action === "string" ? body.action : "set";
+    const result = await sdk.trigger({
+      function_id: "mem::kolibri-config",
+      payload: {
+        action,
+        modelId: body.modelId,
+        config: body.config as Record<string, unknown> || { modelId: body.modelId },
+      },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::kolibri-configure",
+    config: { api_path: "/agentmemory/kolibri/configure", http_method: "POST" },
+  });
+
+  sdk.registerFunction("api::kolibri-infer", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const body = (req.body as Record<string, unknown>) || {};
+    if (!body.modelId || typeof body.modelId !== "string") {
+      return { status_code: 400, body: { error: "modelId is required" } };
+    }
+    if (!body.prompt || typeof body.prompt !== "string") {
+      return { status_code: 400, body: { error: "prompt is required" } };
+    }
+    const result = await sdk.trigger({
+      function_id: "mem::kolibri-infer",
+      payload: {
+        modelId: body.modelId,
+        prompt: body.prompt,
+        systemPrompt: typeof body.systemPrompt === "string" ? body.systemPrompt : undefined,
+        reasoningEffort: typeof body.reasoningEffort === "string" ? body.reasoningEffort : undefined,
+        maxTokens: typeof body.maxTokens === "number" ? body.maxTokens : undefined,
+        temperature: typeof body.temperature === "number" ? body.temperature : undefined,
+      },
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::kolibri-infer",
+    config: { api_path: "/agentmemory/kolibri/infer", http_method: "POST" },
+  });
+
+  sdk.registerFunction("api::kolibri-status", async (req: ApiRequest) => {
+    const denied = checkAuth(req, secret);
+    if (denied) return denied;
+    const result = await sdk.trigger({
+      function_id: "mem::kolibri-status",
+      payload: {},
+    });
+    return { status_code: 200, body: result };
+  });
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::kolibri-status",
+    config: { api_path: "/agentmemory/kolibri/status", http_method: "GET" },
+  });
+
 }

@@ -1,0 +1,25 @@
+﻿{
+  "superpowers-check": {
+    "enabled": true,
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "node -e \"process.stdout.write('[Superpowers active: verify skills before action]\\n')\""
+      }
+    ]
+  },
+  "auto-approve-gate": {
+    "enabled": true,
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ./scripts/auto-approve.cjs"
+          }
+        ]
+      }
+    ]
+  }
+}

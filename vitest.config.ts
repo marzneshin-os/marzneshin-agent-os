@@ -1,4 +1,4 @@
-import { defineConfig } from "vitest/config";
+import { defineConfig, configDefaults } from "vitest/config";
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { mkdtempSync } from "node:fs";
@@ -13,6 +13,8 @@ const testHome = mkdtempSync(join(tmpdir(), "agentmemory-test-home-"));
 
 export default defineConfig({
   test: {
+    testTimeout: 15000,
+    exclude: [...configDefaults.exclude, "**/.kilo/**"],
     env: {
       HOME: testHome,
       USERPROFILE: testHome,

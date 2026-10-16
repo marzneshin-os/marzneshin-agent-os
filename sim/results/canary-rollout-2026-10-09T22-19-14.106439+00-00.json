@@ -1,0 +1,38 @@
+{
+  "scenario": "canary-rollout",
+  "timestamp": "2026-10-09T22:19:14.106439+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "Canary script exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Configs directory exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Canary script supports stage",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Canary script supports rollback",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Canary script supports promote",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    }
+  ],
+  "verdict": "GREEN"
+}

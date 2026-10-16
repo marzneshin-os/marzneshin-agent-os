@@ -623,6 +623,8 @@ export interface AuditEntry {
     | "campaign_delete"
     | "fast_inference_route"
     | "fast_inference_configure"
+    | "kolibri_configure"
+    | "kolibri_infer"
     | "reflect"
     | "insight_search"
     | "skill_extract"
@@ -1075,4 +1077,93 @@ export interface FastInferenceConfig {
   timeoutMs: number;
   maxFailoverRetries: number;
   channels: FastInferenceChannel[];
+}
+
+export type MoeBackendType = "vllm" | "llamacpp" | "colibri" | "ollama" | "custom";
+export type MoeQuantFormat = "fp8" | "int4" | "int8" | "fp16" | "bf16";
+export type ReasoningEffort = "none" | "low" | "medium" | "high";
+export type MoeMemoryTier = "vram" | "ram" | "ram+nvme" | "auto";
+export type MoeCachingStrategy = "lru" | "none" | "adaptive";
+
+export interface MoeModelConfig {
+  modelId: string;
+  displayName: string;
+  backend: MoeBackendType;
+  backendUrl: string;
+  totalParams: number;
+  activeParams: number;
+  expertCount: number;
+  activeExperts: number;
+  quantFormat: MoeQuantFormat;
+  contextWindow: number;
+  maxContextWindow: number;
+  slidingWindowSize?: number;
+  slidingWindowRatio?: string;
+  reasoningEffortLevels: ReasoningEffort[];
+  cachingStrategy: MoeCachingStrategy;
+  memoryTier: MoeMemoryTier;
+  toolCallingSupport: boolean;
+  hermesFunctionCalling: boolean;
+  apiKey?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
+export interface MoeInferenceRequest {
+  modelId: string;
+  prompt: string;
+  systemPrompt?: string;
+  reasoningEffort?: ReasoningEffort;
+  maxTokens?: number;
+  temperature?: number;
+  tools?: Array<{
+    name: string;
+    description: string;
+    parameters: Record<string, unknown>;
+  }>;
+}
+
+export interface MoeInferenceResponse {
+  content: string;
+  modelId: string;
+  backend: MoeBackendType;
+  latencyMs: number;
+  activeExpertsCount: number;
+  reasoningEffort: ReasoningEffort;
+  tokensUsed?: {
+    prompt: number;
+    completion: number;
+    total: number;
+  };
+  cachedExpertHitRate?: number;
+  toolCalls?: Array<{
+    name: string;
+    arguments: Record<string, unknown>;
+  }>;
+}
+
+export interface MoeBackendStatus {
+  backendId: string;
+  type: MoeBackendType;
+  url: string;
+  healthy: boolean;
+  latencyMs: number;
+  modelsLoaded: string[];
+  memoryUsage?: {
+    vramUsedMb?: number;
+    ramUsedMb?: number;
+    nvmeCacheUsedMb?: number;
+  };
+  lastCheckedAt: string;
+  error?: string;
+}
+
+export interface MoeMetricsSummary {
+  modelId: string;
+  totalRequests: number;
+  avgLatencyMs: number;
+  totalTokens: number;
+  avgExpertHitRate: number;
+  errorCount: number;
+  lastUpdated: string;
 }

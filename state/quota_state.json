@@ -1,0 +1,8 @@
+{
+  "tier_0_available": false,
+  "tier_0_429_count": 1,
+  "last_429_ts": 1791584505.6645572,
+  "cooldown_seconds": 60,
+  "active_tier": "tier_0",
+  "verified_accounts": []
+}

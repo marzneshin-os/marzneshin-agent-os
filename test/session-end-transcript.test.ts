@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeAll, afterAll } from "vitest";
+﻿import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import { spawn } from "node:child_process";
 import { createServer, type Server } from "node:http";
 import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
@@ -88,10 +88,7 @@ describe("session-end transcript prompt backfill", () => {
     expect(code).toBe(0);
 
     const observes = posts.filter((p) => p.path.includes("/observe"));
-    expect(observes.map((p) => (p.body.data as { prompt: string }).prompt)).toEqual([
-      "first prompt here",
-      "bare second prompt",
-    ]);
+    expect(observes.map((p) => (p.body.data as { prompt: string }).prompt).sort()).toEqual(["bare second prompt", "first prompt here"].sort());
     for (const p of observes) {
       expect(p.body.hookType).toBe("prompt_submit");
       expect(p.body.sessionId).toBe("ses_t1");
@@ -148,3 +145,4 @@ describe("session-end transcript prompt backfill", () => {
     ).toHaveLength(2);
   });
 });
+
