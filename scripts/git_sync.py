@@ -55,7 +55,7 @@ def sync():
 
     # 3. Push to origin tracking branch
     print("\n[3/4] Pushing to sovereign origin repository...")
-    push_res = run_cmd("git push origin HEAD:refs/heads/feat/marzneshin-agentmemory-v0.9.29", check=False)
+    push_res = run_cmd("git push origin HEAD:refs/heads/main", check=False)
     if push_res.returncode == 0:
         print("  [OK] Successfully pushed to origin (feat/marzneshin-agentmemory-v0.9.29).")
     else:
