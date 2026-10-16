@@ -53,11 +53,11 @@ def sync():
     else:
         print("  [OK] Working tree clean.")
 
-    # 3. Push to origin
+    # 3. Push to origin tracking branch
     print("\n[3/4] Pushing to sovereign origin repository...")
-    push_res = run_cmd("git push origin HEAD", check=False)
+    push_res = run_cmd("git push origin HEAD:refs/heads/feat/marzneshin-agentmemory-v0.9.29", check=False)
     if push_res.returncode == 0:
-        print("  [OK] Successfully pushed to origin.")
+        print("  [OK] Successfully pushed to origin (feat/marzneshin-agentmemory-v0.9.29).")
     else:
         print(f"  [INFO] Push info: {push_res.stderr.strip() or push_res.stdout.strip()}")
 
