@@ -31,7 +31,10 @@
     "eval:longmemeval": "tsx eval/runner/longmemeval.ts",
     "eval:coding-life": "tsx eval/runner/coding-life.ts",
     "orchestrate": "tsx scripts/orchestrator/index.ts",
-    "consistency:check": "tsx scripts/orchestrator/consistency-guardian.ts"
+    "consistency:check": "tsx scripts/orchestrator/consistency-guardian.ts",
+    "daemon": "python scripts/autonomous_daemon.py",
+    "daemon:sync": "python scripts/autonomous_daemon.py --auto-sync",
+    "hooks:install": "python scripts/install_hooks.py"
   },
   "keywords": [
     "ai",
