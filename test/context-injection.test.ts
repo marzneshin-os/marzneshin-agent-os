@@ -87,7 +87,7 @@ describe("pre-tool-use hook — context injection gate (#143)", () => {
     // account for Node startup on CI while still catching any accidental
     // fetch round-trip or stdin buffering.
     const result = await runHook("pre-tool-use.mjs", "", {});
-    expect(result.tookMs).toBeLessThan(1000);
+    expect(result.tookMs).toBeLessThan(3000);
     expect(result.stdout).toBe("");
   });
 

@@ -41,3 +41,8 @@ When modifying core project files during orchestration, follow AGENTS.md:
 - Adding REST endpoints: update ALL 3 locations listed in AGENTS.md
 - Bumping version: update ALL 7 locations listed in AGENTS.md
 - All tests must pass before completing work (`npm test`)
+
+## Harness² Two-Level Recursive Optimization (`harness2-recursion`)
+- **Auto-Activation Triggers:** `/goal`, `/boost`, `/teamwork-preview`, or any task touching `>= 3` files.
+- **Level-1 Loop:** Execute `Propose -> Probe -> Compose` using parallel `C_inv` (Invariant) and `C_dom` (Domain) candidates.
+- **Level-2 Persistence:** Record `[Cue / Lesson / Empirical Evidence]` into `state/EXPERIENCE.md` via `python3 scripts/harness2.py record-experience` and `memwal_remember`.

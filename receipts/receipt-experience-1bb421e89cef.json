@@ -1,0 +1,8 @@
+{
+  "schema": "nexus.harness2.experience.v3",
+  "id": "1bb421e89cef",
+  "timestamp": "2026-10-23T10:19:53.998877+00:00",
+  "cue": "NEXUS x Harness\u00b2 V3 integration across marzneshin-agent-os governance and self-correct.ts",
+  "lesson": "Use non-destructive AST/marker patching with fail-closed rollback and parallel C_inv/C_dom probing.",
+  "empirical_evidence": "Verified via scripts/harness2.py status, verify-sync, and test/harness2-self-correct.test.ts"
+}

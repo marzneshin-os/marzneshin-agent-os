@@ -16,8 +16,15 @@ import json
 import subprocess
 import sys
 import os
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
+
+if __package__:
+    from .killswitch_state import read_verdict
+    from .sensitive_paths import is_sensitive_path
+else:
+    from killswitch_state import read_verdict
+    from sensitive_paths import is_sensitive_path
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -28,6 +35,23 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 
 results = []
+
+_NPM_COMMANDS = {
+    "test": ("npm", "test"),
+    "build": ("npm", "run", "build"),
+}
+
+
+def npm_command(script, windows=None):
+    """Return a fixed npm invocation for the current platform."""
+    if script not in _NPM_COMMANDS:
+        raise ValueError(f"unsupported npm script: {script}")
+    if windows is None:
+        windows = os.name == "nt"
+    argv = list(_NPM_COMMANDS[script])
+    if windows:
+        return ["cmd.exe", "/d", "/s", "/c", " ".join(argv)]
+    return argv
 
 
 def check(name, passed, detail=""):
@@ -54,40 +78,26 @@ def check_1_state_json():
         return check("STATE.json exists and valid", False, f"Invalid JSON: {e}")
 
 
-def check_2_kill_switch():
-    state_file = PROJECT_ROOT / "state" / "STATE.json"
-    ks_file = PROJECT_ROOT / "state" / "killswitch.json"
-
-    verdict = None
-    if ks_file.exists():
-        try:
-            with open(ks_file, "r") as f:
-                verdict = json.load(f).get("verdict")
-        except (json.JSONDecodeError, KeyError):
-            pass
-
-    if verdict is None and state_file.exists():
-        try:
-            with open(state_file, "r") as f:
-                verdict = json.load(f).get("kill_switch", {}).get("verdict")
-        except (json.JSONDecodeError, KeyError):
-            pass
-
-    if verdict is None:
-        return check("Kill switch == running", False, "No kill switch state found (fail-closed)")
-
+def check_2_kill_switch(killswitch_file=None, state_file=None):
+    state_dir = PROJECT_ROOT / "state"
+    verdict = read_verdict(
+        killswitch_file or state_dir / "killswitch.json",
+        state_file or state_dir / "STATE.json",
+    )
     return check("Kill switch == running", verdict == "running", f"verdict={verdict}")
 
 
 def check_3_npm_test():
     try:
+        clean_env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
         result = subprocess.run(
-            "npm test",
+            npm_command("test"),
             cwd=str(PROJECT_ROOT),
             capture_output=True,
             text=True,
             timeout=300,
-            shell=True,
+            shell=False,
+            env=clean_env,
         )
         passed = result.returncode == 0
         detail = "All tests passed" if passed else f"Exit code {result.returncode}"
@@ -103,13 +113,15 @@ def check_3_npm_test():
 
 def check_4_npm_build():
     try:
+        clean_env = {k: v for k, v in os.environ.items() if not k.startswith("GIT_")}
         result = subprocess.run(
-            "npm run build",
+            npm_command("build"),
             cwd=str(PROJECT_ROOT),
             capture_output=True,
             text=True,
             timeout=120,
-            shell=True,
+            shell=False,
+            env=clean_env,
         )
         passed = result.returncode == 0
         detail = "Build succeeded" if passed else f"Exit code {result.returncode}"
@@ -120,29 +132,53 @@ def check_4_npm_build():
         return check("npm run build passes", False, "npm not found")
 
 
-def check_5_orphaned_leases():
-    leases_dir = PROJECT_ROOT / "state" / "leases"
+def check_5_orphaned_leases(leases_dir=None, now=None):
+    leases_dir = Path(leases_dir) if leases_dir is not None else PROJECT_ROOT / "state" / "leases"
+    symlinked_paths = [leases_dir]
+    try:
+        current = leases_dir.parent
+        while current != PROJECT_ROOT and PROJECT_ROOT in current.parents:
+            symlinked_paths.append(current)
+            current = current.parent
+    except OSError:
+        return check("No orphaned leases", False, "Lease path could not be validated")
+    if any(path.is_symlink() for path in symlinked_paths):
+        return check("No orphaned leases", False, "Lease path contains a symlink (excluded)")
     if not leases_dir.exists():
         return check("No orphaned leases", True, "Leases directory not found (OK)")
 
-    now = datetime.now(timezone.utc)
-    max_age = timedelta(hours=1)
+    now = now or datetime.now(timezone.utc)
+    if now.tzinfo is None or now.utcoffset() is None:
+        return check("No orphaned leases", False, "Reference time must include a timezone")
+    malformed = []
     orphaned = []
 
-    for lease_file in leases_dir.glob("*.json"):
+    for lease_file in sorted(leases_dir.glob("*.json")):
+        if is_sensitive_path(lease_file.name) or lease_file.is_symlink():
+            malformed.append(f"{lease_file.name} (sensitive path excluded)")
+            continue
         try:
-            with open(lease_file, "r") as f:
-                data = json.load(f)
+            data = json.loads(lease_file.read_text(encoding="utf-8"))
+            if not isinstance(data, dict):
+                raise ValueError("lease must be a JSON object")
             expires = data.get("expires_at")
-            if expires:
-                exp_dt = datetime.fromisoformat(expires.replace("Z", "+00:00"))
-                if exp_dt < now:
-                    orphaned.append(lease_file.name)
-        except (json.JSONDecodeError, ValueError, KeyError):
-            orphaned.append(f"{lease_file.name} (corrupt)")
+            if not isinstance(expires, str) or not expires.strip():
+                raise ValueError("lease expiry is missing")
+            exp_dt = datetime.fromisoformat(expires.replace("Z", "+00:00"))
+            if exp_dt.tzinfo is None or exp_dt.utcoffset() is None:
+                raise ValueError("lease expiry is not timezone-aware")
+            if exp_dt <= now:
+                orphaned.append(lease_file.name)
+        except (json.JSONDecodeError, ValueError, TypeError, OSError, OverflowError):
+            malformed.append(f"{lease_file.name} (malformed)")
 
-    if orphaned:
-        return check("No orphaned leases", False, f"Orphaned: {orphaned}")
+    if orphaned or malformed:
+        details = []
+        if orphaned:
+            details.append(f"Orphaned: {orphaned}")
+        if malformed:
+            details.append(f"Malformed or excluded: {malformed}")
+        return check("No orphaned leases", False, "; ".join(details))
     return check("No orphaned leases", True, "No expired leases found")
 
 
