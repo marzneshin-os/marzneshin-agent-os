@@ -43,7 +43,7 @@ describe("resolveProject — hook project basename resolver", () => {
 
   afterAll(async () => {
     await removeTempTree(tmpRoot);
-  });
+  }, 30000);
 
   beforeEach(() => {
     delete process.env.AGENTMEMORY_PROJECT_NAME;

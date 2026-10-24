@@ -36,3 +36,8 @@ Structured experiential memory persisted across `marzneshin-agent-os` tasks usin
 - **Cue:** NEXUS x Harness² V3 integration across marzneshin-agent-os governance and self-correct.ts
 - **Lesson:** Use non-destructive AST/marker patching with fail-closed rollback and parallel C_inv/C_dom probing.
 - **Empirical Evidence:** Verified via scripts/harness2.py status, verify-sync, and test/harness2-self-correct.test.ts
+
+## Entry `d3f1c237f5f5` — 2026-10-24T10:07:52.816500+00:00
+- **Cue:** NEXUS x Harness² V3 integration across marzneshin-agent-os governance and self-correct.ts
+- **Lesson:** Use non-destructive AST/marker patching with fail-closed rollback and parallel C_inv/C_dom probing.
+- **Empirical Evidence:** Verified via scripts/harness2.py status, verify-sync, and test/harness2-self-correct.test.ts
