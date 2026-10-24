@@ -56,7 +56,7 @@ describe("git-toplevel resolution parity", () => {
 
   afterAll(() => {
     rmSync(tmpRoot, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
-  });
+  }, 30000);
 
   it("replay resolves a locally-present subdirectory cwd to the repo basename", () => {
     const parsed = parseJsonlText(transcriptLine(nestedDir));

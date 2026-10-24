@@ -90,8 +90,9 @@ function resolveWorkspaceTarget(workspaceRoot, inputPath) {
 	if (!isAbsolute(workspaceRoot) || inputPath.trim().length === 0) return { error: "workspace root and target path must be absolute/non-empty" };
 	try {
 		const root = realpathSync.native(workspaceRoot);
-		const candidate = isAbsolute(inputPath) ? resolve(inputPath) : resolve(root, inputPath);
-		if (!isWithin(root, candidate)) return { error: "target escapes the workspace root" };
+		const rawRoot = resolve(workspaceRoot);
+		const candidate = isAbsolute(inputPath) ? resolve(inputPath) : resolve(rawRoot, inputPath);
+		if (!isWithin(root, candidate) && !isWithin(rawRoot, candidate)) return { error: "target escapes the workspace root" };
 		let existingAncestor = candidate;
 		while (!existsSync(existingAncestor)) {
 			const parent = dirname(existingAncestor);

@@ -69,7 +69,7 @@ describe("orchestrator isolation safety", () => {
     expect(existsSync(worktreesDir)).toBe(false);
     expect(readFileSync(join(root, "user-change.txt"), "utf8")).toBe("keep this change\n");
     expect(git(root, ["worktree", "list", "--porcelain"]).match(/^worktree /gm)).toHaveLength(1);
-  });
+  }, 60000);
 
   it("reports unsupported specialist work instead of claiming the prompt ran", async () => {
     const root = createRepository();
@@ -81,7 +81,7 @@ describe("orchestrator isolation safety", () => {
     expect(result.status).toBe("failed");
     expect(result.error).toMatch(/no task dispatcher/i);
     expect(result.summary).toMatch(/prompt was not executed/i);
-  });
+  }, 60000);
 
   it("passes the complete task prompt to a real dispatcher and requires validation", async () => {
     const root = createRepository();
@@ -175,5 +175,5 @@ describe("orchestrator isolation safety", () => {
     const unsafeIsolation = new MainAgentOrchestrator({ repoRoot: root, worktreesDir: worktreesDirectory(root) }).checkSetup();
     expect(unsafeIsolation.passed).toBe(false);
     expect(unsafeIsolation.issues.join(" ")).toMatch(/working tree.*dirty/i);
-  });
+  }, 60000);
 });

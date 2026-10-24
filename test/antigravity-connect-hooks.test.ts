@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { execFileSync } from "node:child_process";
-import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { isAbsolute, join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -415,7 +415,7 @@ describe("workspace-local Gravitas config and path evidence", () => {
   });
 
   it("canonicalizes workspace paths, hashes existing files, and rejects traversal", () => {
-      const root = mkdtempSync(resolve(join(tmpdir(), "am-antigravity-guard-")));
+    const root = realpathSync.native(mkdtempSync(resolve(join(tmpdir(), "am-antigravity-guard-"))));
     const outside = `${root}-outside`;
     try {
       mkdirSync(join(root, "src"), { recursive: true });
