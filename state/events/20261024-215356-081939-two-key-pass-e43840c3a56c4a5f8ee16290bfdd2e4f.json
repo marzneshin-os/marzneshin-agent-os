@@ -1,0 +1,19 @@
+{
+  "event_id": "twokey-20261024215356081939-590077b2ea0a4f4197f86d992c298ae6",
+  "timestamp": "2026-10-24T21:53:56.081939+00:00",
+  "agent": "two-key-gate",
+  "type": "verification_passed",
+  "description": "Two-Key verification passed",
+  "metadata": {
+    "key1": {
+      "key": "key1_qa_gate",
+      "passed": true,
+      "exit_code": 0
+    },
+    "key2": {
+      "key": "key2_adversarial",
+      "passed": true,
+      "violations": []
+    }
+  }
+}

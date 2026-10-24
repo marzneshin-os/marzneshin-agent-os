@@ -1,0 +1,18 @@
+{
+  "name": "agentrouter-unified-mesh",
+  "description": "Verify Unified AgentRouter Multi-Harness Model Mesh (Phase 5 - ADR-033)",
+  "checks": [
+    { "name": "AgentRouter gateway script exists", "type": "file_exists", "target": "scripts/agentrouter_gateway.py", "expected": true },
+    { "name": "AgentRouter sync CLI exists", "type": "file_exists", "target": "scripts/agentrouter_sync_cli.py", "expected": true },
+    { "name": "AgentRouter stdio MCP server exists", "type": "file_exists", "target": "scripts/mcp_agentrouter.py", "expected": true },
+    { "name": "Quota doctor script exists", "type": "file_exists", "target": "scripts/quota_doctor.py", "expected": true },
+    { "name": "Fast inference provider has scrubAgentRouterPayload", "type": "contains", "target": "src/providers/fast-inference.ts", "value": "scrubAgentRouterPayload", "expected": true },
+    { "name": "AgentRouter gateway defines gpt-6.1sol", "type": "contains", "target": "scripts/agentrouter_gateway.py", "value": "gpt-6.1sol", "expected": true },
+    { "name": "AgentRouter gateway defines gpt-6-astra", "type": "contains", "target": "scripts/agentrouter_gateway.py", "value": "gpt-6-astra", "expected": true },
+    { "name": "AgentRouter gateway has sanitize_sse_lines", "type": "contains", "target": "scripts/agentrouter_gateway.py", "value": "sanitize_sse_lines", "expected": true },
+    { "name": "AgentRouter sync CLI supports harnesses", "type": "contains", "target": "scripts/agentrouter_sync_cli.py", "value": "HARNESS_TARGETS", "expected": true },
+    { "name": "AgentRouter MCP server exposes status tool", "type": "contains", "target": "scripts/mcp_agentrouter.py", "value": "agentrouter_status", "expected": true },
+    { "name": "Quota doctor has check_astra_window", "type": "contains", "target": "scripts/quota_doctor.py", "value": "check_astra_window", "expected": true },
+    { "name": "Root MCP config registers agentrouter-mesh", "type": "contains", "target": ".mcp.json", "value": "agentrouter-mesh", "expected": true }
+  ]
+}

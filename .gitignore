@@ -38,4 +38,4 @@ __pycache__/
 *.pyc
 .codex-vitest-*
 state/tasks.json
-
+state/snapshots/

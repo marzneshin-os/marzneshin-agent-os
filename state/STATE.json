@@ -1,6 +1,6 @@
 {
   "version": "0.9.29",
-  "phase": "P4-kolibri-sovereign-moe",
+  "phase": "P5-agentrouter-unified-mesh",
   "kill_switch": {
     "verdict": "running",
     "updated_at": "2026-10-03T10:30:00Z",
@@ -45,13 +45,13 @@
     "token_limit": null
   },
   "receipt_chain": {
-    "count": 5,
-    "last_hash": "sha256:phase4-kolibri-sovereign-moe-2026-10-12"
+    "count": 6,
+    "last_hash": "sha256:phase5-agentrouter-unified-mesh-2026-10-24"
   },
   "last_session": {
     "agent": "gemini-3.8-flash",
-    "timestamp": "2026-10-12T19:00:00Z",
-    "receipt": "R-005",
+    "timestamp": "2026-10-24T21:45:00Z",
+    "receipt": "R-006",
     "verdict": "all_checks_green"
   },
   "created_at": "2026-10-03T10:30:00Z"

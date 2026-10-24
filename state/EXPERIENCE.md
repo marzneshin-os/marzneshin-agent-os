@@ -41,3 +41,8 @@ Structured experiential memory persisted across `marzneshin-agent-os` tasks usin
 - **Cue:** NEXUS x Harness² V3 integration across marzneshin-agent-os governance and self-correct.ts
 - **Lesson:** Use non-destructive AST/marker patching with fail-closed rollback and parallel C_inv/C_dom probing.
 - **Empirical Evidence:** Verified via scripts/harness2.py status, verify-sync, and test/harness2-self-correct.test.ts
+
+## Entry `662f8f3f54da` — 2026-10-24T21:45:21.334096+00:00
+- **Cue:** Phase 5 ADR-033 AgentRouter Unified Multi-Harness Mesh (gpt-6.1sol 24/7 unlimited stateless scrub, gpt-6-astra 03:00/15:00 BJT window, dual-protocol gateway)
+- **Lesson:** Strip stateful reasoning tokens for gpt-6.1sol to prevent cross-node Decryption Failure, strip billing_summary SSE frames, and bridge Anthropic /v1/messages to OpenAI /v1/chat/completions locally.
+- **Empirical Evidence:** Verified via test/agentrouter-mesh.test.ts, test/python/test_agentrouter_mesh.py, sim/harness.py, verify.py (7/7), and two_key_gate.py (APPROVED).

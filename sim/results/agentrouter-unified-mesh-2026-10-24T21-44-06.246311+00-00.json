@@ -1,0 +1,80 @@
+{
+  "scenario": "agentrouter-unified-mesh",
+  "timestamp": "2026-10-24T21:44:06.246311+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "AgentRouter gateway script exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "AgentRouter sync CLI exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "AgentRouter stdio MCP server exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Quota doctor script exists",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Fast inference provider has scrubAgentRouterPayload",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "AgentRouter gateway defines gpt-6.1sol",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "AgentRouter gateway defines gpt-6-astra",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "AgentRouter gateway has sanitize_sse_lines",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "AgentRouter sync CLI supports harnesses",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "AgentRouter MCP server exposes status tool",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Quota doctor has check_astra_window",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "check": "Root MCP config registers agentrouter-mesh",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    }
+  ],
+  "verdict": "GREEN"
+}

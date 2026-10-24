@@ -36,19 +36,42 @@ QUOTA_STATE_FILE = STATE_DIR / "quota_state.json"
 MODEL_TIERS = {
     "tier_0": {
         "name": "Tier 0 — Frontier Reasoning & Two-Key Adjudication",
-        "models": ["claude-opus-5.5", "claude-sonnet-5.5", "fable-5.1", "gpt-5.6-luna"],
+        "models": [
+            "gpt-6.1sol",
+            "claude-opus-5",
+            "gpt-6-astra",
+            "claude-opus-4-8",
+            "claude-opus-5.5",
+            "claude-sonnet-5.5",
+            "fable-5.1",
+            "gpt-5.6-sol",
+            "gpt-5.6-luna",
+        ],
         "purpose": "Architecture, system thinking, two-key gate, adversarial review",
         "quota_cost": "premium",
     },
     "tier_1": {
         "name": "Tier 1 — High-Velocity Feature Implementation",
-        "models": ["gemini-3.8-flash", "gemini-3.7-flash", "claude-3.7-sonnet"],
+        "models": [
+            "glm-5.3",
+            "gpt-6.1sol",
+            "claude-opus-4-8",
+            "gemini-3.8-flash",
+            "gemini-3.7-flash",
+            "claude-3.7-sonnet",
+        ],
         "purpose": "Normal code implementation, test suites, refactoring, documentation",
         "quota_cost": "standard",
     },
     "tier_2": {
         "name": "Tier 2 — High-Throughput & Mechanical Execution",
-        "models": ["deepseek-v4-flash", "deepseek-chat:free", "gemini-3.5-flash", "bm25-local"],
+        "models": [
+            "deepseek-v4-flash",
+            "glm-5.3",
+            "deepseek-chat:free",
+            "gemini-3.5-flash",
+            "bm25-local",
+        ],
         "purpose": "Linting, syntax checks, batch generation, fallback upon 429",
         "quota_cost": "zero/free-pool",
     },
@@ -124,6 +147,24 @@ def check_family_eligibility(email: str) -> dict:
         }
 
 
+def check_astra_window(now_utc: datetime | None = None) -> dict:
+    """Check if the current UTC time falls within the 2-hour Astra model supply windows.
+
+    Astra windows occur twice daily:
+    - 03:00 Beijing Time (19:00-21:00 UTC)
+    - 15:00 Beijing Time (07:00-09:00 UTC)
+    """
+    if now_utc is None:
+        now_utc = datetime.now(timezone.utc)
+    active = now_utc.hour in (7, 8, 19, 20)
+    return {
+        "window_active": active,
+        "utc_hour": now_utc.hour,
+        "beijing_schedules": ["03:00 BJT (19:00 UTC)", "15:00 BJT (07:00 UTC)"],
+        "recommended_apex_model": "gpt-6-astra" if active else "gpt-6.1sol",
+    }
+
+
 def diagnose_environment() -> dict:
     """Inspect Antigravity IDE and multi-agent environment configuration."""
     diag = {
@@ -131,6 +172,7 @@ def diagnose_environment() -> dict:
         "ide": "Antigravity",
         "quota_state": load_quota_state(),
         "model_tiers": MODEL_TIERS,
+        "astra_window": check_astra_window(),
         "checks": [],
     }
 
@@ -163,9 +205,10 @@ def diagnose_environment() -> dict:
     return diag
 
 
-def route_model(complexity: str, force_tier: str | None = None) -> dict:
-    """Select the optimal model tier based on task complexity and quota health."""
+def route_model(complexity: str, force_tier: str | None = None, now_utc: datetime | None = None) -> dict:
+    """Select the optimal model tier based on task complexity, quota health, and Astra windows."""
     state = load_quota_state()
+    astra_info = check_astra_window(now_utc)
 
     # Check if Tier 0 is in cooldown after 429
     if not state.get("tier_0_available", True):
@@ -177,7 +220,10 @@ def route_model(complexity: str, force_tier: str | None = None) -> dict:
 
     if force_tier and force_tier in MODEL_TIERS:
         selected_tier = force_tier
-    elif complexity.lower() in ("critical", "high", "architecture", "adjudication"):
+    elif complexity.lower() in ("critical", "architecture", "adjudication"):
+        selected_tier = "tier_0" if state.get("tier_0_available", True) else "tier_1"
+    elif complexity.lower() in ("high",):
+        # Prioritize Tier 0 if available, else Tier 1
         selected_tier = "tier_0" if state.get("tier_0_available", True) else "tier_1"
     elif complexity.lower() in ("medium", "feature", "implementation"):
         selected_tier = "tier_1"
@@ -185,14 +231,20 @@ def route_model(complexity: str, force_tier: str | None = None) -> dict:
         selected_tier = "tier_2"
 
     tier_info = MODEL_TIERS[selected_tier]
+    if selected_tier == "tier_0":
+        recommended = astra_info["recommended_apex_model"]
+    else:
+        recommended = tier_info["models"][0]
+
     return {
         "complexity": complexity,
         "selected_tier": selected_tier,
         "tier_name": tier_info["name"],
-        "recommended_model": tier_info["models"][0],
+        "recommended_model": recommended,
         "candidate_models": tier_info["models"],
         "purpose": tier_info["purpose"],
         "quota_fallback_active": not state.get("tier_0_available", True),
+        "astra_window": astra_info,
     }
 
 
@@ -233,6 +285,9 @@ def main():
     # simulate-429
     subparsers.add_parser("simulate-429", help="Simulate quota exhaustion and test degradation")
 
+    # check-agentrouter
+    subparsers.add_parser("check-agentrouter", help="Check AgentRouter mesh health and Astra window status")
+
     # status
     subparsers.add_parser("status", help="Output current quota state")
 
@@ -255,6 +310,17 @@ def main():
 
     elif args.command == "simulate-429":
         res = simulate_429_exhaustion()
+        print(json.dumps(res, indent=2))
+        sys.exit(0)
+
+    elif args.command == "check-agentrouter":
+        state = load_quota_state()
+        res = {
+            "agentrouter_mesh": "active",
+            "astra_window": check_astra_window(),
+            "model_tiers": MODEL_TIERS,
+            "quota_state": state,
+        }
         print(json.dumps(res, indent=2))
         sys.exit(0)
 

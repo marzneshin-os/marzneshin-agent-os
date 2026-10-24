@@ -83,7 +83,7 @@ export function hydrateProcessEnvFromFile(): void {
   }
 }
 
-function detectProvider(env: Record<string, string>): ProviderConfig {
+export function detectProvider(env: Record<string, string>): ProviderConfig {
   const maxTokens = parseInt(env["MAX_TOKENS"] || "4096", 10);
 
   // OpenAI-compatible: supports OpenAI, DeepSeek, SiliconFlow, Azure, vLLM, LM Studio
@@ -153,6 +153,16 @@ function detectProvider(env: Record<string, string>): ProviderConfig {
       provider: "openrouter",
       model,
       maxTokens,
+    };
+  }
+
+  // AgentRouter: OpenAI-compatible provider
+  if (hasRealValue(env["AGENTROUTER_API_KEY"])) {
+    return {
+      provider: "openai",
+      model: env["AGENTROUTER_MODEL"] || "deepseek-v4-flash",
+      maxTokens,
+      baseURL: env["AGENTROUTER_BASE_URL"] || "https://agentrouter.org/v1",
     };
   }
 
@@ -243,6 +253,7 @@ export function detectLlmProviderKind(): "llm" | "noop" {
     hasRealValue(env["GOOGLE_API_KEY"]) ||
     hasRealValue(env["OPENROUTER_API_KEY"]) ||
     hasRealValue(env["MINIMAX_API_KEY"]) ||
+    hasRealValue(env["AGENTROUTER_API_KEY"]) ||
     (hasRealValue(env["OPENAI_API_KEY"]) &&
       env["OPENAI_API_KEY_FOR_LLM"] !== "false")
   ) {
@@ -416,6 +427,7 @@ function hasLLMProviderConfigured(env: Record<string, string | undefined>): bool
   return Boolean(
     env["ANTHROPIC_API_KEY"] ||
       openaiKeyForLlm ||
+      env["AGENTROUTER_API_KEY"] ||
       env["OPENROUTER_API_KEY"] ||
       env["GEMINI_API_KEY"] ||
       env["GOOGLE_API_KEY"] ||

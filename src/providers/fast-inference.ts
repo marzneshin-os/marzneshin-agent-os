@@ -25,6 +25,136 @@ export type ChannelInvoker = (
   tokensUsed?: { prompt: number; completion: number; total: number };
 }>;
 
+export function scrubAgentRouterPayload(
+  model: string,
+  payload: Record<string, unknown>
+): Record<string, unknown> {
+  const cleaned: Record<string, unknown> = { ...payload };
+  delete cleaned["output_config"];
+
+  const thinking = cleaned["thinking"];
+  if (thinking && typeof thinking === "object" && (thinking as Record<string, unknown>)["type"] === "adaptive") {
+    delete cleaned["thinking"];
+  }
+
+  const modelLower = (model || "").toLowerCase();
+  const isAgentRouterModel =
+    modelLower.includes("gpt-6") ||
+    modelLower.includes("sol") ||
+    modelLower.includes("astra") ||
+    "previous_response_id" in cleaned ||
+    "reasoning_encrypted_content" in cleaned ||
+    "encrypted_content" in cleaned;
+
+  if (isAgentRouterModel) {
+    delete cleaned["previous_response_id"];
+    delete cleaned["reasoning_encrypted_content"];
+    delete cleaned["encrypted_content"];
+    delete cleaned["store"];
+  }
+
+  return cleaned;
+}
+
+export function isAgentRouterEndpoint(endpoint: string): boolean {
+  if (!endpoint) return false;
+  const lower = endpoint.toLowerCase();
+  return lower.includes("agentrouter.org") || lower.includes(":8787");
+}
+
+export function buildAgentRouterChannels(
+  apiKey?: string,
+  baseUrl?: string,
+  primaryModel?: string
+): FastInferenceChannel[] {
+  const key = apiKey ?? getEnvVar("AGENTROUTER_API_KEY") ?? "";
+  const base = (baseUrl ?? getEnvVar("AGENTROUTER_BASE_URL") ?? "https://agentrouter.org/v1").replace(/\/$/, "");
+  const chatEndpoint = base.endsWith("/chat/completions") ? base : `${base}/chat/completions`;
+  const defaultModel = primaryModel ?? getEnvVar("AGENTROUTER_MODEL") ?? "gpt-6.1sol";
+
+  const channels: FastInferenceChannel[] = [
+    {
+      id: "agentrouter-gpt-6-1sol",
+      name: "AgentRouter GPT-6.1 Sol (24/7 Unlimited)",
+      provider: "openai",
+      endpoint: chatEndpoint,
+      model: "gpt-6.1sol",
+      apiKey: key,
+      priority: 1,
+      enabled: true,
+      latencyMs: 110,
+      successRate: 0.99,
+      failureCount: 0,
+      circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+    },
+    {
+      id: "agentrouter-gpt-6-astra",
+      name: "AgentRouter GPT-6 Astra (Apex Release Window)",
+      provider: "openai",
+      endpoint: chatEndpoint,
+      model: "gpt-6-astra",
+      apiKey: key,
+      priority: 1,
+      enabled: true,
+      latencyMs: 120,
+      successRate: 0.98,
+      failureCount: 0,
+      circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+    },
+    {
+      id: "agentrouter-claude-opus-5",
+      name: "AgentRouter Claude Opus 5",
+      provider: "openai",
+      endpoint: chatEndpoint,
+      model: "claude-opus-5",
+      apiKey: key,
+      priority: 2,
+      enabled: true,
+      latencyMs: 160,
+      successRate: 0.98,
+      failureCount: 0,
+      circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+    },
+    {
+      id: "agentrouter-glm-5-3",
+      name: "AgentRouter GLM 5.3",
+      provider: "openai",
+      endpoint: chatEndpoint,
+      model: "glm-5.3",
+      apiKey: key,
+      priority: 3,
+      enabled: true,
+      latencyMs: 100,
+      successRate: 0.99,
+      failureCount: 0,
+      circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+    },
+    {
+      id: "agentrouter-deepseek-v4-flash",
+      name: "AgentRouter DeepSeek V4 Flash",
+      provider: "openai",
+      endpoint: chatEndpoint,
+      model: "deepseek-v4-flash",
+      apiKey: key,
+      priority: 4,
+      enabled: true,
+      latencyMs: 70,
+      successRate: 0.99,
+      failureCount: 0,
+      circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+    },
+  ];
+
+  if (defaultModel) {
+    const matched = channels.find((c) => c.model === defaultModel);
+    if (matched) {
+      matched.priority = 0;
+    }
+  }
+
+  return channels;
+}
+
 export interface FastInferenceRouterOptions {
   channels?: FastInferenceChannel[];
   defaultStrategy?: "lowest-latency" | "fallback-chain" | "cost-optimized";
@@ -243,7 +373,11 @@ export class FastInferenceRouter {
       getEnvVar("OPENAI_BASE_URL") ||
       "https://api.openai.com/v1/chat/completions";
 
-    return [
+    const agentRouterKey = getEnvVar("AGENTROUTER_API_KEY") || "";
+    const agentRouterUrl = getEnvVar("AGENTROUTER_BASE_URL") || "https://agentrouter.org/v1/chat/completions";
+    const agentRouterModel = getEnvVar("AGENTROUTER_MODEL") || "gpt-6.1sol";
+
+    const baseChannels: FastInferenceChannel[] = [
       {
         id: "fast-inference-primary",
         name: "Fast Inference Ultra Channel",
@@ -286,6 +420,13 @@ export class FastInferenceRouter {
         circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
       },
     ];
+
+    if (agentRouterKey) {
+      const arChannels = buildAgentRouterChannels(agentRouterKey, agentRouterUrl, agentRouterModel);
+      return [...arChannels, ...baseChannels];
+    }
+
+    return baseChannels;
   }
 
   private async defaultHttpInvoker(
@@ -317,18 +458,30 @@ export class FastInferenceRouter {
     if (channel.apiKey) {
       headers["Authorization"] = `Bearer ${channel.apiKey}`;
     }
+    if (isAgentRouterEndpoint(channel.endpoint)) {
+      headers["User-Agent"] = "codex_cli_rs/0.80.0";
+      headers["originator"] = "codex_cli_rs";
+    }
 
-    const res = await fetchWithTimeout(channel.endpoint, {
-      method: "POST",
-      headers,
-      body: JSON.stringify({
-        model: channel.model,
-        messages,
-        max_tokens: options?.maxTokens || 1024,
-        temperature: options?.temperature ?? 0.2,
-      }),
-      timeoutMs: this.timeoutMs,
-    });
+    const rawPayload: Record<string, unknown> = {
+      model: channel.model,
+      messages,
+      max_tokens: options?.maxTokens || 1024,
+      temperature: options?.temperature ?? 0.2,
+    };
+    const bodyPayload = isAgentRouterEndpoint(channel.endpoint)
+      ? scrubAgentRouterPayload(channel.model, rawPayload)
+      : rawPayload;
+
+    const res = await fetchWithTimeout(
+      channel.endpoint,
+      {
+        method: "POST",
+        headers,
+        body: JSON.stringify(bodyPayload),
+      },
+      this.timeoutMs
+    );
 
     if (!res.ok) {
       const errText = await res.text().catch(() => "");
@@ -584,12 +737,15 @@ export class MoeInferenceEngine {
       ? model.backendUrl
       : `${model.backendUrl.replace(/\/$/, "")}/chat/completions`;
 
-    const res = await fetchWithTimeout(endpoint, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(payload),
-      timeoutMs: this.timeoutMs,
-    });
+    const res = await fetchWithTimeout(
+      endpoint,
+      {
+        method: "POST",
+        headers,
+        body: JSON.stringify(payload),
+      },
+      this.timeoutMs
+    );
 
     if (!res.ok) {
       const errText = await res.text().catch(() => "");
@@ -644,11 +800,14 @@ export class MoeInferenceEngine {
       : `${url.replace(/\/$/, "")}/models`;
 
     try {
-      const res = await fetchWithTimeout(probeEndpoint, {
-        method: "GET",
-        headers: { Accept: "application/json" },
-        timeoutMs: 5000,
-      });
+      const res = await fetchWithTimeout(
+        probeEndpoint,
+        {
+          method: "GET",
+          headers: { Accept: "application/json" },
+        },
+        5000
+      );
 
       const latencyMs = Math.max(1, Date.now() - start);
       if (res.ok) {

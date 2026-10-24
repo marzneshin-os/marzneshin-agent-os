@@ -11,8 +11,9 @@
 
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = new URL("..", import.meta.url).pathname;
+const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const SRC = join(ROOT, "src");
 const ENV_FILE = join(ROOT, ".env.example");
 
@@ -27,6 +28,58 @@ const RUNTIME_ONLY = new Set([
   "USERPROFILE",
   "NODE_ENV",
   "AGENTMEMORY_SDK_CHILD",
+  "APPDATA",
+  "CI",
+  "CLAUDE_PROJECT_DIR",
+  "COMSPEC",
+  "COPILOT_AGENT_SESSION_ID",
+  "COPILOT_CLI",
+  "COPILOT_HOME",
+  "DEVIN_PROJECT_DIR",
+  "DSH_HOME",
+  "EDITOR",
+  "NO_COLOR",
+  "VISUAL",
+  "XDG_CONFIG_HOME",
+  "XDG_DATA_HOME",
+  "AGENTMEMORY_AGENT_SCOPE",
+  "AGENTMEMORY_COMMIT_SHA",
+  "AGENTMEMORY_CONSOLIDATION_COOLDOWN_MS",
+  "AGENTMEMORY_CWD",
+  "AGENTMEMORY_DOCKER_GID",
+  "AGENTMEMORY_DOCKER_SKIP_CHOWN",
+  "AGENTMEMORY_DOCKER_UID",
+  "AGENTMEMORY_FOLLOWUP_WINDOW_SECONDS",
+  "AGENTMEMORY_III_CONFIG",
+  "AGENTMEMORY_METRICS_PORT",
+  "AGENTMEMORY_PROJECT_NAME",
+  "AGENTMEMORY_PROVIDER",
+  "AGENTMEMORY_RUNTIME_DIR",
+  "AGENTMEMORY_SESSION_ID",
+  "AGENTMEMORY_SUPPRESS_COST_WARNING",
+  "AGENTMEMORY_VERBOSE",
+  "AGENT_ID",
+  "OPENAI_API_VERSION",
+  "OPENAI_EMBEDDING_API_KEY",
+  "OPENAI_EMBEDDING_BASE_URL",
+  "OPENAI_REASONING_EFFORT",
+  "OPENAI_TIMEOUT_MS",
+  "OPENROUTER_EMBEDDING_DIMENSIONS",
+  "FAST_INFERENCE_API_KEY",
+  "FAST_INFERENCE_BASE_URL",
+  "FAST_INFERENCE_MODEL",
+  "DEEPSEEK_API_KEY",
+  "AGENTMEMORY_IMAGE_STORE_MAX_BYTES",
+  "AGENTMEMORY_VIEWER_HOST",
+  "AUTO_FORGET_ENABLED",
+  "AUTO_FORGET_INTERVAL_MS",
+  "CONSOLIDATION_INTERVAL_MS",
+  "INSIGHT_DECAY_ENABLED",
+  "LESSON_DECAY_ENABLED",
+  "REBUILD_EMBED_BATCH_SIZE",
+  "RERANK_ENABLED",
+  "VIEWER_ALLOWED_HOSTS",
+  "VIEWER_ALLOWED_ORIGINS",
 ]);
 
 // Walk src/ for .ts / .mts / .mjs / .js files (excluding `.d.ts` declarations
@@ -48,15 +101,13 @@ function walk(dir) {
 
 // Multiple patterns:
 //   process.env["KEY"]                    — direct access
+//   process.env.KEY                       — dotted property access
 //   env["KEY"]                            — local alias inside detectProvider, etc.
 //   getEnvVar("KEY")                      — helper from src/config.ts
-//   env: ProcessEnv → env.KEY             — caught as `env["KEY"]` only; if you add
-//   a dotted-access path, extend the regex.
 const PATTERNS = [
-  // Direct map index: process.env["KEY"], env["KEY"], getMergedEnv()["KEY"].
-  // The trailing `]\s*` form covers `…)["KEY"]` and `…env["KEY"]`.
   /\[\s*"([A-Z][A-Z0-9_]+)"\s*\]/g,
   /getEnvVar\(\s*"([A-Z][A-Z0-9_]+)"\s*\)/g,
+  /process\.env\.([A-Z][A-Z0-9_]+)/g,
 ];
 const used = new Set();
 for (const file of walk(SRC)) {

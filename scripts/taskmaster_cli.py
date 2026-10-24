@@ -20,9 +20,29 @@ if str(WORKSPACE_ROOT) not in sys.path:
 if str(WORKSPACE_ROOT / "scripts") not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT / "scripts"))
 
-from lib import clock
-from lib.atomic import write_text_atomic
-from lib.paths import state_dir
+try:
+    from lib import clock
+    from lib.atomic import write_text_atomic
+    from lib.paths import state_dir
+except (ImportError, AttributeError):
+    from datetime import datetime, timezone
+    class _ClockMock:
+        @staticmethod
+        def iso() -> str:
+            return datetime.now(timezone.utc).isoformat()
+    clock = _ClockMock()
+
+    def state_dir() -> Path:
+        p = WORKSPACE_ROOT / "state"
+        p.mkdir(parents=True, exist_ok=True)
+        return p
+
+    def write_text_atomic(path: Path, content: str) -> None:
+        target_path = Path(path)
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = target_path.with_suffix(target_path.suffix + ".tmp")
+        tmp.write_text(content, encoding="utf-8")
+        tmp.replace(target_path)
 
 TASKS_FILE = state_dir() / "tasks.json"
 
