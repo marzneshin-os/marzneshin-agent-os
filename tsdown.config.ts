@@ -19,7 +19,7 @@ const hookEntries = [
 
 const shared = {
   format: ["esm"] as const,
-  target: "node20" as const,
+  target: "node22" as const,
   // Keep these as node_modules imports (deps.neverBundle). We never import
   // onnxruntime-{node,web} or sharp directly; they come in transitively
   // through @huggingface/transformers, which is lazy-loaded from
