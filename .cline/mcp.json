@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "agentmemory": {
+      "command": "node",
+      "args": ["dist/mcp-standalone.js"],
+      "env": {
+        "AGENTMEMORY_URL": "http://localhost:3111",
+        "AGENTMEMORY_TOOLS": "all"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

@@ -43,18 +43,23 @@ Anything not on this list that a contributor wants to pursue is welcome — open
 
 ## Q3 2026 — Breadth (July – September)
 
-### Planned
-- [ ] **Additional maintainer onboarding** — at least one Maintainer from a different organization added via the process in `GOVERNANCE.md`. This is a prerequisite for advancing past the foundation's Growth Stage.
-- [ ] **Slack / Discord connector** — third source in the connector family.
-- [ ] **OpenSSF Scorecard** — enroll, reach a Silver-equivalent score. Badged in the README.
-- [ ] **Hermes integration hardening** — reach parity with the OpenClaw plugin surface (session lifecycle + tool-use hooks).
-- [ ] **Knowledge graph query language** — small DSL on top of `/agentmemory/graph` for multi-hop questions.
-- [ ] **First conference talk** — submit to KubeCon / LlamaCon / similar.
+### Retrospective (reviewed 2026-10-17)
+
+Q3 ended on September 30. This status is based on repository evidence; activity not represented in the repository is marked unverified.
+
+- [ ] **Additional maintainer onboarding** — not complete; `MAINTAINERS.md` still lists one active maintainer. Carry forward.
+- [ ] **Slack / Discord connector** — no connector is present under `integrations/`. Carry forward.
+- [ ] **OpenSSF Scorecard** — no Scorecard workflow or configuration is present under `.github/`. Carry forward.
+- [x] **Hermes integration hardening** — `integrations/hermes/` contains a six-hook memory provider covering prefetch, turn sync, session end, pre-compression, memory writes, and system prompt context.
+- [ ] **Knowledge graph query language** — the `/agentmemory/graph/query` REST endpoint exists, but no multi-hop query DSL is present. Carry forward.
+- [ ] **First conference talk** — not verifiable from repository records; defer status until confirmed.
 
 ### Candidate
 - Cross-agent shared memory namespace. Currently each agent installs its own instance. This would let a Claude Code session and a Cursor session recall each other's observations via a shared mesh node.
 
 ## Q4 2026 — Trust (October – December)
+
+Status reviewed 2026-10-17: SSO, audit export, RBAC, performance SLOs, and the external security audit remain future Q4 work; their checkboxes stay open.
 
 ### Planned
 - [ ] **SSO gateway** — accept OIDC in front of the REST surface for team deployments.

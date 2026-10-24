@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach, afterEach, vi } from "vitest";
 import { execFileSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, realpathSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, realpathSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, dirname, join } from "node:path";
 import { resolveProject } from "../src/hooks/_project.js";
@@ -9,6 +9,22 @@ import { resolveProject } from "../src/hooks/_project.js";
 // into forks, worktrees and arbitrary paths — so the git-toplevel assertions run against
 // a throwaway repo whose name we control instead of against process.cwd().
 const REPO_NAME = "amem-fixture-repo";
+
+async function removeTempTree(path: string): Promise<void> {
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 10; attempt++) {
+    try {
+      rmSync(path, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
+      if (!existsSync(path)) return;
+    } catch (error) {
+      lastError = error;
+    }
+    await new Promise((resolve) => setTimeout(resolve, 100));
+  }
+  if (existsSync(path)) {
+    throw lastError ?? new Error(`Failed to remove temporary directory ${path}`);
+  }
+}
 
 describe("resolveProject — hook project basename resolver", () => {
   const originalEnv = process.env.AGENTMEMORY_PROJECT_NAME;
@@ -25,8 +41,8 @@ describe("resolveProject — hook project basename resolver", () => {
     execFileSync("git", ["init", "--quiet"], { cwd: repoDir, stdio: "ignore" });
   });
 
-  afterAll(() => {
-    rmSync(tmpRoot, { recursive: true, force: true });
+  afterAll(async () => {
+    await removeTempTree(tmpRoot);
   });
 
   beforeEach(() => {

@@ -18,6 +18,7 @@ data/
 data-*/
 agentmemory-debug/
 .gstack/
+.agents/gravitas.local.json
 
 # Lock files — never commit (see feedback_no_lockfiles memory)
 package-lock.json
@@ -33,4 +34,8 @@ eval/data/longmemeval/
 # Local Antigravity CLI and model runner
 run-argon.ps1
 .gemini/
+__pycache__/
+*.pyc
+.codex-vitest-*
+state/tasks.json
 

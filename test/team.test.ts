@@ -1,10 +1,11 @@
-import { describe, it, expect, beforeEach, vi } from "vitest";
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
 
 vi.mock("../src/logger.js", () => ({
   logger: { info: vi.fn(), warn: vi.fn(), error: vi.fn() },
 }));
 
 import { registerTeamFunction } from "../src/functions/team.js";
+import { KV } from "../src/state/schema.js";
 import type { Memory, TeamConfig, TeamSharedItem, TeamProfile } from "../src/types.js";
 
 function mockKV() {
@@ -76,6 +77,10 @@ describe("Team Functions", () => {
     kv = mockKV();
     registerTeamFunction(sdk as never, kv as never, teamConfig);
     await kv.set("mem:memories", "mem_1", testMemory);
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
   });
 
   it("team-share stores item in team namespace", async () => {
@@ -153,5 +158,91 @@ describe("Team Functions", () => {
 
     expect(result.success).toBe(false);
     expect(result.error).toContain("not found");
+  });
+
+  it("isolated team sharing rejects observations owned by another agent", async () => {
+    vi.stubEnv("AGENTMEMORY_AGENT_SCOPE", "isolated");
+    vi.stubEnv("AGENT_ID", "agent_b");
+    await kv.set(KV.sessions, "session-a", { id: "session-a", agentId: "agent_a" });
+    await kv.set(KV.observations("session-a"), "obs-a", {
+      id: "obs-a",
+      sessionId: "session-a",
+      agentId: "agent_a",
+    });
+
+    const result = (await sdk.trigger("mem::team-share", {
+      itemId: "obs-a",
+      itemType: "observation",
+      sessionId: "session-a",
+    })) as { success: boolean; error?: string };
+
+    expect(result).toEqual({ success: false, error: "Item not found" });
+    expect(await kv.list<TeamSharedItem>(KV.teamShared("test-team"))).toHaveLength(0);
+  });
+
+  it("isolated team sharing allows the active agent's owned observation", async () => {
+    vi.stubEnv("AGENTMEMORY_AGENT_SCOPE", "isolated");
+    vi.stubEnv("AGENT_ID", "agent_b");
+    await kv.set(KV.sessions, "session-b", { id: "session-b", agentId: "agent_b" });
+    await kv.set(KV.observations("session-b"), "obs-b", {
+      id: "obs-b",
+      sessionId: "session-b",
+      agentId: "agent_b",
+    });
+
+    const result = (await sdk.trigger("mem::team-share", {
+      itemId: "obs-b",
+      itemType: "observation",
+      sessionId: "session-b",
+    })) as { success: boolean; sharedItem?: TeamSharedItem };
+
+    expect(result.success).toBe(true);
+    expect(result.sharedItem?.content).toMatchObject({ agentId: "agent_b" });
+  });
+
+  it("isolated team sharing rejects an observation stored under the wrong session", async () => {
+    vi.stubEnv("AGENTMEMORY_AGENT_SCOPE", "isolated");
+    vi.stubEnv("AGENT_ID", "agent_b");
+    await kv.set(KV.sessions, "session-b", { id: "session-b", agentId: "agent_b" });
+    await kv.set(KV.observations("session-b"), "obs-b", {
+      id: "obs-b",
+      sessionId: "session-a",
+      agentId: "agent_b",
+    });
+
+    const result = (await sdk.trigger("mem::team-share", {
+      itemId: "obs-b",
+      itemType: "observation",
+      sessionId: "session-b",
+    })) as { success: boolean; error?: string };
+
+    expect(result).toEqual({ success: false, error: "Item not found" });
+    expect(await kv.list<TeamSharedItem>(KV.teamShared("test-team"))).toHaveLength(0);
+  });
+
+  it("isolated team sharing refuses unowned memories", async () => {
+    vi.stubEnv("AGENTMEMORY_AGENT_SCOPE", "isolated");
+    vi.stubEnv("AGENT_ID", "agent_b");
+
+    const result = (await sdk.trigger("mem::team-share", {
+      itemId: "mem_1",
+      itemType: "memory",
+    })) as { success: boolean; error?: string };
+
+    expect(result).toEqual({ success: false, error: "Item not found" });
+    expect(await kv.list<TeamSharedItem>(KV.teamShared("test-team"))).toHaveLength(0);
+  });
+
+  it("isolated team sharing fails closed without an agent ID", async () => {
+    vi.stubEnv("AGENTMEMORY_AGENT_SCOPE", "isolated");
+    vi.stubEnv("AGENT_ID", " ");
+
+    const result = (await sdk.trigger("mem::team-share", {
+      itemId: "mem_1",
+      itemType: "memory",
+    })) as { success: boolean; error?: string };
+
+    expect(result.success).toBe(false);
+    expect(result.error).toContain("AGENT_ID is unset");
   });
 });

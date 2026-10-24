@@ -4,6 +4,7 @@ import { KV, generateId } from "../state/schema.js";
 import { withKeyedLock } from "../state/keyed-mutex.js";
 import type { Action, ActionEdge } from "../types.js";
 import { recordAudit } from "./audit.js";
+import { checkActionCompletion, validateActionGuardContract } from "./gravitas-guard.js";
 
 export function registerActionsFunction(sdk: ISdk, kv: StateKV): void {
   sdk.registerFunction("mem::action-create", 
@@ -18,9 +19,16 @@ export function registerActionsFunction(sdk: ISdk, kv: StateKV): void {
       sourceObservationIds?: string[];
       sourceMemoryIds?: string[];
       edges?: Array<{ type: string; targetActionId: string }>;
+      guardContract?: unknown;
     }) => {
       if (!data.title || typeof data.title !== "string") {
         return { success: false, error: "title is required" };
+      }
+      const guardValidation = data.guardContract === undefined
+        ? undefined
+        : validateActionGuardContract(data.guardContract);
+      if (guardValidation && !guardValidation.valid) {
+        return { success: false, error: guardValidation.error };
       }
 
       return withKeyedLock("mem:actions", async () => {
@@ -38,6 +46,7 @@ export function registerActionsFunction(sdk: ISdk, kv: StateKV): void {
           tags: data.tags || [],
           sourceObservationIds: data.sourceObservationIds || [],
           sourceMemoryIds: data.sourceMemoryIds || [],
+          guardContract: guardValidation?.valid ? guardValidation.contract : undefined,
           parentId: data.parentId,
         };
 
@@ -116,6 +125,16 @@ export function registerActionsFunction(sdk: ISdk, kv: StateKV): void {
         const action = await kv.get<Action>(KV.actions, data.actionId);
         if (!action) {
           return { success: false, error: "action not found" };
+        }
+        if (data.status === "done") {
+          const completion = await checkActionCompletion(kv, action);
+          if (!completion.allowed) {
+            return {
+              success: false,
+              error: "completion blocked: required fresh validator evidence is missing",
+              completion,
+            };
+          }
         }
         const before = { ...action };
 

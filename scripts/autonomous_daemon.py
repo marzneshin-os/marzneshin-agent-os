@@ -14,6 +14,11 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+if __package__:
+    from .killswitch_state import PAUSED, RUNNING, STOPPED, read_verdict
+else:
+    from killswitch_state import PAUSED, RUNNING, STOPPED, read_verdict
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 WATCH_DIRS = [
     PROJECT_ROOT / "src",
@@ -88,16 +93,15 @@ def get_file_snapshot() -> dict:
     return snapshot
 
 
+def get_killswitch_verdict(killswitch_file=None, state_file=None) -> str:
+    return read_verdict(
+        killswitch_file or STATE_DIR / "killswitch.json",
+        state_file or STATE_DIR / "STATE.json",
+    )
+
+
 def is_killswitch_active() -> bool:
-    try:
-        state_file = STATE_DIR / "STATE.json"
-        if state_file.exists():
-            data = json.loads(state_file.read_text(encoding="utf-8"))
-            if data.get("kill_switch") in ["paused", "stopped"]:
-                return True
-    except Exception:
-        pass
-    return False
+    return get_killswitch_verdict() != RUNNING
 
 
 def run_verification() -> bool:
@@ -114,18 +118,29 @@ def run_verification() -> bool:
         if passed:
             log("✅ Verification SUCCESSFUL: All 6/6 checks passed.")
         else:
-            log(f"❌ Verification FAILED with code {proc.returncode}:\n{proc.stdout}")
+            log(
+                f"❌ Verification FAILED with code {proc.returncode}:"
+                f"\nstdout:\n{proc.stdout}\nstderr:\n{proc.stderr}"
+            )
         return passed
     except Exception as e:
         log(f"❌ Verification error: {e}")
         return False
 
 
-def run_git_sync():
+def run_git_sync(push_target=None) -> bool:
+    if not push_target:
+        log("❌ Git Sync requires an explicit --push-target remote:branch.")
+        return False
     log("▶ Triggering Autonomous Git Sync (scripts/git_sync.py)...")
     try:
         proc = subprocess.run(
-            [sys.executable, str(PROJECT_ROOT / "scripts" / "git_sync.py")],
+            [
+                sys.executable,
+                str(PROJECT_ROOT / "scripts" / "git_sync.py"),
+                "--push-target",
+                push_target,
+            ],
             cwd=str(PROJECT_ROOT),
             capture_output=True,
             text=True,
@@ -133,20 +148,27 @@ def run_git_sync():
         )
         if proc.returncode == 0:
             log("✅ Git Sync SUCCESSFUL:\n" + proc.stdout.strip())
+            return True
         else:
             log(f"⚠️ Git Sync returned code {proc.returncode}:\n{proc.stderr}")
+            return False
     except Exception as e:
         log(f"❌ Git Sync error: {e}")
+        return False
 
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(
         description="Marzneshin Autonomous Always-Alive Daemon"
     )
     parser.add_argument(
         "--auto-sync",
         action="store_true",
-        help="Automatically sync and push to origin when tests pass",
+        help="Sync to --push-target when verification passes",
+    )
+    parser.add_argument(
+        "--push-target",
+        help="Explicit push target in remote:branch form (protected branches are rejected)",
     )
     parser.add_argument(
         "--poll-interval",
@@ -160,7 +182,9 @@ def main():
         default=4,
         help="Seconds of quiet time after file changes before running verification (default: 4)",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+    if args.auto_sync and not args.push_target:
+        parser.error("--push-target is required with --auto-sync")
 
     log("============================================================")
     log("  MARZNESHIN OS — AUTONOMOUS ALWAYS-ALIVE DAEMON STARTED")
@@ -171,7 +195,6 @@ def main():
     last_snapshot = get_file_snapshot()
     pending_change_time = None
     last_verified_time = None
-    last_sync_time = None
     iteration = 0
 
     status = {
@@ -189,12 +212,16 @@ def main():
             time.sleep(args.poll_interval)
             iteration += 1
 
-            # Check kill switch
-            if is_killswitch_active():
-                log("⚠️ Kill switch activated. Daemon paused.")
+            verdict = get_killswitch_verdict()
+            if verdict == STOPPED:
+                log("⚠️ Kill switch stopped the daemon.")
+                status["daemon_status"] = "stopped_by_killswitch"
+                write_daemon_status(status)
+                break
+            if verdict == PAUSED:
+                log("⚠️ Kill switch paused the daemon.")
                 status["daemon_status"] = "paused_by_killswitch"
                 write_daemon_status(status)
-                time.sleep(10)
                 continue
 
             current_snapshot = get_file_snapshot()
@@ -225,11 +252,22 @@ def main():
                 status["last_verified_at"] = datetime.now(timezone.utc).isoformat()
                 write_daemon_status(status)
 
-                if passed and args.auto_sync:
-                    run_git_sync()
-                    last_sync_time = now
-                    status["last_synced_at"] = datetime.now(timezone.utc).isoformat()
+                post_verification_verdict = get_killswitch_verdict()
+                if post_verification_verdict == STOPPED:
+                    log("⚠️ Kill switch stopped the daemon after verification.")
+                    status["daemon_status"] = "stopped_by_killswitch"
                     write_daemon_status(status)
+                    break
+                if post_verification_verdict == PAUSED:
+                    log("⚠️ Kill switch paused the daemon after verification.")
+                    status["daemon_status"] = "paused_by_killswitch"
+                    write_daemon_status(status)
+                    continue
+
+                if passed and args.auto_sync:
+                    if run_git_sync(args.push_target):
+                        status["last_synced_at"] = datetime.now(timezone.utc).isoformat()
+                        write_daemon_status(status)
 
             # Periodic heartbeat (every 60s)
             if iteration % 20 == 0:
@@ -242,7 +280,7 @@ def main():
         log("🛑 Daemon received shutdown signal (SIGINT). Exiting cleanly.")
         status["daemon_status"] = "stopped"
         write_daemon_status(status)
-        sys.exit(0)
+    return 0
 
 
 if __name__ == "__main__":

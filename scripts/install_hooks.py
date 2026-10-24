@@ -1,70 +1,82 @@
 #!/usr/bin/env python3
-"""
-Marzneshin Autonomous OS — Git Hooks Installer
-Installs Two-Key pre-commit and pre-push hooks to enforce zero regressions automatically.
-"""
+"""Install owned Git hooks that run the Two-Key verification gate."""
 from pathlib import Path
 import sys
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 HOOKS_DIR = PROJECT_ROOT / ".git" / "hooks"
+MANAGED_MARKERS = {
+    "pre-commit": {
+        "# Marzneshin Agent OS — Two-Key Pre-Commit Gate",
+        "# marzneshin-agent-os managed two-key hook:pre-commit:v1",
+    },
+    "pre-push": {
+        "# Marzneshin Agent OS — Two-Key Pre-Push Gate",
+        "# marzneshin-agent-os managed two-key hook:pre-push:v1",
+    },
+}
 
 PRE_COMMIT_SCRIPT = """#!/usr/bin/env sh
-# Marzneshin Agent OS — Two-Key Pre-Commit Gate
-echo "============================================================"
-echo "  MARZNESHIN OS — AUTONOMOUS TWO-KEY PRE-COMMIT GATE"
-echo "============================================================"
-python scripts/verify.py
+# marzneshin-agent-os managed two-key hook:pre-commit:v1
+echo "MARZNESHIN OS — TWO-KEY PRE-COMMIT GATE"
+python scripts/two_key_gate.py run
 EXIT_CODE=$?
-if [ $EXIT_CODE -ne 0 ]; then
-  echo "❌ Pre-commit validation failed (6/6 checks not met)! Commit aborted."
+if [ "$EXIT_CODE" -ne 0 ]; then
+  echo "Pre-commit Two-Key verification failed; commit aborted."
   exit 1
 fi
-echo "✅ All 6/6 checks passed. Proceeding with commit."
 exit 0
 """
 
 PRE_PUSH_SCRIPT = """#!/usr/bin/env sh
-# Marzneshin Agent OS — Two-Key Pre-Push Gate
-echo "============================================================"
-echo "  MARZNESHIN OS — AUTONOMOUS TWO-KEY PRE-PUSH GATE"
-echo "============================================================"
-python scripts/verify.py
+# marzneshin-agent-os managed two-key hook:pre-push:v1
+echo "MARZNESHIN OS — TWO-KEY PRE-PUSH GATE"
+python scripts/two_key_gate.py run
 EXIT_CODE=$?
-if [ $EXIT_CODE -ne 0 ]; then
-  echo "❌ Pre-push validation failed (6/6 checks not met)! Push aborted."
+if [ "$EXIT_CODE" -ne 0 ]; then
+  echo "Pre-push Two-Key verification failed; push aborted."
   exit 1
 fi
-echo "✅ Pre-push validation verified. Proceeding with push."
 exit 0
 """
 
 
-def install_hooks():
-    if not HOOKS_DIR.exists():
-        print(f"❌ .git/hooks directory not found at {HOOKS_DIR}")
-        sys.exit(1)
+def install_hooks(hooks_dir=HOOKS_DIR):
+    hooks_dir = Path(hooks_dir)
+    if not hooks_dir.is_dir():
+        print(f"[ERROR] Git hooks directory not found: {hooks_dir}", file=sys.stderr)
+        return 1
 
-    pre_commit_path = HOOKS_DIR / "pre-commit"
-    pre_push_path = HOOKS_DIR / "pre-push"
-
-    pre_commit_path.write_text(PRE_COMMIT_SCRIPT, encoding="utf-8")
-    pre_push_path.write_text(PRE_PUSH_SCRIPT, encoding="utf-8")
+    scripts = {
+        hooks_dir / "pre-commit": PRE_COMMIT_SCRIPT,
+        hooks_dir / "pre-push": PRE_PUSH_SCRIPT,
+    }
+    for path in scripts:
+        if not path.exists():
+            continue
+        try:
+            content = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeError) as error:
+            print(f"[ERROR] Cannot safely inspect existing hook {path}: {error}", file=sys.stderr)
+            return 1
+        if not any(marker in content for marker in MANAGED_MARKERS[path.name]):
+            print(f"[ERROR] Existing custom hook preserved: {path}", file=sys.stderr)
+            return 1
 
     try:
-        pre_commit_path.chmod(0o755)
-        pre_push_path.chmod(0o755)
-    except Exception:
-        pass
+        for path, content in scripts.items():
+            path.write_text(content, encoding="utf-8")
+            try:
+                path.chmod(0o755)
+            except OSError:
+                pass
+    except OSError as error:
+        print(f"[ERROR] Failed to install Git hooks: {error}", file=sys.stderr)
+        return 1
 
-    print("============================================================")
-    print("  MARZNESHIN OS — GIT HOOKS INSTALLED SUCCESSFULLY")
-    print("============================================================")
-    print(f"  [OK] Installed pre-commit: {pre_commit_path}")
-    print(f"  [OK] Installed pre-push:   {pre_push_path}")
-    print("  All local commits and pushes are now automatically guarded.")
-    print("============================================================")
+    print("[OK] Installed pre-commit and pre-push Two-Key gates.")
+    return 0
 
 
 if __name__ == "__main__":
-    install_hooks()
+    sys.exit(install_hooks())

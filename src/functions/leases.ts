@@ -4,6 +4,7 @@ import { KV, generateId } from "../state/schema.js";
 import { withKeyedLock } from "../state/keyed-mutex.js";
 import type { Action, Lease } from "../types.js";
 import { recordAudit } from "./audit.js";
+import { checkActionCompletion } from "./gravitas-guard.js";
 
 const DEFAULT_LEASE_TTL_MS = 10 * 60 * 1000;
 const MAX_LEASE_TTL_MS = 60 * 60 * 1000;
@@ -109,6 +110,18 @@ export function registerLeasesFunction(sdk: ISdk, kv: StateKV): void {
           return { success: false, error: "no active lease found for this agent" };
         }
 
+        const action = await kv.get<Action>(KV.actions, data.actionId);
+        if (data.result && action && action.status === "active" && action.assignedTo === data.agentId) {
+          const completion = await checkActionCompletion(kv, action);
+          if (!completion.allowed) {
+            return {
+              success: false,
+              error: "completion blocked: required fresh validator evidence is missing",
+              completion,
+            };
+          }
+        }
+
         activeLease.status = "released";
         await kv.set(KV.leases, activeLease.id, activeLease);
         await recordAudit(kv, "lease_release", "mem::lease-release", [activeLease.id], {
@@ -117,7 +130,6 @@ export function registerLeasesFunction(sdk: ISdk, kv: StateKV): void {
           status: "released",
         });
 
-        const action = await kv.get<Action>(KV.actions, data.actionId);
         if (action && action.status === "active" && action.assignedTo === data.agentId) {
           const before = { ...action };
           if (data.result) {

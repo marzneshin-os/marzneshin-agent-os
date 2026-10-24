@@ -1,0 +1,9 @@
+{
+  "customInstructions": "agentmemory is enabled. Check memory and skills before actions. Available skills are located in plugin/skills/ and .agents/skills/.",
+  "skillsPath": "plugin/skills/",
+  "agentmemory": {
+    "url": "http://localhost:3111",
+    "tools": "all",
+    "injectContext": true
+  }
+}

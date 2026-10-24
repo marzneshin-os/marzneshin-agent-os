@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
-import { mkdtempSync, mkdirSync, rmSync } from "node:fs";
+import { mkdtempSync, mkdirSync, realpathSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
@@ -55,7 +55,7 @@ describe("git-toplevel resolution parity", () => {
   });
 
   afterAll(() => {
-    rmSync(tmpRoot, { recursive: true, force: true });
+    rmSync(tmpRoot, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 });
   });
 
   it("replay resolves a locally-present subdirectory cwd to the repo basename", () => {
@@ -112,12 +112,22 @@ describe("git-toplevel resolution parity", () => {
   it("watcher falls back to the root basename outside a repository", () => {
     const plain = join(tmpRoot, "plain-dir");
     mkdirSync(plain, { recursive: true });
-    const w = new FilesystemWatcher({
-      roots: [plain],
-      baseUrl: "http://localhost:3111",
-      logger: {},
-    });
-    expect(w.project).toBe("plain-dir");
+    const priorCeiling = process.env.GIT_CEILING_DIRECTORIES;
+    process.env.GIT_CEILING_DIRECTORIES = realpathSync(tmpRoot);
+    try {
+      const w = new FilesystemWatcher({
+        roots: [plain],
+        baseUrl: "http://localhost:3111",
+        logger: {},
+      });
+      expect(w.project).toBe("plain-dir");
+    } finally {
+      if (priorCeiling === undefined) {
+        delete process.env.GIT_CEILING_DIRECTORIES;
+      } else {
+        process.env.GIT_CEILING_DIRECTORIES = priorCeiling;
+      }
+    }
   });
 });
 

@@ -34,6 +34,7 @@ import { recordAudit } from "./audit.js";
 import { indexRecords } from "./search.js";
 import { resetLessonIndex } from "./lessons.js";
 import { logger } from "../logger.js";
+import { getAgentId, isAgentScopeIsolated } from "../config.js";
 
 // Bounded-concurrency chunk size for the import delete/write loops. A
 // "replace" or "merge" of a large export (up to MAX_TOTAL_OBSERVATIONS,
@@ -54,24 +55,127 @@ async function runChunked<T>(
 ): Promise<void> {
   for (let i = 0; i < items.length; i += IMPORT_CHUNK_SIZE) {
     const chunk = items.slice(i, i + IMPORT_CHUNK_SIZE);
-    await Promise.all(chunk.map(fn));
+    const results = await Promise.allSettled(chunk.map(fn));
+    const failure = results.find(
+      (result): result is PromiseRejectedResult => result.status === "rejected",
+    );
+    if (failure) throw failure.reason;
+  }
+}
+
+type ReplaceScopeSnapshot = {
+  keyFor: (value: unknown) => string;
+  entries: Array<{ key: string; value: unknown }>;
+};
+
+async function snapshotReplaceScope<T>(
+  kv: StateKV,
+  snapshots: Map<string, ReplaceScopeSnapshot>,
+  scope: string,
+  keyFor: (value: T) => string,
+): Promise<T[]> {
+  const entries = snapshots.get(scope);
+  if (entries) return entries.entries.map((entry) => entry.value as T);
+  const values = await kv.list<T>(scope);
+  snapshots.set(scope, {
+    keyFor: (value) => keyFor(value as T),
+    entries: values.map((value) => ({ key: keyFor(value), value })),
+  });
+  return values;
+}
+
+async function restoreReplaceScopes(
+  kv: StateKV,
+  snapshots: Map<string, ReplaceScopeSnapshot>,
+): Promise<void> {
+  const errors: unknown[] = [];
+  for (const [scope, snapshot] of snapshots) {
+    let current: unknown[] = [];
+    try {
+      current = await kv.list(scope);
+    } catch (error) {
+      errors.push(error);
+    }
+    for (let i = 0; i < current.length; i += IMPORT_CHUNK_SIZE) {
+      const chunk = current.slice(i, i + IMPORT_CHUNK_SIZE);
+      const results = await Promise.allSettled(
+        chunk.map((value) => kv.delete(scope, snapshot.keyFor(value))),
+      );
+      for (const result of results) {
+        if (result.status === "rejected") errors.push(result.reason);
+      }
+    }
+    for (let i = 0; i < snapshot.entries.length; i += IMPORT_CHUNK_SIZE) {
+      const chunk = snapshot.entries.slice(i, i + IMPORT_CHUNK_SIZE);
+      const results = await Promise.allSettled(
+        chunk.map(({ key, value }) => kv.set(scope, key, value)),
+      );
+      for (const result of results) {
+        if (result.status === "rejected") errors.push(result.reason);
+      }
+    }
+  }
+  if (errors.length > 0) {
+    throw new AggregateError(errors, "Replacement rollback did not fully restore the prior state");
   }
 }
 
 export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
   sdk.registerFunction("mem::export", 
-    async (data?: { maxSessions?: number; offset?: number }) => {
+    async (data?: { maxSessions?: number; offset?: number; agentId?: string }) => {
+      const explicitAgentId =
+        typeof data?.agentId === "string" && data.agentId.trim().length > 0
+          ? data.agentId.trim()
+          : undefined;
+      const wildcardAgent = explicitAgentId === "*";
+      const isolated = isAgentScopeIsolated();
+      const configuredAgentId = isolated ? getAgentId() : undefined;
+      if (isolated && !wildcardAgent && !configuredAgentId) {
+        throw new Error(
+          "mem::export: AGENTMEMORY_AGENT_SCOPE=isolated is set but no " +
+            "agent ID is available. Refusing to export cross-agent rows. " +
+            "Pass agentId: '*' to opt in to a wildcard export.",
+        );
+      }
+      if (
+        isolated &&
+        !wildcardAgent &&
+        explicitAgentId !== undefined &&
+        explicitAgentId !== configuredAgentId
+      ) {
+        throw new Error(
+          "mem::export: agentId must match the configured AGENT_ID in isolated mode.",
+        );
+      }
+      const filterAgentId = wildcardAgent
+        ? undefined
+        : isolated
+          ? configuredAgentId
+          : explicitAgentId;
+      const scoped = filterAgentId !== undefined;
       const rawMax = Number(data?.maxSessions);
       const maxSessions = Number.isFinite(rawMax) && rawMax > 0 ? Math.min(Math.floor(rawMax), 1000) : undefined;
       const rawOffset = Number(data?.offset);
       const offset = Number.isFinite(rawOffset) && rawOffset >= 0 ? Math.floor(rawOffset) : 0;
 
-      const allSessions = await kv.list<Session>(KV.sessions);
+      const listedSessions = await kv.list<Session>(KV.sessions);
+      const allSessions = scoped
+        ? listedSessions.filter((session) => session.agentId === filterAgentId)
+        : listedSessions;
       const paginatedSessions = maxSessions !== undefined
         ? allSessions.slice(offset, offset + maxSessions)
         : allSessions;
-      const memories = await kv.list<Memory>(KV.memories);
-      const summaries = await kv.list<SessionSummary>(KV.summaries);
+      const listedMemories = await kv.list<Memory>(KV.memories);
+      const memories = scoped
+        ? listedMemories.filter((memory) => memory.agentId === filterAgentId)
+        : listedMemories;
+      const listedSummaries = await kv.list<SessionSummary>(KV.summaries);
+      const ownedSessionIds = scoped
+        ? new Set(allSessions.map((session) => session.id))
+        : undefined;
+      const summaries = ownedSessionIds
+        ? listedSummaries.filter((summary) => ownedSessionIds.has(summary.sessionId))
+        : listedSummaries;
 
       const observations: Record<string, CompressedObservation[]> = {};
       const obsResults = await Promise.all(
@@ -83,17 +187,22 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
         ),
       );
       for (const { sessionId, obs } of obsResults) {
-        if (obs.length > 0) {
-          observations[sessionId] = obs;
+        const ownedObservations = scoped
+          ? obs.filter((observation) => observation.agentId === filterAgentId)
+          : obs;
+        if (ownedObservations.length > 0) {
+          observations[sessionId] = ownedObservations;
         }
       }
 
       const profiles: ProjectProfile[] = [];
       const uniqueProjects = [...new Set(paginatedSessions.map((s) => s.project))];
       const profileResults = await Promise.all(
-        uniqueProjects.map((project) =>
-          kv.get<ProjectProfile>(KV.profiles, project).catch(() => null),
-        ),
+        scoped
+          ? []
+          : uniqueProjects.map((project) =>
+              kv.get<ProjectProfile>(KV.profiles, project).catch(() => null),
+            ),
       );
       for (const profile of profileResults) {
         if (profile) profiles.push(profile);
@@ -135,6 +244,13 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
         kv.list<AccessLogExport>(KV.accessLog).catch(() => []),
       ]);
 
+      const ownedMemoryIds = scoped
+        ? new Set(memories.map((memory) => memory.id))
+        : undefined;
+      const scopedAccessLogs = ownedMemoryIds
+        ? accessLogs.filter((log) => ownedMemoryIds.has(log.memoryId))
+        : accessLogs;
+
       const exportData: ExportData = {
         version: VERSION,
         exportedAt: new Date().toISOString(),
@@ -142,25 +258,25 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
         observations,
         memories,
         summaries,
-        profiles: profiles.length > 0 ? profiles : undefined,
-        graphNodes: graphNodes.length > 0 ? graphNodes : undefined,
-        graphEdges: graphEdges.length > 0 ? graphEdges : undefined,
+        profiles: !scoped && profiles.length > 0 ? profiles : undefined,
+        graphNodes: !scoped && graphNodes.length > 0 ? graphNodes : undefined,
+        graphEdges: !scoped && graphEdges.length > 0 ? graphEdges : undefined,
         semanticMemories:
-          semanticMemories.length > 0 ? semanticMemories : undefined,
+          !scoped && semanticMemories.length > 0 ? semanticMemories : undefined,
         proceduralMemories:
-          proceduralMemories.length > 0 ? proceduralMemories : undefined,
-        actions: actions.length > 0 ? actions : undefined,
-        actionEdges: actionEdges.length > 0 ? actionEdges : undefined,
-        sentinels: sentinels.length > 0 ? sentinels : undefined,
-        sketches: sketches.length > 0 ? sketches : undefined,
-        crystals: crystals.length > 0 ? crystals : undefined,
-        facets: facets.length > 0 ? facets : undefined,
-        lessons: lessons.length > 0 ? lessons : undefined,
-        insights: insights.length > 0 ? insights : undefined,
-        routines: routines.length > 0 ? routines : undefined,
-        signals: signals.length > 0 ? signals : undefined,
-        checkpoints: checkpoints.length > 0 ? checkpoints : undefined,
-        accessLogs: accessLogs.length > 0 ? accessLogs : undefined,
+          !scoped && proceduralMemories.length > 0 ? proceduralMemories : undefined,
+        actions: !scoped && actions.length > 0 ? actions : undefined,
+        actionEdges: !scoped && actionEdges.length > 0 ? actionEdges : undefined,
+        sentinels: !scoped && sentinels.length > 0 ? sentinels : undefined,
+        sketches: !scoped && sketches.length > 0 ? sketches : undefined,
+        crystals: !scoped && crystals.length > 0 ? crystals : undefined,
+        facets: !scoped && facets.length > 0 ? facets : undefined,
+        lessons: !scoped && lessons.length > 0 ? lessons : undefined,
+        insights: !scoped && insights.length > 0 ? insights : undefined,
+        routines: !scoped && routines.length > 0 ? routines : undefined,
+        signals: !scoped && signals.length > 0 ? signals : undefined,
+        checkpoints: !scoped && checkpoints.length > 0 ? checkpoints : undefined,
+        accessLogs: scopedAccessLogs.length > 0 ? scopedAccessLogs : undefined,
       };
 
       if (maxSessions !== undefined) {
@@ -294,6 +410,17 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
           error: `Too many total observations (max ${MAX_TOTAL_OBSERVATIONS})`,
         };
       }
+      if (importData.accessLogs !== undefined) {
+        if (!Array.isArray(importData.accessLogs)) {
+          return { success: false, error: "accessLogs must be an array" };
+        }
+        if (importData.accessLogs.length > MAX_ACCESS_LOGS) {
+          return {
+            success: false,
+            error: `Too many access logs (max ${MAX_ACCESS_LOGS})`,
+          };
+        }
+      }
 
       const stats = {
         sessions: 0,
@@ -303,99 +430,52 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
         skipped: 0,
       };
 
-      if (strategy === "replace") {
-        const existing = await kv.list<Session>(KV.sessions);
-        // Collect observation deletes across all sessions, then run them in
-        // one bounded pass: a runChunked nested inside a runChunked callback
-        // multiplies in-flight deletes to chunk-size squared.
-        const obsDeletes: Array<{ sessionId: string; obsId: string }> = [];
-        await runChunked(existing, async (session) => {
-          await kv.delete(KV.sessions, session.id);
-          const obs = await kv
-            .list<CompressedObservation>(KV.observations(session.id))
-            .catch(() => []);
-          for (const o of obs) {
-            obsDeletes.push({ sessionId: session.id, obsId: o.id });
-          }
-        });
-        await runChunked(obsDeletes, (d) =>
-          kv.delete(KV.observations(d.sessionId), d.obsId),
+      const replaceSnapshots =
+        strategy === "replace" ? new Map<string, ReplaceScopeSnapshot>() : undefined;
+      if (replaceSnapshots) {
+        const existingSessions = await snapshotReplaceScope(
+          kv,
+          replaceSnapshots,
+          KV.sessions,
+          (session: Session) => session.id,
         );
-        await runChunked(await kv.list<Memory>(KV.memories), (m) =>
-          kv.delete(KV.memories, m.id),
-        );
-        await runChunked(
-          await kv.list<SessionSummary>(KV.summaries),
-          (s) => kv.delete(KV.summaries, s.sessionId),
-        );
-        await runChunked(await kv.list<Action>(KV.actions).catch(() => []), (a) =>
-          kv.delete(KV.actions, a.id),
-        );
-        await runChunked(
-          await kv.list<ActionEdge>(KV.actionEdges).catch(() => []),
-          (e) => kv.delete(KV.actionEdges, e.id),
-        );
-        await runChunked(
-          await kv.list<Routine>(KV.routines).catch(() => []),
-          (r) => kv.delete(KV.routines, r.id),
-        );
-        await runChunked(
-          await kv.list<Signal>(KV.signals).catch(() => []),
-          (s) => kv.delete(KV.signals, s.id),
-        );
-        await runChunked(
-          await kv.list<Checkpoint>(KV.checkpoints).catch(() => []),
-          (c) => kv.delete(KV.checkpoints, c.id),
-        );
-        await runChunked(
-          await kv.list<Sentinel>(KV.sentinels).catch(() => []),
-          (s) => kv.delete(KV.sentinels, s.id),
-        );
-        await runChunked(
-          await kv.list<Sketch>(KV.sketches).catch(() => []),
-          (s) => kv.delete(KV.sketches, s.id),
-        );
-        await runChunked(
-          await kv.list<Crystal>(KV.crystals).catch(() => []),
-          (c) => kv.delete(KV.crystals, c.id),
-        );
-        await runChunked(
-          await kv.list<Facet>(KV.facets).catch(() => []),
-          (f) => kv.delete(KV.facets, f.id),
-        );
-        await runChunked(
-          await kv.list<Lesson>(KV.lessons).catch(() => []),
-          (l) => kv.delete(KV.lessons, l.id),
-        );
-        resetLessonIndex();
-        await runChunked(
-          await kv.list<Insight>(KV.insights).catch(() => []),
-          (i) => kv.delete(KV.insights, i.id),
-        );
-        await runChunked(
-          await kv.list<{ id: string }>(KV.graphNodes).catch(() => []),
-          (n) => kv.delete(KV.graphNodes, n.id),
-        );
-        await runChunked(
-          await kv.list<{ id: string }>(KV.graphEdges).catch(() => []),
-          (e) => kv.delete(KV.graphEdges, e.id),
-        );
-        await runChunked(
-          await kv.list<{ id: string }>(KV.semantic).catch(() => []),
-          (s) => kv.delete(KV.semantic, s.id),
-        );
-        await runChunked(
-          await kv.list<{ id: string }>(KV.procedural).catch(() => []),
-          (p) => kv.delete(KV.procedural, p.id),
-        );
-        await runChunked(
-          await kv.list<ProjectProfile>(KV.profiles).catch(() => []),
-          (profile) => kv.delete(KV.profiles, profile.project),
-        );
-        await runChunked(
-          await kv.list<AccessLogExport>(KV.accessLog).catch(() => []),
-          (a) => kv.delete(KV.accessLog, a.memoryId),
-        );
+        const observationSessionIds = new Set([
+          ...existingSessions.map((session) => session.id),
+          ...Object.keys(importData.observations),
+        ]);
+        for (const sessionId of observationSessionIds) {
+          await snapshotReplaceScope(
+            kv,
+            replaceSnapshots,
+            KV.observations(sessionId),
+            (observation: CompressedObservation) => observation.id,
+          );
+        }
+
+        const staticScopes: Array<[string, (value: unknown) => string]> = [
+          [KV.memories, (value) => (value as Memory).id],
+          [KV.summaries, (value) => (value as SessionSummary).sessionId],
+          [KV.actions, (value) => (value as Action).id],
+          [KV.actionEdges, (value) => (value as ActionEdge).id],
+          [KV.routines, (value) => (value as Routine).id],
+          [KV.signals, (value) => (value as Signal).id],
+          [KV.checkpoints, (value) => (value as Checkpoint).id],
+          [KV.sentinels, (value) => (value as Sentinel).id],
+          [KV.sketches, (value) => (value as Sketch).id],
+          [KV.crystals, (value) => (value as Crystal).id],
+          [KV.facets, (value) => (value as Facet).id],
+          [KV.lessons, (value) => (value as Lesson).id],
+          [KV.insights, (value) => (value as Insight).id],
+          [KV.graphNodes, (value) => (value as GraphNode).id],
+          [KV.graphEdges, (value) => (value as GraphEdge).id],
+          [KV.semantic, (value) => (value as SemanticMemory).id],
+          [KV.procedural, (value) => (value as ProceduralMemory).id],
+          [KV.profiles, (value) => (value as ProjectProfile).project],
+          [KV.accessLog, (value) => (value as AccessLogExport).memoryId],
+        ];
+        for (const [scope, keyFor] of staticScopes) {
+          await snapshotReplaceScope(kv, replaceSnapshots, scope, keyFor);
+        }
       }
 
       // Records actually written this run, accumulated for search
@@ -405,6 +485,14 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
       // ones the "skip" strategy declined to write.
       const indexObs: CompressedObservation[] = [];
       const indexMems: Memory[] = [];
+
+      try {
+        if (replaceSnapshots) {
+          for (const [scope, snapshot] of replaceSnapshots) {
+            await runChunked(snapshot.entries, ({ key }) => kv.delete(scope, key));
+          }
+          resetLessonIndex();
+        }
 
       await runChunked(importData.sessions, async (session) => {
         if (strategy === "skip") {
@@ -624,15 +712,6 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
         });
       }
       if (importData.accessLogs) {
-        if (!Array.isArray(importData.accessLogs)) {
-          return { success: false, error: "accessLogs must be an array" };
-        }
-        if (importData.accessLogs.length > MAX_ACCESS_LOGS) {
-          return {
-            success: false,
-            error: `Too many access logs (max ${MAX_ACCESS_LOGS})`,
-          };
-        }
         const memoryIds = new Set<string>(
           importData.memories.map((m) => m.id),
         );
@@ -650,6 +729,25 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
           }
           await kv.set(KV.accessLog, log.memoryId, log);
         });
+      }
+
+      await recordAudit(kv, "import", "mem::import", [], {
+        strategy,
+        stats,
+      });
+      } catch (error) {
+        if (replaceSnapshots) {
+          try {
+            await restoreReplaceScopes(kv, replaceSnapshots);
+            resetLessonIndex();
+          } catch (rollbackError) {
+            throw new AggregateError(
+              [error, rollbackError],
+              "Import failed and replacement rollback did not fully restore the prior state",
+            );
+          }
+        }
+        throw error;
       }
 
       // Imported rows are now in KV but invisible to search: the boot
@@ -670,10 +768,6 @@ export function registerExportImportFunction(sdk: ISdk, kv: StateKV): void {
       }
 
       logger.info("Import complete", { strategy, ...stats });
-      await recordAudit(kv, "import", "mem::import", [], {
-        strategy,
-        stats,
-      });
       return { success: true, strategy, ...stats };
     },
   );

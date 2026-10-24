@@ -1,20 +1,22 @@
 #!/usr/bin/env node
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
+import { existsSync } from "node:fs";
 import { basename } from "node:path";
 //#region src/hooks/_project.ts
 function resolveProject(cwd) {
 	const explicit = process.env["AGENTMEMORY_PROJECT_NAME"];
 	if (explicit && explicit.trim()) return explicit.trim();
 	const dir = cwd && cwd.trim() ? cwd : process.cwd();
+	if (!existsSync(dir)) return basename(dir);
 	try {
-		const top = execSync("git rev-parse --show-toplevel", {
+		const top = execFileSync("git", ["rev-parse", "--show-toplevel"], {
 			cwd: dir,
 			stdio: [
 				"ignore",
 				"pipe",
 				"ignore"
 			],
-			timeout: 500
+			timeout: 3e3
 		}).toString().trim();
 		if (top) return basename(top);
 	} catch {}

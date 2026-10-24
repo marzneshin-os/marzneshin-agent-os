@@ -7,7 +7,7 @@ import { memoryToObservation } from "../state/memory-utils.js";
 import { deleteAccessLog } from "./access-tracker.js";
 import { recordAudit } from "./audit.js";
 import { getSearchIndex, isMemoryIndexReady, vectorIndexAddGuarded, vectorIndexRemove, flushIndexSave } from "./search.js";
-import { getAgentId } from "../config.js";
+import { getAgentId, isAgentScopeIsolated } from "../config.js";
 import { logger } from "../logger.js";
 
 // Slicing by UTF-16 code unit can cut an astral character (emoji, some CJK
@@ -67,6 +67,34 @@ export function registerRememberFunction(sdk: ISdk, kv: StateKV): void {
         typeof data.project === "string" && data.project.trim().length > 0
           ? data.project.trim()
           : undefined;
+      const requestedAgentId =
+        typeof data.agentId === "string" && data.agentId.trim().length > 0
+          ? data.agentId.trim().slice(0, 128)
+          : undefined;
+      const isolated = isAgentScopeIsolated();
+      const configuredAgentId = getAgentId();
+      if (isolated && !configuredAgentId) {
+        return {
+          success: false,
+          error:
+            "mem::remember: AGENTMEMORY_AGENT_SCOPE=isolated is set but no " +
+            "agent ID is available. Refusing to write an unowned memory.",
+        };
+      }
+      if (
+        isolated &&
+        requestedAgentId !== undefined &&
+        requestedAgentId !== configuredAgentId
+      ) {
+        return {
+          success: false,
+          error:
+            "mem::remember: agentId must match the configured AGENT_ID in isolated mode.",
+        };
+      }
+      const callAgentId = isolated
+        ? configuredAgentId
+        : requestedAgentId ?? configuredAgentId;
 
       return withKeyedLock("mem:remember", async () => {
         // Candidate generation: query the BM25 index with the new content
@@ -122,6 +150,15 @@ export function registerRememberFunction(sdk: ISdk, kv: StateKV): void {
           if (project && existing.project && existing.project !== project) {
             continue;
           }
+          if (
+            isolated
+              ? existing.agentId !== configuredAgentId
+              : callAgentId &&
+                existing.agentId &&
+                existing.agentId !== callAgentId
+          ) {
+            continue;
+          }
           const similarity = jaccardSimilarity(
             lowerContent,
             existing.content.toLowerCase(),
@@ -144,11 +181,6 @@ export function registerRememberFunction(sdk: ISdk, kv: StateKV): void {
         // filter by agent. Request body wins (multi-agent runtimes
         // explicitly tagging at write time), env AGENT_ID fallback,
         // none → memory is unscoped (legacy behavior).
-        const callAgentId =
-          typeof data.agentId === "string" && data.agentId.trim().length > 0
-            ? data.agentId.trim().slice(0, 128)
-            : getAgentId();
-
         const memory: Memory = {
           id: generateId("mem"),
           createdAt: now,

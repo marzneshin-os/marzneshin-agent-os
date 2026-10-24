@@ -1,15 +1,15 @@
-﻿#!/usr/bin/env python3
-"""Autonomous Git Synchronization Engine for Marzneshin Agent OS.
-
-Implements high-integrity, zero-side-effect automated synchronization:
-1. Validates working tree state.
-2. Runs Two-Key Gate verification before any push.
-3. Synchronizes cleanly with origin (marzneshin-os/marzneshin-agent-os).
-4. Monitors upstream (rohitg00/agentmemory) for new updates.
-"""
+#!/usr/bin/env python3
+"""Safely verify and push a clean checkout to an explicit branch target."""
+import argparse
+import re
 import subprocess
 import sys
 from pathlib import Path
+
+if __package__:
+    from .killswitch_state import RUNNING, read_verdict
+else:
+    from killswitch_state import RUNNING, read_verdict
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -18,59 +18,96 @@ if hasattr(sys.stderr, "reconfigure"):
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
+_REMOTE_PATTERN = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
+_PROTECTED_BRANCHES = {"main", "master", "develop", "production"}
 
-def run_cmd(cmd, check=True):
-    res = subprocess.run(cmd, cwd=str(PROJECT_ROOT), capture_output=True, text=True, shell=True)
-    if check and res.returncode != 0:
-        print(f"[ERROR] Command failed: {cmd}\n{res.stderr.strip()}", file=sys.stderr)
-    return res
 
-def sync():
-    print("=" * 60)
-    print("  MARZNESHIN OS — AUTONOMOUS GIT SYNC ENGINE")
-    print("=" * 60)
+class SyncError(RuntimeError):
+    pass
 
-    # 1. Fetch remotes
-    print("\n[1/4] Fetching remotes (origin & upstream)...")
-    run_cmd("git fetch origin --quiet")
-    run_cmd("git fetch upstream --quiet")
-    print("  [OK] Remotes fetched cleanly.")
 
-    # 2. Check working tree status
-    print("\n[2/4] Checking working tree integrity...")
-    st = run_cmd("git status --porcelain", check=False).stdout.strip()
-    if st:
-        print("  [WARN] Working tree has uncommitted modifications.")
-        print("  Running QA verification before staging...")
-        qa = run_cmd(f"{sys.executable} scripts/verify.py", check=False)
-        if qa.returncode == 0:
-            print("  [OK] QA Gate green. Creating verified commit...")
-            run_cmd("git add .")
-            run_cmd('git commit -m "chore(auto-sync): snapshot verified autonomous progress"')
-        else:
-            print("  [FAIL] Verification failed! Refusing to auto-commit unverified changes.")
-            return 1
-    else:
-        print("  [OK] Working tree clean.")
+def parse_push_target(target):
+    if not isinstance(target, str) or target.count(":") != 1:
+        raise ValueError("push target must use remote:branch form")
+    remote, branch = target.split(":", 1)
+    if not _REMOTE_PATTERN.fullmatch(remote) or not branch or branch.startswith("-"):
+        raise ValueError("push target contains an invalid remote or branch")
+    if branch in _PROTECTED_BRANCHES:
+        raise ValueError(f"refusing to push to protected branch {branch!r}")
+    return remote, branch
 
-    # 3. Push to origin tracking branch
-    print("\n[3/4] Pushing to sovereign origin repository...")
-    push_res = run_cmd("git push origin HEAD:refs/heads/main", check=False)
-    if push_res.returncode == 0:
-        print("  [OK] Successfully pushed to origin (feat/marzneshin-agentmemory-v0.9.29).")
-    else:
-        print(f"  [INFO] Push info: {push_res.stderr.strip() or push_res.stdout.strip()}")
 
-    # 4. Check upstream status
-    print("\n[4/4] Monitoring upstream (rohitg00/agentmemory)...")
-    behind = run_cmd("git rev-list --count HEAD..upstream/main", check=False).stdout.strip()
-    ahead = run_cmd("git rev-list --count upstream/main..HEAD", check=False).stdout.strip()
-    print(f"  [METRICS] Relationship with upstream: {ahead} commits ahead, {behind} commits behind.")
-    
-    print("\n" + "=" * 60)
-    print("  SYNC COMPLETED SUCCESSFULLY (Zero Side-Effects)")
-    print("=" * 60)
+def run_cmd(command, cwd=PROJECT_ROOT, timeout=300):
+    result = subprocess.run(
+        command,
+        cwd=str(cwd),
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+        shell=False,
+    )
+    if result.returncode != 0:
+        detail = result.stderr.strip() or result.stdout.strip() or f"exit code {result.returncode}"
+        raise SyncError(f"command {command!r} failed: {detail}")
+    return result
+
+
+def require_running(root, phase):
+    state_dir = Path(root) / "state"
+    verdict = read_verdict(state_dir / "killswitch.json", state_dir / "STATE.json")
+    if verdict != RUNNING:
+        raise SyncError(f"kill switch is {verdict}; refusing sync {phase}")
+
+
+def sync(push_target=None, root=PROJECT_ROOT):
+    if not push_target:
+        print("[ERROR] An explicit --push-target remote:branch is required.", file=sys.stderr)
+        return 2
+    try:
+        remote, branch = parse_push_target(push_target)
+        print("=" * 60)
+        print("  MARZNESHIN OS — VERIFIED GIT SYNC")
+        print("=" * 60)
+
+        run_cmd(["git", "check-ref-format", "--branch", branch], cwd=root)
+        require_running(root, "before fetch")
+        print(f"[1/4] Fetching {remote}...")
+        run_cmd(["git", "fetch", remote, "--quiet"], cwd=root)
+
+        print("[2/4] Checking working tree...")
+        status = run_cmd(
+            ["git", "status", "--porcelain", "--untracked-files=all"], cwd=root
+        ).stdout.strip()
+        if status:
+            raise SyncError("working tree is dirty; commit intended changes before syncing")
+
+        print("[3/4] Running verification...")
+        run_cmd([sys.executable, str(Path(root) / "scripts" / "verify.py")], cwd=root)
+
+        print(f"[4/4] Pushing HEAD to {remote}:{branch}...")
+        require_running(root, "before push")
+        run_cmd(
+            ["git", "push", remote, f"HEAD:refs/heads/{branch}"], cwd=root
+        )
+    except (SyncError, ValueError, OSError, subprocess.TimeoutExpired) as error:
+        print(f"[ERROR] Git sync failed: {error}", file=sys.stderr)
+        return 1
+
+    print("[OK] Verification passed and the explicit push target accepted the update.")
     return 0
 
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Verify and push to an explicit safe target")
+    parser.add_argument(
+        "--push-target",
+        required=True,
+        metavar="REMOTE:BRANCH",
+        help="explicit remote and non-protected branch, for example origin:codex/task-name",
+    )
+    args = parser.parse_args(argv)
+    return sync(args.push_target)
+
+
 if __name__ == "__main__":
-    sys.exit(sync())
+    sys.exit(main())

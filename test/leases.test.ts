@@ -5,6 +5,8 @@ vi.mock("../src/logger.js", () => ({
 }));
 
 import { registerLeasesFunction } from "../src/functions/leases.js";
+import { hashGuardValue, registerGravitasGuardFunction } from "../src/functions/gravitas-guard.js";
+import { KV } from "../src/state/schema.js";
 import type { Action, Lease } from "../src/types.js";
 
 function mockKV() {
@@ -219,6 +221,94 @@ describe("Lease Functions", () => {
       expect(action!.status).toBe("done");
       expect(action!.result).toBe("completed successfully");
       expect(action!.assignedTo).toBeUndefined();
+    });
+
+    it("does not release or complete an enforce-guarded action without fresh evidence", async () => {
+      const action = await kv.get<Action>("mem:actions", "act_1");
+      action!.guardContract = {
+        enforcement: "enforce",
+        allowedPaths: ["src"],
+        acceptanceCriteria: [{ id: "tests", description: "Tests pass", validatorId: "unit" }],
+        validators: [{ id: "unit", command: "npm test" }],
+      };
+      await kv.set("mem:actions", "act_1", action);
+
+      const acquired = (await sdk.trigger("mem::lease-acquire", {
+        actionId: "act_1",
+        agentId: "agent-a",
+      })) as { success: boolean; lease: Lease };
+
+      const result = (await sdk.trigger("mem::lease-release", {
+        actionId: "act_1",
+        agentId: "agent-a",
+        result: "completed",
+      })) as { success: boolean; error?: string };
+
+      expect(result.success).toBe(false);
+      expect(result.error).toContain("completion blocked");
+      const stillActive = await kv.get<Lease>("mem:leases", acquired.lease.id);
+      expect(stillActive?.status).toBe("active");
+      const unchanged = await kv.get<Action>("mem:actions", "act_1");
+      expect(unchanged?.status).toBe("active");
+    });
+
+    it("releases and completes a guarded action with current validator evidence and idle state", async () => {
+      registerGravitasGuardFunction(sdk as never, kv as never);
+      const action = await kv.get<Action>(KV.actions, "act_1");
+      action!.guardContract = {
+        enforcement: "enforce",
+        allowedPaths: ["src"],
+        acceptanceCriteria: [{ id: "tests", description: "Tests pass", validatorId: "unit" }],
+        validators: [{ id: "unit", command: "npm test" }],
+      };
+      await kv.set(KV.actions, "act_1", action);
+
+      const workspaceRoot = "C:\\workspace\\project";
+      await sdk.trigger("mem::gravitas-guard", {
+        operation: "bind",
+        actionId: "act_1",
+        conversationId: "conversation-1",
+        workspaceRoots: [workspaceRoot],
+        enforcement: "enforce",
+      });
+      const validator = {
+        actionId: "act_1",
+        conversationId: "conversation-1",
+        workspaceRoot,
+        toolName: "run_command",
+        argumentHash: "d".repeat(64),
+        commandHash: hashGuardValue("npm test"),
+        stepIndex: 0,
+      };
+      await sdk.trigger("mem::gravitas-guard", { operation: "pre_tool", ...validator });
+      await sdk.trigger("mem::gravitas-guard", {
+        operation: "post_tool",
+        ...validator,
+        success: true,
+      });
+      await sdk.trigger("mem::gravitas-guard", {
+        operation: "stop",
+        actionId: "act_1",
+        conversationId: "conversation-1",
+        workspaceRoot,
+        fullyIdle: true,
+        executionNum: 0,
+      });
+
+      const acquired = (await sdk.trigger("mem::lease-acquire", {
+        actionId: "act_1",
+        agentId: "agent-a",
+      })) as { success: boolean; lease: Lease };
+      const released = (await sdk.trigger("mem::lease-release", {
+        actionId: "act_1",
+        agentId: "agent-a",
+        result: "completed",
+      })) as { success: boolean };
+
+      expect(acquired.success).toBe(true);
+      expect(released.success).toBe(true);
+      expect((await kv.get<Lease>(KV.leases, acquired.lease.id))?.status).toBe("released");
+      expect((await kv.get<Action>(KV.actions, "act_1"))?.status).toBe("done");
     });
 
     it("sets action to pending when no result is provided", async () => {

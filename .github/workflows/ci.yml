@@ -60,6 +60,9 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
       # Lockfiles are gitignored, so `npm ci` (which strictly re-validates a
       # committed lockfile) buys no reproducibility here — and Node 24+'s
       # stricter npm rejects rolldown's optional platform bindings that a
@@ -70,3 +73,4 @@ jobs:
       - run: npm run build
       - run: npm run skills:check
       - run: npm test
+      - run: python -m unittest discover -s test/python -p "test_*.py"

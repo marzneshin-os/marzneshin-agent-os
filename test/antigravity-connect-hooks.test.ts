@@ -1,8 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { execFileSync } from "node:child_process";
-import { copyFileSync, mkdirSync, mkdtempSync, rmSync } from "node:fs";
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { join, resolve } from "node:path";
+import { isAbsolute, join, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import {
   buildMergedAntigravityHooks,
   containsSpaces,
@@ -10,8 +11,13 @@ import {
 } from "../src/cli/connect/antigravity-hooks.js";
 import { findPluginRoot } from "../src/cli/connect/codex-hooks.js";
 import {
+  hashValue,
+  isWithinWorkspace,
+  normalizeGuardConfig,
   normalizePayload,
+  resolveWorkspaceTarget,
   responseFor,
+  stableJson,
   targetsFor,
 } from "../src/hooks/antigravity-bridge.js";
 
@@ -79,7 +85,7 @@ describe("buildMergedAntigravityHooks", () => {
         expect(entry, event).not.toHaveProperty("command");
       }
     }
-    for (const event of ["PreInvocation", "Stop"]) {
+    for (const event of ["SessionStart", "Stop"]) {
       for (const handler of handlers(bundle, event)) {
         expect(handler.type, event).toBe("command");
         expect(handler.command, event).toContain("antigravity-bridge.mjs");
@@ -108,19 +114,16 @@ describe("buildMergedAntigravityHooks", () => {
     // PostInvocation is intentionally unwired: PostToolUse already captures
     // the work, so firing both would double-record every turn.
     expect(events.sort()).toEqual(
-      ["PreInvocation", "PreToolUse", "PostToolUse", "Stop"].sort(),
+      ["SessionStart", "PreToolUse", "PostToolUse", "Stop"].sort(),
     );
   });
 
   it("scopes PreToolUse to the file tools agy actually exposes", () => {
     const matcher = eventEntries(build()["agentmemory"], "PreToolUse")[0]!
       .matcher!;
-    for (const tool of ["view_file", "edit_file", "write_to_file", "grep_search"]) {
+    for (const tool of ["view_file", "edit_file", "write_to_file", "multi_replace_file_content", "grep_search", "run_command"]) {
       expect(matcher.split("|")).toContain(tool);
     }
-    // run_command is deliberately excluded — shell invocations are captured
-    // on PostToolUse, and matching them here would fire on every command.
-    expect(matcher.split("|")).not.toContain("run_command");
   });
 
   it("keeps user-authored hook bundles untouched", () => {
@@ -207,6 +210,22 @@ describe("buildMergedAntigravityHooks", () => {
     } finally {
       rmSync(tmp, { recursive: true, force: true });
     }
+  });
+});
+
+describe("workspace Antigravity hook registration", () => {
+  it("adds the local reliability bundle while preserving existing workspace bundles", () => {
+    const hooks = JSON.parse(readFileSync(join(__dirname, "..", ".agents", "hooks.json"), "utf8").replace(/^\uFEFF/, "")) as Record<string, Record<string, unknown>>;
+    expect(hooks["superpowers-check"]).toBeDefined();
+    expect(hooks["auto-approve-gate"]).toBeDefined();
+    const guard = hooks["agentmemory-gravitas"]!;
+    expect(guard["SessionStart"]).toBeDefined();
+    expect(guard["Stop"]).toBeDefined();
+    const pre = (guard["PreToolUse"] as { matcher: string }[])[0]!.matcher;
+    expect(pre.split("|")).toContain("multi_replace_file_content");
+    expect(pre.split("|")).toContain("run_command");
+    expect(allCommands(guard)).toEqual(expect.arrayContaining(["node ./plugin/scripts/antigravity-bridge.mjs SessionStart --guard-only"]));
+    expect(allCommands(guard).every((command) => command.endsWith("--guard-only"))).toBe(true);
   });
 });
 
@@ -320,11 +339,19 @@ describe("antigravity bridge stdout contract", () => {
   // agy documents `decision` as required on PreToolUse output and treats a
   // response without it as a denial — a bare `{}` there makes the agent
   // refuse every matched tool call instead of passively capturing it.
-  it("answers PreToolUse with an explicit allow, everything else with {}", () => {
-    expect(JSON.parse(responseFor("PreToolUse"))).toEqual({
-      decision: "allow",
+  it("uses the guard result for tool decisions and enforces guarded stops", () => {
+    expect(JSON.parse(responseFor("PreToolUse", { decision: "deny", reason: "out of scope" }, "enforce"))).toEqual({
+      decision: "deny",
+      reason: "out of scope",
     });
-    for (const event of ["PreInvocation", "PostToolUse", "Stop", ""]) {
+    expect(JSON.parse(responseFor("PreToolUse", undefined, "off"))).toEqual({ decision: "allow" });
+    expect(JSON.parse(responseFor("Stop", { allowed: false, reason: "missing validator" }, "enforce", true))).toEqual({
+      decision: "continue",
+      reason: "missing validator",
+    });
+    expect(JSON.parse(responseFor("Stop", { allowed: true }, "enforce", true))).toEqual({ decision: "allow" });
+    expect(JSON.parse(responseFor("Stop", { allowed: false }, "audit", false))).toEqual({ decision: "allow" });
+    for (const event of ["SessionStart", "PostToolUse", ""]) {
       expect(JSON.parse(responseFor(event)), event).toEqual({});
     }
   });
@@ -351,18 +378,20 @@ describe("antigravity bridge stdout contract", () => {
 });
 
 describe("antigravity bridge event routing", () => {
-  it("opens the session on the first invocation only", () => {
-    expect(targetsFor("PreInvocation", { invocationNum: 1 })).toEqual([
-      "session-start.mjs",
-      "prompt-submit.mjs",
-    ]);
-    expect(targetsFor("PreInvocation", { invocationNum: 4 })).toEqual([
-      "prompt-submit.mjs",
-    ]);
+  it("binds once on SessionStart without treating model invocations as user prompts", () => {
+    expect(targetsFor("SessionStart", {})).toEqual(["session-start.mjs"]);
+    expect(targetsFor("PreInvocation", { invocationNum: 0 })).toEqual([]);
+    expect(targetsFor("PreInvocation", { invocationNum: 4 })).toEqual([]);
   });
 
-  it("treats a missing invocationNum as the first invocation", () => {
-    expect(targetsFor("PreInvocation", {})).toContain("session-start.mjs");
+  it("does not synthesize a user prompt for a missing invocation number", () => {
+    expect(targetsFor("PreInvocation", {})).toEqual([]);
+  });
+
+  it("keeps workspace-local guard hooks isolated from legacy telemetry scripts", () => {
+    for (const event of ["SessionStart", "PreToolUse", "PostToolUse", "Stop"]) {
+      expect(targetsFor(event, {}, true)).toEqual([]);
+    }
   });
 
   it("closes the session on Stop", () => {
@@ -371,5 +400,100 @@ describe("antigravity bridge event routing", () => {
 
   it("ignores PostInvocation to avoid double-capturing a turn", () => {
     expect(targetsFor("PostInvocation", {})).toEqual([]);
+  });
+});
+
+describe("workspace-local Gravitas config and path evidence", () => {
+  it("defaults to off and rejects enabled config without an action id", () => {
+    expect(normalizeGuardConfig(undefined)).toEqual({ valid: true, config: { mode: "off" } });
+    expect(normalizeGuardConfig({ mode: "enforce" })).toMatchObject({ valid: false });
+    expect(normalizeGuardConfig({ mode: "other", actionId: "a1" })).toMatchObject({ valid: false });
+    expect(normalizeGuardConfig({ mode: "audit", actionId: "a1" })).toEqual({
+      valid: true,
+      config: { mode: "audit", actionId: "a1" },
+    });
+  });
+
+  it("canonicalizes workspace paths, hashes existing files, and rejects traversal", () => {
+      const root = mkdtempSync(resolve(join(tmpdir(), "am-antigravity-guard-")));
+    const outside = `${root}-outside`;
+    try {
+      mkdirSync(join(root, "src"), { recursive: true });
+      const file = join(root, "src", "sample.ts");
+      writeFileSync(file, "export const value = 1;\n");
+      expect(isAbsolute(root)).toBe(true);
+      expect(isAbsolute(file)).toBe(true);
+      expect(resolveWorkspaceTarget(root, file)).toMatchObject({
+        relativePath: "src/sample.ts",
+        fileHash: expect.stringMatching(/^[a-f0-9]{64}$/),
+      });
+      expect(resolveWorkspaceTarget(root, join(root, "..", "outside.ts"))).toMatchObject({ error: expect.any(String) });
+      mkdirSync(outside, { recursive: true });
+      writeFileSync(join(outside, "secret.ts"), "export const outside = true;\n");
+      const link = join(root, "outside-link");
+      let linkCreated = false;
+      try {
+        symlinkSync(outside, link, process.platform === "win32" ? "junction" : "dir");
+        linkCreated = true;
+      } catch (error) {
+        const code = (error as NodeJS.ErrnoException).code;
+        if (code !== "EPERM" && code !== "EACCES") throw error;
+      }
+      expect(isWithinWorkspace(root, resolve(outside))).toBe(false);
+      if (linkCreated) {
+        expect(resolveWorkspaceTarget(root, join(link, "secret.ts"))).toMatchObject({ error: expect.any(String) });
+      }
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+      rmSync(outside, { recursive: true, force: true });
+    }
+  });
+
+  it("hashes stable canonical arguments without retaining raw values", () => {
+    expect(stableJson({ z: 1, a: { y: true, x: "v" } })).toBe('{"a":{"x":"v","y":true},"z":1}');
+    expect(hashValue({ z: 1, a: 2 })).toBe(hashValue({ a: 2, z: 1 }));
+    expect(hashValue({ command: "npm test" })).toMatch(/^[a-f0-9]{64}$/);
+  });
+});
+
+describe("active local bridge failure behavior", () => {
+  it("denies guarded writes and keeps Stop open when the local service is unavailable", () => {
+    const root = mkdtempSync(resolve(join(tmpdir(), "am-antigravity-bridge-")));
+    try {
+      mkdirSync(join(root, ".agents"), { recursive: true });
+      mkdirSync(join(root, "src"), { recursive: true });
+      writeFileSync(join(root, ".agents", "gravitas.local.json"), JSON.stringify({ mode: "enforce", actionId: "act_guarded" }));
+      const bridge = resolve(__dirname, "..", "src", "hooks", "antigravity-bridge.ts");
+      const tsxLoader = resolve(__dirname, "..", "node_modules", "tsx", "dist", "loader.mjs");
+      const run = (event: string, payload: Record<string, unknown>) =>
+        JSON.parse(execFileSync(process.execPath, ["--import", pathToFileURL(tsxLoader).href, bridge, event], {
+          cwd: root,
+          input: JSON.stringify(payload),
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            AGENTMEMORY_URL: "http://127.0.0.1:1",
+            AGENTMEMORY_SECRET: "test-secret",
+          },
+        })) as Record<string, unknown>;
+
+      const writeDecision = run("PreToolUse", {
+        conversationId: "conv_guarded",
+        workspacePaths: [root],
+        stepIdx: 0,
+        toolCall: { name: "write_to_file", args: { TargetFile: join(root, "src", "new.ts"), CodeContent: "content" } },
+      });
+      expect(writeDecision).toMatchObject({ decision: "deny" });
+
+      const stopDecision = run("Stop", {
+        conversationId: "conv_guarded",
+        workspacePaths: [root],
+        executionNum: 0,
+        fullyIdle: true,
+      });
+      expect(stopDecision).toMatchObject({ decision: "continue" });
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 });

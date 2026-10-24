@@ -46,6 +46,7 @@ export const KV = {
   teamProfile: (teamId: string) => `mem:team:${teamId}:profile`,
   audit: "mem:audit",
   actions: "mem:actions",
+  gravitasGuard: "mem:gravitas-guard",
   actionEdges: "mem:action-edges",
   leases: "mem:leases",
   routines: "mem:routines",

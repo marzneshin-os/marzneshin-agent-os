@@ -7,8 +7,8 @@ agentmemory exposes 66 MCP tools. 8 are in the lean core set (`--tools core` or 
 
 | Tool | Core | Parameters | Purpose |
 | --- | --- | --- | --- |
-| `memory_action_create` |  | `title`*: string, `description`: string, `priority`: number, `project`: string, `tags`: string, `parentId`: string, `requires`: string | Create an actionable work item with typed dependencies. Actions track what agents need to do and how work items relate to each other. |
-| `memory_action_update` |  | `actionId`*: string, `status`: string, `result`: string, `priority`: number | Update an action's status, priority, or details. Set status to 'done' to complete it and unblock dependent actions. |
+| `memory_action_create` |  | `title`*: string, `description`: string, `priority`: number, `project`: string, `tags`: string, `parentId`: string, `requires`: string, `guardContract`: object | Create an actionable work item with typed dependencies. Actions track what agents need to do and how work items relate to each other. |
+| `memory_action_update` |  | `actionId`*: string, `status`: string, `result`: string, `priority`: number, `rearmFailure`: object | Update an action's status, priority, or details. Set status to 'done' to complete it and unblock dependent actions. Use rearmFailure alone to authorize one changed retry after diagnosis. |
 | `memory_audit` |  | `operation`: string, `limit`: number | View the audit trail of memory operations. |
 | `memory_campaign_canvas` |  | `id`*: string | Retrieve the visual canvas payload (insights, strategies, creatives, and lineage links) for a campaign |
 | `memory_campaign_create` |  | `name`*: string, `description`: string, `assetRef`: string, `project`: string, `prompt`: string | Orchestrate an autonomous campaign from an asset or prompt across 3 tiers (market intelligence, strategy briefs, creative assets) with lineage tracking |
@@ -22,7 +22,7 @@ agentmemory exposes 66 MCP tools. 8 are in the lean core set (`--tools core` or 
 | `memory_consolidate` | yes | `tier`: string | Run the 4-tier memory consolidation pipeline (working -> episodic -> semantic -> procedural). |
 | `memory_crystallize` |  | `actionIds`*: string, `project`: string, `sessionId`: string | Compress completed action chains into compact crystal digests using LLM summarization. Extracts narrative, key outcomes, files affected, and lessons. |
 | `memory_diagnose` | yes | `categories`: string | Run health checks across all subsystems (actions, leases, sentinels, sketches, signals, sessions, memories, mesh). Identifies stuck, orphaned, and inconsistent state. |
-| `memory_export` |  | none | Export all memory data as JSON. |
+| `memory_export` |  | `agentId`: string | Export memory data as JSON. In isolated mode, exports the active agent's owned records; set agentId to '*' to explicitly export all agents. |
 | `memory_facet_query` |  | `matchAll`: string, `matchAny`: string, `targetType`: string | Query targets by facet tags with AND/OR logic. Find all actions tagged priority:urgent AND team:backend. |
 | `memory_facet_tag` |  | `targetId`*: string, `targetType`*: string, `dimension`*: string, `value`*: string | Attach a structured tag (dimension:value) to an action, memory, or observation for multi-dimensional categorization. |
 | `memory_fast_inference_benchmark` |  | `channelId`: string | Execute active speed benchmark across all or specified inference channels to refresh latency rankings |
@@ -69,7 +69,7 @@ agentmemory exposes 66 MCP tools. 8 are in the lean core set (`--tools core` or 
 | `memory_smart_search` | yes | `query`*: string, `expandIds`: string, `limit`: number | Hybrid semantic+keyword search with progressive disclosure. |
 | `memory_snapshot_create` |  | `message`: string | Create a git-versioned snapshot of current memory state. |
 | `memory_team_feed` |  | `limit`: number | Get recent shared items from all team members. |
-| `memory_team_share` |  | `itemId`*: string, `itemType`*: string | Share a memory or observation with team members. |
+| `memory_team_share` |  | `itemId`*: string, `itemType`*: string, `sessionId`: string, `project`: string | Share a memory or observation with team members. |
 | `memory_timeline` |  | `anchor`*: string, `project`: string, `before`: number, `after`: number | Chronological observations around an anchor point. |
 | `memory_verify` |  | `id`*: string | Verify a memory or observation by tracing its citation chain back to source observations and session context. Returns provenance information including confidence scores. |
 | `memory_vision_search` |  | `queryText`: string, `queryImageRef`: string, `queryImageBase64`: string, `topK`: number, `sessionId`: string | Cross-modal image search via CLIP embeddings. Pass queryText to find screenshots matching a description, or queryImageBase64/queryImageRef to find similar images. Requires AGENTMEMORY_IMAGE_EMBEDDINGS=true. |

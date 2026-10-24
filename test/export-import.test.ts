@@ -17,14 +17,34 @@ import type {
 
 function mockKV() {
   const store = new Map<string, Map<string, unknown>>();
+  const failedSets: Array<{ scope: string; key: string }> = [];
+  let delayedSet: { scope: string; key: string; ms: number } | undefined;
   return {
     get: async <T>(scope: string, key: string): Promise<T | null> => {
       return (store.get(scope)?.get(key) as T) ?? null;
     },
     set: async <T>(scope: string, key: string, data: T): Promise<T> => {
+      const failureIndex = failedSets.findIndex(
+        (failure) => failure.scope === scope && failure.key === key,
+      );
+      if (failureIndex !== -1) {
+        failedSets.splice(failureIndex, 1);
+        throw new Error("simulated import write failure");
+      }
+      if (delayedSet?.scope === scope && delayedSet.key === key) {
+        const { ms } = delayedSet;
+        delayedSet = undefined;
+        await new Promise((resolve) => setTimeout(resolve, ms));
+      }
       if (!store.has(scope)) store.set(scope, new Map());
       store.get(scope)!.set(key, data);
       return data;
+    },
+    failSetOnce: (scope: string, key: string) => {
+      failedSets.push({ scope, key });
+    },
+    delaySetOnce: (scope: string, key: string, ms: number) => {
+      delayedSet = { scope, key, ms };
     },
     delete: async (scope: string, key: string): Promise<void> => {
       store.get(scope)?.delete(key);
@@ -258,6 +278,84 @@ describe("Export/Import Functions", () => {
 
     const oldSession = await kv.get("mem:sessions", "ses_1");
     expect(oldSession).toBeNull();
+  });
+
+  it("restores existing canonical scopes when a replace import fails mid-write", async () => {
+    const newSession: Session = {
+      ...testSession,
+      id: "ses_replacement",
+      observationCount: 1,
+    };
+    const newObservation: CompressedObservation = {
+      ...testObs,
+      id: "obs_replacement",
+      sessionId: newSession.id,
+    };
+    const newMemory: Memory = {
+      ...testMemory,
+      id: "mem_replacement",
+    };
+    const delayedMemory: Memory = {
+      ...testMemory,
+      id: "mem_replacement_sibling",
+    };
+    const exportData: ExportData = {
+      version: "0.9.29",
+      exportedAt: new Date().toISOString(),
+      sessions: [newSession],
+      observations: { [newSession.id]: [newObservation] },
+      memories: [newMemory, delayedMemory],
+      summaries: [],
+    };
+    kv.failSetOnce("mem:memories", newMemory.id);
+    kv.delaySetOnce("mem:memories", delayedMemory.id, 30);
+
+    await expect(
+      sdk.trigger("mem::import", { exportData, strategy: "replace" }),
+    ).rejects.toThrow("simulated import write failure");
+    await new Promise((resolve) => setTimeout(resolve, 50));
+
+    expect((await kv.list<Session>("mem:sessions")).map((s) => s.id)).toEqual([
+      testSession.id,
+    ]);
+    expect(
+      (await kv.list<CompressedObservation>("mem:obs:ses_1")).map((o) => o.id),
+    ).toEqual([testObs.id]);
+    expect((await kv.list<Memory>("mem:memories")).map((m) => m.id)).toEqual([
+      testMemory.id,
+    ]);
+    expect((await kv.list<SessionSummary>("mem:summaries")).map((s) => s.sessionId)).toEqual([
+      testSummary.sessionId,
+    ]);
+    expect(await kv.get("mem:sessions", newSession.id)).toBeNull();
+  });
+
+  it("reports when a failed replace import cannot fully restore a scope", async () => {
+    const replacementMemory: Memory = {
+      ...testMemory,
+      id: "mem_failed_replacement",
+    };
+    const exportData: ExportData = {
+      version: "0.9.29",
+      exportedAt: new Date().toISOString(),
+      sessions: [],
+      observations: {},
+      memories: [replacementMemory],
+      summaries: [],
+    };
+    kv.failSetOnce("mem:memories", replacementMemory.id);
+    kv.failSetOnce("mem:memories", testMemory.id);
+
+    let failure: unknown;
+    try {
+      await sdk.trigger("mem::import", { exportData, strategy: "replace" });
+    } catch (error) {
+      failure = error;
+    }
+
+    expect(failure).toBeInstanceOf(AggregateError);
+    expect((failure as AggregateError).message).toMatch(/rollback did not fully restore/);
+    expect((failure as AggregateError).errors).toHaveLength(2);
   });
 
   it("export then import round-trip preserves data", async () => {

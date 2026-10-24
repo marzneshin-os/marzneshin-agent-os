@@ -967,6 +967,7 @@ function inspectOwnedDockerEngine(state: EngineState): DockerEngineInspection {
   }
 
   const dockerBin = whichBinary("docker");
+  vlog(`Docker lifecycle executable: ${dockerBin ?? "(not on PATH)"}`);
   if (!dockerBin) {
     return { status: "unavailable", reason: "docker is not on PATH" };
   }
@@ -1008,7 +1009,7 @@ function inspectOwnedDockerEngine(state: EngineState): DockerEngineInspection {
         }
       } else {
         discoveryFailures.push(
-          `docker compose ps failed for project ${state.projectName ?? "<default>"}`,
+          `docker compose ps failed for project ${state.projectName ?? "<default>"}${psResult.error ? `: ${psResult.error.message}` : ""}`,
         );
       }
     }
@@ -1034,7 +1035,9 @@ function inspectOwnedDockerEngine(state: EngineState): DockerEngineInspection {
         if (id) candidateIds.add(id);
       }
     } else {
-      discoveryFailures.push("docker container scan failed");
+      discoveryFailures.push(
+        `docker container scan failed${scanResult.error ? `: ${scanResult.error.message}` : ""}`,
+      );
     }
 
     const matches: DockerEngineInspection[] = [];

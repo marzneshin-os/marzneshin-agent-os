@@ -11,6 +11,7 @@ import type {
 import { getVisibleTools } from "./tools-registry.js";
 import { timingSafeCompare } from "../auth.js";
 import { getAgentId, isAgentScopeIsolated } from "../config.js";
+import { validateActionGuardContract } from "../functions/gravitas-guard.js";
 
 type McpResponse = {
   status_code: number;
@@ -38,6 +39,49 @@ function parseCsvList(value: unknown): string[] {
       .filter(Boolean);
   }
   return [];
+}
+
+function parseActionRearmFailure(
+  value: unknown,
+  actionId: string,
+): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const data = value as Record<string, unknown>;
+  const allowedKeys = [
+    "conversationId", "workspaceRoot", "callHash", "diagnosis",
+    "strategyFingerprint", "nextArgumentHash",
+  ];
+  if (Object.keys(data).some((key) => !allowedKeys.includes(key))) return null;
+  const hashPattern = /^[a-f0-9]{64}$/i;
+  if (
+    typeof data.conversationId !== "string" || !data.conversationId.trim() || data.conversationId.length > 200 ||
+    typeof data.workspaceRoot !== "string" || !data.workspaceRoot.trim() || data.workspaceRoot.length > 1000 ||
+    typeof data.callHash !== "string" || !hashPattern.test(data.callHash) ||
+    typeof data.diagnosis !== "string" || !data.diagnosis.trim() || data.diagnosis.length > 1000 ||
+    typeof data.strategyFingerprint !== "string" || !hashPattern.test(data.strategyFingerprint) ||
+    typeof data.nextArgumentHash !== "string" || !hashPattern.test(data.nextArgumentHash)
+  ) return null;
+  return {
+    operation: "rearm_failure",
+    actionId,
+    conversationId: data.conversationId,
+    workspaceRoot: data.workspaceRoot,
+    callHash: data.callHash,
+    diagnosis: data.diagnosis,
+    strategyFingerprint: data.strategyFingerprint,
+    nextArgumentHash: data.nextArgumentHash,
+  };
+}
+
+function isolatedAgentId(): string | undefined {
+  if (!isAgentScopeIsolated()) return undefined;
+  const agentId = getAgentId();
+  if (!agentId) {
+    throw new Error(
+      "MCP read: AGENTMEMORY_AGENT_SCOPE=isolated is set but AGENT_ID is unset. Refusing to read cross-agent rows.",
+    );
+  }
+  return agentId;
 }
 
 export function registerMcpEndpoints(
@@ -258,7 +302,11 @@ export function registerMcpEndpoints(
           }
 
           case "memory_sessions": {
-            const sessions = await kv.list(KV.sessions);
+            const filterAgentId = isolatedAgentId();
+            const allSessions = await kv.list<Session>(KV.sessions);
+            const sessions = filterAgentId === undefined
+              ? allSessions
+              : allSessions.filter((session) => session.agentId === filterAgentId);
             return {
               status_code: 200,
               body: {
@@ -367,7 +415,10 @@ export function registerMcpEndpoints(
           }
 
           case "memory_export": {
-            const result = await sdk.trigger({ function_id: "mem::export", payload: {} });
+            const agentId = asNonEmptyString(args.agentId);
+            const result = await sdk.trigger({ function_id: "mem::export", payload: {
+              ...(agentId !== undefined && { agentId }),
+            } });
             return {
               status_code: 200,
               body: {
@@ -512,7 +563,9 @@ export function registerMcpEndpoints(
           case "memory_team_share": {
             if (
               typeof args.itemId !== "string" ||
-              typeof args.itemType !== "string"
+              typeof args.itemType !== "string" ||
+              (args.sessionId !== undefined && typeof args.sessionId !== "string") ||
+              (args.project !== undefined && typeof args.project !== "string")
             ) {
               return {
                 status_code: 400,
@@ -523,6 +576,8 @@ export function registerMcpEndpoints(
               const result = await sdk.trigger({ function_id: "mem::team-share", payload: {
                 itemId: args.itemId,
                 itemType: args.itemType,
+                sessionId: args.sessionId,
+                project: args.project,
               } });
               return {
                 status_code: 200,
@@ -670,6 +725,14 @@ export function registerMcpEndpoints(
                 body: { error: "title is required" },
               };
             }
+            let guardContract: unknown;
+            if (Object.prototype.hasOwnProperty.call(args, "guardContract")) {
+              const validation = validateActionGuardContract(args.guardContract);
+              if (!validation.valid) {
+                return { status_code: 400, body: { error: validation.error } };
+              }
+              guardContract = validation.contract;
+            }
             const edges: Array<{ type: string; targetActionId: string }> = [];
             if (typeof args.requires === "string" && args.requires.trim()) {
               for (const id of args.requires.split(",").map((s: string) => s.trim()).filter(Boolean)) {
@@ -679,7 +742,7 @@ export function registerMcpEndpoints(
             const tags = typeof args.tags === "string" && args.tags.trim()
               ? args.tags.split(",").map((t: string) => t.trim()).filter(Boolean)
               : [];
-            const actionResult = await sdk.trigger({ function_id: "mem::action-create", payload: {
+            const payload: Record<string, unknown> = {
               title: args.title,
               description: args.description,
               priority: args.priority,
@@ -687,7 +750,9 @@ export function registerMcpEndpoints(
               tags,
               parentId: args.parentId,
               edges: edges.length > 0 ? edges : undefined,
-            } });
+            };
+            if (guardContract !== undefined) payload.guardContract = guardContract;
+            const actionResult = await sdk.trigger({ function_id: "mem::action-create", payload });
             return {
               status_code: 200,
               body: {
@@ -703,6 +768,30 @@ export function registerMcpEndpoints(
               return {
                 status_code: 400,
                 body: { error: "actionId is required" },
+              };
+            }
+            if (Object.prototype.hasOwnProperty.call(args, "rearmFailure")) {
+              if (Object.keys(args).some((key) => !["actionId", "rearmFailure"].includes(key))) {
+                return {
+                  status_code: 400,
+                  body: { error: "rearmFailure cannot be combined with action updates" },
+                };
+              }
+              const rearmPayload = parseActionRearmFailure(args.rearmFailure, args.actionId);
+              if (!rearmPayload) {
+                return { status_code: 400, body: { error: "invalid rearmFailure payload" } };
+              }
+              const rearmResult = await sdk.trigger({
+                function_id: "mem::gravitas-guard",
+                payload: rearmPayload,
+              });
+              return {
+                status_code: 200,
+                body: {
+                  content: [
+                    { type: "text", text: JSON.stringify(rearmResult, null, 2) },
+                  ],
+                },
               };
             }
             const updateResult = await sdk.trigger({ function_id: "mem::action-update", payload: {
@@ -1684,9 +1773,26 @@ export function registerMcpEndpoints(
               body: { error: "Invalid percent-encoding in URI" },
             };
           }
-          const summaries = await kv.list<SessionSummary>(KV.summaries);
+          const filterAgentId = isolatedAgentId();
+          const [summaries, sessions] = await Promise.all([
+            kv.list<SessionSummary>(KV.summaries),
+            filterAgentId === undefined
+              ? Promise.resolve([] as Session[])
+              : kv.list<Session>(KV.sessions),
+          ]);
+          const ownedSessionIds = filterAgentId === undefined
+            ? undefined
+            : new Set(
+                sessions
+                  .filter((session) => session.agentId === filterAgentId)
+                  .map((session) => session.id),
+              );
           const filtered = summaries
-            .filter((s) => s.project === projectName)
+            .filter(
+              (s) =>
+                s.project === projectName &&
+                (ownedSessionIds === undefined || ownedSessionIds.has(s.sessionId)),
+            )
             .sort(
               (a, b) =>
                 new Date(b.createdAt).getTime() -
@@ -1708,9 +1814,14 @@ export function registerMcpEndpoints(
         }
 
         if (uri === "agentmemory://memories/latest") {
+          const filterAgentId = isolatedAgentId();
           const memories = await kv.list<Memory>(KV.memories);
           const latest = memories
-            .filter((m) => m.isLatest)
+            .filter(
+              (m) =>
+                m.isLatest &&
+                (filterAgentId === undefined || m.agentId === filterAgentId),
+            )
             .sort(
               (a, b) =>
                 new Date(b.updatedAt).getTime() -
@@ -1981,7 +2092,11 @@ export function registerMcpEndpoints(
                 },
               };
             }
+            const filterAgentId = isolatedAgentId();
             const session = await kv.get<Session>(KV.sessions, sessionId);
+            if (filterAgentId !== undefined && session?.agentId !== filterAgentId) {
+              return { status_code: 404, body: { error: "Session not found" } };
+            }
             const summaries = await kv.list<SessionSummary>(KV.summaries);
             const summary = summaries.find((s) => s.sessionId === sessionId);
             return {

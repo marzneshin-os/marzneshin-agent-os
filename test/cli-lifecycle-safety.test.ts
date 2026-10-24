@@ -78,8 +78,8 @@ process.exit(0);
 `;
 
   if (process.platform === "win32") {
-    writeFileSync(join(binDir, "docker-runner.js"), script);
-    writeFileSync(join(binDir, "docker.cmd"), `@echo off\r\nnode "%~dp0docker-runner.js" %*\r\n`);
+    writeFileSync(join(binDir, "docker-runner.cjs"), script);
+    writeFileSync(join(binDir, "docker.cmd"), `@echo off\r\nnode "%~dp0docker-runner.cjs" %*\r\n`);
   } else {
     const dockerPath = join(binDir, "docker");
     writeFileSync(dockerPath, script);
@@ -98,6 +98,7 @@ function runDockerStop(
   const binDir = join(root, "bin");
   const composeFile = join(root, "docker-compose.yml");
   const dockerLog = join(root, "docker.log");
+  const pathKey = Object.keys(process.env).find((key) => key.toLowerCase() === "path") ?? "PATH";
   const privateBin = join(runtimeDir, "bin", process.platform === "win32" ? "iii.exe" : "iii");
   mkdirSync(runtimeDir, { recursive: true });
   mkdirSync(dataDir, { recursive: true });
@@ -147,7 +148,7 @@ function runDockerStop(
         HOME: home,
         USERPROFILE: home,
         CI: "1",
-        PATH: `${binDir}${delimiter}${process.env.PATH ?? ""}`,
+        [pathKey]: `${binDir}${delimiter}${process.env[pathKey] ?? ""}`,
         DOCKER_LOG: dockerLog,
         DOCKER_FAILURE_MODE: failureMode,
         DOCKER_DATA_DIR: dataDir,
@@ -295,7 +296,7 @@ describe("Docker lifecycle discovery", () => {
   it("deduplicates short and full IDs for the same inspected container", () => {
     const { result, statePath, dockerLog } = runDockerStop("duplicate");
 
-    expect(result.status).toBe(0);
+    expect(result.status, `${result.stdout}\n${result.stderr}\nDocker log:\n${dockerLog}`).toBe(0);
     expect(existsSync(statePath)).toBe(true);
     expect(dockerLog).not.toMatch(/\bcompose\b.*\brm\b/);
     expect(JSON.parse(readFileSync(statePath, "utf-8")).containerId).toBe(
@@ -309,7 +310,7 @@ describe("Docker lifecycle discovery", () => {
       "remove",
     );
 
-    expect(result.status).toBe(0);
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
     expect(existsSync(statePath)).toBe(true);
     expect(existsSync(privateBin)).toBe(false);
     expect(dockerLog).not.toMatch(/\bcompose\b.*\brm\b/);

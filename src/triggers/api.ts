@@ -13,6 +13,7 @@ import { isSlotsEnabled, isReflectEnabled } from "../functions/slots.js";
 import { renderViewerDocument } from "../viewer/document.js";
 import { getBoundViewerPort, getViewerSkipped } from "../viewer/server.js";
 import { MAX_FILES_UPPER_BOUND } from "../functions/replay.js";
+import { validateActionGuardContract } from "../functions/gravitas-guard.js";
 import { logger } from "../logger.js";
 import {
   isGraphExtractionEnabled,
@@ -135,6 +136,174 @@ function parseOptionalPositiveInt(value: unknown): number | undefined | null {
   if (parsed === undefined || parsed === null) return parsed;
   if (!Number.isInteger(parsed) || parsed < 1) return null;
   return parsed;
+}
+
+function whitelistPayload<T extends object>(
+  body: T | undefined,
+  fields: readonly (keyof T)[],
+): Partial<T> {
+  if (!body || typeof body !== "object" || Array.isArray(body)) return {};
+  const source = body as Record<string, unknown>;
+  const payload: Record<string, unknown> = {};
+  for (const field of fields) {
+    const key = String(field);
+    if (Object.prototype.hasOwnProperty.call(source, key)) {
+      payload[key] = source[key];
+    }
+  }
+  return payload as Partial<T>;
+}
+
+const GUARD_HASH_PATTERN = /^[a-f0-9]{64}$/i;
+
+type GravitasOperationName =
+  | "bind"
+  | "pre_tool"
+  | "post_tool"
+  | "rearm_failure"
+  | "stop"
+  | "completion_check";
+
+const GRAVITAS_EVENT_FIELDS: Record<GravitasOperationName, readonly string[]> = {
+  bind: ["operation", "actionId", "conversationId", "workspaceRoots", "enforcement"],
+  pre_tool: [
+    "operation", "actionId", "conversationId", "workspaceRoot", "toolName",
+    "relativePath", "currentFileHash", "argumentHash", "strategyFingerprint",
+    "commandHash", "isWrite", "runPersistent", "waitMsBeforeAsync", "stepIndex",
+  ],
+  post_tool: [
+    "operation", "actionId", "conversationId", "workspaceRoot", "toolName",
+    "relativePath", "argumentHash", "success", "strategyFingerprint",
+    "commandHash", "isFullFileRead", "fileHash", "mutated", "runPersistent",
+    "waitMsBeforeAsync", "outputHash", "statusCode", "stepIndex",
+  ],
+  rearm_failure: [
+    "operation", "actionId", "conversationId", "workspaceRoot", "callHash",
+    "diagnosis", "strategyFingerprint", "nextArgumentHash",
+  ],
+  stop: ["operation", "actionId", "conversationId", "workspaceRoot", "fullyIdle", "executionNum"],
+  completion_check: ["operation", "actionId"],
+};
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isBoundedString(value: unknown, maxLength: number): value is string {
+  return typeof value === "string" && value.trim().length > 0 && value.length <= maxLength;
+}
+
+function isGuardHash(value: unknown): value is string {
+  return typeof value === "string" && GUARD_HASH_PATTERN.test(value);
+}
+
+function validGravitasEvent(value: unknown): Record<string, unknown> | null {
+  if (!isRecord(value)) return null;
+  const operation = value.operation;
+  if (
+    operation !== "bind" && operation !== "pre_tool" && operation !== "post_tool" &&
+    operation !== "rearm_failure" && operation !== "stop" && operation !== "completion_check"
+  ) return null;
+
+  const allowedFields = GRAVITAS_EVENT_FIELDS[operation];
+  if (Object.keys(value).some((key) => !allowedFields.includes(key))) return null;
+  if (!isBoundedString(value.actionId, 200)) return null;
+
+  if (operation === "completion_check") {
+    return { operation, actionId: value.actionId };
+  }
+
+  if (!isBoundedString(value.conversationId, 200)) return null;
+  if (operation === "bind") {
+    if (
+      !Array.isArray(value.workspaceRoots) || value.workspaceRoots.length !== 1 ||
+      !isBoundedString(value.workspaceRoots[0], 1000) ||
+      (value.enforcement !== "audit" && value.enforcement !== "enforce")
+    ) return null;
+    return {
+      operation,
+      actionId: value.actionId,
+      conversationId: value.conversationId,
+      workspaceRoots: value.workspaceRoots,
+      enforcement: value.enforcement,
+    };
+  }
+
+  if (!isBoundedString(value.workspaceRoot, 1000)) return null;
+  if (operation === "stop") {
+    if (
+      typeof value.fullyIdle !== "boolean" ||
+      typeof value.executionNum !== "number" ||
+      !Number.isSafeInteger(value.executionNum) || value.executionNum < 0
+    ) return null;
+    return {
+      operation,
+      actionId: value.actionId,
+      conversationId: value.conversationId,
+      workspaceRoot: value.workspaceRoot,
+      fullyIdle: value.fullyIdle,
+      executionNum: value.executionNum,
+    };
+  }
+  if (operation === "rearm_failure") {
+    if (
+      !isGuardHash(value.callHash) || !isBoundedString(value.diagnosis, 1000) ||
+      !isGuardHash(value.strategyFingerprint) || !isGuardHash(value.nextArgumentHash)
+    ) return null;
+    return Object.fromEntries(
+      allowedFields.filter((key) => Object.prototype.hasOwnProperty.call(value, key))
+        .map((key) => [key, value[key]]),
+    );
+  }
+
+  if (
+    !isBoundedString(value.toolName, 100) || !isGuardHash(value.argumentHash) ||
+    typeof value.stepIndex !== "number" || !Number.isSafeInteger(value.stepIndex) || value.stepIndex < 0
+  ) return null;
+  if (value.relativePath !== undefined && !isBoundedString(value.relativePath, 240)) return null;
+
+  if (operation === "pre_tool") {
+    if (value.currentFileHash !== undefined && value.currentFileHash !== null && !isGuardHash(value.currentFileHash)) return null;
+    if (value.strategyFingerprint !== undefined && !isGuardHash(value.strategyFingerprint)) return null;
+    if (value.commandHash !== undefined && !isGuardHash(value.commandHash)) return null;
+    if (value.isWrite !== undefined && typeof value.isWrite !== "boolean") return null;
+    if (value.runPersistent !== undefined && typeof value.runPersistent !== "boolean") return null;
+    if (value.waitMsBeforeAsync !== undefined && typeof value.waitMsBeforeAsync !== "number") return null;
+  } else {
+    if (typeof value.success !== "boolean") return null;
+    if (value.strategyFingerprint !== undefined && !isGuardHash(value.strategyFingerprint)) return null;
+    if (value.commandHash !== undefined && !isGuardHash(value.commandHash)) return null;
+    if (value.isFullFileRead !== undefined && typeof value.isFullFileRead !== "boolean") return null;
+    if (value.fileHash !== undefined && !isGuardHash(value.fileHash)) return null;
+    if (value.mutated !== undefined && typeof value.mutated !== "boolean") return null;
+    if (value.runPersistent !== undefined && typeof value.runPersistent !== "boolean") return null;
+    if (value.waitMsBeforeAsync !== undefined && typeof value.waitMsBeforeAsync !== "number") return null;
+    if (value.outputHash !== undefined && !isGuardHash(value.outputHash)) return null;
+    if (
+      value.statusCode !== undefined &&
+      (typeof value.statusCode !== "number" || !Number.isInteger(value.statusCode) || value.statusCode < -32768 || value.statusCode > 65535)
+    ) return null;
+  }
+
+  return Object.fromEntries(
+    allowedFields.filter((key) => Object.prototype.hasOwnProperty.call(value, key))
+      .map((key) => [key, value[key]]),
+  );
+}
+
+function validRearmFailure(value: unknown): Record<string, string> | null {
+  if (!isRecord(value)) return null;
+  const fields = [
+    "conversationId", "workspaceRoot", "callHash", "diagnosis",
+    "strategyFingerprint", "nextArgumentHash",
+  ] as const;
+  if (Object.keys(value).some((key) => !fields.includes(key as typeof fields[number]))) return null;
+  if (
+    !isBoundedString(value.conversationId, 200) || !isBoundedString(value.workspaceRoot, 1000) ||
+    !isGuardHash(value.callHash) || !isBoundedString(value.diagnosis, 1000) ||
+    !isGuardHash(value.strategyFingerprint) || !isGuardHash(value.nextArgumentHash)
+  ) return null;
+  return Object.fromEntries(fields.map((key) => [key, value[key]])) as Record<string, string>;
 }
 
 export function registerApiTriggers(
@@ -931,7 +1100,7 @@ export function registerApiTriggers(
     ): Promise<Response> => {
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
-      const result = await sdk.trigger({ function_id: "mem::file-context", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::file-context", payload: whitelistPayload(req.body, ["sessionId", "files"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1073,7 +1242,7 @@ export function registerApiTriggers(
           body: { error: "sessionId or memoryId is required" },
         };
       }
-      const result = await sdk.trigger({ function_id: "mem::forget", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::forget", payload: whitelistPayload(req.body, ["sessionId", "observationIds", "memoryId"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1089,7 +1258,7 @@ export function registerApiTriggers(
     ): Promise<Response> => {
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
-      const result = await sdk.trigger({ function_id: "mem::consolidate", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::consolidate", payload: whitelistPayload(req.body, ["project", "minObservations"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1103,7 +1272,7 @@ export function registerApiTriggers(
     async (req: ApiRequest<{ project?: string }>): Promise<Response> => {
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
-      const result = await sdk.trigger({ function_id: "mem::patterns", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::patterns", payload: whitelistPayload(req.body, ["project"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1117,7 +1286,7 @@ export function registerApiTriggers(
     async (req: ApiRequest<{ project?: string }>): Promise<Response> => {
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
-      const result = await sdk.trigger({ function_id: "mem::generate-rules", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::generate-rules", payload: whitelistPayload(req.body, ["project"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1276,7 +1445,7 @@ export function registerApiTriggers(
       if (!req.body?.anchor) {
         return { status_code: 400, body: { error: "anchor is required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::timeline", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::timeline", payload: whitelistPayload(req.body, ["anchor", "project", "before", "after"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1352,7 +1521,7 @@ export function registerApiTriggers(
       if (!req.body?.exportData) {
         return { status_code: 400, body: { error: "exportData is required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::import", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::import", payload: whitelistPayload(req.body, ["exportData", "strategy"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1374,7 +1543,7 @@ export function registerApiTriggers(
           body: { error: "sourceId, targetId, and type are required" },
         };
       }
-      const result = await sdk.trigger({ function_id: "mem::relate", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::relate", payload: whitelistPayload(req.body, ["sourceId", "targetId", "type"]) });
       return { status_code: 201, body: result };
     },
   );
@@ -1400,7 +1569,7 @@ export function registerApiTriggers(
           body: { error: "memoryId and newContent are required" },
         };
       }
-      const result = await sdk.trigger({ function_id: "mem::evolve", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::evolve", payload: whitelistPayload(req.body, ["memoryId", "newContent", "newTitle"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1591,7 +1760,7 @@ export function registerApiTriggers(
         };
       }
       try {
-        const result = await sdk.trigger({ function_id: "mem::graph-extract", payload: req.body });
+        const result = await sdk.trigger({ function_id: "mem::graph-extract", payload: whitelistPayload(req.body, ["observations"]) });
         return { status_code: 200, body: result };
       } catch {
         return graphDisabledResponse();
@@ -1711,7 +1880,7 @@ export function registerApiTriggers(
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
       try {
-        const result = await sdk.trigger({ function_id: "mem::consolidate-pipeline", payload: req.body || {},
+        const result = await sdk.trigger({ function_id: "mem::consolidate-pipeline", payload: whitelistPayload(req.body, ["tier"]),
          });
         return { status_code: 200, body: result };
       } catch {
@@ -1730,7 +1899,7 @@ export function registerApiTriggers(
 
   sdk.registerFunction("api::team-share", 
     async (
-      req: ApiRequest<{ itemId: string; itemType: string; project?: string }>,
+      req: ApiRequest<{ itemId: string; itemType: string; sessionId?: string; project?: string }>,
     ): Promise<Response> => {
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
@@ -1741,7 +1910,7 @@ export function registerApiTriggers(
         };
       }
       try {
-        const result = await sdk.trigger({ function_id: "mem::team-share", payload: req.body });
+        const result = await sdk.trigger({ function_id: "mem::team-share", payload: whitelistPayload(req.body, ["itemId", "itemType", "sessionId", "project"]) });
         return { status_code: 201, body: result };
       } catch {
         return { status_code: 404, body: { error: "Team memory not enabled" } };
@@ -1822,7 +1991,7 @@ export function registerApiTriggers(
           body: { error: "memoryIds array is required" },
         };
       }
-      const result = await sdk.trigger({ function_id: "mem::governance-delete", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::governance-delete", payload: whitelistPayload(req.body, ["memoryIds", "reason"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1847,7 +2016,7 @@ export function registerApiTriggers(
     ): Promise<Response> => {
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
-      const result = await sdk.trigger({ function_id: "mem::governance-bulk", payload: req.body || {} });
+      const result = await sdk.trigger({ function_id: "mem::governance-bulk", payload: whitelistPayload(req.body, ["type", "dateFrom", "dateTo", "qualityBelow", "dryRun"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -1883,7 +2052,7 @@ export function registerApiTriggers(
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
       try {
-        const result = await sdk.trigger({ function_id: "mem::snapshot-create", payload: req.body || {},
+        const result = await sdk.trigger({ function_id: "mem::snapshot-create", payload: whitelistPayload(req.body, ["message"]),
          });
         return { status_code: 201, body: result };
       } catch {
@@ -1905,7 +2074,7 @@ export function registerApiTriggers(
         return { status_code: 400, body: { error: "commitHash is required" } };
       }
       try {
-        const result = await sdk.trigger({ function_id: "mem::snapshot-restore", payload: req.body });
+        const result = await sdk.trigger({ function_id: "mem::snapshot-restore", payload: whitelistPayload(req.body, ["commitHash"]) });
         return { status_code: 200, body: result };
       } catch {
         return { status_code: 404, body: { error: "Snapshots not enabled" } };
@@ -2302,6 +2471,29 @@ export function registerApiTriggers(
     config: { api_path: "/agentmemory/slot/reflect", http_method: "POST" },
   });
 
+  sdk.registerFunction("api::gravitas-event",
+    async (req: ApiRequest<Record<string, unknown>>): Promise<Response> => {
+      const secretErr = requireConfiguredSecret(secret, "Gravitas guard");
+      if (secretErr) return secretErr;
+      const authErr = checkAuth(req, secret);
+      if (authErr) return authErr;
+      const payload = validGravitasEvent(req.body);
+      if (!payload) {
+        return { status_code: 400, body: { error: "invalid Gravitas event payload" } };
+      }
+      const result = await sdk.trigger({
+        function_id: "mem::gravitas-guard",
+        payload,
+      });
+      return { status_code: 200, body: result };
+    },
+  );
+  sdk.registerTrigger({
+    type: "http",
+    function_id: "api::gravitas-event",
+    config: { api_path: "/agentmemory/gravitas/event", http_method: "POST" },
+  });
+
   sdk.registerFunction("api::action-create",
     async (
       req: ApiRequest<{
@@ -2313,6 +2505,7 @@ export function registerApiTriggers(
         tags?: string[];
         parentId?: string;
         edges?: Array<{ type: string; targetActionId: string }>;
+        guardContract?: unknown;
       }>,
     ): Promise<Response> => {
       const authErr = checkAuth(req, secret);
@@ -2320,7 +2513,17 @@ export function registerApiTriggers(
       if (!req.body?.title) {
         return { status_code: 400, body: { error: "title is required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::action-create", payload: req.body });
+      let guardContract: unknown;
+      if (Object.prototype.hasOwnProperty.call(req.body, "guardContract")) {
+        const validation = validateActionGuardContract(req.body.guardContract);
+        if (!validation.valid) {
+          return { status_code: 400, body: { error: validation.error } };
+        }
+        guardContract = validation.contract;
+      }
+      const payload = whitelistPayload(req.body, ["title", "description", "priority", "createdBy", "project", "tags", "parentId", "edges"]);
+      if (guardContract !== undefined) payload.guardContract = guardContract;
+      const result = await sdk.trigger({ function_id: "mem::action-create", payload });
       return { status_code: 201, body: result };
     },
   );
@@ -2339,6 +2542,7 @@ export function registerApiTriggers(
         description?: string;
         priority?: number;
         result?: string;
+        rearmFailure?: unknown;
       }>,
     ): Promise<Response> => {
       const authErr = checkAuth(req, secret);
@@ -2346,7 +2550,26 @@ export function registerApiTriggers(
       if (!req.body?.actionId) {
         return { status_code: 400, body: { error: "actionId is required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::action-update", payload: req.body });
+      if (Object.prototype.hasOwnProperty.call(req.body, "rearmFailure")) {
+        const rearmKeys = ["actionId", "rearmFailure"];
+        if (Object.keys(req.body).some((key) => !rearmKeys.includes(key))) {
+          return { status_code: 400, body: { error: "rearmFailure cannot be combined with action updates" } };
+        }
+        const rearmFailure = validRearmFailure(req.body.rearmFailure);
+        if (!rearmFailure) {
+          return { status_code: 400, body: { error: "invalid rearmFailure payload" } };
+        }
+        const result = await sdk.trigger({
+          function_id: "mem::gravitas-guard",
+          payload: {
+            operation: "rearm_failure",
+            actionId: req.body.actionId,
+            ...rearmFailure,
+          },
+        });
+        return { status_code: 200, body: result };
+      }
+      const result = await sdk.trigger({ function_id: "mem::action-update", payload: whitelistPayload(req.body, ["actionId", "status", "title", "description", "priority", "result"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -2405,7 +2628,7 @@ export function registerApiTriggers(
       if (!req.body?.sourceActionId || !req.body?.targetActionId || !req.body?.type) {
         return { status_code: 400, body: { error: "sourceActionId, targetActionId, and type are required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::action-edge-create", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::action-edge-create", payload: whitelistPayload(req.body, ["sourceActionId", "targetActionId", "type"]) });
       return { status_code: 201, body: result };
     },
   );
@@ -2460,7 +2683,7 @@ export function registerApiTriggers(
       if (!req.body?.actionId || !req.body?.agentId) {
         return { status_code: 400, body: { error: "actionId and agentId are required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::lease-acquire", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::lease-acquire", payload: whitelistPayload(req.body, ["actionId", "agentId", "ttlMs"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -2479,7 +2702,7 @@ export function registerApiTriggers(
       if (!req.body?.actionId || !req.body?.agentId) {
         return { status_code: 400, body: { error: "actionId and agentId are required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::lease-release", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::lease-release", payload: whitelistPayload(req.body, ["actionId", "agentId", "result"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -2498,7 +2721,7 @@ export function registerApiTriggers(
       if (!req.body?.actionId || !req.body?.agentId) {
         return { status_code: 400, body: { error: "actionId and agentId are required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::lease-renew", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::lease-renew", payload: whitelistPayload(req.body, ["actionId", "agentId", "ttlMs"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -2509,7 +2732,7 @@ export function registerApiTriggers(
   });
 
   sdk.registerFunction("api::routine-create",
-    async (req: ApiRequest): Promise<Response> => {
+    async (req: ApiRequest<{ name: string; description?: string; steps: import("../types.js").RoutineStep[]; tags?: string[]; frozen?: boolean; sourceProceduralIds?: string[] }>): Promise<Response> => {
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
       if (!req.body?.name || !req.body?.steps) {
@@ -2518,7 +2741,7 @@ export function registerApiTriggers(
           body: { error: "name and steps are required" },
         };
       }
-      const result = await sdk.trigger({ function_id: "mem::routine-create", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::routine-create", payload: whitelistPayload(req.body, ["name", "description", "steps", "tags", "frozen", "sourceProceduralIds"]) });
       return { status_code: 201, body: result };
     },
   );
@@ -2553,7 +2776,7 @@ export function registerApiTriggers(
       if (!req.body?.routineId) {
         return { status_code: 400, body: { error: "routineId is required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::routine-run", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::routine-run", payload: whitelistPayload(req.body, ["routineId", "project", "initiatedBy"]) });
       return { status_code: 201, body: result };
     },
   );
@@ -2596,7 +2819,7 @@ export function registerApiTriggers(
       if (!req.body?.from || !req.body?.content) {
         return { status_code: 400, body: { error: "from and content are required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::signal-send", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::signal-send", payload: whitelistPayload(req.body, ["from", "to", "content", "type", "replyTo"]) });
       return { status_code: 201, body: result };
     },
   );
@@ -2645,7 +2868,7 @@ export function registerApiTriggers(
       if (!req.body?.name) {
         return { status_code: 400, body: { error: "name is required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::checkpoint-create", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::checkpoint-create", payload: whitelistPayload(req.body, ["name", "description", "type", "linkedActionIds", "expiresInMs"]) });
       return { status_code: 201, body: result };
     },
   );
@@ -2669,7 +2892,7 @@ export function registerApiTriggers(
       if (!req.body?.checkpointId || !req.body?.status) {
         return { status_code: 400, body: { error: "checkpointId and status are required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::checkpoint-resolve", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::checkpoint-resolve", payload: whitelistPayload(req.body, ["checkpointId", "status", "resolvedBy", "result"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -2707,7 +2930,7 @@ export function registerApiTriggers(
       if (!req.body?.url || !req.body?.name) {
         return { status_code: 400, body: { error: "url and name are required" } };
       }
-      const result = await sdk.trigger({ function_id: "mem::mesh-register", payload: req.body });
+      const result = await sdk.trigger({ function_id: "mem::mesh-register", payload: whitelistPayload(req.body, ["url", "name", "sharedScopes"]) });
       return { status_code: 201, body: result };
     },
   );
@@ -2741,7 +2964,7 @@ export function registerApiTriggers(
       if (secretErr) return secretErr;
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
-      const result = await sdk.trigger({ function_id: "mem::mesh-sync", payload: req.body || {} });
+      const result = await sdk.trigger({ function_id: "mem::mesh-sync", payload: whitelistPayload(req.body, ["peerId", "direction"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -2757,7 +2980,7 @@ export function registerApiTriggers(
       if (secretErr) return secretErr;
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
-      const result = await sdk.trigger({ function_id: "mem::mesh-receive", payload: req.body || {} });
+      const result = await sdk.trigger({ function_id: "mem::mesh-receive", payload: whitelistPayload(req.body, ["memories", "actions", "semantic", "procedural", "relations", "graphNodes", "graphEdges"]) });
       return { status_code: 200, body: result };
     },
   );
@@ -2836,7 +3059,7 @@ export function registerApiTriggers(
       const authErr = checkAuth(req, secret);
       if (authErr) return authErr;
       try {
-        const result = await sdk.trigger({ function_id: "mem::flow-compress", payload: req.body || {} });
+        const result = await sdk.trigger({ function_id: "mem::flow-compress", payload: whitelistPayload(req.body, ["runId", "actionIds", "project"]) });
         return { status_code: 200, body: result };
       } catch {
         return {
@@ -2932,7 +3155,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.name) return { status_code: 400, body: { error: "name is required" } };
-    const result = await sdk.trigger({ function_id: "mem::sentinel-create", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::sentinel-create", payload: whitelistPayload(body, ["name", "type", "config", "linkedActionIds", "expiresInMs"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::sentinel-create", config: { api_path: "/agentmemory/sentinels", http_method: "POST" } });
@@ -2942,7 +3165,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.sentinelId) return { status_code: 400, body: { error: "sentinelId is required" } };
-    const result = await sdk.trigger({ function_id: "mem::sentinel-trigger", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::sentinel-trigger", payload: whitelistPayload(body, ["sentinelId", "result"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::sentinel-trigger", config: { api_path: "/agentmemory/sentinels/trigger", http_method: "POST" } });
@@ -2960,7 +3183,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.sentinelId) return { status_code: 400, body: { error: "sentinelId is required" } };
-    const result = await sdk.trigger({ function_id: "mem::sentinel-cancel", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::sentinel-cancel", payload: whitelistPayload(body, ["sentinelId"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::sentinel-cancel", config: { api_path: "/agentmemory/sentinels/cancel", http_method: "POST" } });
@@ -2979,7 +3202,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.title) return { status_code: 400, body: { error: "title is required" } };
-    const result = await sdk.trigger({ function_id: "mem::sketch-create", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::sketch-create", payload: whitelistPayload(body, ["title", "description", "expiresInMs", "project"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::sketch-create", config: { api_path: "/agentmemory/sketches", http_method: "POST" } });
@@ -2989,7 +3212,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.sketchId || !body?.title) return { status_code: 400, body: { error: "sketchId and title are required" } };
-    const result = await sdk.trigger({ function_id: "mem::sketch-add", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::sketch-add", payload: whitelistPayload(body, ["sketchId", "title", "description", "priority", "dependsOn"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::sketch-add", config: { api_path: "/agentmemory/sketches/add", http_method: "POST" } });
@@ -2999,7 +3222,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.sketchId) return { status_code: 400, body: { error: "sketchId is required" } };
-    const result = await sdk.trigger({ function_id: "mem::sketch-promote", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::sketch-promote", payload: whitelistPayload(body, ["sketchId", "project"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::sketch-promote", config: { api_path: "/agentmemory/sketches/promote", http_method: "POST" } });
@@ -3009,7 +3232,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.sketchId) return { status_code: 400, body: { error: "sketchId is required" } };
-    const result = await sdk.trigger({ function_id: "mem::sketch-discard", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::sketch-discard", payload: whitelistPayload(body, ["sketchId"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::sketch-discard", config: { api_path: "/agentmemory/sketches/discard", http_method: "POST" } });
@@ -3036,7 +3259,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.actionIds) return { status_code: 400, body: { error: "actionIds is required" } };
-    const result = await sdk.trigger({ function_id: "mem::crystallize", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::crystallize", payload: whitelistPayload(body, ["actionIds", "sessionId", "project"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::crystallize", config: { api_path: "/agentmemory/crystals/create", http_method: "POST" } });
@@ -3061,7 +3284,7 @@ export function registerApiTriggers(
     const denied = checkAuth(req, secret);
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
-    const result = await sdk.trigger({ function_id: "mem::auto-crystallize", payload: body || {} });
+    const result = await sdk.trigger({ function_id: "mem::auto-crystallize", payload: whitelistPayload(body, ["olderThanDays", "project", "dryRun"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::auto-crystallize", config: { api_path: "/agentmemory/crystals/auto", http_method: "POST" } });
@@ -3070,7 +3293,7 @@ export function registerApiTriggers(
     const denied = checkAuth(req, secret);
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
-    const result = await sdk.trigger({ function_id: "mem::diagnose", payload: body || {} });
+    const result = await sdk.trigger({ function_id: "mem::diagnose", payload: whitelistPayload(body, ["categories"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::diagnose", config: { api_path: "/agentmemory/diagnostics", http_method: "POST" } });
@@ -3079,7 +3302,7 @@ export function registerApiTriggers(
     const denied = checkAuth(req, secret);
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
-    const result = await sdk.trigger({ function_id: "mem::heal", payload: body || {} });
+    const result = await sdk.trigger({ function_id: "mem::heal", payload: whitelistPayload(body, ["categories", "dryRun"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::heal", config: { api_path: "/agentmemory/diagnostics/heal", http_method: "POST" } });
@@ -3089,7 +3312,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.targetId || !body?.dimension || !body?.value) return { status_code: 400, body: { error: "targetId, dimension, and value are required" } };
-    const result = await sdk.trigger({ function_id: "mem::facet-tag", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::facet-tag", payload: whitelistPayload(body, ["targetId", "targetType", "dimension", "value"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::facet-tag", config: { api_path: "/agentmemory/facets", http_method: "POST" } });
@@ -3099,7 +3322,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.targetId || !body?.dimension) return { status_code: 400, body: { error: "targetId and dimension are required" } };
-    const result = await sdk.trigger({ function_id: "mem::facet-untag", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::facet-untag", payload: whitelistPayload(body, ["targetId", "dimension", "value"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::facet-untag", config: { api_path: "/agentmemory/facets/remove", http_method: "POST" } });
@@ -3108,7 +3331,7 @@ export function registerApiTriggers(
     const denied = checkAuth(req, secret);
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
-    const result = await sdk.trigger({ function_id: "mem::facet-query", payload: body || {} });
+    const result = await sdk.trigger({ function_id: "mem::facet-query", payload: whitelistPayload(body, ["matchAll", "matchAny", "targetType", "limit"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::facet-query", config: { api_path: "/agentmemory/facets/query", http_method: "POST" } });
@@ -3209,7 +3432,7 @@ export function registerApiTriggers(
     if (denied) return denied;
     const body = req.body as Record<string, unknown>;
     if (!body?.query || typeof body.query !== "string") return { status_code: 400, body: { error: "query is required" } };
-    const result = await sdk.trigger({ function_id: "mem::lesson-recall", payload: body });
+    const result = await sdk.trigger({ function_id: "mem::lesson-recall", payload: whitelistPayload(body, ["query", "project", "minConfidence", "limit"]) });
     return { status_code: 200, body: result };
   });
   sdk.registerTrigger({ type: "http", function_id: "api::lesson-search", config: { api_path: "/agentmemory/lessons/search", http_method: "POST" } });

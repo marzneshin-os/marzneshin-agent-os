@@ -3,9 +3,80 @@ export type McpToolDef = {
   description: string;
   inputSchema: {
     type: "object";
-    properties: Record<string, { type: string; description: string }>;
+    properties: Record<string, McpSchemaProperty>;
     required?: string[];
   };
+};
+
+export type McpSchemaProperty = {
+  type: string;
+  description?: string;
+  enum?: string[];
+  items?: McpSchemaProperty;
+  properties?: Record<string, McpSchemaProperty>;
+  required?: string[];
+  additionalProperties?: boolean;
+};
+
+const ACTION_GUARD_CONTRACT_SCHEMA: McpSchemaProperty = {
+  type: "object",
+  description: "Optional completion guard for Antigravity workspace tasks",
+  properties: {
+    enforcement: {
+      type: "string",
+      description: "Whether missing evidence is reported or blocks completion",
+      enum: ["audit", "enforce"],
+    },
+    allowedPaths: {
+      type: "array",
+      description: "Workspace-relative paths the guarded task may mutate",
+      items: { type: "string" },
+    },
+    acceptanceCriteria: {
+      type: "array",
+      description: "Required outcomes and their validator IDs",
+      items: {
+        type: "object",
+        properties: {
+          id: { type: "string" },
+          description: { type: "string" },
+          validatorId: { type: "string" },
+        },
+        required: ["id", "description", "validatorId"],
+        additionalProperties: false,
+      },
+    },
+    validators: {
+      type: "array",
+      description: "Exact commands that can provide acceptance evidence",
+      items: {
+        type: "object",
+        properties: {
+          id: { type: "string" },
+          command: { type: "string" },
+        },
+        required: ["id", "command"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["enforcement", "allowedPaths", "acceptanceCriteria", "validators"],
+  additionalProperties: false,
+};
+
+const ACTION_REARM_FAILURE_SCHEMA: McpSchemaProperty = {
+  type: "object",
+  description: "One-use re-arm after diagnosing a failed tool call; cannot be combined with other action updates",
+  properties: {
+    conversationId: { type: "string" },
+    workspaceRoot: { type: "string" },
+    callHash: { type: "string", description: "SHA-256 failed-call hash" },
+    diagnosis: { type: "string" },
+    strategyFingerprint: { type: "string", description: "SHA-256 fingerprint of the changed strategy" },
+    nextArgumentHash: { type: "string", description: "SHA-256 hash of the changed next tool arguments" },
+  },
+  required: ["conversationId", "workspaceRoot", "callHash", "diagnosis", "strategyFingerprint", "nextArgumentHash"],
+  additionalProperties: false,
 };
 
 export const CORE_TOOLS: McpToolDef[] = [
@@ -195,8 +266,17 @@ export const CORE_TOOLS: McpToolDef[] = [
   },
   {
     name: "memory_export",
-    description: "Export all memory data as JSON.",
-    inputSchema: { type: "object", properties: {} },
+    description:
+      "Export memory data as JSON. In isolated mode, exports the active agent's owned records; set agentId to '*' to explicitly export all agents.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        agentId: {
+          type: "string",
+          description: "Agent scope; defaults to the isolated agent ID, or '*' for all agents.",
+        },
+      },
+    },
   },
   {
     name: "memory_relations",
@@ -311,6 +391,14 @@ export const V040_TOOLS: McpToolDef[] = [
           type: "string",
           description: "Type: observation, memory, or pattern",
         },
+        sessionId: {
+          type: "string",
+          description: "Required for observations; identifies the owning session",
+        },
+        project: {
+          type: "string",
+          description: "Optional project label for the shared item",
+        },
       },
       required: ["itemId", "itemType"],
     },
@@ -394,6 +482,7 @@ export const V050_TOOLS: McpToolDef[] = [
           description:
             "Comma-separated action IDs that must complete before this",
         },
+        guardContract: ACTION_GUARD_CONTRACT_SCHEMA,
       },
       required: ["title"],
     },
@@ -401,7 +490,7 @@ export const V050_TOOLS: McpToolDef[] = [
   {
     name: "memory_action_update",
     description:
-      "Update an action's status, priority, or details. Set status to 'done' to complete it and unblock dependent actions.",
+      "Update an action's status, priority, or details. Set status to 'done' to complete it and unblock dependent actions. Use rearmFailure alone to authorize one changed retry after diagnosis.",
     inputSchema: {
       type: "object",
       properties: {
@@ -415,6 +504,7 @@ export const V050_TOOLS: McpToolDef[] = [
           description: "Outcome description (when completing)",
         },
         priority: { type: "number", description: "New priority 1-10" },
+        rearmFailure: ACTION_REARM_FAILURE_SCHEMA,
       },
       required: ["actionId"],
     },

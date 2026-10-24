@@ -9,6 +9,7 @@ import { KV, generateId } from "../state/schema.js";
 import type { StateKV } from "../state/kv.js";
 import { recordAudit } from "./audit.js";
 import { logger } from "../logger.js";
+import { getAgentId, isAgentScopeIsolated } from "../config.js";
 
 const VALID_ITEM_TYPES = new Set(["memory", "pattern", "observation"]);
 
@@ -34,6 +35,15 @@ export function registerTeamFunction(
         return { success: false, error: `Invalid itemType: ${data.itemType}` };
       }
 
+      const isolated = isAgentScopeIsolated();
+      const agentId = isolated ? getAgentId() : undefined;
+      if (isolated && !agentId) {
+        return {
+          success: false,
+          error: "Agent isolation is enabled but AGENT_ID is unset",
+        };
+      }
+
       let content: unknown;
       if (data.itemType === "observation") {
         if (!data.sessionId) {
@@ -42,9 +52,30 @@ export function registerTeamFunction(
             error: "sessionId is required for observations",
           };
         }
+        if (isolated) {
+          const session = await kv.get<{ agentId?: string }>(KV.sessions, data.sessionId);
+          if (session?.agentId !== agentId) {
+            return { success: false, error: "Item not found" };
+          }
+        }
         content = await kv.get(KV.observations(data.sessionId), data.itemId);
+        if (
+          isolated &&
+          (!content ||
+            typeof content !== "object" ||
+            !("sessionId" in content) ||
+            content.sessionId !== data.sessionId ||
+            ("agentId" in content &&
+              content.agentId !== undefined &&
+              content.agentId !== agentId))
+        ) {
+          return { success: false, error: "Item not found" };
+        }
       } else {
         content = await kv.get<Memory>(KV.memories, data.itemId);
+        if (isolated && (content as Memory | null)?.agentId !== agentId) {
+          return { success: false, error: "Item not found" };
+        }
       }
       if (!content) {
         return { success: false, error: "Item not found" };

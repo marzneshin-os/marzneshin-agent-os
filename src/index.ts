@@ -65,6 +65,7 @@ import { registerTeamFunction } from "./functions/team.js";
 import { registerGovernanceFunction } from "./functions/governance.js";
 import { registerSnapshotFunction } from "./functions/snapshot.js";
 import { registerActionsFunction } from "./functions/actions.js";
+import { registerGravitasGuardFunction } from "./functions/gravitas-guard.js";
 import { registerFrontierFunction } from "./functions/frontier.js";
 import { registerLeasesFunction } from "./functions/leases.js";
 import { registerRoutinesFunction } from "./functions/routines.js";
@@ -311,6 +312,7 @@ async function main() {
 
   registerGovernanceFunction(sdk, kv);
 
+  registerGravitasGuardFunction(sdk, kv);
   registerActionsFunction(sdk, kv);
   registerFrontierFunction(sdk, kv);
   registerLeasesFunction(sdk, kv);
@@ -546,7 +548,7 @@ async function main() {
     `Ready. ${embeddingProvider ? "Triple-stream (BM25+Vector+Graph)" : "BM25+Graph"} search active.`,
   );
   bootLog(
-    `REST API: 142 endpoints at http://localhost:${config.restPort}/agentmemory/*`,
+    `REST API: 143 endpoints at http://localhost:${config.restPort}/agentmemory/*`,
   );
   bootLog(
     `MCP surface (opt-in via \`npx @agentmemory/mcp\`): ${getAllTools().length} tools · 6 resources · 3 prompts`,

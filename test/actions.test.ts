@@ -198,6 +198,48 @@ describe("Actions Functions", () => {
       expect(result.error).toContain("action not found");
     });
 
+    it("blocks completion when an enforce contract lacks fresh validator evidence", async () => {
+      const created = (await sdk.trigger("mem::action-create", {
+        title: "Guarded task",
+        guardContract: {
+          enforcement: "enforce",
+          allowedPaths: ["src"],
+          acceptanceCriteria: [{ id: "tests", description: "Tests pass", validatorId: "unit" }],
+          validators: [{ id: "unit", command: "npm test" }],
+        },
+      })) as { success: boolean; action: Action };
+
+      const result = (await sdk.trigger("mem::action-update", {
+        actionId: created.action.id,
+        status: "done",
+      })) as { success: boolean; error?: string };
+
+      expect(result.success).toBe(false);
+      expect(result.error).toContain("completion blocked");
+      const unchanged = await kv.get<Action>("mem:actions", created.action.id);
+      expect(unchanged?.status).toBe("pending");
+    });
+
+    it("keeps audit contracts compatible with legacy completion", async () => {
+      const created = (await sdk.trigger("mem::action-create", {
+        title: "Audited task",
+        guardContract: {
+          enforcement: "audit",
+          allowedPaths: ["src"],
+          acceptanceCriteria: [{ id: "tests", description: "Tests pass", validatorId: "unit" }],
+          validators: [{ id: "unit", command: "npm test" }],
+        },
+      })) as { success: boolean; action: Action };
+
+      const result = (await sdk.trigger("mem::action-update", {
+        actionId: created.action.id,
+        status: "done",
+      })) as { success: boolean; action: Action };
+
+      expect(result.success).toBe(true);
+      expect(result.action.status).toBe("done");
+    });
+
     it("propagates completion when status set to done", async () => {
       const actionB = (await sdk.trigger("mem::action-create", {
         title: "Dependency B",

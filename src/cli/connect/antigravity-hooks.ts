@@ -50,6 +50,7 @@ const TOOL_EVENT_KEYS = new Set(["PreToolUse", "PostToolUse"]);
 
 /** Lifecycle events: a flat `[ { type, command } ]` handler list. */
 const LIFECYCLE_EVENT_KEYS = new Set([
+  "SessionStart",
   "PreInvocation",
   "PostInvocation",
   "Stop",

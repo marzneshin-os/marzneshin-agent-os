@@ -343,10 +343,10 @@ export function getAgentId(): string | undefined {
   return loadAgentScope()?.agentId;
 }
 
-// True only when AGENT_ID is set AND scope=isolated. Recall paths
-// consult this to decide whether to filter.
+// True when isolated mode is requested, even if AGENT_ID is missing, so
+// callers can fail closed instead of silently taking a shared-mode path.
 export function isAgentScopeIsolated(): boolean {
-  return loadAgentScope()?.mode === "isolated";
+  return getMergedEnv()["AGENTMEMORY_AGENT_SCOPE"] === "isolated";
 }
 
 // Floor for the git-snapshot timer. A zero/negative SNAPSHOT_INTERVAL would

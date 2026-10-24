@@ -1,6 +1,6 @@
-﻿import { readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
-import { execSync } from "node:child_process";
+import { readFileSync, existsSync } from "node:fs";
+import { join, resolve } from "node:path";
+import { execFileSync } from "node:child_process";
 import {
   SpecialistRole,
   SubagentConfig,
@@ -9,46 +9,107 @@ import {
   OrchestrationPlan,
   OrchestrationRunResult,
 } from "./schemas.js";
-import { ContextIsolationManager } from "./context-isolation.js";
+import { ContextIsolationManager, WorktreeContext } from "./context-isolation.js";
 import { TaskGraph } from "./task-graph.js";
 import { runConsistencyAudit } from "./consistency-guardian.js";
 
-const ROOT = join(import.meta.dirname, "../..");
+const ROOT = resolve(join(import.meta.dirname, "../.."));
 
-function getPythonCommand(): string {
-  return process.platform === "win32" ? "py" : "python3";
+const ROLES: SpecialistRole[] = [
+  "memory-architect",
+  "mcp-tool-builder",
+  "api-endpoint-builder",
+  "hook-specialist",
+  "test-engineer",
+  "consistency-guardian",
+];
+
+export interface TaskDispatchRequest {
+  task: TaskBrief;
+  workingDirectory: string;
+  specialist: SubagentConfig;
+}
+
+export interface TaskDispatchResult {
+  status: "success" | "failed" | "skipped";
+  summary: string;
+  validated: boolean;
+  modifiedFiles?: string[];
+}
+
+export type TaskDispatcher = (request: TaskDispatchRequest) => Promise<TaskDispatchResult>;
+
+export interface OrchestratorOptions {
+  repoRoot?: string;
+  worktreesDir?: string;
+  dispatcher?: TaskDispatcher;
+}
+
+export interface OrchestratorSetupCheck {
+  passed: boolean;
+  discoveredSubagents: number;
+  issues: string[];
+}
+
+function validConfig(value: unknown): value is SubagentConfig {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+  const config = value as Record<string, unknown>;
+  return ["name", "description", "model", "instructions"].every(
+    (key) => typeof config[key] === "string" && (config[key] as string).trim().length > 0,
+  );
 }
 
 export class MainAgentOrchestrator {
   private subagents: Map<SpecialistRole, SubagentConfig> = new Map();
+  private configIssues: string[] = [];
   private isolationManager: ContextIsolationManager;
+  private repoRoot: string;
+  private dispatcher?: TaskDispatcher;
 
-  constructor() {
-    this.isolationManager = new ContextIsolationManager(ROOT);
+  constructor(options: OrchestratorOptions = {}) {
+    this.repoRoot = resolve(options.repoRoot ?? ROOT);
+    this.isolationManager = new ContextIsolationManager(this.repoRoot, options.worktreesDir);
+    this.dispatcher = options.dispatcher;
     this.loadSubagents();
   }
 
   private loadSubagents(): void {
-    const roles: SpecialistRole[] = [
-      "memory-architect",
-      "mcp-tool-builder",
-      "api-endpoint-builder",
-      "hook-specialist",
-      "test-engineer",
-      "consistency-guardian",
-    ];
+    this.subagents.clear();
+    this.configIssues = [];
 
-    for (const role of roles) {
-      const configPath = join(ROOT, ".agents/agents", role, "agent.json");
-      if (existsSync(configPath)) {
-        try {
-          const cfg = JSON.parse(readFileSync(configPath, "utf-8")) as SubagentConfig;
-          this.subagents.set(role, cfg);
-        } catch {
-          // ignore parse errors
+    for (const role of ROLES) {
+      const configPath = join(this.repoRoot, ".agents/agents", role, "agent.json");
+      if (!existsSync(configPath)) {
+        this.configIssues.push(`${role}: missing config at ${configPath}`);
+        continue;
+      }
+
+      try {
+        const parsed: unknown = JSON.parse(readFileSync(configPath, "utf-8"));
+        if (!validConfig(parsed)) {
+          this.configIssues.push(`${role}: config must define non-empty name, description, model, and instructions`);
+          continue;
         }
+        this.subagents.set(role, parsed);
+      } catch (error) {
+        const detail = error instanceof Error ? error.message : String(error);
+        this.configIssues.push(`${role}: invalid JSON (${detail})`);
       }
     }
+  }
+
+  public checkSetup(): OrchestratorSetupCheck {
+    this.loadSubagents();
+    const issues = [...this.configIssues];
+    const isolation = this.isolationManager.checkPrerequisites();
+    issues.push(...isolation.issues.map((issue) => `isolation: ${issue}`));
+    return {
+      passed: issues.length === 0,
+      discoveredSubagents: this.subagents.size,
+      issues,
+    };
   }
 
   public getSubagent(role: SpecialistRole): SubagentConfig | undefined {
@@ -56,133 +117,214 @@ export class MainAgentOrchestrator {
   }
 
   public getAllSubagents(): Map<SpecialistRole, SubagentConfig> {
-    return this.subagents;
+    return new Map(this.subagents);
+  }
+
+  private failedResult(task: TaskBrief, startTime: number, error: string, worktreePath?: string): TaskResult {
+    return {
+      taskId: task.id,
+      specialist: task.specialist,
+      status: "failed",
+      durationMs: Date.now() - startTime,
+      modifiedFiles: [],
+      summary: `Failure in ${task.title}: ${error}`,
+      error,
+      worktreePath,
+      tierModel: this.subagents.get(task.specialist)?.model ?? "built-in",
+    };
+  }
+
+  private modifiedFilesFor(context?: WorktreeContext): string[] {
+    return context ? this.isolationManager.getModifiedFiles(context) : [];
+  }
+
+  private runBuiltInTask(task: TaskBrief, workDir: string): TaskDispatchResult | undefined {
+    if (task.specialist === "consistency-guardian") {
+      if (!/\bconsistency\b/i.test(task.prompt)) {
+        return {
+          status: "failed",
+          summary: "Built-in consistency handler only accepts consistency-audit prompts; request was not executed.",
+          validated: false,
+        };
+      }
+      const audit = runConsistencyAudit();
+      const passedCount = audit.results.filter((result) => result.passed).length;
+      const summary = `Built-in consistency audit ${audit.passed ? "passed" : "failed"} (${passedCount}/${audit.results.length} checks).`;
+      return { status: audit.passed ? "success" : "failed", summary, validated: audit.passed };
+    }
+
+    if (task.specialist === "test-engineer") {
+      if (!/\b(test|vitest|tests)\b/i.test(task.prompt)) {
+        return {
+          status: "failed",
+          summary: "Built-in test handler only accepts test-suite prompts; request was not executed.",
+          validated: false,
+        };
+      }
+      const vitestCli = join(this.repoRoot, "node_modules", "vitest", "vitest.mjs");
+      if (!existsSync(vitestCli)) {
+        return {
+          status: "failed",
+          summary: "Built-in test suite could not start because the repository Vitest CLI is unavailable.",
+          validated: false,
+        };
+      }
+      try {
+        execFileSync(process.execPath, [vitestCli, "run", "--exclude", "test/integration.test.ts"], {
+          cwd: workDir,
+          stdio: "pipe",
+          encoding: "utf-8",
+        });
+        return { status: "success", summary: "Built-in Vitest suite passed.", validated: true };
+      } catch (error) {
+        const detail = error instanceof Error ? error.message : String(error);
+        return { status: "failed", summary: `Built-in Vitest suite failed: ${detail}`, validated: false };
+      }
+    }
+
+    return undefined;
   }
 
   public async executeTask(task: TaskBrief): Promise<TaskResult> {
     const startTime = Date.now();
-    const specialistConfig = this.subagents.get(task.specialist);
-    const isolation = task.isolation ?? "worktree";
-
-    let worktreeCtx: any = null;
-    let workDir = ROOT;
-    let blastRadiusScore = 0;
-    let rollbackTriggered = false;
-
-    if (isolation === "worktree") {
-      worktreeCtx = this.isolationManager.createWorktree(task.id);
-      workDir = worktreeCtx.worktreePath;
+    if (!task.prompt.trim()) {
+      return this.failedResult(task, startTime, "task prompt is empty and cannot be dispatched");
     }
 
-    try {
-      let modifiedFiles: string[] = [];
-      let summary = "";
+    const builtin = task.specialist === "test-engineer" || task.specialist === "consistency-guardian";
+    const specialistConfig = this.subagents.get(task.specialist);
+    if (!builtin && !this.dispatcher) {
+      return this.failedResult(
+        task,
+        startTime,
+        `No task dispatcher is configured for ${task.specialist}; prompt was not executed.`,
+      );
+    }
+    if (!builtin && !specialistConfig) {
+      return this.failedResult(task, startTime, `No valid subagent config is available for ${task.specialist}.`);
+    }
 
-      if (task.specialist === "consistency-guardian") {
-        const audit = runConsistencyAudit();
-        summary = audit.passed
-          ? "Consistency Guardian verified all 8 MCP, 3 REST, and 7 Version files successfully."
-          : "Consistency Guardian flagged mismatches in codebase consistency.";
-        if (!audit.passed) {
-          throw new Error(summary);
-        }
-      } else if (task.specialist === "test-engineer") {
-        try {
-          execSync("npx vitest run --exclude test/integration.test.ts", {
-            cwd: workDir,
-            stdio: "pipe",
-            encoding: "utf-8",
-          });
-          summary = "All unit tests passed successfully.";
-        } catch (err: any) {
-          summary = "Test suite encountered failures.";
-          throw err;
-        }
-      } else {
-        summary = `Task ${task.id} (${task.title}) executed by ${specialistConfig?.name ?? task.specialist}.`;
+    const isolation = task.isolation ?? "worktree";
+    if (isolation === "sandbox") {
+      return this.failedResult(task, startTime, "sandbox isolation is unsupported; no substitute directory was created");
+    }
+
+    let worktreeContext: WorktreeContext | undefined;
+    let workDir = this.repoRoot;
+    let rollbackTriggered = false;
+    let blastRadiusScore = 0;
+
+    try {
+      if (isolation === "worktree") {
+        worktreeContext = this.isolationManager.createWorktree(task.id);
+        workDir = worktreeContext.worktreePath;
       }
 
-      if (worktreeCtx) {
-        // DeepSWE Rollback Minimizer Pre-Merge Gate
-        const minimizerScript = join(ROOT, "scripts/rollback_minimizer.py");
+      const result = this.runBuiltInTask(task, workDir) ?? await this.dispatcher!({
+        task,
+        workingDirectory: workDir,
+        specialist: specialistConfig!,
+      });
+
+      if (result.status === "success" && !result.validated) {
+        throw new Error("dispatcher reported success without validation evidence");
+      }
+
+      const modifiedFiles = worktreeContext
+        ? this.modifiedFilesFor(worktreeContext)
+        : result.modifiedFiles ?? [];
+
+      if (worktreeContext && result.status === "success") {
+        const minimizerScript = join(this.repoRoot, "scripts/rollback_minimizer.py");
         if (existsSync(minimizerScript)) {
+          const pyCommand = process.platform === "win32" ? "py" : "python3";
           try {
-            const pyCmd = getPythonCommand();
-            const gateRaw = execSync(`${pyCmd} "${minimizerScript}" gate HEAD`, {
+            const gateRaw = execFileSync(pyCommand, [minimizerScript, "gate", worktreeContext.baseCommit], {
               cwd: workDir,
               stdio: "pipe",
               encoding: "utf-8",
             });
-            const gateResult = JSON.parse(gateRaw);
+            const gateResult = JSON.parse(gateRaw) as {
+              gate_passed?: boolean;
+              blast_analysis?: { blast_score?: number };
+              invariant_verification?: { violations?: unknown };
+            };
             blastRadiusScore = gateResult.blast_analysis?.blast_score ?? 0;
-
             if (!gateResult.gate_passed) {
               rollbackTriggered = true;
-              this.isolationManager.cleanupWorktree(worktreeCtx);
+              const violations = JSON.stringify(gateResult.invariant_verification?.violations ?? []);
               return {
                 taskId: task.id,
                 specialist: task.specialist,
                 status: "failed",
                 durationMs: Date.now() - startTime,
-                modifiedFiles: [],
-                summary: `Rollback Defense Triggered: Invariants violated in ${task.title}. Safe rollback executed.`,
-                error: `Invariant violations: ${JSON.stringify(gateResult.invariant_verification?.violations)}`,
+                modifiedFiles,
+                summary: `Rollback gate blocked ${task.title}; worktree data was retained for review.`,
+                error: `Invariant violations: ${violations}`,
+                worktreePath: workDir,
                 blastRadiusScore,
-                rollbackTriggered: true,
-                tierModel: specialistConfig?.model ?? "default",
+                rollbackTriggered,
+                tierModel: specialistConfig?.model ?? "built-in",
               };
             }
-          } catch (gateErr: any) {
-            // If gate check execution fails or exits non-zero, trigger safe rollback
+          } catch (error) {
             rollbackTriggered = true;
-            this.isolationManager.cleanupWorktree(worktreeCtx);
+            const detail = error instanceof Error ? error.message : String(error);
             return {
               taskId: task.id,
               specialist: task.specialist,
               status: "failed",
               durationMs: Date.now() - startTime,
-              modifiedFiles: [],
-              summary: `Rollback Defense Triggered: Gate check failed for ${task.title}. Safe rollback executed.`,
-              error: gateErr.message ?? String(gateErr),
+              modifiedFiles,
+              summary: `Rollback gate could not validate ${task.title}; worktree data was retained for review.`,
+              error: detail,
+              worktreePath: workDir,
               blastRadiusScore,
-              rollbackTriggered: true,
-              tierModel: specialistConfig?.model ?? "default",
+              rollbackTriggered,
+              tierModel: specialistConfig?.model ?? "built-in",
             };
           }
         }
-
-        const mergeResult = this.isolationManager.mergeWorktree(worktreeCtx);
-        modifiedFiles = mergeResult.modifiedFiles;
-        this.isolationManager.cleanupWorktree(worktreeCtx);
       }
 
+      const retentionNote = worktreeContext
+        ? ` Worktree retained for review at ${worktreeContext.worktreePath}; no automatic commit or merge was performed.`
+        : "";
       return {
         taskId: task.id,
         specialist: task.specialist,
-        status: "success",
+        status: result.status,
         durationMs: Date.now() - startTime,
         modifiedFiles,
-        summary,
-        worktreePath: workDir,
+        summary: `${result.summary}${retentionNote}`,
+        worktreePath: worktreeContext?.worktreePath,
         blastRadiusScore,
         rollbackTriggered,
-        tierModel: specialistConfig?.model ?? "default",
+        tierModel: specialistConfig?.model ?? "built-in",
+        ...(result.status !== "success" ? { error: result.summary } : {}),
       };
-    } catch (err: any) {
-      if (worktreeCtx) {
-        this.isolationManager.cleanupWorktree(worktreeCtx);
+    } catch (error) {
+      const detail = error instanceof Error ? error.message : String(error);
+      let modifiedFiles: string[] = [];
+      if (worktreeContext) {
+        try {
+          modifiedFiles = this.modifiedFilesFor(worktreeContext);
+        } catch {
+          modifiedFiles = [];
+        }
       }
       return {
         taskId: task.id,
         specialist: task.specialist,
         status: "failed",
         durationMs: Date.now() - startTime,
-        modifiedFiles: [],
-        summary: `Failure in ${task.title}: ${err.message ?? String(err)}`,
-        error: String(err),
+        modifiedFiles,
+        summary: `Failure in ${task.title}: ${detail}${worktreeContext ? ` Worktree retained at ${worktreeContext.worktreePath}.` : ""}`,
+        error: detail,
+        worktreePath: worktreeContext?.worktreePath,
         blastRadiusScore,
         rollbackTriggered,
-        tierModel: specialistConfig?.model ?? "default",
+        tierModel: specialistConfig?.model ?? "built-in",
       };
     }
   }
@@ -202,27 +344,23 @@ export class MainAgentOrchestrator {
     const stages = graph.computeStages();
 
     let allSuccess = true;
-
     for (const stage of stages) {
       console.log(`\x1b[1m\x1b[34m--- Stage ${stage.stageIndex + 1} (${stage.tasks.length} parallel task(s)) ---\x1b[0m`);
-
-      const stagePromises = stage.tasks.map((task) => {
+      const results = await Promise.all(stage.tasks.map((task) => {
         const sub = this.subagents.get(task.specialist);
-        console.log(`  ▶ [${task.id}] Dispatching to \x1b[33m@${task.specialist}\x1b[0m (${sub?.model ?? "default"})`);
+        console.log(`  ▶ [${task.id}] Dispatching to \x1b[33m@${task.specialist}\x1b[0m (${sub?.model ?? "built-in/unsupported"})`);
         return this.executeTask(task);
-      });
+      }));
 
-      const results = await Promise.all(stagePromises);
-
-      for (const res of results) {
+      for (const result of results) {
         evaluatedCount++;
-        if (res.rollbackTriggered) {
+        if (result.rollbackTriggered) {
           rollbacksPrevented++;
         }
-        taskResults[res.taskId] = res;
-        const icon = res.status === "success" ? "\x1b[32m✔\x1b[0m" : "\x1b[31m✖\x1b[0m";
-        console.log(`  ${icon} [${res.taskId}] ${res.summary} (${res.durationMs}ms)`);
-        if (res.status === "failed") {
+        taskResults[result.taskId] = result;
+        const icon = result.status === "success" ? "\x1b[32m✔\x1b[0m" : "\x1b[31m✖\x1b[0m";
+        console.log(`  ${icon} [${result.taskId}] ${result.summary} (${result.durationMs}ms)`);
+        if (result.status !== "success") {
           allSuccess = false;
         }
       }
@@ -233,18 +371,16 @@ export class MainAgentOrchestrator {
       }
     }
 
-    // Final Consistency Audit Gate
     console.log(`\n\x1b[1m\x1b[35m--- Final Consistency Gate (@consistency-guardian) ---\x1b[0m`);
     const consistency = runConsistencyAudit();
     console.log(
       consistency.passed
-        ? `\x1b[32m✔ Consistency Guardian verified 100% compliance across all 15 layers.\x1b[0m`
+        ? `\x1b[32m✔ Consistency Guardian verified ${consistency.results.length} configured checks.\x1b[0m`
         : `\x1b[31m✖ Consistency Guardian found discrepancies.\x1b[0m`,
     );
 
     const totalDurationMs = Date.now() - startMs;
     const endTime = new Date().toISOString();
-
     return {
       id: plan.id,
       goal: plan.goal,
@@ -255,7 +391,7 @@ export class MainAgentOrchestrator {
       taskResults,
       consistencyAudit: {
         passed: consistency.passed,
-        details: `${consistency.results.filter((r) => r.passed).length}/${consistency.results.length} checks passed`,
+        details: `${consistency.results.filter((result) => result.passed).length}/${consistency.results.length} checks passed`,
       },
       rollbackDefense: {
         evaluated: evaluatedCount,

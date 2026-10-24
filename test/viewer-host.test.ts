@@ -176,6 +176,19 @@ describe("startViewerServer host binding", () => {
     await new Promise<void>((resolve) => s.once("listening", () => resolve()));
   }
 
+  async function fetchWithRetry(url: string, init?: RequestInit): Promise<Response> {
+    let lastErr: unknown;
+    for (let attempt = 0; attempt < 5; attempt++) {
+      try {
+        return await fetch(url, init);
+      } catch (err) {
+        lastErr = err;
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+    }
+    throw lastErr;
+  }
+
   it("binds to 127.0.0.1 by default — preserves loopback-only security", async () => {
     delete process.env.AGENTMEMORY_VIEWER_HOST;
     server = startViewerServer(0, null, null);
@@ -230,12 +243,12 @@ describe("startViewerServer host binding", () => {
     const addr = server.address() as AddressInfo;
     process.env.VIEWER_ALLOWED_HOSTS = `127.0.0.1:${addr.port}`;
 
-    const unauthed = await fetch(
+    const unauthed = await fetchWithRetry(
       `http://127.0.0.1:${addr.port}/agentmemory/livez`,
     );
     expect(unauthed.status).toBe(401);
 
-    const wrongBearer = await fetch(
+    const wrongBearer = await fetchWithRetry(
       `http://127.0.0.1:${addr.port}/agentmemory/livez`,
       { headers: { Authorization: "Bearer wrong-token" } },
     );
@@ -245,7 +258,7 @@ describe("startViewerServer host binding", () => {
     // this test, so we expect a non-401 status (the proxy will fail
     // with 502/504) — the key invariant is that the auth gate let it
     // through.
-    const goodBearer = await fetch(
+    const goodBearer = await fetchWithRetry(
       `http://127.0.0.1:${addr.port}/agentmemory/livez`,
       { headers: { Authorization: `Bearer ${secret}` } },
     );
@@ -259,7 +272,7 @@ describe("startViewerServer host binding", () => {
     await waitForListening(server);
     const addr = server.address() as AddressInfo;
 
-    const res = await fetch(
+    const res = await fetchWithRetry(
       `http://127.0.0.1:${addr.port}/agentmemory/livez`,
     );
     // No 401: the loopback bind keeps the legacy behaviour where any
@@ -276,7 +289,7 @@ describe("startViewerServer host binding", () => {
     const addr = server.address() as AddressInfo;
     process.env.VIEWER_ALLOWED_HOSTS = `127.0.0.1:${addr.port}`;
 
-    const res = await fetch(`http://127.0.0.1:${addr.port}/`);
+    const res = await fetchWithRetry(`http://127.0.0.1:${addr.port}/`);
     // The HTML shell stays unauthenticated so a browser can fetch it;
     // the embedded JS still needs the bearer for the data calls.
     expect(res.status).not.toBe(401);

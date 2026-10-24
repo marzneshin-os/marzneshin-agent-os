@@ -45,7 +45,36 @@ jobs:
       - run: npm run build
       - run: npm test
 
+      - name: Resolve workflow_dispatch package selection
+        id: package-selection
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        env:
+          PACKAGE_INPUT: ${{ inputs.packages }}
+        run: |
+          declare -A selected=()
+          IFS=',' read -ra requested <<< "$PACKAGE_INPUT"
+          if [[ ${#requested[@]} -eq 0 ]]; then
+            echo "No package was selected" >&2
+            exit 1
+          fi
+          for package in "${requested[@]}"; do
+            package="${package//[[:space:]]/}"
+            case "$package" in
+              agentmemory|mcp|fs-watcher) selected["$package"]=true ;;
+              *) echo "Unknown package selection: $package" >&2; exit 1 ;;
+            esac
+          done
+          for package in agentmemory mcp fs-watcher; do
+            output_name="${package//-/_}"
+            if [[ ${selected[$package]:-false} == true ]]; then
+              echo "$output_name=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "$output_name=false" >> "$GITHUB_OUTPUT"
+            fi
+          done
+
       - name: Publish @agentmemory/agentmemory
+        if: ${{ github.event_name == 'release' || steps.package-selection.outputs.agentmemory == 'true' }}
         run: |
           if npm view "@agentmemory/agentmemory@$(node -p "require('./package.json').version")" version >/dev/null 2>&1; then
             echo "Version already published, skipping"
@@ -56,6 +85,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Wait for npm registry propagation
+        if: ${{ github.event_name == 'release' || steps.package-selection.outputs.agentmemory == 'true' }}
         run: |
           VERSION=$(node -p "require('./package.json').version")
           for i in $(seq 1 24); do
@@ -70,6 +100,7 @@ jobs:
           exit 1
 
       - name: Publish @agentmemory/mcp shim
+        if: ${{ github.event_name == 'release' || steps.package-selection.outputs.mcp == 'true' }}
         working-directory: packages/mcp
         run: |
           SHIM_VERSION=$(node -p "require('./package.json').version")
@@ -82,6 +113,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Wait for @agentmemory/mcp registry propagation
+        if: ${{ github.event_name == 'release' || steps.package-selection.outputs.mcp == 'true' }}
         working-directory: packages/mcp
         run: |
           SHIM_VERSION=$(node -p "require('./package.json').version")
@@ -97,6 +129,7 @@ jobs:
           exit 1
 
       - name: Publish @agentmemory/fs-watcher connector
+        if: ${{ github.event_name == 'release' || steps.package-selection.outputs.fs_watcher == 'true' }}
         working-directory: integrations/filesystem-watcher
         run: |
           FSW_VERSION=$(node -p "require('./package.json').version")
@@ -109,6 +142,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Wait for @agentmemory/fs-watcher registry propagation
+        if: ${{ github.event_name == 'release' || steps.package-selection.outputs.fs_watcher == 'true' }}
         working-directory: integrations/filesystem-watcher
         run: |
           FSW_VERSION=$(node -p "require('./package.json').version")

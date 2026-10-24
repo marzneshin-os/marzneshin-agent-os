@@ -1,0 +1,129 @@
+﻿{
+  "mcpServers": {
+    "marzneshin-langgraph": {
+      "url": "http://127.0.0.1:8005/sse"
+    },
+    "memwal": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mysten-incubation/memwal-mcp"
+      ]
+    },
+    "webcmd-browser": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "/home/asus/code/marzneshin-agent-os/scripts/mcp_webcmd.py"
+      ],
+      "description": "WebCMD Browser Memory & DOM Token Compression"
+    },
+    "ecc-harness": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "/home/asus/code/marzneshin-agent-os/scripts/mcp_ecc.py"
+      ],
+      "description": "ECC Test Harness & Verification"
+    },
+    "freellm-pool": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "/home/asus/code/marzneshin-agent-os/scripts/mcp_freellm.py"
+      ],
+      "description": "Free LLM API Pool Router"
+    },
+    "antigravity-doctor": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "/home/asus/code/marzneshin-agent-os/scripts/mcp_antigravity_doctor.py"
+      ],
+      "description": "Google Antigravity Account Doctor & Health Recovery Engine (ADR-025)"
+    },
+    "grounded-notebook": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "/home/asus/code/marzneshin-agent-os/scripts/mcp_grounded_notebook.py"
+      ],
+      "description": "Grounded Notebook Knowledge Engine (ADR-026, Synthesizing NotebookLM & Antigravity)"
+    },
+    "laya-typed-decisions": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "/home/asus/code/marzneshin-agent-os/scripts/mcp_laya.py"
+      ],
+      "description": "Laya & Jev System 1 Typed Decisions & Stacking Engine (ADR-027)"
+    },
+    "aws-bedrock-credits": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "/home/asus/code/marzneshin-agent-os/scripts/mcp_aws_bedrock.py"
+      ],
+      "description": "AWS Bedrock Promotional Credit Pool & Zero-Cost Guardrail (ADR-029)"
+    },
+    "reason-network": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "/home/asus/.local/bin/reason-network",
+        "mcp"
+      ],
+      "description": "Reason Network P2P Agent Mesh & Multi-Agent Collaboration (ADR-030)"
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "description": "Live, version-specific library documentation lookup via Context7 (Anthropic claude-code-setup standard)"
+    },
+    "tavily": {
+      "command": "wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "/home/asus/code/marzneshin-agent-os/scripts/mcp_tavily.py"
+      ],
+      "description": "Tavily AI Search, Extraction, Crawling & Mapping for Coding Agents (Khairallah 2026 Golden Stack Tool #16)"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "description": "Playwright Browser Automation & E2E Testing MCP Server (Khairallah Stack Tool #19)"
+    }
+  }
+}

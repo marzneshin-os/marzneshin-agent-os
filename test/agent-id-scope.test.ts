@@ -254,10 +254,10 @@ describe("AGENTMEMORY_AGENT_SCOPE mode (#554)", () => {
     expect(isAgentScopeIsolated()).toBe(true);
   });
 
-  it("isolated requires AGENT_ID to also be set (no scope without id)", async () => {
+  it("keeps isolated mode active without AGENT_ID so readers can fail closed", async () => {
     process.env["AGENTMEMORY_AGENT_SCOPE"] = "isolated";
     const { isAgentScopeIsolated } = await import("../src/config.js");
-    expect(isAgentScopeIsolated()).toBe(false);
+    expect(isAgentScopeIsolated()).toBe(true);
   });
 
   it("unknown scope values fall back to shared", async () => {

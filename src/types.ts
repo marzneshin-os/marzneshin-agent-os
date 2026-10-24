@@ -595,7 +595,9 @@ export interface AuditEntry {
     | "export"
     | "action_create"
     | "action_update"
+    | "gravitas_guard"
     | "lease_acquire"
+    | "lease_renew"
     | "lease_release"
     | "routine_run"
     | "signal_send"
@@ -687,10 +689,86 @@ export interface Action {
   sourceObservationIds: string[];
   sourceMemoryIds: string[];
   result?: string;
+  guardContract?: ActionGuardContract;
   parentId?: string;
   metadata?: Record<string, unknown>;
   sketchId?: string;
   crystallizedInto?: string;
+}
+
+export interface ActionGuardContract {
+  enforcement: "audit" | "enforce";
+  allowedPaths: string[];
+  acceptanceCriteria: Array<{
+    id: string;
+    description: string;
+    validatorId: string;
+  }>;
+  validators: Array<{
+    id: string;
+    command: string;
+  }>;
+}
+
+export interface GravitasReadReceipt {
+  relativePath: string;
+  fileHash: string;
+}
+
+export interface GravitasFailedCall {
+  callHash: string;
+  targetHash: string;
+  argumentHash: string;
+  toolName: string;
+  strategyFingerprint: string;
+  retryStrategyFingerprint?: string;
+  retryArgumentHash?: string;
+  diagnosisHash?: string;
+  retryArmed: boolean;
+  failedAt: string;
+}
+
+export interface GravitasGuardEvent {
+  eventKey: string;
+  stepIndex: number;
+  phase: "pre_tool" | "post_tool";
+  toolNameHash: string;
+  argumentHash: string;
+  strategyFingerprint?: string;
+  preReadFileHash?: string;
+  decision: "allow" | "deny";
+  reason?: string;
+  validatorId?: string;
+  callHash?: string;
+  mutationRevision: number;
+}
+
+export interface GravitasValidatorEvidence {
+  validatorId: string;
+  passed: boolean;
+  mutationRevision: number;
+  stepIndex?: number;
+  recordedAt: string;
+  commandHash: string;
+  outputHash?: string;
+  statusCode?: number;
+}
+
+export interface GravitasGuardState {
+  actionId: string;
+  conversationId?: string;
+  workspaceRootHash?: string;
+  contractHash?: string;
+  enforcement?: "audit" | "enforce";
+  mutationRevision: number;
+  lastStepIndex: number;
+  fullyIdle: boolean;
+  lastStopExecutionNum?: number;
+  reads: GravitasReadReceipt[];
+  failedCalls: GravitasFailedCall[];
+  validatorEvidence: GravitasValidatorEvidence[];
+  events: GravitasGuardEvent[];
+  updatedAt: string;
 }
 
 export type ActionEdgeType =

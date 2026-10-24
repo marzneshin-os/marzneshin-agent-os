@@ -1,7 +1,9 @@
-﻿import { MainAgentOrchestrator } from "./orchestrator.js";
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { MainAgentOrchestrator } from "./orchestrator.js";
 import { OrchestrationPlan } from "./schemas.js";
 
-async function main() {
+export async function main(args: string[] = process.argv.slice(2)): Promise<void> {
   const orchestrator = new MainAgentOrchestrator();
   const subagents = orchestrator.getAllSubagents();
 
@@ -9,22 +11,30 @@ async function main() {
   console.log("\x1b[1m\x1b[36m   Marzneshin-Agent-OS Multi-Agent Orchestrator      \x1b[0m");
   console.log("\x1b[1m\x1b[36m=====================================================\x1b[0m\n");
 
-  console.log(`Discovered \x1b[32m${subagents.size}\x1b[0m specialized subagents in .agents/agents/:`);
-  for (const [role, cfg] of subagents.entries()) {
-    console.log(`  • \x1b[33m@${role}\x1b[0m [model: \x1b[35m${cfg.model}\x1b[0m]: ${cfg.description}`);
+  console.log("Discovered " + subagents.size + " valid specialist configs in .agents/agents/:");
+  for (const [role, config] of subagents.entries()) {
+    console.log("  • @" + role + " [model: " + config.model + "]: " + config.description);
   }
   console.log();
 
-  const isCheckOnly = process.argv.includes("--check");
-
-  if (isCheckOnly) {
-    console.log("\x1b[32m✔ Subagent definitions & context isolation verified successfully!\x1b[0m");
-    process.exit(0);
+  if (args.includes("--check")) {
+    const check = orchestrator.checkSetup();
+    console.log("Checked " + check.discoveredSubagents + " valid specialist configuration(s).");
+    if (check.issues.length) {
+      for (const issue of check.issues) {
+        console.error("\x1b[31m✖ " + issue + "\x1b[0m");
+      }
+      console.error("\x1b[31m✖ Orchestrator setup is not safe to run.\x1b[0m");
+      process.exitCode = 1;
+    } else {
+      console.log("\x1b[32m✔ Specialist configs and worktree prerequisites verified.\x1b[0m");
+      process.exitCode = 0;
+    }
+    return;
   }
 
-  // Autonomous Full-Project Verification & Orchestration Plan
   const plan: OrchestrationPlan = {
-    id: `plan-${Date.now()}`,
+    id: "plan-" + Date.now(),
     goal: "Verify and orchestrate marzneshin-agent-os across all 15 architectural layers",
     createdAt: new Date().toISOString(),
     tasks: [
@@ -46,22 +56,22 @@ async function main() {
         id: "TASK-03",
         title: "Verify REST API Triggers & Auth Guards",
         specialist: "api-endpoint-builder",
-        prompt: "Verify 130 REST endpoints and rate-limit / auth guards.",
+        prompt: "Verify REST endpoints and rate-limit / auth guards.",
         isolation: "direct",
       },
       {
         id: "TASK-04",
         title: "Run Unit & Integration Test Suite",
         specialist: "test-engineer",
-        prompt: "Execute complete vitest test suite with zero regressions.",
+        prompt: "Execute the configured Vitest suite and report its exit status.",
         dependsOn: ["TASK-01", "TASK-02", "TASK-03"],
         isolation: "direct",
       },
       {
         id: "TASK-05",
-        title: "Enforce 8-File MCP, 3-File REST & 7-File Version Consistency",
+        title: "Run the configured consistency audit",
         specialist: "consistency-guardian",
-        prompt: "Run consistency audit across all version, tool, and endpoint manifests.",
+        prompt: "Run the built-in consistency audit and report every check accurately.",
         dependsOn: ["TASK-04"],
         isolation: "direct",
       },
@@ -69,16 +79,16 @@ async function main() {
   };
 
   const result = await orchestrator.runPlan(plan);
-
   console.log("\n\x1b[1m\x1b[36m=== Final Orchestration Summary ===\x1b[0m");
-  console.log(`Status: ${result.status === "completed" ? "\x1b[32mCOMPLETED\x1b[0m" : "\x1b[31mFAILED\x1b[0m"}`);
-  console.log(`Total Duration: ${result.totalDurationMs}ms`);
-  console.log(`Consistency Audit: ${result.consistencyAudit.details}`);
-
-  process.exit(result.status === "completed" ? 0 : 1);
+  console.log("Status: " + (result.status === "completed" ? "\x1b[32mCOMPLETED\x1b[0m" : "\x1b[31mFAILED\x1b[0m"));
+  console.log("Total Duration: " + result.totalDurationMs + "ms");
+  console.log("Consistency Audit: " + result.consistencyAudit.details);
+  process.exitCode = result.status === "completed" ? 0 : 1;
 }
 
-main().catch((err) => {
-  console.error("Fatal orchestrator error:", err);
-  process.exit(1);
-});
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error("Fatal orchestrator error:", error);
+    process.exitCode = 1;
+  });
+}
