@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Verification script for Marzneshin Autonomous OS.
 
-Runs 6 functional checks to determine system health.
+Runs 7 functional checks to determine system health.
 Exit code 0 = all checks pass, non-zero = at least one failure.
 
 Checks:
@@ -11,6 +11,7 @@ Checks:
     4. npm run build passes
     5. No orphaned leases older than 1 hour
     6. state/HANDOFF.md exists and has required sections
+    7. Master prompts immutability guard (>= 800 lines and required sections)
 """
 import json
 import subprocess
@@ -196,6 +197,44 @@ def check_6_handoff():
     return check("HANDOFF.md exists with required sections", True, f"{len(content)} bytes")
 
 
+def check_7_prompt_immutability():
+    root_prompt = PROJECT_ROOT / "MASTER_PROMPT.md"
+    agents_prompt = PROJECT_ROOT / ".agents" / "master_prompt.md"
+
+    errors = []
+
+    if not root_prompt.exists():
+        errors.append("MASTER_PROMPT.md not found")
+    else:
+        content_root = root_prompt.read_text(encoding="utf-8")
+        lines_root = content_root.splitlines()
+        if len(lines_root) < 800:
+            errors.append(f"MASTER_PROMPT.md has {len(lines_root)} lines (expected >= 800)")
+        required_sections = ["§0", "§1", "§2", "§4", "§8", "§9", "§12"]
+        missing_root = [s for s in required_sections if s not in content_root]
+        if missing_root:
+            errors.append(f"MASTER_PROMPT.md missing sections: {missing_root}")
+
+    if not agents_prompt.exists():
+        errors.append(".agents/master_prompt.md not found")
+    else:
+        content_agents = agents_prompt.read_text(encoding="utf-8")
+        lines_agents = content_agents.splitlines()
+        if len(lines_agents) < 800:
+            errors.append(f".agents/master_prompt.md has {len(lines_agents)} lines (expected >= 800)")
+        if "# 🧠 Master Prompt V3" not in content_agents:
+            errors.append(".agents/master_prompt.md missing '# 🧠 Master Prompt V3' header")
+
+    if errors:
+        return check("Master prompts immutability guard", False, "; ".join(errors))
+
+    return check(
+        "Master prompts immutability guard",
+        True,
+        f"MASTER_PROMPT.md ({len(lines_root)} lines), .agents/master_prompt.md ({len(lines_agents)} lines)",
+    )
+
+
 def main():
     print("=" * 60)
     print("  MARZNESHIN AUTONOMOUS OS — VERIFICATION REPORT")
@@ -208,6 +247,7 @@ def main():
     check_4_npm_build()
     check_5_orphaned_leases()
     check_6_handoff()
+    check_7_prompt_immutability()
 
     print()
     passed = sum(1 for r in results if r["passed"])

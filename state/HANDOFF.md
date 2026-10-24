@@ -1,6 +1,6 @@
-﻿# HANDOFF — Session Continuity Document
+# HANDOFF — Session Continuity Document
 
-> **Last Updated**: 2026-10-12T19:00:00Z
+> **Last Updated**: 2026-10-24T14:45:00Z
 > **Last Agent**: gemini-3.8-flash (Executive Project Manager, Chief Systems Architect & Principal Engineer)
 > **Phase**: P4-kolibri-sovereign-moe ✅
 > **Kill Switch**: running (fail-closed verified)
@@ -12,15 +12,16 @@
 Phase 0 (Foundation Bootstrap), Phase 1 (Orchestration Runtime), Phase 2 (Resilient Model Quota & Fable 5.1 Orchestration Mesh), Phase 3 (DeepSWE Rollback Minimizer), and Phase 4 (Kolibri Sovereign Local MoE Inference Integration) are **COMPLETE & 100% GREEN**.
 
 System health and governance metrics:
-- ✅ **Verification Suite (scripts/verify.py)**: 6 / 6 checks passing (100% GREEN)
+- ✅ **Verification Suite (scripts/verify.py)**: 7 / 7 checks passing (100% GREEN)
   - `STATE.json` valid (v0.9.29, phase=P4-kolibri-sovereign-moe)
   - Kill switch verdict == `running`
   - `npm test` passes (1,771 / 1,773 vitest unit tests passing, 2 skipped, 174 test files passed)
   - `npm run build` passes (TypeScript ESM compilation via tsdown to `dist/`)
   - No orphaned leases in `state/leases/`
   - `state/HANDOFF.md` validated with all required canonical sections
+  - System Master Prompts immutability guard (MASTER_PROMPT.md & .agents/master_prompt.md >= 800 lines with required sections)
 - ✅ **Two-Key Approval Gate (scripts/two_key_gate.py)**:
-  - Key 1 (QA Gate): APPROVED (6/6 verify checks green, 1,771 tests green)
+  - Key 1 (QA Gate): APPROVED (7/7 verify checks green, 1,771 tests green)
   - Key 2 (Adversarial Review): APPROVED (zero metric gaming, zero mock shortcuts, zero test skips, clean diff against HEAD)
 - ✅ **MCP Surface & Consistency**:
   - 66 MCP tools registered (including 4 new Kolibri tools: `memory_kolibri_discover`, `memory_kolibri_configure`, `memory_kolibri_infer`, `memory_kolibri_status`)

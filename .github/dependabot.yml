@@ -19,6 +19,11 @@ updates:
         update-types:
           - minor
           - patch
+    ignore:
+      - dependency-name: "vitest"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: npm
     directory: /website
@@ -40,6 +45,9 @@ updates:
         update-types:
           - minor
           - patch
+    ignore:
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: npm
     directory: /integrations/openclaw

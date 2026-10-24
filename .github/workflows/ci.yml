@@ -39,7 +39,23 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  pre-flight:
+    name: Pre-Flight Circuit Breaker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm install --legacy-peer-deps --no-audit --no-fund
+      - run: npm run build
+      - run: npm run skills:check
+
   test:
+    name: Matrix Tests (${{ matrix.os }}, Node ${{ matrix.node-version }})
+    needs: [pre-flight]
     runs-on: ${{ matrix.os }}
     strategy:
       # Don't bail the whole matrix on one cell's failure — we want to
