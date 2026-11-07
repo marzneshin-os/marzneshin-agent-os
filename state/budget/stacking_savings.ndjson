@@ -105,3 +105,6 @@
 {"ts": "2026-11-07T10:11:14.178912+00:00", "fast_path": true, "escalate": false, "confidence": 0.9427, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
 {"ts": "2026-11-07T10:12:51.544925+00:00", "fast_path": false, "escalate": true, "confidence": 0.5, "tokens_saved": 0, "est_cost_saved_usd": 0.0}
 {"ts": "2026-11-07T10:12:51.545548+00:00", "fast_path": true, "escalate": false, "confidence": 0.95, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T10:59:47.624308+00:00", "fast_path": true, "escalate": false, "confidence": 0.9427, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T11:01:28.556118+00:00", "fast_path": false, "escalate": true, "confidence": 0.5, "tokens_saved": 0, "est_cost_saved_usd": 0.0}
+{"ts": "2026-11-07T11:01:28.557102+00:00", "fast_path": true, "escalate": false, "confidence": 0.95, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}

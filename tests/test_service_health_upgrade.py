@@ -26,13 +26,15 @@ class TestServiceHealthUpgrade(unittest.TestCase):
         self.assertGreaterEqual(res["latency_ms"], 0.0)
         self.assertIsNotNone(res["error"])
 
-    @patch("urllib.request.urlopen")
-    def test_measure_http_probe_mock_expected(self, mock_urlopen):
+    @patch("urllib.request.build_opener")
+    def test_measure_http_probe_mock_expected(self, mock_build_opener):
         """Verify expected status code matching with mock."""
         mock_resp = MagicMock()
         mock_resp.getcode.return_value = 200
         mock_resp.__enter__.return_value = mock_resp
-        mock_urlopen.return_value = mock_resp
+        mock_opener = MagicMock()
+        mock_opener.open.return_value = mock_resp
+        mock_build_opener.return_value = mock_opener
 
         res = measure_http_probe(port=8005, path="/", expected_status=[200], timeout_s=2.0)
         self.assertTrue(res["ok"])

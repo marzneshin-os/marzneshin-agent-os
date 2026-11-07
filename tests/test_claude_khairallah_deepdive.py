@@ -106,15 +106,25 @@ class TestClaudeKhairallahDeepDive(unittest.TestCase):
         self.assertIn("ONLINE", res["status"])
 
     def test_db_query_cli(self):
+        import sqlite3
+        import tempfile
         import scripts.db_query_cli as dbq
-        checkpoints_db = WORKSPACE_ROOT / "state" / "langgraph_checkpoints.sqlite"
-        if checkpoints_db.exists():
-            conn = dbq.get_connection(checkpoints_db)
+        with tempfile.NamedTemporaryFile(suffix=".sqlite", delete=False) as tf:
+            db_path = Path(tf.name)
+        try:
+            init_conn = sqlite3.connect(db_path)
+            init_conn.execute("CREATE TABLE checkpoints (thread_id TEXT, checkpoint_id TEXT)")
+            init_conn.commit()
+            init_conn.close()
+
+            conn = dbq.get_connection(db_path)
             cur = conn.cursor()
             cur.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name")
             tables = [r["name"] for r in cur.fetchall()]
             self.assertIn("checkpoints", tables)
             conn.close()
+        finally:
+            db_path.unlink(missing_ok=True)
 
     def test_markdownify_cli(self):
         import scripts.markdownify_cli as mdf

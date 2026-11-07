@@ -52,3 +52,5 @@
 {"ts": "2026-11-07T10:07:48.291109+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
 {"ts": "2026-11-07T10:12:51.999630+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
 {"ts": "2026-11-07T10:12:52.001442+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T11:01:29.041696+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T11:01:29.043426+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
