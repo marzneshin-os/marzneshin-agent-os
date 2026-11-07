@@ -3,8 +3,8 @@
     "capability": "canary.deploy",
     "demoted_from": "L0",
     "demoted_to": "L0",
-    "quarantine_until": "2026-11-10T08:41:15.067Z",
-    "quarantined_at": "2026-11-07T08:41:15.067Z",
+    "quarantine_until": "2026-11-10T10:11:07.033Z",
+    "quarantined_at": "2026-11-07T10:11:07.034Z",
     "reason": "CSR dropped below 0.95"
   }
 }

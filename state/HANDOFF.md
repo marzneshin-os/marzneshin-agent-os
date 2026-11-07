@@ -7,49 +7,46 @@
 > پروتکل کامل Cold-Start، ترتیب مطالعه اسناد، نحوه آغاز جلسه FSP، اعتبارسنجی خط مبنا، نحوه انتخاب تسک بعدی، اقدامات ممنوعه و رویه الزامی پایان جلسه در آن مستند شده است.
 
 - **Updated:** 2026-11-07
-- **By:** antigravity-opus (Agent OS Autonomous Execution Engine, session S-083238, fencing token 34)
-- **Slice:** **VS-12 Post-Milestone Autonomous Operational Protocol** (Task **`T-0026`**)
+- **By:** antigravity-opus (Agent OS Autonomous Execution Engine, session S-104018, fencing token 36)
+- **Slice:** **VS-12 Post-Milestone Autonomous Operational Protocol** (Task **`T-0027`**)
 
 ---
 
-## وضعیت جاری و خلاصه اقدامات انجام‌شده (Task T-0026)
+## Where we are (وضعیت جاری و خلاصه اقدامات انجام‌شده)
 
-کلیه مراحل چرخه ۹ مرحله‌ای FSP طبق سند بالادستی `BUILD-SPEC.md (v2.0)`، قواعد پایدار `CLAUDE.md` و بلوپرینت معماری استخراج‌شده از گزارش پژوهشی با موفقیت ۱۰۰٪ اجرا شدند:
+کلیه مراحل چرخه اصلاحات عمیق و ارتقای تاب‌آوری سیستم بر مبنای `BUILD-SPEC.md (v2.0)`، قواعد پایدار `CLAUDE.md`، الزامات `/boost` و اینواریانت‌های حاکمیتی `/gravitas` با موفقیت ۱۰۰٪ اجرا شدند:
 
-### ۱. استخراج و انطباق معماری (Deep Blueprint Extraction & Verification)
-- گزارش معماری حاکمیتی از طریق مرورگر با هیدراسیون کامل جاوااسکریپت و اسکرول ساختاری استخراج گردید.
-- انطباق کامل ساختار دایرکتوری‌ها بر مبنای `BUILD-SPEC §2.2` و قواعد چهارگانه Invariants (منبع واحد حقیقت I1، حفاظت از پوشه‌های رویداد/رسید I2، قفل انحصاری FSP I3، دوگانگی زبانی و فرمت کامیت I4) صحه‌گذاری شد.
+### ۱. حل معضل سایه‌افکنی ماژول‌ها در Pyright/Pyrefly (Module Shadowing Fix)
+- در فایل `pyrightconfig.json` مسیر ریشه پروژه (`"."`) به ابتدای آرایه `extraPaths` اضافه شد تا جستجوی پکیج‌ها ابتدا از ریشه پروژه صورت گیرد.
+- پیش از این، ارجاع `from sim.fakes.antigravity_doctor import ...` به علت وجود اسکریپت `scripts/sim.py` دچار خطای `Cannot find module 'sim.fakes.antigravity_doctor'` می‌شد که با این تنظیم به طور کامل برطرف شد (0 errors در Pyright).
 
-### ۲. پاک‌سازی و ارتقای بهداشت مخزن (Repository Hygiene & Execution)
-- فایل‌های موقت اسکریپتی که در محدوده `BUILD-SPEC §2.2` نبودند از ریشه مخزن حذف شدند.
-- تمامی پوشه‌های `__pycache__` و فایل‌های کامپایل‌شده `*.pyc` از درختواره فایل‌ها و ایندکس گیت پاک‌سازی شدند.
-- قوانین `.gitignore` برای نادیده‌گرفتن مواردی نظیر `.venv/`، `__pycache__/`، `*.pyc`، `.env*`، `node_modules/` و `.next/` تثبیت شد در حالی که پوشه `state/` تحت ردیابی کامل گیت باقی ماند.
+### ۲. اصلاح خطای تایپ استاتیک Pyrefly در مانیتورینگ فعالیت ایجنت‌ها (`scripts/agent_activity_monitor.py`)
+- خطای `bad-argument-type` ناشی از `fpath: Unknown | None` برطرف شد.
+- با استفاده از الگوی Type Narrowing صریح (`val is not None and isinstance(val, (str, Path))`) ارسال متغیرهای خالی یا `None` به `pathlib.Path` ناممکن شد.
+- مکانیزم کشف مکالمات در `get_brain_dir()` چندسکویی شد و پشتیبانی کامل از مانت‌های WSL، ویندوز و ساختار جدید `.gemini/antigravity/brain` اضافه گردید.
+- مدیریت خط فرمان و آرگومان‌های ابزارها برای `query`, `queries`, `prompt`, `TaskId` تعمیم یافت.
 
-### ۳. اصلاح انطباق ساعت مجازی (Virtual Clock Routing - ADR-001 D6)
-- کلیه فراخوانی‌های مستقیم ساعت سیستم (`datetime.now()` و `time.sleep()`) در فایل‌های زیر اصلاح و از طریق `lib.clock` هدایت شدند تا زمان شبیه‌سازی در تمام ماژول‌ها بدون شکست کار کند:
-  - `scripts/agent_activity_monitor.py`
-  - `scripts/agentrouter_gateway.py`
-  - `scripts/mcp_agentrouter.py`
+### ۳. ایجاد سوئیت آزمون واحد اختصاصی مانیتورینگ (`tests/test_agent_activity_monitor.py`)
+- مجموعه آزمون واحد شامل ۱۵ تست دقیق برای سنجش فرمت ابزارها با مقادیر پوچ (`null`/`None`)، اسلش‌های معکوس ویندوزی، جستجوی مکالمات و اورراید متغیر محیطی پیاده‌سازی و اعتبارسنجی شد.
 
-### ۴. تاب‌آوری آزمون پل ارتباطی (Reason Bridge Doctor Resilience)
-- در `scripts/lib/reason_bridge.py`، مهلت زمانی اجرای دستور `doctor` از ۵ ثانیه به ۱۵ ثانیه افزایش یافت و با سازوکار بازگشت امن همراه گردید تا از بروز شکست‌های ناشی از تأخیر پردازشی در بارهای سنگین جلوگیری شود.
+### ۴. پاکسازی و اصلاح ایمپورت‌های ماژول‌های آزمون Adapters
+- در فایل‌های تستی `test_antigravity_doctor_adapter.py`، `test_aws_bedrock_adapter.py`، `test_ecc_adapter.py`، `test_freellm_adapter.py`، `test_graph_loop_adapter.py`، `test_grounded_notebook_adapter.py` و `test_webcmd_adapter.py` تداخل بارگذاری `sim` برطرف شد و چینش `sys.path` تثبیت گردید.
 
-### ۵. راستی‌آزمایی جامع و اسکن امنیتی (Verification & Unit Testing)
-- **اسکن امنیتی اسرار (AgentShield & Secret Scan Gate):** بدون هیچ نشت امنیتی یا کلید خصوصی بحرانی، با رتبه تأیید کامل PASSED.
-- **دروازه اعتبارسنجی دترمینستیک (`python3 scripts/verify.py`):** هر ۶ بررسی سبز کامل (GREEN):
+### ۵. راستی‌آزمایی جامع و خط مبنای سلامت (Baseline Verification)
+- **دروازه اعتبارسنجی دترمینستیک (`python3 scripts/verify.py`):** هر ۶ بررسی کاملاً سبز (GREEN):
   - `chain` (1 workstream)
   - `events`
-  - `schemas` (118 artifacts)
+  - `schemas` (121 artifacts)
   - `agent-cards`
   - `lint-imports`
   - `lint-clock`
-- **مجموعه تست‌های واحد (`python3 -m unittest discover -s tests`):** هر ۴۵۵ تست واحد ۱۰۰٪ موفق و سبز (OK, 455 tests passed).
+- **مجموعه تست‌های واحد (`python3 -m unittest discover -s tests`):** هر ۴۷۰ تست واحد ۱۰۰٪ موفق و سبز (OK, 470 tests passed).
 
 ---
 
 ## Baseline health
 
-- **Unit tests:** 455 / 455 passing (`python3 -m unittest discover -s tests`)
+- **Unit tests:** 470 / 470 passing (`python3 -m unittest discover -s tests`)
 - **Verification checks:** 6 / 6 passing (`python3 scripts/verify.py`)
 - **Core services:** 13 / 13 services UP and healthy (`python3 scripts/dev.py status`)
 - **Kill switch:** Inactive (`global=False`)
@@ -59,6 +56,5 @@
 
 ## برنامه‌ریزی برای نشست کاری بعدی (Next Steps)
 
-1. حفظ پایداری مداوم ۱۳ سرویس محلی از طریق `scripts/dev.py status`.
-2. ادغام تسک‌های تحلیلی و تله‌متری با کارگزار جدید `AgentRouter` و `FastMCP`.
-3. پایش کش پرفیکس و شاخص‌های هزینه توکن از طریق داشبورد Codeburn و Headroom.
+1. حفظ پایداری مداوم ۱۳ سرویس محلی و بررسی دوره‌ای لاگ‌های واچ‌داگ.
+2. تداوم پایش ترنسکریپت‌ها با ابزار ارتقایافته `scripts/agent_activity_monitor.py`.

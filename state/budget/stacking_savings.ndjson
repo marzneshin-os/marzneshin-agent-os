@@ -93,3 +93,15 @@
 {"ts": "2026-11-07T08:41:21.935429+00:00", "fast_path": true, "escalate": false, "confidence": 0.9427, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
 {"ts": "2026-11-07T08:42:59.679516+00:00", "fast_path": false, "escalate": true, "confidence": 0.5, "tokens_saved": 0, "est_cost_saved_usd": 0.0}
 {"ts": "2026-11-07T08:42:59.680138+00:00", "fast_path": true, "escalate": false, "confidence": 0.95, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T09:56:51.902946+00:00", "fast_path": true, "escalate": false, "confidence": 0.9427, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T09:58:53.241654+00:00", "fast_path": false, "escalate": true, "confidence": 0.5, "tokens_saved": 0, "est_cost_saved_usd": 0.0}
+{"ts": "2026-11-07T09:58:53.242394+00:00", "fast_path": true, "escalate": false, "confidence": 0.95, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T10:02:04.358915+00:00", "fast_path": true, "escalate": false, "confidence": 0.9427, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T10:04:09.292287+00:00", "fast_path": false, "escalate": true, "confidence": 0.5, "tokens_saved": 0, "est_cost_saved_usd": 0.0}
+{"ts": "2026-11-07T10:04:09.293261+00:00", "fast_path": true, "escalate": false, "confidence": 0.95, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T10:06:06.224923+00:00", "fast_path": true, "escalate": false, "confidence": 0.9427, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T10:07:47.748271+00:00", "fast_path": false, "escalate": true, "confidence": 0.5, "tokens_saved": 0, "est_cost_saved_usd": 0.0}
+{"ts": "2026-11-07T10:07:47.749147+00:00", "fast_path": true, "escalate": false, "confidence": 0.95, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T10:11:14.178912+00:00", "fast_path": true, "escalate": false, "confidence": 0.9427, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}
+{"ts": "2026-11-07T10:12:51.544925+00:00", "fast_path": false, "escalate": true, "confidence": 0.5, "tokens_saved": 0, "est_cost_saved_usd": 0.0}
+{"ts": "2026-11-07T10:12:51.545548+00:00", "fast_path": true, "escalate": false, "confidence": 0.95, "tokens_saved": 1200, "est_cost_saved_usd": 0.015}

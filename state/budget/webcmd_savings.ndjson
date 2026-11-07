@@ -44,3 +44,11 @@
 {"ts": "2026-11-07T08:39:32.633096+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
 {"ts": "2026-11-07T08:43:00.134270+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
 {"ts": "2026-11-07T08:43:00.136135+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T09:58:53.753808+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T09:58:53.755543+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T10:04:09.920547+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T10:04:09.922884+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T10:07:48.288304+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T10:07:48.291109+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T10:12:51.999630+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T10:12:52.001442+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}

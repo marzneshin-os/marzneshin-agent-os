@@ -59,7 +59,7 @@
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-07T08:44:15.003Z",
+  "generated_at": "2026-11-07T10:41:22.176Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -110,6 +110,14 @@
       "owner_agent": "antigravity-opus",
       "receipt_chain_head": "sha256:43dc236fa1414052a8e4fe3d5bcff4f03154e326bdc7a3fd1a762b49d8932691",
       "receipt_chain_length": 31
+    },
+    "main": {
+      "blocked_by": [],
+      "health": "unknown",
+      "last_receipt": null,
+      "lease": null,
+      "open_tasks": [],
+      "owner_agent": "antigravity-opus"
     }
   }
 }

@@ -11,11 +11,11 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-if str(REPO) not in sys.path:
-    sys.path.insert(0, str(REPO))
-import sim
+if str(REPO) in sys.path:
+    sys.path.remove(str(REPO))
+sys.path.insert(0, str(REPO))
 if str(REPO / "scripts") not in sys.path:
-    sys.path.insert(1, str(REPO / "scripts"))
+    sys.path.append(str(REPO / "scripts"))
 
 from adapters.contract import run_contract
 from adapters.grounded_notebook import GroundedNotebookAdapter
