@@ -4,7 +4,16 @@
       "Bash(python3 scripts/dev.py health)",
       "Bash(python3 scripts/dev.py status)",
       "Bash(python3 scripts/verify.py)",
+      "Bash(python3 scripts/verify.py --all)",
+      "Bash(python3 scripts/worktree_cli.py *)",
+      "Bash(python3 scripts/compact.py)",
+      "Bash(python3 scripts/antigravity_doctor_cli.py *)",
+      "Bash(python3 scripts/ecc_cli.py *)",
+      "Bash(python3 scripts/webcmd_cli.py *)",
+      "Bash(.venv/bin/ruff format *)",
+      "Bash(ruff format *)",
       "Bash(pytest tests/*)",
+      "Bash(python3 -m unittest discover -s tests)",
       "mcp__plugin_agentmemory_agentmemory__memory_smart_search",
       "mcp__plugin_agentmemory_agentmemory__memory_sessions",
       "mcp__plugin_agentmemory_agentmemory__memory_save",
@@ -16,7 +25,118 @@
       "mcp__memwal__memwal_restore",
       "mcp__memwal__memwal_remember_bulk",
       "mcp__plugin_memwal_memwal__memwal_remember",
-      "mcp__plugin_memwal_memwal__memwal_recall"
+      "mcp__plugin_memwal_memwal__memwal_recall",
+      "Bash(python3 scripts/fsp.py *)",
+      "Bash(python3 scripts/killswitch.py *)",
+      "Bash(python3 scripts/freellm_cli.py *)",
+      "Bash(bash scripts/claude_statusline.sh)",
+      "Bash(python3 scripts/claude_statusline.py)",
+      "Bash(python3 hooks/pre_compact.py *)",
+      "Bash(python3 hooks/session_start.py *)",
+      "mcp__reason-network__ask_user",
+      "mcp__reason-network__list_team",
+      "mcp__reason-network__send_message",
+      "mcp__reason-network__check_inbox",
+      "Bash(reason-network *)",
+      "Bash(python3 scripts/reason_cli.py *)",
+      "Bash(python3 hooks/subagent_stop.py *)",
+      "Bash(python3 scripts/cost_tracker.py *)",
+      "Bash(python3 hooks/notification.py)",
+      "Bash(python3 hooks/notification.py *)",
+      "mcp__context7__*",
+      "Bash(python3 scripts/taskmaster_cli.py *)",
+      "Bash(python3 scripts/mcp_tavily.py *)",
+      "mcp__tavily__*",
+      "Bash(python3 scripts/mcphub_cli.py *)",
+      "Bash(python3 scripts/db_query_cli.py *)",
+      "Bash(python3 scripts/markdownify_cli.py *)",
+      "Bash(python3 scripts/router_cli.py *)",
+      "mcp__playwright__*"
     ]
-  }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 hooks/session_start.py"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 hooks/pre_tool.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 hooks/post_tool.py"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 hooks/stop.py"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 hooks/pre_compact.py"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 hooks/subagent_stop.py"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt|idle_prompt|auth_success|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 hooks/notification.py"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash scripts/claude_statusline.sh"
+  },
+  "idleCompaction": true,
+  "crossSessionInbound": "accept"
 }

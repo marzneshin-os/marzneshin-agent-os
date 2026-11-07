@@ -185,8 +185,71 @@
       "removed": 1,
       "scope": "global",
       "target": null
+    },
+    {
+      "released_at": "2026-10-16T19:55:19.288Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-20T21:22:33.494Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-20T23:00:28.969Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-20T23:13:05.184Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-10-21T08:28:22.640Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-11-06T20:25:38.853Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-11-06T21:01:01.475Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-11-07T08:37:48.822Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
+    },
+    {
+      "released_at": "2026-11-07T08:41:19.441Z",
+      "released_by": "test-operator",
+      "removed": 1,
+      "scope": "global",
+      "target": null
     }
   ],
   "schema_version": "2.0.0",
-  "updated_at": "2026-10-16T19:48:15.427Z"
+  "updated_at": "2026-11-07T08:41:19.441Z"
 }

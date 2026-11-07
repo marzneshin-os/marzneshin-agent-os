@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GravitasBench Episode v2",
+  "type": "object",
+  "properties": {
+    "model": {
+      "type": "object",
+      "properties": {
+        "provider": {"type": "string"},
+        "family": {"type": "string"},
+        "exact_slug": {"type": "string"},
+        "display_name": {"type": "string"}
+      }
+    },
+    "model_effort": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "provider-default", "not-configurable"]
+    },
+    "gravitas": {
+      "type": "object",
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "mode": {"type": "string", "enum": ["none", "core", "native"]},
+        "budget_profile": {"type": "string", "enum": ["eco", "balanced", "deep", "team"]},
+        "version": {"type": "string"},
+        "git_sha": {"type": "string"},
+        "artifact_hash": {"type": "string"}
+      }
+    },
+    "host": {
+      "type": "object",
+      "properties": {
+        "product": {"type": "string"},
+        "antigravity_version": {"type": "string"},
+        "platform": {"type": "string"},
+        "architecture": {"type": "string"},
+        "sandbox_enabled": {"type": "boolean"},
+        "network_policy": {"type": "string"},
+        "permission_policy_hash": {"type": "string"}
+      }
+    },
+    "task": {
+      "type": "object",
+      "properties": {
+        "task_id": {"type": "string"},
+        "dataset_version": {"type": "string"},
+        "repository_url": {"type": "string"},
+        "repository_license": {"type": "string"},
+        "starting_commit": {"type": "string"},
+        "fixture_hash": {"type": "string"},
+        "prompt_hash": {"type": "string"},
+        "hidden_validator_hash": {"type": "string"}
+      }
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "run_index": {"type": "integer"},
+        "randomized_block": {"type": "string"},
+        "conversation_id": {"type": "string"},
+        "start_time": {"type": "string", "format": "date-time"},
+        "end_time": {"type": "string", "format": "date-time"},
+        "duration_seconds": {"type": "number"},
+        "terminal_status": {"type": "string"},
+        "infrastructure_failure": {"type": "boolean"}
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "input_tokens": {"type": ["integer", "null"]},
+        "output_tokens": {"type": ["integer", "null"]},
+        "thinking_tokens": {"type": ["integer", "null"]},
+        "cache_read_tokens": {"type": ["integer", "null"]},
+        "cache_write_tokens": {"type": ["integer", "null"]},
+        "total_tokens": {"type": ["integer", "null"]},
+        "turns": {"type": ["integer", "null"]},
+        "tool_calls": {"type": ["integer", "null"]},
+        "reads": {"type": ["integer", "null"]},
+        "writes": {"type": ["integer", "null"]},
+        "commands": {"type": ["integer", "null"]},
+        "test_invocations": {"type": ["integer", "null"]},
+        "validator_invocations": {"type": ["integer", "null"]},
+        "subagents_spawned": {"type": ["integer", "null"]}
+      }
+    },
+    "quota": {
+      "type": "object",
+      "properties": {
+        "before": {"type": ["number", "null"]},
+        "after": {"type": ["number", "null"]},
+        "observed_delta": {"type": ["number", "null"]},
+        "bucket": {"type": ["string", "null"]},
+        "reset_time": {"type": ["string", "null", "number"]},
+        "capture_method": {"type": ["string", "null"]},
+        "attribution_confidence": {"type": ["string", "null"]}
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "functional_solve": {"type": ["boolean", "null"]},
+        "claimed_success": {"type": ["boolean", "null"]},
+        "false_completion": {"type": ["boolean", "null"]},
+        "regression": {"type": ["boolean", "null"]},
+        "scope_violation": {"type": ["boolean", "null"]},
+        "unauthorized_write": {"type": ["boolean", "null"]},
+        "read_before_write_violation": {"type": ["boolean", "null"]},
+        "recovery_success": {"type": ["boolean", "null"]}
+      }
+    }
+  },
+  "additionalProperties": true
+}

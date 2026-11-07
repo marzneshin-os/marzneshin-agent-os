@@ -30,3 +30,17 @@
 {"ts": "2026-10-16T19:26:39.274525+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
 {"ts": "2026-10-16T19:50:32.495470+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
 {"ts": "2026-10-16T19:50:32.497079+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-10-16T19:57:35.706370+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-10-16T19:57:35.707997+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-10-20T21:24:03.353910+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-10-20T21:24:03.357211+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-10-20T23:02:08.770423+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-10-20T23:02:08.772745+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-06T20:27:23.090512+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-06T20:27:23.093078+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-06T21:02:39.795100+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-06T21:02:39.796783+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T08:39:32.631378+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T08:39:32.633096+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T08:43:00.134270+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}
+{"ts": "2026-11-07T08:43:00.136135+00:00", "domain": "docs.example.com", "action": "learn_route", "raw_chars": 2150, "compressed_chars": 611, "tokens_saved": 385, "savings_ratio": 0.7158}

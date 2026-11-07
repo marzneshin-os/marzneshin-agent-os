@@ -1,0 +1,74 @@
+name: GRAVITAS Verify
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  gravitas-verify:
+    name: GRAVITAS Verification Gate
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.12']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package and benchmark validator dependencies
+        run: python -m pip install . -r benchmarks/runner/requirements.txt
+
+      - name: Run unit and runtime tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Audit schemas, manifest, hooks, and claims
+        run: python benchmarks/runner/audit.py
+
+      - name: Validate published benchmark fixtures, if any
+        run: python benchmarks/runner/validate.py --episodes benchmarks/results --allow-empty
+
+      - name: Compile native hook scripts
+        run: python -m py_compile gravitas_cli.py gravitas_init.py plugins/gravitas-antigravity/scripts/*.py skills/gravitas/scripts/*.py benchmarks/runner/*.py
+
+      - name: Smoke-test installed CLI
+        run: gravitas doctor
+
+      - name: Package build and clean install smoke test
+        run: |
+          python -m pip install build
+          python -m build --outdir /tmp/gravitas-pkg
+          python -m pip install --force-reinstall --no-deps /tmp/gravitas-pkg/*.whl
+          cd /tmp && gravitas doctor
+          cd /tmp && gravitas decide --signals '{}'
+          cd /tmp && python -c "import gravitas_init; print(gravitas_init.detect_hosts('.'))"
+
+      - name: Validate portable skill structure
+        run: python .github/scripts/validate_skill.py
+
+      - name: Build and validate Native bundle
+        run: |
+          bash scripts/build-native-bundle.sh
+          test -f dist/gravitas-antigravity/plugin.json
+          test -f dist/gravitas-antigravity/hooks.json
+          test -f dist/gravitas-antigravity/skills/gravitas/SKILL.md
+          test -f dist/gravitas-antigravity/skills/gravitas-highstakes/SKILL.md
+          test -f dist/gravitas-antigravity/rules/gravitas-invariants.md
+          test -f dist/gravitas-antigravity/scripts/pre_tool.py
+          test -f dist/gravitas-antigravity/scripts/gravitas_action.py
+          test -f dist/gravitas-antigravity/scripts/gravitas_policy.py
+          test -f dist/gravitas-antigravity/SHA256SUMS
+          git diff --exit-code -- dist/gravitas-antigravity
+
+      - name: Validate public README claims
+        run: python scripts/check_readme_claims.py
+
+      - name: Success
+        run: 'echo "VERDICT: PASS — all checks clean"'

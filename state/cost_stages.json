@@ -1,0 +1,9 @@
+{
+  "stages": {
+    "execute": {
+      "cost": 0.0639,
+      "tokens": 19200,
+      "handoffs": 1
+    }
+  }
+}

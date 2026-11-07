@@ -55,6 +55,36 @@
         "scripts/mcp_aws_bedrock.py"
       ],
       "description": "AWS Bedrock Promotional Credit Pool & Zero-Cost Guardrail (ADR-029)"
+    },
+    "reason-network": {
+      "command": "/home/asus/.local/bin/reason-network",
+      "args": [
+        "mcp"
+      ],
+      "description": "Reason Network P2P Agent Mesh & Multi-Agent Collaboration (ADR-030)"
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "description": "Live, version-specific library documentation lookup via Context7 (Anthropic claude-code-setup standard)"
+    },
+    "tavily": {
+      "command": "python3",
+      "args": [
+        "scripts/mcp_tavily.py"
+      ],
+      "description": "Tavily AI Search, Extraction, Crawling & Mapping for Coding Agents (Khairallah 2026 Golden Stack Tool #16)"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "description": "Playwright Browser Automation & E2E Testing MCP Server (Khairallah Stack Tool #19)"
     }
   }
 }

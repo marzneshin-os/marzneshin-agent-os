@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gravitas"
+version = "4.0.0"
+description = "Gravitas reliability harness for Antigravity"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "jsonschema>=4.0.0",
+  "PyYAML>=6.0",
+  "tomli>=2.0.0; python_version < '3.11'",
+]
+
+[project.scripts]
+gravitas = "gravitas_cli:main"
+
+# Runtime assets mirrored under sys.prefix/share/gravitas/ so the installed
+# `gravitas` console script works outside a repository checkout. Layout
+# mirrors the repo root (plugins/..., skills/...); see installed_assets_root().
+[tool.setuptools.data-files]
+"share/gravitas/plugins/gravitas-antigravity" = [
+  "plugins/gravitas-antigravity/plugin.json",
+  "plugins/gravitas-antigravity/hooks.json",
+]
+"share/gravitas/plugins/gravitas-antigravity/scripts" = ["plugins/gravitas-antigravity/scripts/*.py"]
+"share/gravitas/plugins/gravitas-antigravity/rules" = ["plugins/gravitas-antigravity/rules/*.md"]
+"share/gravitas/plugins/gravitas-antigravity/agents" = ["plugins/gravitas-antigravity/agents/*.md"]
+"share/gravitas/skills/gravitas-highstakes" = ["skills/gravitas-highstakes/*.md"]
+"share/gravitas/skills/gravitas" = ["skills/gravitas/SKILL.md", "skills/gravitas/PROMPT-TEMPLATE.md", "skills/gravitas/SESSION_FAILURES.md"]
+"share/gravitas/skills/gravitas/agents" = ["skills/gravitas/agents/*.md"]
+"share/gravitas/skills/gravitas/references" = ["skills/gravitas/references/*.md"]
+"share/gravitas/skills/gravitas/resources" = ["skills/gravitas/resources/*.md"]
+"share/gravitas/skills/gravitas/scripts" = ["skills/gravitas/scripts/*.py", "skills/gravitas/scripts/*.sh"]
+"share/gravitas/schemas" = ["schemas/*.json"]
+"share/gravitas/adapters/opencode/agents" = ["adapters/opencode/agents/*.md"]
+"share/gravitas/adapters/opencode/plugin" = ["adapters/opencode/plugin/*.js"]
+"share/gravitas/adapters/opencode/permissions" = ["adapters/opencode/permissions/*.json"]
+"share/gravitas/adapters/opencode" = ["adapters/opencode/*.md", "adapters/opencode/*.json"]
+
+[tool.setuptools]
+py-modules = ["gravitas_cli", "gravitas_init"]

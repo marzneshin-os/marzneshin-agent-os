@@ -102,8 +102,11 @@ workflow.add_conditional_edges(
 )
 
 # Checkpointer configuration
-db_path = "state/langgraph_checkpoints.sqlite"
-conn = sqlite3.connect(db_path, check_same_thread=False)
+from pathlib import Path
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+db_path = _REPO_ROOT / "state" / "langgraph_checkpoints.sqlite"
+db_path.parent.mkdir(parents=True, exist_ok=True)
+conn = sqlite3.connect(str(db_path), check_same_thread=False)
 memory_saver = SqliteSaver(conn)
 
 # Compile the graph

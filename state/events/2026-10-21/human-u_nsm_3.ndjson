@@ -1,0 +1,1 @@
+{"actor":{"id":"u_nsm_3","kind":"human"},"actor_seq":70,"event_id":"01M5ES6S1M7VYWCEGTSZ6SRPB9","payload":{"consent_state":"granted"},"redacted":false,"redaction_map":[],"schema_version":"2.0.0","subject":{"id":"connection.success","kind":"growth"},"trust":"internal","ts":"2026-10-21T08:28:22.964Z","type":"connection.success","world":"prod"}

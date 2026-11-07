@@ -90,6 +90,26 @@ def main():
             else:
                 print(f"  ✗ Missing in Claude Code: {s}")
 
+    # 6. Test Gravitas Reliability Runtime
+    print("\n[6/6] Testing Gravitas Reliability Runtime...")
+    code, out = run("export PATH=$HOME/.local/bin:$PATH; gravitas --help")
+    if code == 0 and "gravitas" in out:
+        print("  ✓ Gravitas CLI is available on PATH")
+    else:
+        print(f"  ✗ Gravitas CLI failed: {out}")
+
+    code, out = run("cd /home/asus/code/marzneshin-agent-os && python3 scripts/gravitas_cli_wrapper.py doctor")
+    if code == 0 and '"skill": true' in out and '"hooks": true' in out:
+        print("  ✓ Gravitas Doctor passed: runtime hooks, skills, and session store validated")
+    else:
+        print(f"  ✗ Gravitas Doctor failed: {out}")
+
+    code, out = run('export PATH=$HOME/.local/bin:$PATH; gravitas decide --signals "{}"')
+    if code == 0 and "planning" in out:
+        print("  ✓ Gravitas Policy Engine (decide) verified")
+    else:
+        print(f"  ✗ Gravitas Policy Engine failed: {out}")
+
     print("\n==================================================")
     print("Integration verification completed!")
     print("==================================================")

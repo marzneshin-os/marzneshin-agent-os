@@ -14,6 +14,9 @@ Warns (exit 0 with context) when:
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import _common as H  # noqa: F401 — sets sys.path and MARZNESHIN_OPS_ROOT
 from lib import killswitch, state, agentmemory
 
@@ -39,7 +42,6 @@ def main() -> None:
         # A stale snapshot is recoverable locally: compaction is deterministic
         # and network-free. Only if THAT fails does the session halt.
         import subprocess, sys
-        from pathlib import Path
         fix = subprocess.run(
             [sys.executable, str(Path(H.REPO_ROOT) / "scripts" / "compact.py")],
             capture_output=True, text=True, timeout=30)
@@ -96,9 +98,41 @@ def main() -> None:
     except Exception:
         pass  # Never let Relevance AI check break session start
 
+    # If resuming from compaction (Idle Compaction or /compact), inject state
+    source = data.get("source", "startup")
+    if source == "compact":
+        from lib import leases as _leases
+        sid = data.get("session_id") or H.session_id()
+        cp_file = Path(H.REPO_ROOT) / "state" / "checkpoints" / f"claude_compact_{sid}.json"
+        cp_data = {}
+        if cp_file.exists():
+            try:
+                cp_data = json.loads(cp_file.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+
+        active_leases_info = ""
+        leases_list = cp_data.get("active_leases") or [l.to_dict() for l in _leases.list_all() if not l.expired()]
+        if leases_list:
+            lease_lines = [f"  - Workstream: {l.get('workstream')} | Holder: {l.get('holder')} | Token: {l.get('fencing_token')}" for l in leases_list]
+            active_leases_info = "\n" + "\n".join(lease_lines)
+        else:
+            active_leases_info = " None"
+
+        compact_restore_ctx = (
+            f"\n🔄 [Marzneshin State Restored Post-Compaction]\n"
+            f"- Active Slice: {s.get('active_slice', 'Unknown')} (Sense: {s.get('sense_level', 'Tick-A')})\n"
+            f"- Active Leases:{active_leases_info}\n"
+            f"- Open Tasks: {len(s.get('open_tasks', []))}\n"
+            f"- Invariants Reminder: I3 (Task Receipt), I6 (No Raw Secrets), I7 (Reversible/Rollback), "
+            f"I11 (Sim Green), I12 (Fail-Closed), I15 (Receipt Chain), I17 (Single Writer).\n"
+            f"- Verify status anytime: `python3 scripts/verify.py --all`"
+        )
+        context = (context + compact_restore_ctx) if context else compact_restore_ctx
+
     H.emit("session.started", "session", H.session_id(),
            {"state_age_s": int(state.age_seconds()), "kill_switch": ks.verdict.value,
-            "source": data.get("source", "startup")})
+            "source": source})
     H.allow(context)
 
 

@@ -47,9 +47,13 @@ python3 -m unittest discover -s tests         # مجموعهٔ تست
 python3 scripts/context_pack.py               # بازتولید CONTEXT-PACK.md
 python3 scripts/webcmd_cli.py status       # بررسی وضعیت و صرفه‌جویی توکن مرورگر WebCMD
 python3 scripts/webcmd_cli.py browse <url> # وب‌گردی بهینه‌شده با کاهش ۹۰ درصدی توکن
-python3 scripts/ecc_cli.py status          # ????? ???? ????? ???????? ECC ? ?????? ?????
-python3 scripts/ecc_cli.py scan            # ???? ?????? ??????-????? AgentShield
-python3 scripts/ecc_cli.py instincts       # ??????? ????? ? ?????? ????????????
+python3 scripts/ecc_cli.py status          # بررسی وضعیت هماهنگی ECC و پلتفرم‌ها
+python3 scripts/ecc_cli.py scan            # اسکن امنیتی AgentShield
+python3 scripts/ecc_cli.py instincts       # غرایز یادگیری و قوانین کشف‌شده
+python3 scripts/worktree_cli.py list       # مدیریت موازی‌سازی Git Worktrees (الگوی بوریس چرنی)
+python3 scripts/antigravity_doctor_cli.py diagnose # دیاگنوستیک کامل سلامت محیط و MCPها
+python3 scripts/reason_cli.py status          # وضعیت شبکه مش P2P و ایجنت‌های متصل (Reason Network)
+python3 scripts/reason_cli.py who             # لیست ایجنت‌های آنلاین همکار در شبکه (ADR-030)
 ```
 
 ## ۵) ساختار و مالکیت
@@ -140,8 +144,103 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
 
+
+## ۸) دستورهای اسلش اختصاصی Claude Code (`.claude/commands/`)
+- `/verify`: اجرای تست ۶ مرحله‌ای تاییدیه دوکلیدی (`python3 scripts/verify.py --all`)
+- `/fsp-start`: بررسی وضعیت و تصاحب ورک‌استریم با توکن fencing
+- `/plan`: فعال‌سازی حالت تفکر و تحلیل بدون جهش به کدنویسی (Karpathy Guidelines)
+- `/sim`: شبیه‌سازی سناریوها در `sim/` قبل از انتشار کانفیگ
+- `/qa-gate`: ارزیابی رسید و بررسی وضعیت rollback
+- `/handoff`: بازنویسی `state/HANDOFF.md` و آزادسازی لیس‌ها
+- `/worktree`: مدیریت موازی‌سازی ترمینال‌ها با Git Worktrees (الگوی بوریس چرنی)
+- `/doctor`: عیب‌یابی سلامت MCPها و حساب‌ها
+- `/killswitch`: پایش وضعیت یا همگام‌سازی K1-K5
+- `/setup`: اسکن پروژه و پیشنهاد اتوماسیون‌های هوشمند مطابق استاندارد رسمی `claude-code-setup` آنتروپیک
+- `/cost`: پایش هزینه دلاری و توکن‌های مصرفی سشن و تطبیق با سقف بودجه
+- `/reason`: پایش و اتصال به شبکه مش P2P ایجنت‌های محلی (Reason Network)
+
 ## FreeLLMAPI Universal Free-Tier Token Pool (~7.4B Tokens/Month)
 - **Local Gateway**: `http://127.0.0.1:3001/v1` (OpenAI & Anthropic `/v1/messages` compatible)
 - **Status & Diagnostics**: `python3 scripts/freellm_cli.py status`
 - **Catalog of Free Models**: `python3 scripts/freellm_cli.py catalog --domain coding`
 - **Failover**: Auto-switches across 34+ free-tier providers on 429 rate limit with multi-key cooldown.
+
+## ۹) بودجه، پایش هزینه و سقف مصرف (Cost Tracking & Budget Governance)
+
+> **شعار حاکم:** «Count it, cap it, then scale it» — پیش از افزودن ساب‌ایجنت‌ها، سقف قیمت‌گذاری و تلمتری دقیق الزامی است.
+
+### سقف بودجه مصوب به ازای هر تسک و مرحله:
+- **سقف کل هر تسک (Hard Stop):** حداکثر **۲.۰۰ دلار** (سقف ~۶۰۰,۰۰۰ توکن).
+- **تفکیک مراحل چرخه (Stage Budget Limits):**
+  - **Ingest / Sync** (`SYNC`, `GAP SCAN`, `CLAIM`): **$0.10**
+  - **Plan** (`PLAN`, `ADR`): **$0.25**
+  - **Execute** (`SIM`, `EXECUTE`): **$1.00**
+  - **Verify** (`VERIFY`, شبیه‌سازی و تست‌ها): **$0.35**
+  - **Gate** (`EMIT`, Two-Key Sign-off): **$0.15**
+  - **Commit / Handoff** (`HANDOFF`, انتشار Claim): **$0.15**
+
+### قوانین آهنین بودجه:
+1. **توقف خودکار (Hard Stop):** به محض عبور هزینه هر مرحله از سقف دلاری خود یا رسیدن به ۸۰٪ سقف کلی تسک، عامل **موظف است فوراً متوقف شود** و با اجرای `/cost` از کاربر تاییدیه بخواهد.
+2. **پایش مداوم در نوار وضعیت (Status Line):** هزینه دلاری سشن و توکن‌های مصرفی پیوسته در وضعیت ترمینال چاپ می‌شود.
+3. **لاگ الزامی دست‌به‌دست شدن عامل‌ها (Handoff Log):** هوک `SubagentStop` در هر بار پایان کار ساب‌ایجنت، نام عامل، تسک محوله و مصرف توکن را در `logs/handoffs.log` ثبت می‌کند.
+4. **سقف صریح دور ساب‌ایجنت‌ها (Turn Limits):** هر ساب‌ایجنت در `.claude/agents/` دارای `maxTurns` بین ۸ تا ۱۲ دور است؛ هیچ عاملی حق چرخش نامحدود ندارد.
+5. **بررسی الزامی پیش از تغییر مرحله:** قبل از شروع مرحله بعدی، بررسی هزینه با دستور اسلش `/cost` انجام می‌پذیرد.
+
+## ۱۰) افزونه رسمی آنتروپیک (`claude-code-setup`) و استاندارد اتوماسیون (ADR-031)
+
+- **نصب افزونه رسمی از مارکت‌پلیس آنتروپیک:**
+  ```bash
+  /plugin install claude-code-setup@claude-plugins-official
+  ```
+- **دستور اسکن پروژه و پیشنهاد اتوماسیون:** اجرای دستور میان‌بر `/setup` در خط فرمان Claude Code.
+- **هوک‌های حفاظتی و اعلان‌ها (Hooks Layer):**
+  - `hooks/pre_tool.py`: جلوگیری فعال از تغییر ناخواسته فایل‌های `.env*`, `package-lock.json`, `poetry.lock` و کلیدها.
+  - `hooks/notification.py`: زنگ اعلان ترمینال و لاگ رویدادها در `logs/notifications.log` برای `permission_prompt` و `idle_prompt`.
+- **مستندات زنده کتابخانه‌ها (MCP Layer):**
+  - اتصال به سرور `context7` (`@upstash/context7-mcp`) در `.mcp.json` برای ارجاع بی‌درنگ به مستندات به‌روز پکیج‌ها و جلوگیری از توهم متدهای API.
+- **مهارت‌های پس‌زمینه و کمکی (Skills Layer):**
+  - `project-conventions`: مهارت اختصاصی پس‌زمینه (`user-invocable: false`) برای اعمال خودکار قواعد مخزن (Stdlib-only در lib، ساعت مجازی، Zero Circular Import و Two-Key verification).
+  - `gen-test`: مهارت اختصاصی تولید تست‌های استاندارد با ساختار `unittest.TestCase`.
+
+## ۱۱) پشته طلایی ابزارهای هوش مصنوعی ۲۰۲۶ (استاندارد خیرالله العوضی - ADR-032)
+
+> بر اساس مرجع ۲۰۲۶ مهندس خیرالله العوضی (@eng_khairallah1):
+> **پشته طلایی توسعه‌دهندگان:** Claude Code (01) + Superpowers (05) + Context7 (17) + Tavily (16)
+
+### ارکان پیکربندی‌شده در پروژه:
+1. **جستجو و خزش تمیز وب (Tavily AI Search - ابزار ۱۶):**
+   - اتصال سرور MCP بومی پایتون scripts/mcp_tavily.py با ابزارهای 	avily_search, 	avily_extract, 	avily_crawl, 	avily_map.
+   - فیل‌اور خودکار به موتور وبگردی بهینه webcmd در صورت عدم تنظیم کلید API.
+2. **مدیریت تسک‌های ساختاریافته (Task Master AI - ابزار ۱۸):**
+   - اسکریپت scripts/taskmaster_cli.py جهت تبدیل PRD به پایپ‌لاین گراف تسک‌ها در state/tasks.json با دستور /taskmaster.
+3. **توسعه مبتنی بر مشخصات (Spec Kit SDD - ابزار ۰۶):**
+   - مهارت spec-kit و دستور /spec برای تدوین مشخصه قبل از هرگونه کدنویسی.
+4. **مهندسی کانتکست و پایداری KV-Cache (ابزار ۲۹):**
+   - مهارت context-engineering با استراتژی پیشوند پایدار (Stable Prefixes)، ماسک کردن خروجی‌های سنگین و افشای تدریجی (Progressive Disclosure) جهت کاهش ۹۰ درصدی هزینه کش آنتروپیک.
+5. **پژوهش عمیق و راستی‌آزمایی (Deep Research - ابزار ۳۰):**
+   - مهارت و دستور /deep-research با فرآیند ۸ مرحله‌ای و اعتبارسنجی چندمنبعی.
+6. **تولید خودکار مهارت و طراحی رابط کاربری (ابزارهای ۲۴ و ۲۵ آنتروپیک):**
+   - مهارت‌های رسمی skill-creator (دستور /new-skill) و rontend-design.
+
+## ۱۲) زرادخانه ابزارهای مهندسی هوش مصنوعی ۲۰۲۶ (Deep-Dive Extension - ADR-033)
+
+> تکمیلی مرجع ۲۰۲۶ مهندس خیرالله العوضی (@eng_khairallah1):
+> ادغام عمیق قابلیت‌های پیشرفته مرورگر، توسعه ابزارها، اعتبارسنجی خروجی، هوش اسناد و مانیتورینگ گیت‌وی.
+
+### قابلیت‌های پیشرفته پیاده‌سازی‌شده:
+1. **اتوماسیون مرورگر و تست E2E (Playwright MCP - ابزار ۱۹):**
+   - اتصال سرور رسمی @playwright/mcp@latest به .mcp.json جهت تعامل با داشبوردها، کلیک، پر کردن فرم‌ها و ثبت اسکرین‌شات با دستور /playwright.
+2. **چارچوب توسعه سریع FastMCP (ابزار ۲۰):**
+   - ماژول scripts/lib/fastmcp_harness.py جهت ساخت ابزارهای MCP پایتون بر پایه دکوراتور @mcp.tool() و تولید خودکار JSON Schema با دستور /fastmcp.
+3. **موتور خروجی ساختاریافته Instructor و Pydantic-AI (ابزارهای ۱۵ و ۴۴):**
+   - ماژول scripts/lib/structured_output.py برای اعتبارسنجی ۱۰۰ درصدی داده‌ها بر اساس شِماهای nalytics/schemas/ و تلاش مجدد خودکار با دستور /structured.
+4. **هوش اسناد و پردازش PDF و Markdownify (ابزارهای ۲۱ و ۲۳):**
+   - مهارت رسمی pdf آنتروپیک و اسکریپت scripts/markdownify_cli.py جهت تبدیل اسناد، جداول و فایل‌های مرجع (نظیر FreeLLMAPI_Guide.pdf) به مارک‌داون تمیز با دستورات /pdf و /markdownify.
+5. **کاوشگر دیتابیس و زبان طبیعی به SQL (ابزار ۴۳ Vanna AI / NL-SQL):**
+   - ابزار scripts/db_query_cli.py جهت بازرسی امن، سریع و Read-Only چک‌پوینت‌های ۵۰۰+ تایی LangGraph و جداول دیتابیس با دستور /db-query.
+6. **تاب‌آوری و کنترل گیت‌وی Portkey و OmniRoute (ابزارهای ۴۹ و ۵۰):**
+   - ماژول scripts/router_cli.py جهت بررسی وضعیت اتصال، سهمیه‌ها و زنجیره فیل‌اور میان گیت‌وی‌های OmniRoute، CCR و FreeLLM pool با دستور /router.
+7. **داشبورد سلامت متمرکز MCPHub (ابزار ۲۲):**
+   - ابزار scripts/mcphub_cli.py جهت پایش بلادرنگ سلامت، زمان تاخیر (Latency) و شمارش ابزارهای هر ۱۳ سرور MCP متصل به سیستم با دستور /mcphub.
+8. **گراف دانش کدبیس Graphify (ابزار ۵۲ Codebase Memory):**
+   - دستور مستقیم /graphify در خط فرمان Claude Code برای بررسی God Nodes، نودهای مرتبط و محاسبه شعاع تخریب (Blast Radius) پیش از تغییرات بزرگ.

@@ -3,6 +3,7 @@ name: security-reviewer
 description: Specialized security and confidentiality auditor for Marzneshin Agent OS credentials, tokens, local LLM endpoints, and state files
 tools: Glob, Grep, LS, Read
 model: sonnet
+maxTurns: 8
 color: red
 ---
 
@@ -35,3 +36,7 @@ Review codebase for:
 - Executive security summary
 - High-risk findings (with CVSS / severity rating)
 - Actionable remediation steps
+
+## Scope & Turn Budget
+- **Scope**: Secret and credential leakage audit, localhost binding verification.
+- **Turn Limit**: 8 turns maximum. Stop and report findings/state if incomplete. Never enter open-ended autonomous loops.

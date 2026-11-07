@@ -177,7 +177,21 @@ def main():
         method = req.get("method")
         msg_id = req.get("id")
 
-        if method == "tools/list":
+        if method == "initialize":
+            resp = {
+                "jsonrpc": "2.0",
+                "id": msg_id,
+                "result": {
+                    "protocolVersion": "2024-11-05",
+                    "capabilities": {"tools": {}},
+                    "serverInfo": {"name": "grounded-notebook-mcp", "version": "1.0.0"},
+                },
+            }
+            sys.stdout.write(json.dumps(resp) + "\n")
+            sys.stdout.flush()
+        elif method == "notifications/initialized":
+            pass
+        elif method == "tools/list":
             resp = {"jsonrpc": "2.0", "id": msg_id, "result": {"tools": TOOLS}}
             sys.stdout.write(json.dumps(resp) + "\n")
             sys.stdout.flush()

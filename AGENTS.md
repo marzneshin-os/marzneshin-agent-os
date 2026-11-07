@@ -29,6 +29,11 @@ Marzneshin Autonomous OS is an event-sourced control plane for multi-agent workf
    - Overview: `codeburn overview --no-color`
    - Waste audit: `codeburn optimize`
    - MCP Server: `codeburn mcp` (exposes `get_usage`, `get_savings`)
+6. **GRAVITAS** (Autonomous Reliability Runtime & Policy Engine):
+   - Enforces the 6 Non-Negotiable Invariants: read-before-write grounding, declared write scope fencing, fresh validator evidence, anti-repetition failure recovery, contract satisfaction, and honest uncertainty marking.
+   - Planning Policy Engine: `gravitas decide --signals '{...}'` (direct / compact / deep / replan)
+   - Runtime Diagnostics & Escalation: `gravitas doctor`, `gravitas validators --root .`, `gravitas verify --session-dir <dir>`
+   - Antigravity Native Integration: Staged in `.agents/plugins/gravitas-antigravity` with PreToolUse, PostToolUse, PostInvocation, and Stop completion gating.
 
 ### Unified Process Management
 Run `python3 scripts/dev.py status` to inspect all services.

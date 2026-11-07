@@ -1,6 +1,6 @@
 {
   "active_account_id": "builder_id_default",
-  "updated_at": "2026-10-16T19:48:12.165368+00:00",
+  "updated_at": "2026-11-07T08:41:15.445106+00:00",
   "accounts": [
     {
       "account_id": "builder_id_default",
@@ -10,8 +10,8 @@
       "secret_access_key": "tempsecretkeydefault",
       "session_token": null,
       "initial_credit_usd": 120.0,
-      "spent_usd": 0.019604999999999987,
-      "remaining_usd": 119.980395,
+      "spent_usd": 0.034022999999999956,
+      "remaining_usd": 119.965977,
       "issued_at": "2026-10-11T07:28:17.259132+00:00",
       "expires_at": "2027-04-09T07:28:17.259132+00:00",
       "status": "active",
@@ -53,7 +53,7 @@
           "note": "Configure $0.01 limit alert to guarantee zero-cost fail-closed governance."
         }
       },
-      "total_tokens_processed": 1395
+      "total_tokens_processed": 2421
     }
   ]
 }

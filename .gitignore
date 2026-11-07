@@ -25,3 +25,8 @@ state/langgraph_checkpoints.sqlite*
 graphify-out/
 package-lock.json
 data/
+.worktrees/
+
+# Subagent & Handoff Logs
+logs/*.log
+!logs/.gitkeep

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use Gravitas in your research, please cite it."
+type: software
+title: Gravitas
+version: 4.0.0
+date-released: 2026-09-11
+authors:
+  - name: Gravitas contributors
+repository-code: https://github.com/udaysharmadev/Gravitas
+license: MIT
+abstract: >-
+  Gravitas is a model-agnostic reliability runtime for coding agents. It adds
+  inspect-before-edit, requirement tracking, evidence-backed verification,
+  quota-aware orchestration, and interruption recovery on compatible hosts
+  (initial targets: Gemini models in Antigravity, plus OpenCode).
+  GravitasBench provides a reproducible trajectory-level benchmark
+  for measuring the reliability impact of the runtime.
+keywords:
+  - coding agents
+  - reliability runtime
+  - Antigravity
+  - OpenCode
+  - agent benchmarking
+  - software engineering automation

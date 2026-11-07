@@ -42,6 +42,15 @@ SCRIPT_ONLY_FILES = {
     "state/KILL.heartbeat.json": "written by the heartbeat workflow / killswitch.py",
 }
 
+# Anthropic claude-code-setup protection patterns (hooks-patterns.md):
+# Block direct editor writes to .env files, credentials, secrets, package locks, and .git internals.
+PROTECTED_PATTERNS = (
+    re.compile(r"^\.env($|\..*)"),
+    re.compile(r"(^|/)(credentials|secrets|token[s]?)\.(json|yaml|yml)$"),
+    re.compile(r"(^|/)(package-lock\.json|yarn\.lock|pnpm-lock\.yaml|poetry\.lock|Pipfile\.lock)$"),
+    re.compile(r"^\.git/"),
+)
+
 # Human-owned paths: defined once in _common (H.HUMAN_OWNED_GLOBS).
 
 _DESTRUCTIVE = (
@@ -64,6 +73,12 @@ def _check_write(path_str: str) -> None:
     rel = _repo_rel(path_str)
     if rel is None:
         return  # outside the repo: not ours to police
+
+    for pattern in PROTECTED_PATTERNS:
+        if pattern.search(rel):
+            H.block(f"{rel} is a protected system/secret/lock file (Anthropic claude-code-setup standard). "
+                    f"Direct edits are prohibited to prevent secret exposure and lock desync.",
+                    subject_kind="file", subject_id=rel)
 
     if rel in SCRIPT_ONLY_FILES:
         H.block(f"{rel} must not be hand-edited — {SCRIPT_ONLY_FILES[rel]}",

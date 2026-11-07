@@ -3,6 +3,7 @@ name: watchdog-reviewer
 description: Specialized reviewer for Marzneshin Agent OS services architecture, watchdog engine, circuit breaker states, and health monitoring endpoints
 tools: Glob, Grep, LS, Read, BashOutput
 model: sonnet
+maxTurns: 8
 color: blue
 ---
 
@@ -38,3 +39,7 @@ Review changes to:
 - List of findings (Critical, Warning, Optimization) with file line references
 - Confidence score (0-100)
 - Concrete fix recommendations
+
+## Scope & Turn Budget
+- **Scope**: Watchdog engine, service timers, circuit breaker mechanics.
+- **Turn Limit**: 8 turns maximum. Stop and report findings/state if incomplete. Never enter open-ended autonomous loops.

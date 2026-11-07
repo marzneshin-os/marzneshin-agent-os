@@ -1,0 +1,5 @@
+jsonschema>=4.0.0
+PyYAML>=6.0
+
+[:python_version < "3.11"]
+tomli>=2.0.0

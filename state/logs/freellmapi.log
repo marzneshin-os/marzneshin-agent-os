@@ -8291,3 +8291,4729 @@ Proxy endpoint: http://[::]:3001/v1/chat/completions
 [catalog-sync] polling https://api.freellmapi.co every 12h
 [CooldownProbe] starting cooldown-probe recovery (scan every 60s)
 [catalog-sync] fetch failed
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: YRXJJLQ23Q
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.16 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: D6PP73FU72
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.16 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: MBQPQ8ZFFX
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.16 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 3SVBJ4BHPC
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.16 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] The operation was aborted due to timeout
+[Health] Checking 0 keys...
+[Health] Check complete.
+9:49:51 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: UE4CDFN9KP
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.16 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] The operation was aborted due to timeout
+9:56:52 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ZEP9WAN4WN
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.16 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+1:51:42 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 6JWD9G8UK9
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.16 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.10.17: 262 updated, 0 new, 1 removed, 93 quirks, 153 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 29KW962XEE
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 7SB9H9F8WH
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: SMKGNJFGGZ
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 73DL9Q75SA
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: HV246RBPG4
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: HQNZAW9F5L
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: HULXKM4DQS
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ZQA74YY2T4
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[wake] resumed after ~0s (signal:SIGCONT) — flushing stale sockets, re-probing keys
+[Health] Checking 0 keys...
+[Health] Check complete.
+8:42:57 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: A57X45SMCB
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: VLETD6TFYS
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.17 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.10.20: 262 updated, 0 new, 0 removed, 92 quirks, 172 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+5:59:15 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ZSVHSHHJCG
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+6:52:06 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: YAPEBEBRH4
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+6:53:42 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: DYBZ2N8SFW
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: DXD8QYLX87
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: GBNE2PKWV3
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: F73X2Q7CFF
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[wake] resumed after ~0s (signal:SIGCONT) — flushing stale sockets, re-probing keys
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: V5XCFEJRUQ
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: MY6JEJ3KM5
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: XWLK2D2C8F
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: B4N39ZEXHA
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: T2YPGSVDRG
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: J4HNE9DX9U
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: H5FUZCX8QL
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: CM6KUCXF63
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:37:28 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: L7BHL6X8QK
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] The operation was aborted due to timeout
+11:38:22 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: SQTCKCXSRE
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:47:09 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ZGSQ92PT3H
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+11:52:13 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: WZQ2DXKXC9
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+2:56:09 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: K8MDUKEGMU
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:09:28 AM [tsx] Previous process hasn't exited yet. Force killing...
+11:09:33 AM [tsx] Process didn't exit in 5s. Force killing...
+11:09:33 AM [tsx] Process didn't exit in 5s. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: U7S8V8FT7C
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: TS3YQNJGVN
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:20:54 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: HTEFMEW8RF
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+11:22:22 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 3PCC8NLP66
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:46:10 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: RP78K4VM3N
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:20:02 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: PQD85PHVLH
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: X6AZELAX77
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+10:27:21 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: JB2UMDF9QZ
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] The operation was aborted due to timeout
+10:30:20 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: W3WDK6DKTE
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+10:37:17 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: SUNMAU8JGF
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.20 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.10.22: 262 updated, 8 new, 0 removed, 92 quirks, 194 skipped (unknown platform)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: FKYBD4WRWG
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.22 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:04:23 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: CEQCU4NR2L
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.22 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:30:34 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: CUVP8V77GN
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.22 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+1:26:09 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: T6AT8A53GT
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.22 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+2:38:28 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: BM6NBG9SJK
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.22 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.10.23: 270 updated, 0 new, 0 removed, 92 quirks, 196 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+3:01:41 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: HP9Z5U9MD9
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.23 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+2:16:21 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: YGYBCZM9BS
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.23 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[catalog-sync] applied monthly v2026.10.24: 269 updated, 6 new, 1 removed, 92 quirks, 207 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+2:23:50 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 985N7HCZ6Q
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.24 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.10.25: 275 updated, 0 new, 0 removed, 92 quirks, 209 skipped (unknown platform)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:49:39 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ULEG77EYD5
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+1:05:44 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: KG94BYKFG9
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+1:38:02 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 78R55EEANV
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: N8W92V2L3C
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+4:53:38 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: EMXTJ2YXNL
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+4:57:08 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 7KKF59BAAK
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+5:12:26 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: Z3HES6JR2K
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+5:13:21 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: LXLJMENQRN
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+5:31:35 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ZJAEGGCXHF
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+5:33:21 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: XSKZWJ69RU
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+5:44:58 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 4L53GQ7VNF
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.25 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.10.28: 267 updated, 0 new, 8 removed, 92 quirks, 207 skipped (unknown platform)
+5:48:03 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: XASWXA5PZC
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+5:48:42 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 54U8CLRABH
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+6:59:02 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: B4EUWA7K7L
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:12:05 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 4VGTYJD7Y6
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:12:47 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 2RFFMAQSQ2
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ERS5DXA2X6
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 795DM4SN87
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:33:50 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: GUUACZD4N8
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:35:28 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ALRSTR54RR
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+7:36:58 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 82SFYYBQ8Y
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:48:30 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: WMFJFN74GM
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:49:56 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: GQUT3NXU9H
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:50:38 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: WDSWUXVFN8
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:52:24 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 38A9XUCAA9
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+7:58:17 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: Z8J6TZHKBW
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+8:00:19 PM [tsx] Previous process hasn't exited yet. Force killing...
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: NT7SX43XS8
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+10:54:15 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: R73JT4ZCW7
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+10:55:57 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: AUPDBT5M7Z
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+10:56:56 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 3VHQRKAN2G
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+10:58:19 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: EFKZWLBNEE
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:00:26 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: CPJZBTQA94
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:01:43 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: D3GYYG6Q2T
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:03:24 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ANRYRM3ZVD
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:06:48 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: W56FNVZXS8
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:07:45 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: HX7QRT9A9W
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:16:50 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: RBAUGP8MJ6
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:20:41 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: QDYWEM3LMH
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:25:35 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: M2GSDGZNLC
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:26:49 PM [tsx] Previous process hasn't exited yet. Force killing...
+11:26:54 PM [tsx] Process didn't exit in 5s. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: B9SJ63MWAW
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:30:19 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: QC9MF9D46B
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+11:32:03 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: U2XPMP89P9
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:33:27 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: DZ72LWQ2TL
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+11:37:05 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: RZDP3FCZH4
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:38:03 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: JU88XCLLJQ
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:53:12 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: MUHB5NE4VB
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 7DEZVR9E6B
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: W4JPAWQ8L2
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: DEE8HABA65
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+12:36:54 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 29YB2RFXZV
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+12:57:06 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: UKFYW4XSKV
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: Q6DGN75HC2
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:45:29 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: MBUJ4BCQL7
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:47:20 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: J8GRJF4HWC
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+12:26:54 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: ALACMCX9EB
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 9FJB8CXMEH
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+12:32:42 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: MXHFJ8MK5G
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+1:46:14 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 9TA284QL7K
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.28 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.10.29: 267 updated, 0 new, 0 removed, 92 quirks, 211 skipped (unknown platform)
+9:58:05 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: H6KTBKT4Z8
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+10:00:27 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: S5GPMU98BT
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+10:02:58 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 6X9MUDEP63
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:41:53 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: PGAULAXPMR
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+1:34:22 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: MJG4M3PQF7
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: GVKCMZJUA6
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: LZZZNZCF83
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: HTYUZ9VD5Q
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: GA6KEBHJE3
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: PURV63CJUN
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ secrets for agents [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: B7LTDWF7XH
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: N7MH8HUU5V
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 2L6WFARXW6
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: EJ2XZ2PT79
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: JZS6DWHEM8
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: S5W25Y7FMR
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: JN8EXXB9V8
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ override existing { override: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: J5YV9G8P5X
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: YH5M6GGFZW
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: G89JSB7UWD
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: T7W5HDYGU3
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.10.29 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] applied monthly v2026.11.06: 257 updated, 0 new, 10 removed, 134 quirks, 228 skipped (unknown platform)
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 68TTK62FQU
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.11.06 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+9:19:04 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ◈ encrypted .env [www.dotenvx.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: UTUC9H7BC4
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.11.06 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+11:20:58 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: CZ4L9M6F43
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.11.06 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+
+[server] Failed to start:
+  listen EADDRINUSE: address already in use :::3001
+
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ suppress logs { quiet: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: X7ZYTCFH8V
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.11.06 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+11:22:22 PM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: SKKPMRLKAW
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.11.06 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+12:40:39 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌁ auth for agents [www.vestauth.com]
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: TZ25AE65PZ
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.11.06 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+1:49:13 AM [tsx] Previous process hasn't exited yet. Force killing...
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ enable debugging { debug: true }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: CFT9WUXMBS
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.11.06 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+
+> @freellmapi/server@0.2.1 dev
+> tsx watch src/index.ts
+
+◇ injected env (2) from ../.env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+[config] .env check: 2 documented defaults missing. Startup continues.
+[config]   missing from .env: REQUEST_ANALYTICS_MAX_ROWS, REQUEST_ANALYTICS_RETENTION_DAYS
+[config]   Compare .env.example when you next edit your config.
+Database initialized at /home/asus/code/freellmapi/server/data/freeapi.db
+
+  First-run setup code: 36773J8589
+  A browser on this machine can finish setup without it. From any
+  other device, enter this code to create the first account.
+
+[proxy] Not configured — outbound requests go direct.
+Server running on http://[::]:3001
+Proxy endpoint: http://[::]:3001/v1/chat/completions
+[Health] Starting health checker (every ~300s ±20%)
+[catalog-sync] re-applied cached monthly v2026.11.06 after boot
+[catalog-sync] polling https://api.freellmapi.co every 12h
+[CooldownProbe] starting cooldown-probe recovery (scan every 60s)
+[catalog-sync] fetch failed
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
+[Health] Checking 0 keys...
+[Health] Check complete.
