@@ -3,8 +3,8 @@
   "budget": {
     "day": "2026-11-07",
     "forecast": {
-      "tokens": 14718,
-      "usd": 0.0343
+      "tokens": 11747,
+      "usd": 0.0274
     },
     "state": "normal",
     "tokens_spent_today": 9600,
@@ -40,7 +40,7 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 242,
+      "prod:system-compact": 243,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 222,
@@ -48,7 +48,7 @@
     },
     "event_count": 1137,
     "event_hash": "sha256:31ccd8d9ae2cecfa7587329d1941e374ee948dc3546309e704bbe04a1388560d",
-    "until_ts": "2026-11-07T15:39:14.623Z",
+    "until_ts": "2026-11-07T19:36:48.400Z",
     "window": [
       "2026-11-05",
       "2026-11-07"
@@ -61,7 +61,7 @@
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-07T15:39:14.623Z",
+  "generated_at": "2026-11-07T19:36:48.400Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -70,9 +70,9 @@
   },
   "kill_switch": {
     "fail_closed_engaged": false,
-    "freshness_s": 45.220806,
+    "freshness_s": 0.207593,
     "global": false,
-    "read_at": "2026-11-07T15:39:14.605Z",
+    "read_at": "2026-11-07T19:36:48.383Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
