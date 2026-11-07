@@ -1,7 +1,10 @@
 {
+  "reconciled_entries": 0,
   "sources": [
-    "test"
+    "K1:state/KILL",
+    "K2:env/KILL_SWITCH",
+    "K5:auto"
   ],
-  "verified_at": "2026-11-07T08:41:19.635Z",
-  "verified_by": "test-gateway"
+  "verified_at": "2026-11-07T15:38:29.385Z",
+  "verified_by": "workflow:heartbeat"
 }

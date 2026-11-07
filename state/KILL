@@ -1,7 +1,9 @@
 {
   "entries": [],
   "reconciled_from": [
-    "K3"
+    "K1:state/KILL",
+    "K2:env/KILL_SWITCH",
+    "K5:auto"
   ],
   "release_log": [
     {
@@ -251,5 +253,5 @@
     }
   ],
   "schema_version": "2.0.0",
-  "updated_at": "2026-11-07T08:41:19.441Z"
+  "updated_at": "2026-11-07T15:38:29.378Z"
 }
