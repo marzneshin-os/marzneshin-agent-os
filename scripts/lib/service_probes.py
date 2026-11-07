@@ -35,7 +35,8 @@ def measure_http_probe(
     start = time.perf_counter()
     try:
         req = request.Request(url, headers={"User-Agent": "Marzneshin-HealthProbe/2.0"})
-        with request.urlopen(req, timeout=timeout_s) as resp:
+        opener = request.build_opener(request.ProxyHandler({}))
+        with opener.open(req, timeout=timeout_s) as resp:
             latency_ms = round((time.perf_counter() - start) * 1000, 2)
             code = resp.getcode()
             ok = code in expected

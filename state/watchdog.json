@@ -5,8 +5,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.034Z",
-      "last_healthy": "2026-11-07T08:44:31.034Z",
+      "last_check": "2026-11-07T09:33:06.028Z",
+      "last_healthy": "2026-11-07T09:33:06.028Z",
       "last_restart": "2026-11-06T22:55:29.646Z",
       "restart_count": 2451
     },
@@ -15,8 +15,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.038Z",
-      "last_healthy": "2026-11-07T08:44:31.038Z",
+      "last_check": "2026-11-07T09:33:06.031Z",
+      "last_healthy": "2026-11-07T09:33:06.031Z",
       "last_restart": "2026-11-06T17:17:52.833Z",
       "restart_count": 3635
     },
@@ -25,8 +25,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.074Z",
-      "last_healthy": "2026-11-07T08:44:31.074Z",
+      "last_check": "2026-11-07T09:33:06.067Z",
+      "last_healthy": "2026-11-07T09:33:06.067Z",
       "last_restart": "2026-10-16T20:28:20.970Z",
       "restart_count": 811
     },
@@ -35,8 +35,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.051Z",
-      "last_healthy": "2026-11-07T08:44:31.051Z",
+      "last_check": "2026-11-07T09:33:06.045Z",
+      "last_healthy": "2026-11-07T09:33:06.045Z",
       "last_restart": "2026-10-20T16:20:52.760Z",
       "restart_count": 210
     },
@@ -45,8 +45,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.046Z",
-      "last_healthy": "2026-11-07T08:44:31.046Z",
+      "last_check": "2026-11-07T09:33:06.041Z",
+      "last_healthy": "2026-11-07T09:33:06.041Z",
       "last_restart": "2026-11-06T16:57:34.505Z",
       "restart_count": 247
     },
@@ -55,8 +55,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.078Z",
-      "last_healthy": "2026-11-07T08:44:31.078Z",
+      "last_check": "2026-11-07T09:33:06.071Z",
+      "last_healthy": "2026-11-07T09:33:06.071Z",
       "last_restart": "2026-10-28T16:18:09.478Z",
       "restart_count": 6239
     },
@@ -65,28 +65,28 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.057Z",
-      "last_healthy": "2026-11-07T08:44:31.057Z",
+      "last_check": "2026-11-07T09:33:06.052Z",
+      "last_healthy": "2026-11-07T09:33:06.052Z",
       "last_restart": "2026-09-23T14:23:56.236Z",
       "restart_count": 2
     },
     "headroom": {
-      "backoff_until": "2026-11-07T08:45:03.502Z",
+      "backoff_until": "2026-11-07T09:43:05.010Z",
       "circuit": "open",
-      "consecutive_failures": 5,
-      "cooldown_seconds": 480,
-      "last_check": "2026-11-07T08:44:31.047Z",
-      "last_healthy": "2026-11-07T08:34:06.054Z",
-      "last_restart": "2026-11-07T08:40:41.063Z",
-      "restart_count": 1903
+      "consecutive_failures": 7,
+      "cooldown_seconds": 900,
+      "last_check": "2026-11-07T09:33:06.041Z",
+      "last_healthy": "2026-11-07T09:10:36.067Z",
+      "last_restart": "2026-11-07T09:30:51.073Z",
+      "restart_count": 1911
     },
     "kimi_k3": {
       "backoff_until": "2026-10-20T20:06:49.259Z",
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.067Z",
-      "last_healthy": "2026-11-07T08:44:31.067Z",
+      "last_check": "2026-11-07T09:33:06.061Z",
+      "last_healthy": "2026-11-07T09:33:06.061Z",
       "last_restart": "2026-10-20T19:49:53.219Z",
       "restart_count": 428
     },
@@ -95,8 +95,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.043Z",
-      "last_healthy": "2026-11-07T08:44:31.043Z",
+      "last_check": "2026-11-07T09:33:06.038Z",
+      "last_healthy": "2026-11-07T09:33:06.038Z",
       "last_restart": "2026-10-28T13:42:00.504Z",
       "restart_count": 3477
     },
@@ -105,8 +105,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.064Z",
-      "last_healthy": "2026-11-07T08:44:31.064Z",
+      "last_check": "2026-11-07T09:33:06.058Z",
+      "last_healthy": "2026-11-07T09:33:06.058Z",
       "last_restart": "2026-09-23T14:24:26.285Z",
       "restart_count": 2
     },
@@ -115,8 +115,8 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.040Z",
-      "last_healthy": "2026-11-07T08:44:31.040Z",
+      "last_check": "2026-11-07T09:33:06.034Z",
+      "last_healthy": "2026-11-07T09:33:06.034Z",
       "last_restart": "2026-11-07T08:25:11.133Z",
       "restart_count": 441
     },
@@ -125,11 +125,11 @@
       "circuit": "closed",
       "consecutive_failures": 0,
       "cooldown_seconds": 60,
-      "last_check": "2026-11-07T08:44:31.070Z",
-      "last_healthy": "2026-11-07T08:44:31.070Z",
+      "last_check": "2026-11-07T09:33:06.064Z",
+      "last_healthy": "2026-11-07T09:33:06.064Z",
       "last_restart": "2026-10-29T09:02:18.776Z",
       "restart_count": 441
     }
   },
-  "updated_at": "2026-11-07T08:44:31.078Z"
+  "updated_at": "2026-11-07T09:33:06.071Z"
 }
