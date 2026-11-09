@@ -104,6 +104,23 @@ AGENTROUTER_MODELS: Dict[str, Dict[str, Any]] = {
     },
 }
 
+GATEWAY_CACHE_STATS: Dict[str, int] = {
+    "total_requests": 0,
+    "cache_hits": 0,
+    "cached_tokens": 0,
+    "prompt_tokens": 0,
+}
+
+
+def record_cache_usage(cached_tokens: int, prompt_tokens: int = 0) -> None:
+    """Record prompt cache usage metrics across all protocols."""
+    GATEWAY_CACHE_STATS["total_requests"] += 1
+    if cached_tokens > 0:
+        GATEWAY_CACHE_STATS["cache_hits"] += 1
+        GATEWAY_CACHE_STATS["cached_tokens"] += cached_tokens
+    if prompt_tokens > 0:
+        GATEWAY_CACHE_STATS["prompt_tokens"] += prompt_tokens
+
 
 def normalize_gateway_path(path: str) -> str:
     """Normalize inbound API paths, stripping duplicate /v1 prefixes or missing /v1."""
@@ -264,12 +281,14 @@ def translate_anthropic_to_openai(anth_payload: Dict[str, Any]) -> Dict[str, Any
         oai_payload["temperature"] = anth_payload["temperature"]
     if "stream" in anth_payload:
         oai_payload["stream"] = anth_payload["stream"]
+    if "cache_prompt" in anth_payload:
+        oai_payload["cache_prompt"] = anth_payload["cache_prompt"]
 
     return oai_payload
 
 
 def translate_openai_to_anthropic(oai_resp: Dict[str, Any], requested_model: str) -> Dict[str, Any]:
-    """Translate OpenAI chat completion response to Anthropic message format."""
+    """Translate OpenAI chat completion response to Anthropic message format with prompt cache telemetry."""
     choices = oai_resp.get("choices", [])
     text_content = ""
     stop_reason = "end_turn"
@@ -283,7 +302,30 @@ def translate_openai_to_anthropic(oai_resp: Dict[str, Any], requested_model: str
         elif finish_reason == "stop":
             stop_reason = "end_turn"
 
-    usage = oai_resp.get("usage", {})
+    usage = oai_resp.get("usage", {}) or {}
+    timings = oai_resp.get("timings", {}) or {}
+    prompt_tokens = usage.get("prompt_tokens", 0) or timings.get("prompt_n", 0)
+    output_tokens = usage.get("completion_tokens", 0)
+
+    prompt_tokens_details = usage.get("prompt_tokens_details", {}) or {}
+    cached_tokens = (
+        prompt_tokens_details.get("cached_tokens", 0)
+        or usage.get("cache_read_input_tokens", 0)
+        or timings.get("cache_n", 0)
+    )
+    cache_creation = usage.get("cache_creation_input_tokens", 0)
+
+    record_cache_usage(cached_tokens, prompt_tokens)
+
+    anth_usage: Dict[str, Any] = {
+        "input_tokens": prompt_tokens,
+        "output_tokens": output_tokens,
+    }
+    if cached_tokens > 0:
+        anth_usage["cache_read_input_tokens"] = cached_tokens
+    if cache_creation > 0:
+        anth_usage["cache_creation_input_tokens"] = cache_creation
+
     return {
         "id": oai_resp.get("id", f"msg_{int(time.time() * 1000)}"),
         "type": "message",
@@ -297,10 +339,7 @@ def translate_openai_to_anthropic(oai_resp: Dict[str, Any], requested_model: str
         ],
         "stop_reason": stop_reason,
         "stop_sequence": None,
-        "usage": {
-            "input_tokens": usage.get("prompt_tokens", 0),
-            "output_tokens": usage.get("completion_tokens", 0),
-        },
+        "usage": anth_usage,
     }
 
 
@@ -359,10 +398,13 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         norm_path = normalize_gateway_path(self.path)
-        if norm_path in ("/v1/health", "/health"):
+        if norm_path in ("/v1/health", "/health", "/v1/metrics", "/metrics"):
             port = self.server.server_address[1] if hasattr(self.server, "server_address") else 8787
             now = datetime.now(timezone.utc)
             astra_active = now.hour in (7, 8, 19, 20)
+            total_reqs = GATEWAY_CACHE_STATS["total_requests"]
+            hits = GATEWAY_CACHE_STATS["cache_hits"]
+            hit_rate = round(hits / total_reqs, 4) if total_reqs > 0 else 0.0
             self._send_json(200, {
                 "status": "ok",
                 "gateway": "agentrouter-mesh",
@@ -370,6 +412,13 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
                 "timestamp": now.isoformat(),
                 "astra_window_active": astra_active,
                 "model_count": len(AGENTROUTER_MODELS),
+                "cache_metrics": {
+                    "total_requests": total_reqs,
+                    "cache_hits": hits,
+                    "cached_tokens": GATEWAY_CACHE_STATS["cached_tokens"],
+                    "prompt_tokens": GATEWAY_CACHE_STATS["prompt_tokens"],
+                    "cache_hit_rate": hit_rate,
+                },
             })
             return
 
@@ -466,6 +515,13 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
             with urllib.request.urlopen(req, timeout=120) as resp:
                 resp_bytes = resp.read()
                 resp_json = json.loads(resp_bytes.decode("utf-8"))
+                usage = resp_json.get("usage", {}) or {}
+                cached = (
+                    usage.get("cache_read_input_tokens", 0)
+                    or usage.get("prompt_tokens_details", {}).get("cached_tokens", 0)
+                )
+                prompt_tokens = usage.get("input_tokens", 0) or usage.get("prompt_tokens", 0)
+                record_cache_usage(cached, prompt_tokens)
                 self._send_json(resp.status, resp_json)
         except urllib.error.HTTPError as http_err:
             body = http_err.read().decode("utf-8", errors="replace")
@@ -535,6 +591,8 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
         last_error = "Unknown error"
         for model_candidate in failover_chain:
             payload["model"] = model_candidate
+            if "localhost" in upstream_url or "127.0.0.1" in upstream_url:
+                payload["cache_prompt"] = True
             scrubbed = scrub_payload(payload)
             data_bytes = json.dumps(scrubbed).encode("utf-8")
             req = urllib.request.Request(upstream_url, data=data_bytes, headers=headers, method="POST")
@@ -542,6 +600,15 @@ class GatewayRequestHandler(BaseHTTPRequestHandler):
                 with urllib.request.urlopen(req, timeout=120) as resp:
                     resp_bytes = resp.read()
                     resp_json = json.loads(resp_bytes.decode("utf-8"))
+                    usage = resp_json.get("usage", {}) or {}
+                    timings = resp_json.get("timings", {}) or {}
+                    cached = (
+                        usage.get("prompt_tokens_details", {}).get("cached_tokens", 0)
+                        or usage.get("cache_read_input_tokens", 0)
+                        or timings.get("cache_n", 0)
+                    )
+                    prompt_tokens = usage.get("prompt_tokens", 0) or timings.get("prompt_n", 0)
+                    record_cache_usage(cached, prompt_tokens)
                     self._send_json(resp.status, resp_json)
                     return
             except urllib.error.HTTPError as http_err:

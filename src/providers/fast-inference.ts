@@ -22,8 +22,90 @@ export type ChannelInvoker = (
   options?: { maxTokens?: number; temperature?: number }
 ) => Promise<{
   content: string;
-  tokensUsed?: { prompt: number; completion: number; total: number };
+  tokensUsed?: {
+    prompt: number;
+    completion: number;
+    total: number;
+    cached?: number;
+    cacheCreation?: number;
+    cacheHitRatio?: number;
+  };
 }>;
+
+export interface CacheOptimizationOptions {
+  staticPrefix?: string;
+  systemPrompt?: string;
+  tools?: Array<{ name: string; description: string; parameters?: Record<string, unknown> }>;
+  stableContext?: string[];
+  dynamicContext?: string;
+  userPrompt: string;
+  provider?: "anthropic" | "openai" | "custom" | string;
+  injectBreakpoint?: boolean;
+}
+
+export interface OptimizedPromptPayload {
+  system: string | Array<{ type: "text"; text: string; cache_control?: { type: "ephemeral" } }>;
+  messages: Array<{ role: string; content: string }>;
+  estimatedStaticTokens: number;
+  isEligibleForCaching: boolean;
+}
+
+export class PromptCacheOptimizer {
+  static readonly MIN_CACHE_TOKENS = 1024;
+
+  static estimateTokens(text: string): number {
+    return Math.ceil((text || "").length / 4);
+  }
+
+  static buildOptimizedPayload(opts: CacheOptimizationOptions): OptimizedPromptPayload {
+    const staticParts: string[] = [];
+    if (opts.staticPrefix) staticParts.push(opts.staticPrefix.trim());
+    if (opts.systemPrompt) staticParts.push(opts.systemPrompt.trim());
+
+    if (opts.tools && opts.tools.length > 0) {
+      const sortedTools = [...opts.tools].sort((a, b) => a.name.localeCompare(b.name));
+      staticParts.push(
+        "# Available Tools\n" +
+          sortedTools.map((t) => `- ${t.name}: ${t.description}`).join("\n")
+      );
+    }
+
+    if (opts.stableContext && opts.stableContext.length > 0) {
+      staticParts.push(
+        "# Static Knowledge Context\n" + opts.stableContext.join("\n---\n")
+      );
+    }
+
+    const staticSystemText = staticParts.filter(Boolean).join("\n\n");
+    const estimatedStaticTokens = this.estimateTokens(staticSystemText);
+    const isEligibleForCaching = estimatedStaticTokens >= this.MIN_CACHE_TOKENS;
+
+    let system: string | Array<{ type: "text"; text: string; cache_control?: { type: "ephemeral" } }> = staticSystemText;
+    if (opts.provider === "anthropic" && opts.injectBreakpoint && isEligibleForCaching) {
+      system = [
+        {
+          type: "text",
+          text: staticSystemText,
+          cache_control: { type: "ephemeral" },
+        },
+      ];
+    }
+
+    const dynamicParts: string[] = [];
+    if (opts.dynamicContext) {
+      dynamicParts.push(opts.dynamicContext.trim());
+    }
+    dynamicParts.push(opts.userPrompt.trim());
+    const finalUserContent = dynamicParts.filter(Boolean).join("\n\n");
+
+    return {
+      system,
+      messages: [{ role: "user", content: finalUserContent }],
+      estimatedStaticTokens,
+      isEligibleForCaching,
+    };
+  }
+}
 
 export function scrubAgentRouterPayload(
   model: string,
@@ -86,6 +168,7 @@ export function buildAgentRouterChannels(
       successRate: 0.99,
       failureCount: 0,
       circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+      supportsPromptCaching: true,
     },
     {
       id: "agentrouter-gpt-6-astra",
@@ -100,6 +183,7 @@ export function buildAgentRouterChannels(
       successRate: 0.98,
       failureCount: 0,
       circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+      supportsPromptCaching: true,
     },
     {
       id: "agentrouter-claude-opus-5",
@@ -114,6 +198,7 @@ export function buildAgentRouterChannels(
       successRate: 0.98,
       failureCount: 0,
       circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+      supportsPromptCaching: true,
     },
     {
       id: "agentrouter-glm-5-3",
@@ -128,6 +213,7 @@ export function buildAgentRouterChannels(
       successRate: 0.99,
       failureCount: 0,
       circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+      supportsPromptCaching: true,
     },
     {
       id: "agentrouter-deepseek-v4-flash",
@@ -142,6 +228,7 @@ export function buildAgentRouterChannels(
       successRate: 0.99,
       failureCount: 0,
       circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+      supportsPromptCaching: true,
     },
   ];
 
@@ -418,6 +505,8 @@ export class FastInferenceRouter {
         successRate: 1.0,
         failureCount: 0,
         circuitState: { state: "closed", failures: 0, lastFailureAt: null, openedAt: null },
+        supportsPromptCaching: true,
+        cachePrompt: true,
       },
     ];
 
@@ -436,7 +525,14 @@ export class FastInferenceRouter {
     options?: { maxTokens?: number; temperature?: number }
   ): Promise<{
     content: string;
-    tokensUsed?: { prompt: number; completion: number; total: number };
+    tokensUsed?: {
+      prompt: number;
+      completion: number;
+      total: number;
+      cached?: number;
+      cacheCreation?: number;
+      cacheHitRatio?: number;
+    };
   }> {
     if (!channel.apiKey && !channel.endpoint.includes("localhost") && !channel.endpoint.includes("127.0.0.1")) {
       // Deterministic zero-LLM fallback if no keys configured
@@ -469,6 +565,16 @@ export class FastInferenceRouter {
       max_tokens: options?.maxTokens || 1024,
       temperature: options?.temperature ?? 0.2,
     };
+    if (
+      channel.cachePrompt ||
+      channel.supportsPromptCaching ||
+      channel.endpoint.includes("localhost") ||
+      channel.endpoint.includes("127.0.0.1") ||
+      channel.endpoint.includes("11434")
+    ) {
+      rawPayload["cache_prompt"] = true;
+    }
+
     const bodyPayload = isAgentRouterEndpoint(channel.endpoint)
       ? scrubAgentRouterPayload(channel.model, rawPayload)
       : rawPayload;
@@ -490,19 +596,58 @@ export class FastInferenceRouter {
 
     const json = (await res.json()) as {
       choices?: Array<{ message?: { content?: string } }>;
-      usage?: { prompt_tokens?: number; completion_tokens?: number; total_tokens?: number };
+      usage?: {
+        prompt_tokens?: number;
+        completion_tokens?: number;
+        total_tokens?: number;
+        prompt_tokens_details?: { cached_tokens?: number };
+        cache_read_input_tokens?: number;
+        cache_creation_input_tokens?: number;
+      };
+      timings?: {
+        prompt_n?: number;
+        cache_n?: number;
+      };
     };
 
     const text = json.choices?.[0]?.message?.content || "";
+    let tokensUsed:
+      | {
+          prompt: number;
+          completion: number;
+          total: number;
+          cached?: number;
+          cacheCreation?: number;
+          cacheHitRatio?: number;
+        }
+      | undefined = undefined;
+
+    if (json.usage || json.timings) {
+      const prompt = json.usage?.prompt_tokens ?? json.timings?.prompt_n ?? 0;
+      const completion = json.usage?.completion_tokens ?? 0;
+      const total = json.usage?.total_tokens ?? (prompt + completion);
+      const cached =
+        json.usage?.prompt_tokens_details?.cached_tokens ??
+        json.usage?.cache_read_input_tokens ??
+        json.timings?.cache_n ??
+        0;
+      const cacheCreation = json.usage?.cache_creation_input_tokens ?? 0;
+      const effectivePrompt = prompt + (cached > 0 && prompt === 0 ? cached : 0);
+      const cacheHitRatio = effectivePrompt > 0 ? Number((cached / effectivePrompt).toFixed(4)) : 0;
+
+      tokensUsed = {
+        prompt,
+        completion,
+        total,
+        ...(cached > 0 ? { cached } : {}),
+        ...(cacheCreation > 0 ? { cacheCreation } : {}),
+        ...(cacheHitRatio > 0 ? { cacheHitRatio } : {}),
+      };
+    }
+
     return {
       content: text,
-      tokensUsed: json.usage
-        ? {
-            prompt: json.usage.prompt_tokens || 0,
-            completion: json.usage.completion_tokens || 0,
-            total: json.usage.total_tokens || 0,
-          }
-        : undefined,
+      tokensUsed,
     };
   }
 }

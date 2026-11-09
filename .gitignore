@@ -39,3 +39,18 @@ __pycache__/
 .codex-vitest-*
 state/tasks.json
 state/snapshots/
+
+# Telemetry, harness state & hook artifacts
+.mimosa/
+.zcode/
+.kilo/
+.cline/
+batch-pretooluse-*
+batch-posttooluse-*
+session_*.json*
+session_*.conti*
+/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]*
+.pytest_cache/
+tests/.pytest_cache/
+.codex-vitest-root/
+.codex-vitest-tmp/

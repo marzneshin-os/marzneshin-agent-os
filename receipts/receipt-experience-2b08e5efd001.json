@@ -1,0 +1,8 @@
+{
+  "schema": "nexus.harness2.experience.v3",
+  "id": "2b08e5efd001",
+  "timestamp": "2026-10-26T21:30:03.285844+00:00",
+  "cue": "Prompt Caching & KV Cache Prefix Contiguity (ADR-034)",
+  "lesson": "LLM prompt caching relies on exact prefix hash contiguity from token 0. To prevent TTFT degradation from 0.8s to 184s, enforce Inverted Pyramid ordering: Zone 1 (immutable system prompt, no timestamps) -> Zone 2 (alphabetized tool definitions) -> Zone 3 (settled memories) -> Zone 4 (Anthropic ephemeral breakpoint >=1024 tok) -> Zone 5 (dynamic timestamps and user request at prompt tail). Cross-protocol gateways must map cached_tokens to cache_read_input_tokens and pass cache_prompt: true to local engines without stripping cache controls during stateless scrubbing.",
+  "empirical_evidence": "1874 vitest tests passed across 184 files (test/prompt-caching.test.ts); 62 python tests passed (test/python/test_prompt_caching_gateway.py); atomic_sync PASS."
+}

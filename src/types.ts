@@ -1116,6 +1116,8 @@ export interface FastInferenceChannel {
   failureCount: number;
   circuitState: CircuitBreakerState;
   lastCheckedAt?: string;
+  supportsPromptCaching?: boolean;
+  cachePrompt?: boolean;
 }
 
 export interface FastInferenceRouteRequest {
@@ -1139,6 +1141,9 @@ export interface FastInferenceRouteResponse {
     prompt: number;
     completion: number;
     total: number;
+    cached?: number;
+    cacheCreation?: number;
+    cacheHitRatio?: number;
   };
 }
 

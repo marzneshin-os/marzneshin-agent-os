@@ -46,3 +46,8 @@ Structured experiential memory persisted across `marzneshin-agent-os` tasks usin
 - **Cue:** Phase 5 ADR-033 AgentRouter Unified Multi-Harness Mesh (gpt-6.1sol 24/7 unlimited stateless scrub, gpt-6-astra 03:00/15:00 BJT window, dual-protocol gateway)
 - **Lesson:** Strip stateful reasoning tokens for gpt-6.1sol to prevent cross-node Decryption Failure, strip billing_summary SSE frames, and bridge Anthropic /v1/messages to OpenAI /v1/chat/completions locally.
 - **Empirical Evidence:** Verified via test/agentrouter-mesh.test.ts, test/python/test_agentrouter_mesh.py, sim/harness.py, verify.py (7/7), and two_key_gate.py (APPROVED).
+
+## Entry `2b08e5efd001` — 2026-10-26T21:30:03.285844+00:00
+- **Cue:** Prompt Caching & KV Cache Prefix Contiguity (ADR-034)
+- **Lesson:** LLM prompt caching relies on exact prefix hash contiguity from token 0. To prevent TTFT degradation from 0.8s to 184s, enforce Inverted Pyramid ordering: Zone 1 (immutable system prompt, no timestamps) -> Zone 2 (alphabetized tool definitions) -> Zone 3 (settled memories) -> Zone 4 (Anthropic ephemeral breakpoint >=1024 tok) -> Zone 5 (dynamic timestamps and user request at prompt tail). Cross-protocol gateways must map cached_tokens to cache_read_input_tokens and pass cache_prompt: true to local engines without stripping cache controls during stateless scrubbing.
+- **Empirical Evidence:** 1874 vitest tests passed across 184 files (test/prompt-caching.test.ts); 62 python tests passed (test/python/test_prompt_caching_gateway.py); atomic_sync PASS.
