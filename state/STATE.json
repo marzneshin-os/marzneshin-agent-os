@@ -14,7 +14,7 @@
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:d289481182b37295d88701ac3bb44524a4d5f5a352b2afa0a3f0d7b410af9952",
+  "compacted_event_hash": "sha256:8244956ffb4689e51804ac3fbe354b8d29ffe40294ed8289313567a00c80843f",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
@@ -40,28 +40,28 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 259,
+      "prod:system-compact": 262,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 222,
-      "prod:system-watchdog": 20971
+      "prod:system-watchdog": 20972
     },
-    "event_count": 699,
-    "event_hash": "sha256:d289481182b37295d88701ac3bb44524a4d5f5a352b2afa0a3f0d7b410af9952",
-    "until_ts": "2026-11-09T10:38:03.089Z",
+    "event_count": 703,
+    "event_hash": "sha256:8244956ffb4689e51804ac3fbe354b8d29ffe40294ed8289313567a00c80843f",
+    "until_ts": "2026-11-09T13:56:13.115Z",
     "window": [
       "2026-11-07",
       "2026-11-09"
     ]
   },
-  "compacted_from_events": 699,
+  "compacted_from_events": 703,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-09T10:38:03.089Z",
+  "generated_at": "2026-11-09T13:56:13.115Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -70,9 +70,9 @@
   },
   "kill_switch": {
     "fail_closed_engaged": false,
-    "freshness_s": 0.320891,
+    "freshness_s": 114.226496,
     "global": false,
-    "read_at": "2026-11-09T10:38:03.056Z",
+    "read_at": "2026-11-09T13:56:13.081Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
@@ -81,12 +81,12 @@
     "verdict": "running"
   },
   "kpis": {
-    "crash_rate": 0.1935,
-    "crash_rate_lifetime": 0.1935,
+    "crash_rate": 0.1875,
+    "crash_rate_lifetime": 0.1875,
     "crash_rate_sample_sufficient": false,
-    "crash_rate_window": 31,
+    "crash_rate_window": 32,
     "receipt_coverage": 1.0,
-    "receipts_total": 31
+    "receipts_total": 32
   },
   "open_risks": [],
   "open_tasks": [],
@@ -106,12 +106,12 @@
     "agentic-core": {
       "blocked_by": [],
       "health": "unknown",
-      "last_receipt": "T-0025",
+      "last_receipt": "T-0029",
       "lease": null,
       "open_tasks": [],
       "owner_agent": "antigravity-opus",
-      "receipt_chain_head": "sha256:43dc236fa1414052a8e4fe3d5bcff4f03154e326bdc7a3fd1a762b49d8932691",
-      "receipt_chain_length": 31
+      "receipt_chain_head": "sha256:a66f0a8d83de3f3f8e9cee6b00f612a35b4befba25184496f56bde5c3c58ad06",
+      "receipt_chain_length": 32
     },
     "main": {
       "blocked_by": [],

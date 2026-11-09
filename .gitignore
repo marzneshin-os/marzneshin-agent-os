@@ -30,3 +30,10 @@ data/
 # Subagent & Handoff Logs
 logs/*.log
 !logs/.gitkeep
+
+# Test & Build Caches
+.pytest_cache/
+tests/.pytest_cache/
+.codex-vitest-root/
+.codex-vitest-tmp/
+

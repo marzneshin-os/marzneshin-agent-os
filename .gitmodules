@@ -1,3 +1,10 @@
 [submodule ".agents/skills/relevance-ai"]
 	path = .agents/skills/relevance-ai
 	url = https://github.com/RelevanceAI/agent-skills.git
+[submodule ".agents/plugins/claudex-loop"]
+	path = .agents/plugins/claudex-loop
+	url = https://github.com/chaseai-yt/claudex-loop.git
+[submodule "engines/turbo-fieldfare"]
+	path = engines/turbo-fieldfare
+	url = https://github.com/drumih/turbo-fieldfare.git
+
