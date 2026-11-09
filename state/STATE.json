@@ -14,7 +14,7 @@
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:854045889624f45227d06a592cc2fa87e012b383cd62f7ea431a400510bb91b0",
+  "compacted_event_hash": "sha256:4596f38a8d8de2d35bd2aeb28ca796c3e5a4c86c41263f76616911bcd51df62f",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
@@ -40,28 +40,28 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 268,
+      "prod:system-compact": 269,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 222,
       "prod:system-watchdog": 20971
     },
-    "event_count": 709,
-    "event_hash": "sha256:854045889624f45227d06a592cc2fa87e012b383cd62f7ea431a400510bb91b0",
-    "until_ts": "2026-11-09T18:28:15.290Z",
+    "event_count": 910,
+    "event_hash": "sha256:4596f38a8d8de2d35bd2aeb28ca796c3e5a4c86c41263f76616911bcd51df62f",
+    "until_ts": "2026-11-09T18:38:52.854Z",
     "window": [
       "2026-11-07",
       "2026-11-09"
     ]
   },
-  "compacted_from_events": 709,
+  "compacted_from_events": 910,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-09T18:28:15.290Z",
+  "generated_at": "2026-11-09T18:38:52.854Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -70,9 +70,9 @@
   },
   "kill_switch": {
     "fail_closed_engaged": true,
-    "freshness_s": 16436.415375,
+    "freshness_s": 17073.954964,
     "global": false,
-    "read_at": "2026-11-09T18:28:15.270Z",
+    "read_at": "2026-11-09T18:38:52.809Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
@@ -81,12 +81,12 @@
     "verdict": "unknown"
   },
   "kpis": {
-    "crash_rate": 0.1875,
-    "crash_rate_lifetime": 0.1875,
+    "crash_rate": 0.1818,
+    "crash_rate_lifetime": 0.1818,
     "crash_rate_sample_sufficient": false,
-    "crash_rate_window": 32,
+    "crash_rate_window": 33,
     "receipt_coverage": 1.0,
-    "receipts_total": 32
+    "receipts_total": 33
   },
   "open_risks": [],
   "open_tasks": [],
@@ -106,12 +106,12 @@
     "agentic-core": {
       "blocked_by": [],
       "health": "unknown",
-      "last_receipt": "T-0029",
+      "last_receipt": "T-0030",
       "lease": null,
       "open_tasks": [],
       "owner_agent": "antigravity-opus",
-      "receipt_chain_head": "sha256:a66f0a8d83de3f3f8e9cee6b00f612a35b4befba25184496f56bde5c3c58ad06",
-      "receipt_chain_length": 32
+      "receipt_chain_head": "sha256:a8092eb9cf00cdeefdbffe419dd301fe84d692530a2707a9e6e15c2f19f122ba",
+      "receipt_chain_length": 33
     },
     "main": {
       "blocked_by": [],

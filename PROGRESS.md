@@ -3,7 +3,7 @@
 ## Current Operational State
 - **Active Phase:** P1-agentic-core
 - **Active Slice:** VS-12 (Post-Milestone Autonomous Operational Protocol)
-- **Latest Receipt:** T-0029 (`receipts/2026/11/T-0029.json`)
+- **Latest Receipt:** T-0030 (`receipts/2026/11/T-0030.json`)
 - **Baseline Health:**
   - Unit tests: 471 / 471 PASS (`python3 -m unittest discover -s tests`)
   - Verification gates: 6 / 6 PASS (`python3 scripts/verify.py --all`)
@@ -14,6 +14,16 @@
 ---
 
 ## Milestone Execution History
+
+### [T-0030] Telemetry Sanitization, Worktree Pruning, MCP Protection & Workflow Resilience (2026-11-09)
+- **Task ID:** `T-0030`
+- **Agent:** `orchestrator`
+- **Scope & Objectives:**
+  1. **Telemetry & Artifact Sanitization:** Purged 1,191 untracked hook telemetry files (`batch-pretooluse-*`, `batch-posttooluse-*`, `session_*`, 64-char hex cache blobs) from `.mimosa/` and 2 plan files from `.zcode/`. Hardened `.gitignore` to prevent any telemetry leakage into version control.
+  2. **Worktree Hygiene:** Verified commit `e194848d` was already merged into `origin/main`; cleanly removed and pruned the detached `abstracted-yew` Git worktree.
+  3. **Hermetic MCP Configuration:** Cleaned `.mcp.json` of local host paths (`C:\Ubuntu\...` and `wsl.exe -d Ubuntu`), restoring portable relative python entrypoints (`scripts/mcp_agentrouter.py`, `scripts/mcp_tavily.py`).
+  4. **Compact Workflow Self-Healing:** Identified recurring sequence gaps in scheduled `compact.yml` caused by `file_pattern` omitting new event files in `state/events/`. Aligned pattern with `heartbeat.yml` (`file_pattern: "state/"`) and enhanced `scripts/verify.py` with gap formatting.
+  5. **Verification & Pipeline Health:** Validated via 1,874 Vitest tests, 471 unit tests, 6/6 verification gates, 51/51 sim scenarios, and verified live green GitHub Actions runs for both `validate` (run `42674087638`) and `compact` (run `42674169645`).
 
 ### [T-0029] CI, Compact & Validate Workflows Self-Healing (2026-11-09)
 - **Task ID:** `T-0029`
@@ -41,3 +51,4 @@
 ### [T-0025] 100% Production Milestone & 3-Tier Harness-Loop-Graph (2026-10-16)
 - **Task ID:** `T-0025`
 - **Scope:** 3-Tier harness-loop-graph, AWS Bedrock Zero-Cost Credit Pool, 428 passing tests.
+

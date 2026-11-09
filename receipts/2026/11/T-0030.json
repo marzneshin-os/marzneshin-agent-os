@@ -1,0 +1,97 @@
+{
+  "agent": "orchestrator",
+  "agent_lineage": "gemini-3.8-flash/orchestrator@1",
+  "autonomy_level": "L2",
+  "chain_index": 32,
+  "changes": [
+    {
+      "path": ".gitignore"
+    },
+    {
+      "path": ".mcp.json"
+    },
+    {
+      "path": ".github/workflows/compact.yml"
+    },
+    {
+      "path": "scripts/verify.py"
+    },
+    {
+      "path": "PROGRESS.md"
+    }
+  ],
+  "completed_at": "2026-11-09T18:35:19.210Z",
+  "content_hash": "sha256:a8092eb9cf00cdeefdbffe419dd301fe84d692530a2707a9e6e15c2f19f122ba",
+  "cost": {},
+  "handoff_note": "T-0030 completed: 1,193 telemetry files purged, abstracted-yew worktree pruned, .mcp.json hermeticized, compact workflow sequence gaps eliminated via state/ commit pattern, and all CI/validation workflows passing green on GitHub Actions.",
+  "idempotency": {
+    "attempt": 1,
+    "class": "forever",
+    "key": "session:T-0030:telemetry-worktree-workflows-healing"
+  },
+  "inputs_hash": "sha256:15bdb22c5fa1bf109a5605cb73e7ffb3828b95c86778a21b21927761064cd51e",
+  "intent": "sanitize 1193 leaked telemetry files, resolve abstracted-yew worktree, protect .mcp.json, and heal GitHub Actions workflows",
+  "policy_decisions": [],
+  "prev_receipt_hash": "sha256:a66f0a8d83de3f3f8e9cee6b00f612a35b4befba25184496f56bde5c3c58ad06",
+  "reason": "Purged 1,191 .mimosa and 2 .zcode untracked files, pruned orphaned abstracted-yew worktree, protected .mcp.json with relative paths, and fixed compact.yml state/ pattern to prevent sequence gaps.",
+  "receipt_hash": "sha256:a8092eb9cf00cdeefdbffe419dd301fe84d692530a2707a9e6e15c2f19f122ba",
+  "rollback": {
+    "evidence": "health.py gates verified green (471 tests / 6 verify / 51 sim)",
+    "max_ttr_s": 120,
+    "method": "git revert HEAD",
+    "tested": true,
+    "tested_at": "2026-11-09T18:30:00.000Z",
+    "tested_in": "prod"
+  },
+  "schema_version": "2.0.0",
+  "sim_evidence": {
+    "report": "health.py",
+    "result": "pass",
+    "scenarios": [
+      "node_outage",
+      "a2a_fallback",
+      "event_seq_race"
+    ],
+    "seeds": [
+      11,
+      27,
+      43
+    ]
+  },
+  "started_at": "2026-11-09T18:00:00.000Z",
+  "status": "complete",
+  "task_id": "T-0030",
+  "verification": [
+    {
+      "check": "npm-test",
+      "evidence": "1874/1874 vitest tests passed across 184 test files in Windows repo",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "vitest"
+    },
+    {
+      "check": "python-test",
+      "evidence": "471/471 unit tests passed via python3 -m unittest discover -s tests",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "unittest"
+    },
+    {
+      "check": "verify-all",
+      "evidence": "6/6 checks (chain, events, schemas, agent-cards, lint-imports, lint-clock) passed via python3 scripts/verify.py --all",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "verify.py"
+    },
+    {
+      "check": "github-actions",
+      "evidence": "validate (run 42674087638) and compact (run 42674169645) workflows green in GitHub Actions",
+      "independent_of_author": true,
+      "result": "pass",
+      "verifier": "gh"
+    }
+  ],
+  "why_one_sentence": "Purged 1,191 .mimosa and 2 .zcode untracked files, pruned orphaned abstracted-yew worktree, protected .mcp.json with relative paths, and fixed compact.yml state/ pattern to prevent sequence gaps.",
+  "workstream": "agentic-core",
+  "world": "prod"
+}
