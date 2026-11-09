@@ -3,18 +3,18 @@
   "budget": {
     "day": "2026-11-09",
     "forecast": {
-      "tokens": 3179,
-      "usd": 0.0074
+      "tokens": 0,
+      "usd": 0.0
     },
     "state": "normal",
-    "tokens_spent_today": 2400,
-    "usd_spent_today": 0.0056,
-    "utilization": 0.0006
+    "tokens_spent_today": 0,
+    "usd_spent_today": 0.0,
+    "utilization": 0.0
   },
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:b1b725d2945c3a67dcec742e9c04e5c567aa4938db528b254766d4b84098dd30",
+  "compacted_event_hash": "sha256:854045889624f45227d06a592cc2fa87e012b383cd62f7ea431a400510bb91b0",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
@@ -40,28 +40,28 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 264,
+      "prod:system-compact": 268,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 222,
       "prod:system-watchdog": 20971
     },
-    "event_count": 906,
-    "event_hash": "sha256:b1b725d2945c3a67dcec742e9c04e5c567aa4938db528b254766d4b84098dd30",
-    "until_ts": "2026-11-09T18:06:49.546Z",
+    "event_count": 709,
+    "event_hash": "sha256:854045889624f45227d06a592cc2fa87e012b383cd62f7ea431a400510bb91b0",
+    "until_ts": "2026-11-09T18:28:15.290Z",
     "window": [
       "2026-11-07",
       "2026-11-09"
     ]
   },
-  "compacted_from_events": 906,
+  "compacted_from_events": 709,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-09T18:06:49.546Z",
+  "generated_at": "2026-11-09T18:28:15.290Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -70,9 +70,9 @@
   },
   "kill_switch": {
     "fail_closed_engaged": true,
-    "freshness_s": 6785.071987,
+    "freshness_s": 16436.415375,
     "global": false,
-    "read_at": "2026-11-09T18:06:49.503Z",
+    "read_at": "2026-11-09T18:28:15.270Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
