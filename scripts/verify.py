@@ -341,6 +341,9 @@ def main(argv: list[str] | None = None) -> int:
             if r["check"] == "chain":
                 for ws in r.get("report", {}).get("workstreams", {}).values():
                     detail.extend(ws.get("problems", []))
+            if r["check"] == "events" and r.get("gaps"):
+                for g in r["gaps"]:
+                    detail.append(f"gap in {g.get('actor')}: missing={g.get('missing_seq')} duplicates={g.get('duplicate_seq')}")
             for p in detail[:10]:
                 print(f"        - {p}")
         print(f"\nverify: {'GREEN' if ok else 'RED'} ({len(results)} checks)")

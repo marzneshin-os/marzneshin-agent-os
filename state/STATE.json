@@ -3,18 +3,18 @@
   "budget": {
     "day": "2026-11-09",
     "forecast": {
-      "tokens": 0,
-      "usd": 0.0
+      "tokens": 3179,
+      "usd": 0.0074
     },
     "state": "normal",
-    "tokens_spent_today": 0,
-    "usd_spent_today": 0.0,
-    "utilization": 0.0
+    "tokens_spent_today": 2400,
+    "usd_spent_today": 0.0056,
+    "utilization": 0.0006
   },
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:072b6ea1dbc41d215f6afa1db6c7d07b4dcdf25c8fe04054d15a123a0b1e26fa",
+  "compacted_event_hash": "sha256:b1b725d2945c3a67dcec742e9c04e5c567aa4938db528b254766d4b84098dd30",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
@@ -40,28 +40,28 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 263,
+      "prod:system-compact": 264,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 222,
       "prod:system-watchdog": 20971
     },
-    "event_count": 704,
-    "event_hash": "sha256:072b6ea1dbc41d215f6afa1db6c7d07b4dcdf25c8fe04054d15a123a0b1e26fa",
-    "until_ts": "2026-11-09T14:07:17.721Z",
+    "event_count": 906,
+    "event_hash": "sha256:b1b725d2945c3a67dcec742e9c04e5c567aa4938db528b254766d4b84098dd30",
+    "until_ts": "2026-11-09T18:06:49.546Z",
     "window": [
       "2026-11-07",
       "2026-11-09"
     ]
   },
-  "compacted_from_events": 704,
+  "compacted_from_events": 906,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-09T14:07:17.721Z",
+  "generated_at": "2026-11-09T18:06:49.546Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -69,16 +69,16 @@
     "paid_users": 3
   },
   "kill_switch": {
-    "fail_closed_engaged": false,
-    "freshness_s": 778.846223,
+    "fail_closed_engaged": true,
+    "freshness_s": 6785.071987,
     "global": false,
-    "read_at": "2026-11-09T14:07:17.701Z",
+    "read_at": "2026-11-09T18:06:49.503Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
     ],
     "scoped": [],
-    "verdict": "running"
+    "verdict": "unknown"
   },
   "kpis": {
     "crash_rate": 0.1875,
