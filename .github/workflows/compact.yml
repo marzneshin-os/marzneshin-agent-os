@@ -31,7 +31,7 @@ jobs:
       - name: Verify chain + gaps after compaction
         run: |
           pip install jsonschema pyyaml
-          python3 scripts/verify.py --chain --events
+          python3 scripts/verify.py --chain --events --days 2
 
       - name: Commit refreshed snapshot
         uses: stefanzweifel/git-auto-commit-action@v5

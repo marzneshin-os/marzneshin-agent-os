@@ -31,9 +31,25 @@ data/
 logs/*.log
 !logs/.gitkeep
 
+# Harness and Agent State Caches
+.mimosa/
+.zcode/
+.kilo/
+.cline/
+
 # Test & Build Caches
 .pytest_cache/
 tests/.pytest_cache/
 .codex-vitest-root/
 .codex-vitest-tmp/
 
+# Hook batch dumps (agent telemetry)
+batch-pretooluse-*
+batch-posttooluse-*
+
+# Session state dumps
+session_*.json*
+session_*.conti*
+
+# Raw SHA-256 / hex cache blobs (64-char hex filenames at repo root)
+/[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]*
