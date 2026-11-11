@@ -329,91 +329,96 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 - `ADR-028-three-tier-harness-loop-graph-architecture.md`: # ADR-028: Three-Tier Harness-Loop-Graph Architecture & Graph-and-Loop Engineering Engine
 - `ADR-029-aws-bedrock-credit-pool-zero-cost-guardrail.md`: # ADR-029: AWS Bedrock Promotional Credit Pool & Zero-Cost Guardrail Engine Architecture
 - `ADR-030-deterministic-prompt-prefix-stratification-kv-cache.md`: # ADR-030: Deterministic Prompt Prefix Stratification & KV-Cache Reuse Engine
+- `ADR-034-antigravity-harness2-argon-reasoning.md`: # ADR-034: Antigravity IDE Harness 2.0 & Argon-Grade Deep Reasoning Integration
 
 <!-- MARZNESHIN_KV_CACHE_BREAKPOINT_V1 -->
 
 # [TIER-3: DYNAMIC SESSION TAIL — DO NOT CACHE]
 ## Safety & Live Controls
 - Kill switch: **running** (all sources clear)
-- Receipt chain: 31 receipts · crash_rate 19.35% (budget 2%)
+- Receipt chain: 34 receipts · crash_rate 17.65% (budget 2%)
 - Active slice: **VS-12** — (optional) HTTP Gateway — latency cache only
 
 ## State Snapshot
 ```
 phase=P1-agentic-core slice=VS-12 sense=Tick-D
-snapshot_age=1465720s from 1651 events
-kill_switch=unknown global=False
+snapshot_age=13s from 1823 events
+kill_switch=running global=False
   agentic-core: health=unknown lease=free open=0 blocked=0
-  kpis: crash_rate=0.1935, crash_rate_lifetime=0.1935, crash_rate_sample_sufficient=False, crash_rate_window=31, receipt_coverage=1.0, receipts_total=31
+  main: health=unknown lease=free open=0 blocked=0
+  kpis: crash_rate=0.1765, crash_rate_lifetime=0.1765, crash_rate_sample_sufficient=False, crash_rate_window=34, receipt_coverage=1.0, receipts_total=34
 ```
 
 ## Receipt chains
-  - agentic-core: 31 receipts, head `sha256:43dc236fa14…`
+  - agentic-core: 34 receipts, head `sha256:54da13741a2…`
 
 - **Active State Snapshot (`state/STATE.json`)**:
 ```json
 {
   "active_slice": "VS-12",
   "budget": {
-    "day": "2026-10-20",
+    "day": "2026-11-11",
     "forecast": {
-      "tokens": 1310,
-      "usd": 0.0031
+      "tokens": 4811,
+      "usd": 0.0112
     },
     "state": "normal",
-    "tokens_spent_today": 1200,
-    "usd_spent_today": 0.0028,
-    "utilization": 0.0003
+    "tokens_spent_today": 2400,
+    "usd_spent_today": 0.0056,
+    "utilization": 0.0006
   },
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:5792b7e76e7a9c50480f252860aecf7cf3dc8530f66fe44c9e9f76376df73bb4",
+  "compacted_event_hash": "sha256:6536d221c163b0bacb65d15ae7eeb90fe19aa1c3dd0326638501b8d939eb4fd6",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
-      "prod:agent-analytics-engineer": 1275,
+      "prod:agent-analytics-engineer": 1735,
       "prod:agent-antigravity": 1,
-      "prod:agent-config-engineer": 345,
+      "prod:agent-antigravity-argon-architect": 6,
+      "prod:agent-antigravity-opus": 8,
+      "prod:agent-config-engineer": 460,
       "prod:agent-infra-sre": 1,
       "prod:agent-momo": 97,
       "prod:agent-momo-s190811": 4,
       "prod:agent-momo-s190812": 3,
-      "prod:agent-orchestrator": 103,
+      "prod:agent-orchestrator": 126,
+      "prod:agent-owner": 159,
       "prod:agent-qa-gate": 7,
-      "prod:agent-test-agent-1": 1240,
-      "prod:agent-test-agent-2": 1240,
-      "prod:human-owner": 75,
+      "prod:agent-test-agent-1": 1700,
+      "prod:agent-test-agent-2": 1700,
+      "prod:human-owner": 98,
       "prod:human-u_alice": 4,
-      "prod:human-u_funnel_1": 335,
-      "prod:human-u_nsm_1": 134,
-      "prod:human-u_nsm_2": 67,
-      "prod:human-u_nsm_3": 67,
+      "prod:human-u_funnel_1": 450,
+      "prod:human-u_nsm_1": 180,
+      "prod:human-u_nsm_2": 90,
+      "prod:human-u_nsm_3": 90,
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 240,
+      "prod:system-compact": 284,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
-      "prod:system-system": 186,
-      "prod:system-watchdog": 11924
+      "prod:system-system": 255,
+      "prod:system-watchdog": 20971
     },
-    "event_count": 1651,
-    "event_hash": "sha256:5792b7e76e7a9c50480f252860aecf7cf3dc8530f66fe44c9e9f76376df73bb4",
-    "until_ts": "2026-10-20T21:58:35.475Z",
+    "event_count": 1823,
+    "event_hash": "sha256:6536d221c163b0bacb65d15ae7eeb90fe19aa1c3dd0326638501b8d939eb4fd6",
+    "until_ts": "2026-11-11T11:58:13.834Z",
     "window": [
-      "2026-10-18",
-      "2026-10-20"
+      "2026-11-09",
+      "2026-11-11"
     ]
   },
-  "compacted_from_events": 1651,
+  "compacted_from_events": 1823,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-10-20T21:58:35.475Z",
+  "generated_at": "2026-11-11T11:58:13.835Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -421,24 +426,24 @@ kill_switch=unknown global=False
     "paid_users": 3
   },
   "kill_switch": {
-    "fail_closed_engaged": true,
-    "freshness_s": 2161.629807,
+    "fail_closed_engaged": false,
+    "freshness_s": 113.785707,
     "global": false,
-    "read_at": "2026-10-20T21:58:35.342Z",
+    "read_at": "2026-11-11T11:58:13.755Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
     ],
     "scoped": [],
-    "verdict": "unknown"
+    "verdict": "running"
   },
   "kpis": {
-    "crash_rate": 0.1935,
-    "crash_rate_lifetime": 0.1935,
+    "crash_rate": 0.1765,
+    "crash_rate_lifetime": 0.1765,
     "crash_rate_sample_sufficient": false,
-    "crash_rate_window": 31,
+    "crash_rate_window": 34,
     "receipt_coverage": 1.0,
-    "receipts_total": 31
+    "receipts_total": 34
   },
   "open_risks": [],
   "open_tasks": [],
@@ -458,12 +463,20 @@ kill_switch=unknown global=False
     "agentic-core": {
       "blocked_by": [],
       "health": "unknown",
-      "last_receipt": "T-0025",
+      "last_receipt": "T-0031",
       "lease": null,
       "open_tasks": [],
-      "owner_agent": "momo",
-      "receipt_chain_head": "sha256:43dc236fa1414052a8e4fe3d5bcff4f03154e326bdc7a3fd1a762b49d8932691",
-      "receipt_chain_length": 31
+      "owner_agent": "antigravity-argon-architect",
+      "receipt_chain_head": "sha256:54da13741a2437cf42ea86aaf600d6226bd5106d01924f4e189dad23776745ec",
+      "receipt_chain_length": 34
+    },
+    "main": {
+      "blocked_by": [],
+      "health": "unknown",
+      "last_receipt": null,
+      "lease": null,
+      "open_tasks": [],
+      "owner_agent": "antigravity-opus"
     }
   }
 }
@@ -472,95 +485,61 @@ kill_switch=unknown global=False
 ## Active Handoff (`state/HANDOFF.md`)
 # HANDOFF
 
-> Last session state, human-readable. Rewritten at the end of every session
-> (Iron Rule 3). Machine state: STATE.json + event log + receipt chain.
+> وضعیت آخرین نشست کاری به‌صورت خوانا برای انسان. این فایل در پایان هر جلسه کاری بازنویسی می‌شود (Iron Rule 3).
+> وضعیت ماشین: `STATE.json` + لاگ رویدادها (`state/events/`) + زنجیره رسیدها (`receipts/`).
 
-> **NEW SESSION / NEW ACCOUNT? READ [`../ONBOARDING.md`](../ONBOARDING.md) FIRST.**
-> It is the full cold-start protocol: mandatory reading order, env rebuild, FSP session
-> start, baseline verification, how to pick the next task, forbidden actions, and the
-> mandatory session-end handoff procedure. Then come back to this file.
+> **شروع جلسه جدید؟ ابتدا [`../ONBOARDING.md`](../ONBOARDING.md) را مطالعه کنید.**
+> پروتکل کامل Cold-Start، ترتیب مطالعه اسناد، نحوه آغاز جلسه FSP، اعتبارسنجی خط مبنا، نحوه انتخاب تسک بعدی، اقدامات ممنوعه و رویه الزامی پایان جلسه در آن مستند شده است.
 
-- **Updated:** 2026-09-23
-- **By:** orchestrator (CEO Agent, session S-20260923-CEO, fencing token 33)
-- **Slice:** **VS-12 — CLOSED** (Receipt T-0024, ADR-022; **Ultimate Autonomous Operating System Milestone 100% Achieved**)
+- **Updated:** 2026-11-11
+- **By:** antigravity-argon-architect (Gemini 3.8 Flash High / Antigravity Harness 2.0, session S-115231, fencing token 39)
+- **Slice:** **VS-12 Post-Milestone Autonomous Operational Protocol** (Task **`T-0031`** / **`ADR-034`** Git Sync & Closeout)
 
 ---
 
-## Where we are: Milestone Completed (VS-1 through VS-12 — 100% DONE)
+## Where we are (وضعیت جاری و خلاصه اقدامات انجام‌شده)
 
-All planned vertical slices (VS-1 to VS-12) of **Marzneshin Agent OS** are **100% implemented, verified green, and receipted** under strict fail-closed governance and the BUILD-SPEC v2.0 contract.
+معماری کامل **Harness 2.0 & Argon-Grade Deep Reasoning** از سند مرجع `https://share.gemini.google/qAjccclyXYOw` با تطبیق کامل بر SSoT مخزن، استاندارد `ADR-030` (Prefix Caching) و بودجهٔ زمانی هوک‌ها (`CLAUDE.md §6`) پیاده‌سازی، راستی‌آزمایی و با ریموت همگام‌سازی شد (`ADR-034`، رسید `T-0031`):
 
-**Increment (receipt `T-0024`, ADR-022):**
-1. **HTTP Gateway Architecture (§5.3):**
-   - Full FastAPI + Pydantic v2 high-performance gateway in `gateway/` acting as latency cache and external bridge without single point of failure (SPOF).
-   - Thread-safe in-memory and disk-backed `TaskStore` and `ArtifactStore`.
-   - Complete implementation of all 11 required endpoints:
-     - `GET /.well-known/agent-card.json`: Host agent card discovery.
-     - `GET /healthz` & `GET /readyz`: Liveness and fail-closed readiness (returns HTTP 503 if killswitch engaged).
-     - `GET /v1/agents`: Registry discovery with capability filtering.
-     - `POST /v1/tasks`: A2A task admission, schema validation (`a2a-envelope`), returns HTTP 202 Accepted + `task_id`; idempotent with deduplication.
-     - `GET /v1/tasks/{id}`: State query and complete state machine history.
-     - `POST /v1/tasks/{id}/messages`: Mid-task message append.
-     - `POST /v1/tasks/{id}/cancel`: Cancellation with reason and auto-rollback.
-     - `GET /v1/tasks/{id}/events`: Server-Sent Events (SSE) state transition stream.
-     - `POST /v1/artifacts` & `GET /v1/artifacts/{id}`: Upload/download artifact with SHA-256 integrity verification.
-     - `POST /v1/policy/evaluate`: Dry-run policy evaluation (autonomy level, risk class, kill switch).
-     - `GET /v1/killswitch`: Read-only fail-closed telemetry (Rule I14).
-2. **T3 Transport Layer & Fail-Closed Fallback (§5.5, Rule I14):**
-   - Integrated `T3Client`, `FileT3Client`, and `t3_heartbeat` into `scripts/lib/a2a.py`.
-   - Router gracefully selects T3 when healthy, and falls back to T2 or T1 on delivery/health failure with zero envelope content change.
-   - Idempotent replays return cached results without re-executing.
-3. **Production Hardening & Probe Fleet Integration:**
-   - Added `gateway` service probe to `configs/services.json` on port 8000.
-   - Hardened `Dockerfile` with system utilities (`procps`), runtime dependencies, multi-port exposure (8000, 3111, 8005), and container `HEALTHCHECK`.
-   - Aligned `docker-compose.yml` for unified host-mode deployment.
-4. **Two-Key Approval Gate:**
-   - Key 1: QA Gate via `verify.py` (6/6 checks green), unit test suite (287/287 passing), simulation suite (51/51 scenarios score 1.0), 72-hour autonomous marathon (10/10 seeds score 1.0), cold-restore drill (score 1.0).
-   - Key 2: Independent Adversarial Reviewer (lineage `gpt-4o/adversarial@1`) approving raw evidence audit with zero rejection reasons.
-5. **Elevated Health Baseline:**
-   - 287 unit tests, 6 verify checks, 51 sim scenarios across 3 seeds (score 1.0), 10/10 72-hour marathon seeds (score 1.0), 1 coldrestore drill (score 1.0).
+1. **همگام‌سازی با مخزن ریموت (`origin/main`):** دریافت و rebase تمیز ۱۳ کامیت ورودی ربات گیت‌هاب بدون تعارض و هم‌راستاسازی کامل شاخهٔ محلی با ریموت.
+2. **تریاژ و بهداشت مخزن:** پاک‌سازی ۱۹ فایل موقت ساب‌ایجنت‌ها تحت `.agents/teamwork/`، حذف ردیابی ۱۶ فایل لاگ شلوغ از ایندکس گیت (`git rm --cached state/logs/*.log`) با حفظ آن‌ها روی دیسک، حذف کش موقت `state/web_memory/` و به‌روزرسانی اصولی `.gitignore` برای جلوگیری از آلودگی مجدد.
+3. **هستهٔ شناختی همیشه فعال (`GEMINI.md`):** ادغام قوانین Boris Cherny، ابزارهای CLI عملیاتی و GRAVITAS با هستهٔ Harness 2.0 (مهار آسیب‌های Flash 3.8، خوانش کل‌نگر، بودجهٔ ۶۰/۲۰/۲۰، و اینواریانت‌های `I1`–`I17`).
+4. **پیکربندی MCP و هوک‌های Antigravity (`.agents/mcp_config.json`, `.agents/hooks.json`):** اتصال هرمتیک `marzneshin-agentmemory` روی `./state`؛ اتصال هوک‌های `SessionStart`/`Stop` به `scripts/fsp.py status` و `PostToolUse` به حسگر سریع `scripts/verify.py --lint-imports --lint-clock` (~0.38s به‌جای `health.py --skip-sim` ۱۱۸ ثانیه‌ای).
+5. **قوانین و مهارت‌ها (`.agents/rules/`, `.agents/skills/`, `.agents/agents/`):** افزودن `argon-deep-reasoning.md` (`model_decision`)، `marzneshin-code-invariants.md` (`glob`)، چهار مهارت `/fsp-start`، `/sim-tdd`، `/fsp-closeout`، `/scar-learn` و ممیز خواندنی `argon-critic.md` با حفظ کامل زیرماژول `.agents/skills/relevance-ai`.
+6. **آشتی کلید توقف اضطراری (Kill Switch Reconcile):** بازگردانی وضعیت تمیز و اجرای `killswitch.py reconcile` برای رفع مقادیر تست و برقراری وضعیت `running (0 active)`، `L2 permitted=True` با شناسایی رسمی عامل `antigravity-argon-architect`.
+7. **تست و ممیزی مستقل (`tests/test_argon_harness.py`, `ADR-034`):** ۷ تست جدید واحد، ممیزی `adversarial-reviewer` (PASS)، اسکن AgentShield (0 CRITICAL/HIGH)، گیت‌های `verify.py --all` (6/6) و مجموعهٔ کامل `health.py` (478/478 تست، 6/6 بررسی و 51/51 سناریوی شبیه‌سازی سبز).
 
 ---
 
 ## Baseline health
 
-- **Unit tests:** 287 / 287 passing (`pytest tests/ -v`)
-- **Verification checks:** 6 / 6 passing (`python3 scripts/verify.py`)
-- **Sim scenarios:** 51 / 51 passing (17 scenarios x seeds 11, 27, 43, score 1.0)
-- **72-Hour Autonomous Marathon:** 10 / 10 random seeds passing (score 1.0, 720 virtual hours, 0 interventions)
-- **Cold-restore drill:** 1 / 1 passing (score 1.0, 4/4 criteria verified)
-- **Receipt chain:** 30 receipts, head at `T-0024` (chain index 29)
+- **Unit tests:** 478 / 478 passing (`python3 scripts/health.py`)
+- **Verification checks:** 6 / 6 passing (`python3 scripts/verify.py --all`)
+- **Simulation scenarios:** 51 / 51 passing (`python3 scripts/sim.py run --all --seeds 11,27,43`)
+- **Kill switch:** Running (`global=False`, `L2 permitted=True`, all sources clear)
+- **Latest receipt:** `T-0031` (`chain_index: 33`)
 
 ---
 
-## Completed Architecture Summary (VS-1 through VS-12)
+## Misleading non-regressions observed
 
-1. **State & Event Sourcing Plane:** Append-only event store, strict schema upcasters, hourly atomic compaction, and verified cold-restore recovery.
-2. **Safety & Kill Switch Plane:** Fail-closed 5-path kill switch (K1-K5) ensuring zero unauthorized execution during outages or unreadable states.
-3. **Multi-Agent Tier 0 Fleet:** 7 Tier 0 agents + Analytics Engineer operating with strict separation of duties, daily token budgets, heartbeat monitoring, and independent adversarial review.
-4. **Control Room Integration:** Native Moxt adapter with one-way sync and strictly whitelisted reverse sync (approvals and K3).
-5. **Config & Deployment Pipeline:** Statistical canary progression (1% -> 10% -> 50% -> 100%) with always-valid sequential p-values, 3-ASN probe fleet, and auto-rollback.
-6. **Growth & Economics Spine:** Privacy-preserving growth taxonomy (I16), traceable North Star Metric (NSM), funnel conversion tracking, and live agent token costs in SaaS profit formulas.
-7. **Safe Experimentation Engine:** Chi-square Sample Ratio Mismatch (SRM) detection ($alpha=0.001$), real-time guardrail auto-stop, and mandatory negative results recording (I21).
-8. **Revenue Command Center:** Production Grafana 10+ dashboard JSON model, responsive Telegram/Web Mini App UI, and CLI inspection tool.
-9. **Autonomy Ratchet & Shadow Mode:** 3-condition promotion ratchet, automated demotion & quarantine, and verified 72-hour unsupervised marathon.
-10. **Three-Tier Transport Plane (T1, T2, T3):** Baseline Git transport (T1), fast-path native Moxt workflow (T2), and high-performance HTTP Gateway latency cache (T3) with automatic degradation and zero single point of failure (SPOF).
-
+- در محیط WSL، اجرای `.venv/bin/python3 scripts/health.py` ۴ خطای import برای ماژول‌های `fastapi` و `langgraph` می‌دهد زیرا این وابستگی‌ها روی `python3` سیستم نصب هستند و نه داخل `.venv`؛ با `python3` سیستم همهٔ ۴۷۸/۴۷۸ تست سبز هستند.
+- اجرای تست‌های واحد (به‌ویژه `test_gateway.py`) روی درخت کاری زنده، فایل‌های `state/KILL` و `state/KILL.heartbeat.json` را با هویت‌های تست (`test-operator` و `test-gateway`) تغییر می‌دهد؛ پس از اجرای `health.py`، بازیابی نسخه تمیز و اجرای `killswitch.py reconcile` برای پاکسازی الزامی است. در تسک بعدی (`T-0032`) باید با تعریف متغیر محیطی یا ایزوله‌سازی `MARZNESHIN_OPS_ROOT` در تست‌ها، از نوشتن تست‌ها روی `state/` زنده مخزن جلوگیری شود.
+- همچنین Chrome remote debugging (`DevToolsActivePort`) در محیط ویندوز فعال نبود؛ خوانش لینک `share.gemini.google` با رندر ایزولهٔ headless Edge انجام شد.
 
 ---
 
-## Post-VS-12 Autonomous Extensions
+## Open Owner blockers (Oxx)
 
-### ADR-025: Google Antigravity Account Doctor & Health Recovery
-- Diagnostic matrix, credential cleaner, environment repair, and eligibility checking.
+- **O1:** تایید قیمت‌گذاری نهایی مدل‌ها برای `forecast()` دقیق بودجه (`TRADEOFF-REGISTER.md` T18).
+- **O3:** کلید/توکن GitHub Actions برای اجرای زندهٔ برخی مسیرهای ازراه‌دور.
+- **O4:** کانال هشدار خارج از باند (OOB) عملیاتی.
+- **IDE Remote Debugging / Local Daemons:** در صورت نیاز به ساب‌ایجنت `browser` در چت‌های بعدی، فعال‌سازی `chrome://inspect/#remote-debugging` در Chrome و بررسی لاگ `agentmemory` (`state/logs/agentmemory.log`) و پورت `ccr` (`3456`/`3459`).
 
-### ADR-026: Grounded Notebook Knowledge Engine (NotebookLM × Antigravity)
-- **Reference:** Liam Turner (@liam_turner_ai, Oct 4, 2026) — *NotebookLM vs Antigravity*.
-- **Paradigm Synthesis:** Bridged NotebookLM-style citation-grounded knowledge exploration (*"Research → Understand → Learn"*) with Antigravity-style autonomous action loop (*"Set a goal → Let AI help you get things done"*).
-- **Core Library (`scripts/lib/grounded_notebook.py`):** Pure stdlib, virtual clock compliant (ADR-001 D6), paragraph & line-aware chunking preserving 1-indexed line spans, BM25-scored retrieval, deterministic citation anchors `[<source>#L<start>-L<end>]`, multi-source synthesis, and adversarial grounding verification.
-- **L0 System Adapter (`adapters/grounded_notebook.py`):** Inherits from `Adapter` (§4 / BUILD-SPEC v2.0), supports `create_notebook`, `ingest_sources`, `grounded_query`, `synthesize_sources`, `verify_grounding`, `list_notebooks`, `get_notebook`, real `dry_run`, circuit breaker, and idempotency store.
-- **Simulation Fake (`sim/fakes/grounded_notebook.py`):** In-memory fake passing all 9 contract checks (C1–C9) of `adapters.contract.run_contract`.
-- **CLI & MCP Server:** `scripts/grounded_notebook_cli.py` and stdio MCP server `scripts/mcp_grounded_notebook.py` registered in root `.mcp.json`.
-- **LangGraph Worker Tools:** Integrated `grounded_notebook_query` and `grounded_notebook_verify` into `WORKER_TOOLS` in `agents/graph_nodes.py` to ground coding and reviewing subagents before code changes.
-- **Cross-Agent Governance:** Rules and skills deployed across `.agents/`, `.claude/`, and `.cursor/`.
-- **Verification Baseline:** 11/11 unit and contract tests passing, 6/6 CI checks in `scripts/verify.py` passing GREEN.
+---
+
+## Next session — start here
+
+1. شروع تسک **`T-0032`**: ایزوله‌سازی `MARZNESHIN_OPS_ROOT` در تست‌های واحد پایتون تا اجرای `health.py` هیچ‌گاه فایل‌های زنده `state/` را آلوده نکند.
+2. اجرای `/fsp-start` (یا `python3 scripts/fsp.py status && python3 scripts/health.py`) با `python3` سیستم.
+3. پایش سلامت ۱۲ سرویس محلی با `python3 scripts/dev.py status` و فعال بودن تایمر نگهبان `marzneshin-watchdog.timer`.

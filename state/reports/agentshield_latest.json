@@ -41,5 +41,5 @@
       "remediation": "Use environment variables without hardcoded fallbacks. Redact via lib.redact."
     }
   ],
-  "timestamp": "2026-11-07T08:34:07.532567+00:00"
+  "timestamp": "2026-11-11T11:59:04.783176+00:00"
 }

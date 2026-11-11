@@ -2,9 +2,8 @@
   "reconciled_entries": 0,
   "sources": [
     "K1:state/KILL",
-    "K2:env/KILL_SWITCH",
-    "K5:auto"
+    "K2:env/KILL_SWITCH"
   ],
-  "verified_at": "2026-11-11T11:34:25.238Z",
-  "verified_by": "workflow:heartbeat"
+  "verified_at": "2026-11-11T11:56:19.970Z",
+  "verified_by": "antigravity-argon-architect"
 }

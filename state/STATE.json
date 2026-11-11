@@ -3,65 +3,66 @@
   "budget": {
     "day": "2026-11-11",
     "forecast": {
-      "tokens": 0,
-      "usd": 0.0
+      "tokens": 4811,
+      "usd": 0.0112
     },
     "state": "normal",
-    "tokens_spent_today": 0,
-    "usd_spent_today": 0.0,
-    "utilization": 0.0
+    "tokens_spent_today": 2400,
+    "usd_spent_today": 0.0056,
+    "utilization": 0.0006
   },
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:b0f7b9e37faebc29aa1c080e62653afea1c4dd0a5fb9c11c947c696368c25339",
+  "compacted_event_hash": "sha256:6536d221c163b0bacb65d15ae7eeb90fe19aa1c3dd0326638501b8d939eb4fd6",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
-      "prod:agent-analytics-engineer": 1515,
+      "prod:agent-analytics-engineer": 1735,
       "prod:agent-antigravity": 1,
+      "prod:agent-antigravity-argon-architect": 6,
       "prod:agent-antigravity-opus": 8,
-      "prod:agent-config-engineer": 405,
+      "prod:agent-config-engineer": 460,
       "prod:agent-infra-sre": 1,
       "prod:agent-momo": 97,
       "prod:agent-momo-s190811": 4,
       "prod:agent-momo-s190812": 3,
-      "prod:agent-orchestrator": 115,
-      "prod:agent-owner": 91,
+      "prod:agent-orchestrator": 126,
+      "prod:agent-owner": 159,
       "prod:agent-qa-gate": 7,
-      "prod:agent-test-agent-1": 1480,
-      "prod:agent-test-agent-2": 1480,
-      "prod:human-owner": 87,
+      "prod:agent-test-agent-1": 1700,
+      "prod:agent-test-agent-2": 1700,
+      "prod:human-owner": 98,
       "prod:human-u_alice": 4,
-      "prod:human-u_funnel_1": 395,
-      "prod:human-u_nsm_1": 158,
-      "prod:human-u_nsm_2": 79,
-      "prod:human-u_nsm_3": 79,
+      "prod:human-u_funnel_1": 450,
+      "prod:human-u_nsm_1": 180,
+      "prod:human-u_nsm_2": 90,
+      "prod:human-u_nsm_3": 90,
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 283,
+      "prod:system-compact": 284,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
-      "prod:system-system": 222,
+      "prod:system-system": 255,
       "prod:system-watchdog": 20971
     },
-    "event_count": 27,
-    "event_hash": "sha256:b0f7b9e37faebc29aa1c080e62653afea1c4dd0a5fb9c11c947c696368c25339",
-    "until_ts": "2026-11-11T11:34:25.522Z",
+    "event_count": 1823,
+    "event_hash": "sha256:6536d221c163b0bacb65d15ae7eeb90fe19aa1c3dd0326638501b8d939eb4fd6",
+    "until_ts": "2026-11-11T11:58:13.834Z",
     "window": [
       "2026-11-09",
       "2026-11-11"
     ]
   },
-  "compacted_from_events": 27,
+  "compacted_from_events": 1823,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-11T11:34:25.522Z",
+  "generated_at": "2026-11-11T11:58:13.835Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -70,9 +71,9 @@
   },
   "kill_switch": {
     "fail_closed_engaged": false,
-    "freshness_s": 0.268847,
+    "freshness_s": 113.785707,
     "global": false,
-    "read_at": "2026-11-11T11:34:25.506Z",
+    "read_at": "2026-11-11T11:58:13.755Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
@@ -81,12 +82,12 @@
     "verdict": "running"
   },
   "kpis": {
-    "crash_rate": 0.1818,
-    "crash_rate_lifetime": 0.1818,
+    "crash_rate": 0.1765,
+    "crash_rate_lifetime": 0.1765,
     "crash_rate_sample_sufficient": false,
-    "crash_rate_window": 33,
+    "crash_rate_window": 34,
     "receipt_coverage": 1.0,
-    "receipts_total": 33
+    "receipts_total": 34
   },
   "open_risks": [],
   "open_tasks": [],
@@ -106,12 +107,12 @@
     "agentic-core": {
       "blocked_by": [],
       "health": "unknown",
-      "last_receipt": "T-0030",
+      "last_receipt": "T-0031",
       "lease": null,
       "open_tasks": [],
-      "owner_agent": "antigravity-opus",
-      "receipt_chain_head": "sha256:a8092eb9cf00cdeefdbffe419dd301fe84d692530a2707a9e6e15c2f19f122ba",
-      "receipt_chain_length": 33
+      "owner_agent": "antigravity-argon-architect",
+      "receipt_chain_head": "sha256:54da13741a2437cf42ea86aaf600d6226bd5106d01924f4e189dad23776745ec",
+      "receipt_chain_length": 34
     },
     "main": {
       "blocked_by": [],

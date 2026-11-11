@@ -188,7 +188,7 @@
     "status": "Done",
     "task_id": "ADR-026-grounded-notebook-knowledge-engine",
     "title": "Decision: ADR-026-grounded-notebook-knowledge-engine",
-    "updated_at": "2026-11-07T10:59:41.644Z",
+    "updated_at": "2026-11-10T11:01:11.626Z",
     "workflow": "Security & Gov"
   },
   "ADR-027-system-one-typed-decisions-laya-jev-stacking": {
@@ -200,7 +200,7 @@
     "status": "Done",
     "task_id": "ADR-027-system-one-typed-decisions-laya-jev-stacking",
     "title": "Decision: ADR-027-system-one-typed-decisions-laya-jev-stacking",
-    "updated_at": "2026-11-07T10:59:41.652Z",
+    "updated_at": "2026-11-11T11:52:47.072Z",
     "workflow": "Security & Gov"
   },
   "ADR-028-three-tier-harness-loop-graph-architecture": {
@@ -212,7 +212,7 @@
     "status": "Done",
     "task_id": "ADR-028-three-tier-harness-loop-graph-architecture",
     "title": "Decision: ADR-028-three-tier-harness-loop-graph-architecture",
-    "updated_at": "2026-11-07T10:59:41.659Z",
+    "updated_at": "2026-11-11T11:52:47.078Z",
     "workflow": "Security & Gov"
   },
   "ADR-029-aws-bedrock-credit-pool-zero-cost-guardrail": {
@@ -224,7 +224,7 @@
     "status": "Done",
     "task_id": "ADR-029-aws-bedrock-credit-pool-zero-cost-guardrail",
     "title": "Decision: ADR-029-aws-bedrock-credit-pool-zero-cost-guardrail",
-    "updated_at": "2026-11-07T10:59:41.668Z",
+    "updated_at": "2026-11-11T11:52:47.083Z",
     "workflow": "Security & Gov"
   },
   "ADR-030-deterministic-prompt-prefix-stratification-kv-cache": {
@@ -236,7 +236,19 @@
     "status": "Done",
     "task_id": "ADR-030-deterministic-prompt-prefix-stratification-kv-cache",
     "title": "Decision: ADR-030-deterministic-prompt-prefix-stratification-kv-cache",
-    "updated_at": "2026-11-07T10:59:41.676Z",
+    "updated_at": "2026-11-11T11:52:47.089Z",
+    "workflow": "Security & Gov"
+  },
+  "ADR-034-antigravity-harness2-argon-reasoning": {
+    "created_at": "2026-11-10T11:08:42.797Z",
+    "fields": {
+      "Autonomy Level": "L3",
+      "Slice": "VS-12"
+    },
+    "status": "Done",
+    "task_id": "ADR-034-antigravity-harness2-argon-reasoning",
+    "title": "Decision: ADR-034-antigravity-harness2-argon-reasoning",
+    "updated_at": "2026-11-11T11:52:47.096Z",
     "workflow": "Security & Gov"
   },
   "CARD-adversarial-reviewer": {
@@ -248,7 +260,7 @@
     "status": "Done",
     "task_id": "CARD-adversarial-reviewer",
     "title": "Agent Card: adversarial-reviewer",
-    "updated_at": "2026-11-07T10:59:41.715Z",
+    "updated_at": "2026-11-11T11:52:47.126Z",
     "workflow": "Knowledge"
   },
   "CARD-analytics-engineer": {
@@ -260,7 +272,7 @@
     "status": "Done",
     "task_id": "CARD-analytics-engineer",
     "title": "Agent Card: analytics-engineer",
-    "updated_at": "2026-11-07T10:59:41.723Z",
+    "updated_at": "2026-11-11T11:52:47.131Z",
     "workflow": "Knowledge"
   },
   "CARD-config-engineer": {
@@ -272,7 +284,7 @@
     "status": "Done",
     "task_id": "CARD-config-engineer",
     "title": "Agent Card: config-engineer",
-    "updated_at": "2026-11-07T10:59:41.708Z",
+    "updated_at": "2026-11-11T11:52:47.118Z",
     "workflow": "Knowledge"
   },
   "CARD-handoff-guardian": {
@@ -284,7 +296,7 @@
     "status": "Done",
     "task_id": "CARD-handoff-guardian",
     "title": "Agent Card: handoff-guardian",
-    "updated_at": "2026-11-07T10:59:41.732Z",
+    "updated_at": "2026-11-11T11:52:47.137Z",
     "workflow": "Knowledge"
   },
   "CARD-infra-sre": {
@@ -296,7 +308,7 @@
     "status": "Done",
     "task_id": "CARD-infra-sre",
     "title": "Agent Card: infra-sre",
-    "updated_at": "2026-11-07T10:59:41.700Z",
+    "updated_at": "2026-11-11T11:52:47.113Z",
     "workflow": "Knowledge"
   },
   "CARD-orchestrator": {
@@ -308,7 +320,7 @@
     "status": "Done",
     "task_id": "CARD-orchestrator",
     "title": "Agent Card: orchestrator",
-    "updated_at": "2026-11-07T10:59:41.692Z",
+    "updated_at": "2026-11-11T11:52:47.108Z",
     "workflow": "Knowledge"
   },
   "CARD-qa-gate": {
@@ -320,7 +332,7 @@
     "status": "Done",
     "task_id": "CARD-qa-gate",
     "title": "Agent Card: qa-gate",
-    "updated_at": "2026-11-07T10:59:41.740Z",
+    "updated_at": "2026-11-11T11:52:47.142Z",
     "workflow": "Knowledge"
   },
   "CARD-security-compliance": {
@@ -332,7 +344,7 @@
     "status": "Done",
     "task_id": "CARD-security-compliance",
     "title": "Agent Card: security-compliance",
-    "updated_at": "2026-11-07T10:59:41.684Z",
+    "updated_at": "2026-11-11T11:52:47.102Z",
     "workflow": "Knowledge"
   },
   "HEALTH-BASELINE-TASK": {
@@ -346,7 +358,7 @@
     "status": "Done",
     "task_id": "HEALTH-BASELINE-TASK",
     "title": "Health Baseline (VS-12)",
-    "updated_at": "2026-11-07T10:59:41.621Z",
+    "updated_at": "2026-11-11T11:52:47.054Z",
     "workflow": "Control Room"
   },
   "KILL-SWITCH-TASK": {
@@ -359,7 +371,7 @@
     "status": "In Progress",
     "task_id": "KILL-SWITCH-TASK",
     "title": "Global Kill Switch (K3)",
-    "updated_at": "2026-11-07T10:59:41.614Z",
+    "updated_at": "2026-11-11T11:52:47.048Z",
     "workflow": "Control Room"
   },
   "T-moxt-0001": {
@@ -1802,32 +1814,194 @@
     "updated_at": "2026-11-07T10:59:41.786Z",
     "workflow": "control-room"
   },
+  "T-moxt-0193": {
+    "created_at": "2026-11-10T10:50:47.041Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0193",
+    "title": "contract",
+    "updated_at": "2026-11-10T10:50:47.041Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0194": {
+    "created_at": "2026-11-10T10:50:47.050Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0194",
+    "title": "contract",
+    "updated_at": "2026-11-10T10:50:47.050Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0195": {
+    "created_at": "2026-11-10T10:54:07.085Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0195",
+    "title": "contract",
+    "updated_at": "2026-11-10T10:54:07.085Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0196": {
+    "created_at": "2026-11-10T10:54:07.094Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0196",
+    "title": "contract",
+    "updated_at": "2026-11-10T10:54:07.094Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0197": {
+    "created_at": "2026-11-10T11:01:11.751Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0197",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:01:11.751Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0198": {
+    "created_at": "2026-11-10T11:01:11.761Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0198",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:01:11.761Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0200": {
+    "created_at": "2026-11-10T11:08:42.868Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0200",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:08:42.868Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0201": {
+    "created_at": "2026-11-10T11:08:42.877Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0201",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:08:42.877Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0202": {
+    "created_at": "2026-11-10T11:14:19.670Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0202",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:14:19.670Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0203": {
+    "created_at": "2026-11-10T11:14:19.680Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0203",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:14:19.681Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0204": {
+    "created_at": "2026-11-10T11:20:43.968Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0204",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:20:43.968Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0205": {
+    "created_at": "2026-11-10T11:20:43.978Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0205",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:20:43.978Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0206": {
+    "created_at": "2026-11-10T11:25:36.290Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0206",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:25:36.290Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0207": {
+    "created_at": "2026-11-10T11:25:36.299Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0207",
+    "title": "contract",
+    "updated_at": "2026-11-10T11:25:36.299Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0208": {
+    "created_at": "2026-11-11T08:45:37.183Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0208",
+    "title": "contract",
+    "updated_at": "2026-11-11T08:45:37.183Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0209": {
+    "created_at": "2026-11-11T08:45:37.209Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0209",
+    "title": "contract",
+    "updated_at": "2026-11-11T08:45:37.209Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0210": {
+    "created_at": "2026-11-11T11:52:47.168Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0210",
+    "title": "contract",
+    "updated_at": "2026-11-11T11:52:47.168Z",
+    "workflow": "control-room"
+  },
+  "T-moxt-0211": {
+    "created_at": "2026-11-11T11:52:47.176Z",
+    "fields": {},
+    "status": "Backlog",
+    "task_id": "T-moxt-0211",
+    "title": "contract",
+    "updated_at": "2026-11-11T11:52:47.176Z",
+    "workflow": "control-room"
+  },
   "WS-agentic-core": {
     "created_at": "2026-09-18T14:30:37.149Z",
     "fields": {
       "Autonomy Level": "L2",
-      "Owner (agent)": "free",
-      "Receipt ID": "T-0025",
+      "Owner (agent)": "agent:antigravity-argon-architect",
+      "Receipt ID": "T-0031",
       "Slice": "VS-12"
     },
     "status": "Done",
     "task_id": "WS-agentic-core",
     "title": "Workstream: agentic-core",
-    "updated_at": "2026-11-07T10:59:41.629Z",
+    "updated_at": "2026-11-11T11:52:47.060Z",
     "workflow": "Engineering"
   },
   "WS-main": {
     "created_at": "2026-11-07T10:59:41.636Z",
     "fields": {
       "Autonomy Level": "L2",
-      "Owner (agent)": "agent:antigravity-opus",
+      "Owner (agent)": "free",
       "Receipt ID": "",
       "Slice": "VS-12"
     },
     "status": "In Progress",
     "task_id": "WS-main",
     "title": "Workstream: main",
-    "updated_at": "2026-11-07T10:59:41.636Z",
+    "updated_at": "2026-11-11T11:52:47.066Z",
     "workflow": "Engineering"
   }
 }
