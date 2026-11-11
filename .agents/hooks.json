@@ -1,0 +1,38 @@
+{
+  "marzneshin-fsp-session-start": {
+    "enabled": true,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "python3 scripts/fsp.py status",
+        "timeout": 15
+      }
+    ]
+  },
+  "marzneshin-fast-gate-sensor": {
+    "enabled": true,
+    "PostToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|multi_replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 scripts/verify.py --lint-imports --lint-clock",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  },
+  "marzneshin-stop-receipt-guard": {
+    "enabled": true,
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python3 scripts/fsp.py status",
+        "timeout": 15
+      }
+    ]
+  }
+}
+

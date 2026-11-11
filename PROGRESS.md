@@ -3,17 +3,25 @@
 ## Current Operational State
 - **Active Phase:** P1-agentic-core
 - **Active Slice:** VS-12 (Post-Milestone Autonomous Operational Protocol)
-- **Latest Receipt:** T-0030 (`receipts/2026/11/T-0030.json`)
+- **Latest Receipt:** T-0031 (`receipts/2026/11/T-0031.json`)
 - **Baseline Health:**
-  - Unit tests: 471 / 471 PASS (`python3 -m unittest discover -s tests`)
+  - Unit tests: 478 / 478 PASS (`python3 -m unittest discover -s tests`)
   - Verification gates: 6 / 6 PASS (`python3 scripts/verify.py --all`)
   - Simulation scenarios: 51 / 51 PASS (`python3 scripts/sim.py run --all`)
-  - Core services: 13 / 13 UP & healthy (`python3 scripts/dev.py status`)
-  - Killswitch: Inactive (`global=False`)
+  - Killswitch: Running (`global=False`)
 
 ---
 
 ## Milestone Execution History
+
+### [T-0031] Harness 2.0 & Argon-Grade Deep Reasoning Deployment (2026-11-10)
+- **Task ID:** `T-0031`
+- **Agent:** `antigravity-argon-architect`
+- **Scope & Objectives:**
+  1. **Cognitive Kernel (`GEMINI.md`):** Unified Harness 2.0 cognitive overrides (anti-excursion, whole-file reads, 60/20/20 token budget, invariants `I1`–`I17`) with Boris Cherny's 10 rules, operational tooling, and GRAVITAS invariants.
+  2. **Antigravity Native Configs (`.agents/mcp_config.json`, `.agents/hooks.json`):** Configured hermetic `marzneshin-agentmemory` (`./state`) and latency-safe lifecycle hooks (`fsp.py status` on `SessionStart`/`Stop`; `verify.py --lint-imports --lint-clock` on `PostToolUse`).
+  3. **Rules, Skills & Critic Agent:** Deployed `.agents/rules/argon-deep-reasoning.md` (`model_decision`), `.agents/rules/marzneshin-code-invariants.md` (`glob`), four operational skills (`/fsp-start`, `/sim-tdd`, `/fsp-closeout`, `/scar-learn`), and read-only `.agents/agents/argon-critic.md`, leaving `.agents/skills/relevance-ai` untouched.
+  4. **Verification & ADR (`tests/test_argon_harness.py`, `ADR-034`):** Documented SSoT reconciliations in `decisions/ADR/ADR-034-antigravity-harness2-argon-reasoning.md` and verified with 7 new tests (`478/478` total), `6/6` verify gates, `51/51` sim scenarios, AgentShield scan (`0 CRITICAL/HIGH`), and independent `adversarial-reviewer` audit (`PASS`).
 
 ### [T-0030] Telemetry Sanitization, Worktree Pruning, MCP Protection & Workflow Resilience (2026-11-09)
 - **Task ID:** `T-0030`

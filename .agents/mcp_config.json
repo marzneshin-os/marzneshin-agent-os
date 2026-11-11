@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "marzneshin-agentmemory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@agentmemory/agentmemory"
+      ],
+      "env": {
+        "XDG_DATA_HOME": "./state"
+      },
+      "timeoutSeconds": 120
+    }
+  }
+}
+
