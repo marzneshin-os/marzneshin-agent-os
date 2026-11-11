@@ -30,6 +30,9 @@ data/
 # Subagent & Handoff Logs
 logs/*.log
 !logs/.gitkeep
+state/logs/*.log
+.agents/teamwork/
+state/web_memory/
 
 # Harness and Agent State Caches
 .mimosa/
