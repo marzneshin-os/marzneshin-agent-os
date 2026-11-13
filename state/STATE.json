@@ -14,7 +14,7 @@
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:353fa8d3c0d686e2bbf969d9ba1e0302461c0619c7345a7c396220e38b43df3a",
+  "compacted_event_hash": "sha256:38ed89f5a3a7287d7fd1cc67533be89709b7987900d55965a11a6ddfbb58d2bb",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
@@ -41,28 +41,28 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 297,
+      "prod:system-compact": 298,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 255,
       "prod:system-watchdog": 20971
     },
-    "event_count": 264,
-    "event_hash": "sha256:353fa8d3c0d686e2bbf969d9ba1e0302461c0619c7345a7c396220e38b43df3a",
-    "until_ts": "2026-11-13T09:29:25.155Z",
+    "event_count": 265,
+    "event_hash": "sha256:38ed89f5a3a7287d7fd1cc67533be89709b7987900d55965a11a6ddfbb58d2bb",
+    "until_ts": "2026-11-13T10:20:23.302Z",
     "window": [
       "2026-11-11",
       "2026-11-13"
     ]
   },
-  "compacted_from_events": 264,
+  "compacted_from_events": 265,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-13T09:29:25.155Z",
+  "generated_at": "2026-11-13T10:20:23.302Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -70,16 +70,16 @@
     "paid_users": 3
   },
   "kill_switch": {
-    "fail_closed_engaged": true,
-    "freshness_s": 23735.826333,
+    "fail_closed_engaged": false,
+    "freshness_s": 0.307708,
     "global": false,
-    "read_at": "2026-11-13T09:29:25.108Z",
+    "read_at": "2026-11-13T10:20:23.253Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
     ],
     "scoped": [],
-    "verdict": "unknown"
+    "verdict": "running"
   },
   "kpis": {
     "crash_rate": 0.1765,
