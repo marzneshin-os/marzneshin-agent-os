@@ -1,7 +1,7 @@
 {
   "active_slice": "VS-12",
   "budget": {
-    "day": "2026-11-17",
+    "day": "2026-11-18",
     "forecast": {
       "tokens": 0,
       "usd": 0.0
@@ -14,7 +14,7 @@
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:4e1fa90c8f0ebe56f97cbab5fcc5e3038631b48b93fef830f453fe3ac1bb131b",
+  "compacted_event_hash": "sha256:f66eba179264bbbd111a536763a283673cde6d44a4c7bc576ce34e7c441f693a",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
@@ -41,28 +41,28 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 331,
+      "prod:system-compact": 332,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 255,
       "prod:system-watchdog": 20971
     },
-    "event_count": 20,
-    "event_hash": "sha256:4e1fa90c8f0ebe56f97cbab5fcc5e3038631b48b93fef830f453fe3ac1bb131b",
-    "until_ts": "2026-11-17T22:21:13.440Z",
+    "event_count": 12,
+    "event_hash": "sha256:f66eba179264bbbd111a536763a283673cde6d44a4c7bc576ce34e7c441f693a",
+    "until_ts": "2026-11-18T02:42:38.305Z",
     "window": [
-      "2026-11-15",
-      "2026-11-17"
+      "2026-11-16",
+      "2026-11-18"
     ]
   },
-  "compacted_from_events": 20,
+  "compacted_from_events": 12,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-17T22:21:13.440Z",
+  "generated_at": "2026-11-18T02:42:38.306Z",
   "generated_by": "compact.py",
   "growth": {
     "funnel_overall_conversion": 3.0,
@@ -70,16 +70,16 @@
     "paid_users": 3
   },
   "kill_switch": {
-    "fail_closed_engaged": true,
-    "freshness_s": 5029.596585,
+    "fail_closed_engaged": false,
+    "freshness_s": 0.21838,
     "global": false,
-    "read_at": "2026-11-17T22:21:13.414Z",
+    "read_at": "2026-11-18T02:42:38.300Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
     ],
     "scoped": [],
-    "verdict": "unknown"
+    "verdict": "running"
   },
   "kpis": {
     "crash_rate": 0.1765,
