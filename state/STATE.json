@@ -1,7 +1,7 @@
 {
   "active_slice": "VS-12",
   "budget": {
-    "day": "2026-11-18",
+    "day": "2026-11-19",
     "forecast": {
       "tokens": 0,
       "usd": 0.0
@@ -14,7 +14,7 @@
   "canary": {
     "active_experiments": 0
   },
-  "compacted_event_hash": "sha256:a78afd02a367cb182837484a2b9dcbc65e35878b1df124c5c45b6503037d53ce",
+  "compacted_event_hash": "sha256:efb13bafcf0aa2d13b85ff15784512a5e21a5bfc5a48a488feb31eaa0fc55727",
   "compacted_from": {
     "actor_seq_watermarks": {
       "prod:agent-adversarial-reviewer": 3,
@@ -41,45 +41,45 @@
       "prod:system-a2a-router": 2,
       "prod:system-bootstrap": 3,
       "prod:system-coldrestore": 28,
-      "prod:system-compact": 337,
+      "prod:system-compact": 338,
       "prod:system-events": 5,
       "prod:system-reaper": 14,
       "prod:system-system": 255,
       "prod:system-watchdog": 20971
     },
-    "event_count": 17,
-    "event_hash": "sha256:a78afd02a367cb182837484a2b9dcbc65e35878b1df124c5c45b6503037d53ce",
-    "until_ts": "2026-11-18T21:54:40.680Z",
+    "event_count": 12,
+    "event_hash": "sha256:efb13bafcf0aa2d13b85ff15784512a5e21a5bfc5a48a488feb31eaa0fc55727",
+    "until_ts": "2026-11-19T01:10:03.296Z",
     "window": [
-      "2026-11-16",
-      "2026-11-18"
+      "2026-11-17",
+      "2026-11-19"
     ]
   },
-  "compacted_from_events": 17,
+  "compacted_from_events": 12,
   "experiments": {
     "active": 0,
     "killed": 0,
     "shipped": 0,
     "total": 0
   },
-  "generated_at": "2026-11-18T21:54:40.680Z",
+  "generated_at": "2026-11-19T01:10:03.296Z",
   "generated_by": "compact.py",
   "growth": {
-    "funnel_overall_conversion": 3.0,
-    "nsm": 2,
-    "paid_users": 3
+    "funnel_overall_conversion": 0.0,
+    "nsm": 0,
+    "paid_users": 0
   },
   "kill_switch": {
-    "fail_closed_engaged": true,
-    "freshness_s": 10090.878945,
+    "fail_closed_engaged": false,
+    "freshness_s": 0.227056,
     "global": false,
-    "read_at": "2026-11-18T21:54:40.672Z",
+    "read_at": "2026-11-19T01:10:03.292Z",
     "read_from": [
       "K1:state/KILL",
       "K2:env/KILL_SWITCH"
     ],
     "scoped": [],
-    "verdict": "unknown"
+    "verdict": "running"
   },
   "kpis": {
     "crash_rate": 0.1765,
